@@ -21,15 +21,15 @@ ifdef::env-gitlab,env-browser[:outfilesuffix: .adoc]
 * Nom3
 * Nom4
 * Nom5
-* Nom6
+* Vincent Josse
 
 === Tuteur
 
-* xx yy
+* Christophe Prieur
 
 === Encadrant génie logiciel
 
-* xx yy
+* Lucien Maman
 
 == Résumé du sujet choisi en français (PAN1)
 
