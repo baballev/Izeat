@@ -12,14 +12,12 @@ ifdef::env-gitlab,env-browser[:outfilesuffix: .adoc]
 
 // Partie non numérotée
 :sectnums!:
-== « Nom du groupe »
-
-=== Membres du groupe
+== « Nom du groupe === Membres du groupe
 
 * Léa Zerah 
 * Nom2
 * Nom3
-* Nom4
+* Alaeddine Gabsi
 * Nom5
 * Vincent Josse
 
