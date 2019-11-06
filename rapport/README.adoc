@@ -17,7 +17,7 @@ ifdef::env-gitlab,env-browser[:outfilesuffix: .adoc]
 === Membres du groupe
 
 * Léa Zerah 
-* Nom2
+* David Gérard
 * Nom3
 * Nom4
 * Nom5
