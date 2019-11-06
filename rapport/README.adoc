@@ -14,11 +14,11 @@ ifdef::env-gitlab,env-browser[:outfilesuffix: .adoc]
 :sectnums!:
 == « Nom du groupe === Membres du groupe
 
-* Léa Zerah 
-* Nom2
-* Nom3
+* Rakotondrafara Pierre
+* Léa Zerah
 * Alaeddine Gabsi
-* Nom5
+* David Gérard
+* Johnathan Loh
 * Vincent Josse
 
 === Tuteur
