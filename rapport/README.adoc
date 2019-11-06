@@ -16,9 +16,9 @@ ifdef::env-gitlab,env-browser[:outfilesuffix: .adoc]
 
 === Membres du groupe
 
-* Rakotondrafara Pierre3
+* Rakotondrafara Pierre
 * Léa Zerah 
-* David Gérard3
+* David Gérard
 * Nom4
 * Nom5
 * Vincent Josse
