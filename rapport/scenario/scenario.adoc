@@ -1,26 +1,8 @@
 === Scénarios d’usage
-Mettre ici le scénario d’usage que vous avez construit lors des séances
-encadrées par les experts SES. Vous pouvez mettre un scénario amélioré
-(et non celui noté) si vous jugez votre scénario insuffisant pour faire
-comprendre au jury PACT les différentes étapes d’utilisation de votre
-produit/service ou si vous avez changé d’idées entre temps.
+Martin est étudiant. Depuis qu’il vit seul, sa consommation de produits gras et mauvais pour la santé a fortement augmenté. De ce fait, Martin aimerait pouvoir suivre et visualiser sa consommation de nourriture et obtenir des informations sur les produits qu’il consomme sans que cela lui prenne trop de temps. Idéalement, il aimerait obtenir des recommandations personnalisées sur son alimentation et cuisiner sans se prendre la tête.
 
-==== XX
+Lorsque Martin a découvert Izeat, une appli pour smartphone android, tout lui a paru plus facile! Cette appli lui permet de rentrer sans difficulté sa consommation de nourriture. Il scanne par exemple son ticket de course et ces informations sont envoyées sur le serveur qui gère de manière sécurisée les informations des utilisateurs. Depuis l’appli Martin voit ses aliments rentrer dans son frigo virtuel. Il peut ensuite sélectionner les aliments qu’il a consommés, ceux qu’il a jeté et s’il oublie de le signaler à l’application, les aliments se consomment automatiquement au bout d’un certain temps. Ainsi l’application implémente un réel système de gestion de frigo ergonomique.  L’appli lui fait alors, en fonction des aliments présents, une visualisation de son alimentation d’un point de vue nutritif. Cela permet de lui montrer les choses dont il manque et le type d’aliments qu’il devrait acheter. Cependant Martin mange quelque fois dehors avec ses amis ou sa famille. Il pourra ainsi scanner par son ticket de caisse au restaurant. Une différente option si il ne possède pas de ticket de caisse existe : il pourra naviguer dans différentes catégories se précisant au fur et à mesure lui permettant de se rapprocher le plus possible du plat qu’il a consommé. L’appli le prendra  alors en compte de manière à intégrer ça dans le suivi de la semaine. S’il ne le fait pas, il n’y a pas de problème, l’appli lui proposera quand même une visualisation de sa consommation et des recommendations (fonctionnement des recommendations précisé plus loin).
+Sur une autre page de l’application Martin peut consulter à tout moment la qualité/éco-responsabilité/... des produits qu’il consomme de manière plus détaillée. Il peut aussi consulter les informations nutritives et les conséquences sur la santé des produits (s’inspirer du fonctionnement de yuka).. Cela sera rendu possible grâce aux informations récoltées par HealthEats / EasyEat  depuis une base de donnée reconnue (OpenFoodFacts). 
 
-Nulla. Curabitur aliquet leo ac massa. Praesent posuere lectus vitae
-odio. Donec imperdiet urna vel ante. In semper accumsan diam. Vestibulum
-porta justo. Suspendisse egestas commodo eros.
+De plus, si l’appli détecte que Martin a une utilisation forte (quotidienne) et rentre donc la plupart des aliments qu’il consomme et ses repas, elle pourra lui proposer un suivi plus complet et précis. A partir des données anatomiques de Martin (qui furent récupérées lors du premier lancement de l’appli en mode “fort”) et des produits qu’il a consommés, HealthEats / EasyEat lui indique le nombre de calories ingurgitées ainsi que l’évolution de son état de santé alimentaire (carences, surplus…) à l’aide de graphiques intuitifs et compréhensibles. Les recommandations de produits pourront alors être plus 
 
-Suspendisse tincidunt mi vel metus. Vivamus non urna in nisi gravida
-congue. Aenean semper orci a eros. Praesent dictum. Maecenas pharetra
-odio ut dui. Pellentesque.
-
-==== YY
-
-Ac mauris.
-
-Duis velit magna, scelerisque vitae, varius ut, aliquam vel, justo.
-Proin ac augue. Nullam auctor lectus vitae arcu. Vestibulum porta justo
-placerat purus. Ut sem nunc, vestibulum nec, sodales vitae, vehicula
-eget, ipsum. Sed nec tortor. Aenean malesuada. Nunc convallis, massa eu
-vestibulum commodo, quam mauris interdum arcu, at pellentesque.
