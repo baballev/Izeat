@@ -18,7 +18,7 @@ ifdef::env-gitlab,env-browser[:outfilesuffix: .adoc]
 
 * Nom1
 * Nom2
-* Nom3
+* Rakotondrafara Pierre3
 * Nom4
 * Nom5
 * Vincent Josse
