@@ -12,7 +12,8 @@ ifdef::env-gitlab,env-browser[:outfilesuffix: .adoc]
 
 // Partie non numérotée
 :sectnums!:
-== « Nom du groupe === Membres du groupe
+== « Nom du groupe
+=== Membres du groupe
 
 * Rakotondrafara Pierre
 * Léa Zerah
