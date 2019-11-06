@@ -20,7 +20,7 @@ ifdef::env-gitlab,env-browser[:outfilesuffix: .adoc]
 * Léa Zerah 
 * David Gérard
 * Nom4
-* Nom5
+* Johnathan Loh
 * Vincent Josse
 
 === Tuteur
