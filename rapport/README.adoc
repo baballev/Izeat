@@ -15,7 +15,7 @@ ifdef::env-gitlab,env-browser[:outfilesuffix: .adoc]
 == Les BrocoSix
 === Membres du groupe
 
-* Rakotondrafara Pierre
+* Pierre Rakotondrafara 
 * Léa Zerah
 * Alaeddine Gabsi
 * David Gérard
