@@ -1,5 +1,9 @@
 === Interface utilisateur graphique
 
+*ToDo*
+
+
+*ToDelete* 
 Il peut y avoir une ou plusieurs interfaces utilisateur (UI en anglais),
 ou interface graphique, ou interface homme machine (IHM) : une interface
 sur ordinateur et/ou une interface sur mobile ou tablette (Android),
