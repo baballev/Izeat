@@ -1,5 +1,5 @@
 === Répartition des élèves par module
-
+*ToDelete*
 Note : Les modules sont négociables, avec l’accord explicite de l’expert
 (soit un email, soit une fiche signée). Aucun module sans expert ne sera
 accepté. Les descriptions de modules, ou fiches modules, rédigées en
@@ -9,30 +9,24 @@ au module doit être faite *avec l’accord préalable de l’expert*, et
 l’expert doit envoyer confirmation des changements au jury de votre
 groupe.
 
-Parmi les modules, il faut obligatoirement :
 
-* Un module « intégration et tests », dont l’expert responsable est
-votre encadrant informatique. Ce module intègre le travail sur des
-notions abordées en séances de Génie Logiciel, programmées avant le PAN1
-et entre PAN1 et PAN2 respectivement.
-* Un module SES
+*Todo: Changer le nom des experts qui ont confirmé*
 
 [cols=",^,^,^,^,^,^,^",options="header",]
 |====
-| Nom        | Module1 | Module2 | Module3 | Module4 | ModuleN | Module SES | Test & Intégration
-| Nom Expert |         |         |         |         |         |            |
+| Nom        | Android | IA | Base de données | Services Web | Classification automatique | Module SES: Design | Test & Intégration
+| Nom Expert | à confirmer | à confirmer | à confirmer | Jean-Claude Moissinac | à confirmer | Stéphane Safin | Lucien Maman
 
-| Eleve1     | X       |         |         |         |         |            |
+| Pierre Rakotondrafara | X       |         |         |         |         | X          | X
 
-| Eleve2     |         | X       |         |         |         |            | X
+| Léa Zerah | X       |         |         |         | X       | X          | 
 
-| Eleve3     |         |         |         |         |         |            |
+| Alaeddine Gabsi |         |         | X       | X       |         | X          |
 
-| Eleve4     | X       |         |         |         |         |            |
+| David Gérard |         | X       |  X      |         |         | X          |
 
-| Eleve5     |         |         |         |         |         |            |
+| Johnathan Loh |         | X       |         |         |         | X          | X
 
-| Eleve6     |         |         |         |         |         |            |
+| Vincent Josse |         |         |         | X       | X       | X          |
 
-| Eleve7     |         | X       |         |         |         |            | X
 |====
