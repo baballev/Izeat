@@ -15,7 +15,7 @@ groupe.
 [cols=",^,^,^,^,^,^,^",options="header",]
 |====
 | Nom        | Android | IA | Base de données | Services Web | Classification automatique | Module SES: Design | Test & Intégration
-| Nom Expert | à confirmer | à confirmer | à confirmer | Jean-Claude Moissinac | à confirmer | Stéphane Safin | Lucien Maman
+| Nom Expert | à confirmer | Jean-Louis Dessalles(à confirmer) | Louis Jachiet(à confirmer) | Jean-Claude Moissinac | Michel Roux(à confirmer) | Stéphane Safin | Lucien Maman
 
 | Pierre Rakotondrafara | X       |         |         |         |         | X          | X
 
