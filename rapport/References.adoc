@@ -1,7 +1,7 @@
-*_Note : Liste des références exploitées. Une référence complète
-donne titre, auteur(s), date, journal, revue, source de publication,
-titre de conférence, numéro, pages. Une webographie est aussi
-envisageable : titre, auteur, date, page web_*
+//*_Note : Liste des références exploitées. Une référence complète
+//donne titre, auteur(s), date, journal, revue, source de publication,
+//titre de conférence, numéro, pages. Une webographie est aussi
+//envisageable : titre, auteur, date, page web_*
 
 //* [[RefShannon]]RefShannon : *C. E. SHANNON*, _A Mathematical Theory
 //of Communication_, Reprinted with corrections from The Bell System
@@ -9,7 +9,7 @@ envisageable : titre, auteur, date, page web_*
 //http://sites.google.com/site/parthochoudhury/aMToC_CShannon.pdf
 
 
-* [[1]]OpenFoodFacts : _Base de données proposant des informations nutritionelles_,
+* [[OFF]]OpenFoodFacts : _Base de données proposant des informations nutritionelles_,
 https://fr.openfoodfacts.org/
-* [[TOTO]]XXX : *M. S. Otor*, _Best paper ever_, Livre de la jungle,
-Volume 2, pages 33-34, 1777
+//* [[TOTO]]XXX : *M. S. Otor*, _Best paper ever_, Livre de la jungle,
+**Volume 2, pages 33-34, 1777
