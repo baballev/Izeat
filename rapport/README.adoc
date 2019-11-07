@@ -49,20 +49,7 @@ odio sollicitudin quam. Nullam non mauris. Phasellus lacinia, velit sit
 amet bibendum euismod, leo diam interdum ligula, eu scelerisque sem
 purus in tellus.
 
-*Notes concenant le rapport*
 
-Les différentes pages du document sont rédigées en utilisant le langage
-AsciiDoc. Le squelette de rapport contient des exemples avec entre autre:
-
-* des images,
-* des liens,
-* des équations.
-
-La structure du rapport (parties, sections et la relation avec les
-differents fichiers) se trouve dans le fichier courant.
-
-// en PDF on ne peut pas controler la position de la toc
-// Macros non supportées
 ifndef::backend-pdf[]
 == Table des matières
 :toc-title:
