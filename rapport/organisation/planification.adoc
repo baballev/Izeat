@@ -7,23 +7,23 @@
 [cols=",^,^,,",options="header",]
 |====
 |Tâche |Qui |Quand |Fait |Remarques
-|sujet | | | |
-|sujet en anglais | | | |
-|scenario | | | |
-|architecture (schéma et documentation) | | | |
-|découpage en modules | | | |
-|planning temporel (ce document, personnalisé) | | | |
+|sujet | Pierre | | |
+|sujet en anglais | Johnathan | | |
+|scenario | Pierre | | X |
+|architecture (schéma et documentation) | Vincent | | X |
+|découpage en modules | - | | X |
+|planning temporel (ce document, personnalisé) | Vincent| | X |
 |====
 
-* présentation 15mn
+//* présentation 15mn
 
-[cols=",^,^,,",options="header",]
-|====
-|Tâche |Qui |Quand |Fait |Remarques
-|préparation du document | | | |
-|répartition de la parole | | | |
-|répétition | | | |
-|====
+//[cols=",^,^,,",options="header",]
+//|====
+//|Tâche |Qui |Quand |Fait |Remarques
+//|préparation du document | | | |
+//|répartition de la parole | | | |
+//|répétition | | | |
+//|====
 
 //==== Taches / PAN2 20/01/20
 
