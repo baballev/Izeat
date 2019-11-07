@@ -9,7 +9,7 @@
 //http://sites.google.com/site/parthochoudhury/aMToC_CShannon.pdf
 
 
-* [[RéfOFF]]OpenFoodFacts : _Base de données proposant des informations nutritionelles_,
+* #anchor:OFF OpenFoodFacts : _Base de données proposant des informations nutritionelles_,
 https://fr.openfoodfacts.org/
 
 //* [[TOTO]]XXX : *M. S. Otor*, _Best paper ever_, Livre de la jungle,
