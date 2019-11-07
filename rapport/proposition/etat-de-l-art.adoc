@@ -1,32 +1,41 @@
 === Description de l’état de l’art
 ifdef::env-gitlab,env-browser[:outfilesuffix: .adoc]
 
-*_Note : 1 page max._*
+//*_Note : 1 page max._*
 
-Décrivez, en les citant via la bibliographie, les approches/produits
+*ToDelete*
+Decrivez, en les citant via la bibliographie, les approches/produits
 ressemblant à votre projet et les différences éventuelles. Illustrez
 avec des images si besoin. Utilisez des renvois vers votre
 bibliographie : « comme démontré dans [2], … »
 
-==== XXX
+Les applications proposant le type de service décrit ci-dessus sont multiples.
+Néanmoins, elles ont en générales plusieurs défauts. Le premier est le manque
+de simplicité d'utilisation. Souvent longues à utiliser, les interfaces
+proposées requièrent de l'uitilisateur un grand nombre d'entrées pour 
+fonctionner et ceci de manière régulière. Le second défaut principal de ces
+applications est de surcharger l'utilisateur d'informations qu'il ne désire pas
+forcément, ce qui rend l'application difficile à prendre en main.
 
-Et magnis dis parturient montes, nascetur ridiculus mus.
+Notre objectif est de palier ces défauts.
+La manière dont les données sont rentrées doit être simple et efficace. Pour ce
+faire, l'utilisateur aura à sa disposition différentes options telles que la
+reconnaissance d'image, la lecture de ticket de caisse pour identifier des
+aliments. Nous proposons par ailleurs un système de progression qui permettrai 
+de faire découvrir des fonctionalités à l'utilisateur de manière progressive 
+pour faciliter la prise en main du logiciel.
 
-Aenean risus dui, volutpat non, posuere vitae, sollicitudin in, urna.
-Nam eget eros a enim pulvinar rhoncus. Cum sociis natoque penatibus et
-magnis dis parturient montes, nascetur ridiculus mus. Nulla facilisis
-massa ut massa. Sed nisi purus, malesuada eu, porta vulputate, suscipit
-auctor, nunc.
+En ce qui concerne la reconnaissance d'image et de texte pour les entrées, il 
+s'agit de cas classiques d'application du machine learning. Pour le côté 
+Android, le véritable défi est de réussir à créer une interface interactive  et 
+dynamique qui donne envie à l'utilisateur de passer du temps sur l'application. 
+Les différentes bibliothèques à disposition permettront de faire une interface 
+fonctionnelle relativement vite. Pour le système de progression proposé, nous
+disposeront d'une base de donnée où l'on pourra avoir un champ permettant de
+quantifier cette progression. Il s'agit de faire éxecuter des requêtes SQL au
+serveur sur la base de donnée. La récupération de données sur <<1>>OpenFoodFacts ne
+devrait pas tro poser problème puisque l'on dispose d'une API.
 
-==== ZZZ
-
-Et magnis dis parturient montes, nascetur ridiculus mus.
-
-Aenean risus dui, volutpat non, posuere vitae, sollicitudin in, urna.
-Nam eget eros a enim pulvinar rhoncus. Cum sociis natoque penatibus et
-magnis dis parturient montes, nascetur ridiculus mus. Nulla facilisis
-massa ut massa. Sed nisi purus, malesuada eu, porta vulputate, suscipit
-auctor, nunc.
 
 ==== Exemples de citations
 
