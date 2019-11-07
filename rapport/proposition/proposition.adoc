@@ -1,7 +1,7 @@
 === Description de la proposition
 *_Note: 2 page max._*
 
-image::../images/logo_petit.png[logo de l'application, align="center"]
+image::../images/logo_petit.png["logo de l'application", align="center"]
 
 _Décrire de façon détaillée votre projet : motivations de base/problèmes
 constatés avant élaboration du projet, comment votre projet répond à ces
