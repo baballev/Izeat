@@ -1,6 +1,6 @@
 === Schéma d’architecture
 
-image::../images/schéma_pact_GL_PAN1_-_Updated.png[Schéma d'architecture, 920, 720]
+image::../images/schéma_pact_GL_PAN1_-_Updated.png[Schéma d'architecture, 980, 720]
 
 ==== Description des blocs
 
