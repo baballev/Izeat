@@ -3,11 +3,10 @@ ifdef::env-gitlab,env-browser[:outfilesuffix: .adoc]
 
 //*_Note : 1 page max._*
 
-*ToDelete*
-Decrivez, en les citant via la bibliographie, les approches/produits
-ressemblant à votre projet et les différences éventuelles. Illustrez
-avec des images si besoin. Utilisez des renvois vers votre
-bibliographie : « comme démontré dans [2], … »
+//Decrivez, en les citant via la bibliographie, les approches/produits
+//ressemblant à votre projet et les différences éventuelles. Illustrez
+//avec des images si besoin. Utilisez des renvois vers votre
+//bibliographie : « comme démontré dans [2], … »
 
 Les applications proposant le type de service décrit ci-dessus sont multiples.
 Néanmoins, elles ont en générales plusieurs défauts. Le premier est le manque
@@ -33,18 +32,18 @@ Les différentes bibliothèques à disposition permettront de faire une interfac
 fonctionnelle relativement vite. Pour le système de progression proposé, nous
 disposeront d'une base de donnée où l'on pourra avoir un champ permettant de
 quantifier cette progression. Il s'agit de faire éxecuter des requêtes SQL au
-serveur sur la base de donnée. La récupération de données sur <<1>>OpenFoodFacts ne
+serveur sur la base de donnée. La récupération de données sur <<OFF>> OpenFoodFacts ne
 devrait pas tro poser problème puisque l'on dispose d'une API.
 
 
-==== Exemples de citations
+//==== Exemples de citations
 
-Les références bibliographiques sont regroupées dans le fichier `References.adoc`
-à la racine du répertoire `rapport`.
-On peut y faire référence dans toutes les sous parties du document.
+//Les références bibliographiques sont regroupées dans le fichier `References.adoc`
+//à la racine du répertoire `rapport`.
+//On peut y faire référence dans toutes les sous parties du document.
 
-On peut citer comme exemple l'article de Claude E. Shannon sur la
-théorie de la communication <<RefShannon>>
-ou, bien évidement, la vitrine des projets PACT <<VitrinePACT>>.
+//On peut citer comme exemple l'article de Claude E. Shannon sur la
+//théorie de la communication <<RefShannon>>
+//ou, bien évidement, la vitrine des projets PACT <<VitrinePACT>>.
 
-Voir <<TOTO,la référence>> très intéressante elle aussi.
+//Voir <<TOTO,la référence>> très intéressante elle aussi.
