@@ -3,6 +3,10 @@
 
 image::../images/logo_petit.png[logo de l'application]
 
+*ToDo*
+
+
+*ToDelete*
 _Décrire de façon détaillée votre projet : motivations de base/problèmes
 constatés avant élaboration du projet, comment votre projet répond à ces
 besoins. Ajouter une image ou une figure pour montrer à quoi cela
