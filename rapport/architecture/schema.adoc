@@ -4,19 +4,25 @@ image::../images/schéma_pact_GL_PAN1_-_Updated.png[Schéma d'architecture, 980,
 
 ==== Description des blocs
 
-*ToDelete*
-Il faut ici une description textuelle de chaque bloc, sa fonction
-détaillée. En général, un bloc correspond à un module, sauf exception.
-Il peut être adapté de faire des blocs plus petits qu’un module.
+//Il faut ici une description textuelle de chaque bloc, sa fonction
+//détaillée. En général, un bloc correspond à un module, sauf exception.
+//Il peut être adapté de faire des blocs plus petits qu’un module.
 
-Il est important ici de distinguer les bibliothèques identifiées et
-disponibles de ce que vous allez produire (coder) vous même. Vous ne
-devez pas réinventer la roue mais vous ne devez pas non plus avoir votre
-projet tout fait en encapsulant un programme déjà existant.
+//Il est important ici de distinguer les bibliothèques identifiées et
+//disponibles de ce que vous allez produire (coder) vous même. Vous ne
+//devez pas réinventer la roue mais vous ne devez pas non plus avoir votre
+//projet tout fait en encapsulant un programme déjà existant.
 
 ===== Android
 
-*ToDo*
+On utilisera les librairies disponnibles pour concevoir l'interface de 
+l'application. Il faudra une interface de connexion (pour la première 
+utilisation) puis les différents onglets comme décrit dans la section interface.
+Le client devra disposer d'un moyen d'envoyer une requête au serveur et d'en 
+récupérer la réponse, par le biais du web service qui sera développé. On 
+utilisera probablement des librairies pour visualiser des données sous forme
+de graphes. L'application doit pouvoir accéder à l'appareil photo et en 
+récupérer une entrée sous forme d'image pour la classification automatique.
 
 ===== Services Web
 
@@ -30,11 +36,19 @@ Service Web semble un choix judicieux.
 
 ===== Base de données
 
-*ToDo*
+Il faut construire des méthodes sur le serveur permettant de communiquer avec
+la base de donnée. Il s'agit de construire une base de données avec des données
+utilisateur sécurisées, permettant un la visualisation de certaines données
+par le client. On y stockera probablement un ensemble de recette qui s'affinera
+au cours du temps avec éventuellement la possibilité pour les utilisateurs de 
+proposer des recette à ajouter à la base de données.
 
 ===== IA
 
-*ToDo*
+Le bloc serveur se chargera de proposer des recommandations à partir des données
+de l'utilisateur récupérées sur la base de données. Cette recommandation sera
+principalement une recette ou un type d'aliment qui conviendrait spécifiquement 
+à l'utilisateur selon des critères nutritionnels.
 
 ===== Classification automatique
 
