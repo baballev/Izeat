@@ -33,7 +33,7 @@ fonctionnelle relativement vite. Pour le système de progression proposé, nous
 disposeront d'une base de donnée où l'on pourra avoir un champ permettant de
 quantifier cette progression. Il s'agira ensuite de faire éxecuter des requêtes 
 SQL au serveur sur la base de donnée. La récupération de données sur 
-<<../References.adoc#OFF,OpenFoodFacts>> ne devrait pas trop poser problème puisque l'on dispose
+<</References.adoc#OFF,OpenFoodFacts>> ne devrait pas trop poser problème puisque l'on dispose
 d'une API.
 
 
