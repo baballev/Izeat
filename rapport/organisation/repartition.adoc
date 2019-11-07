@@ -1,16 +1,13 @@
 === Répartition des élèves par module
-*ToDelete*
-Note : Les modules sont négociables, avec l’accord explicite de l’expert
-(soit un email, soit une fiche signée). Aucun module sans expert ne sera
-accepté. Les descriptions de modules, ou fiches modules, rédigées en
-collaboration avec les experts rencontrés, seront ajoutées dans les
-annexes. Un module sans expert ne sera pas accepté. Toute modification
-au module doit être faite *avec l’accord préalable de l’expert*, et
-l’expert doit envoyer confirmation des changements au jury de votre
-groupe.
 
-
-*Todo: Changer le nom des experts qui ont confirmé*
+//Note : Les modules sont négociables, avec l’accord explicite de l’expert
+//(soit un email, soit une fiche signée). Aucun module sans expert ne sera
+//accepté. Les descriptions de modules, ou fiches modules, rédigées en
+//collaboration avec les experts rencontrés, seront ajoutées dans les
+//annexes. Un module sans expert ne sera pas accepté. Toute modification
+//au module doit être faite *avec l’accord préalable de l’expert*, et
+//l’expert doit envoyer confirmation des changements au jury de votre
+//groupe.
 
 [cols=",^,^,^,^,^,^,^",options="header",]
 |====
