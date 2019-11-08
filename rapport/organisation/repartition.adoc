@@ -11,8 +11,8 @@
 
 [cols=",^,^,^,^,^,^,^",options="header",]
 |====
-| Nom        | Android | IA | Base de données | Services Web | Classification automatique | Module SES: Design | Test & Intégration
-| Nom Expert | à confirmer | Jean-Louis Dessalles(à confirmer) | Louis Jachiet(à confirmer) | Jean-Claude Moissinac | Michel Roux(à confirmer) | Stéphane Safin | Lucien Maman
+| Nom        | Android | IA | Base de données | Services Web | Reconnaissance d'image | Module SES: Design | Test & Intégration
+| Nom Expert | à confirmer | Jean-Louis Dessalles(à confirmer) | Louis Jachiet(à confirmer) | Jean-Claude Moissinac | Stéphane Lathuiliere | Stéphane Safin | Lucien Maman
 
 | Pierre Rakotondrafara | X       |         |         |         |         | X          | X
 
