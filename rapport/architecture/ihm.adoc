@@ -22,5 +22,5 @@ image::../images/storyboard/Premiere_utilisation.png[Première ouverture de l'ap
 image::../images/storyboard/inscription.png[Inscription, 600, 1000]
 image::../images/storyboard/inscription_avec_texte_rempli.png[Inscription, 600, 1000]
 image::../images/storyboard/connexion.png[Connexion, 600, 1000]
-image::../images/storyboard/profil_bouton_haut_droit_cliqué[Onglet profil, 600, 1000]
-image::../images/storyboard/profil_bouton_haut_droit_cliqué_ami[Première ouverture de l'application, 600, 1000]
+image::../images/storyboard/profil_bouton_haut_droit_cliqué.png[Onglet profil, 600, 1000]
+image::../images/storyboard/profil_bouton_haut_droit_cliqué_ami.png[Première ouverture de l'application, 600, 1000]
