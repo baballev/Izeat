@@ -18,4 +18,4 @@ apportera des éléments important dans la conception de l'interface graphique.
 Le storyboard présenté ici est donc un point de départ de conception de 
 l'application amené à changer par la suite.
 
-image::../images/storyboard/Premiere_utilisation.png[Première ouverture de l'application, 500, 1200]
+image::../images/storyboard/Premiere_utilisation.png[Première ouverture de l'application, 600, 1200]
