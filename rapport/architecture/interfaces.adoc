@@ -1,10 +1,8 @@
 === Description des interfaces (PAN1 / PAN2)
 
-Pour le PAN1, il faut identifier et décrire sommairement toutes les
-interfaces entre modules.
-
+//Pour le PAN1, il faut identifier et décrire sommairement toutes les
+//interfaces entre modules.
 //Pour le PAN2, il faut une description complête des interfaces.
-
 //Il faut ici une description textuelle de chaque interface, c’est à
 //dire +
 //chaque échange entre deux blocs. Si c’est une interface entre deux
@@ -44,11 +42,14 @@ public interface ToolsInterface {
 	public static StringBuilder getSearchQuery(String query, int pageNumber, int pageSize) {
 		return null;
 	}
-
 }
-
 ----
 
-==== InterfaceBloc2-4
+==== Interface Android - Serveur
 
-Description textuelle d’interface
+Le serveur disposera de son propre service web permettant au client Android
+de récupérer les informations essentielles concernant des produits ou des 
+données personelles de l'uitilsateur.
+
+
+
