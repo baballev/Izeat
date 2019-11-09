@@ -57,7 +57,7 @@ We have chosen to work on an application for nutrition. Intended primarily for
 students who usually do not have any cooking experience, the application aims to
 promote healthier eating without conscientiously having to watch our nutritional
 intake. This is hence an initiative aimed to combat obesity and the consumption
-of junk food, a growing issue in our society. 
+of junk food - a growing issue in our society. 
 To achieve this, the app proposes the most economical and efficient way to 
 prepare for our next meals. The products' qualities will also be shown to the 
 user (alongside factors such as nutritional values and environmental 
