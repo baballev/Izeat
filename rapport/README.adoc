@@ -53,6 +53,18 @@ pour une alimentation plus saine.
 
 == English Summary (PAN1)
 
+We have chosen to work on an application for nutrition. Intended primarily for 
+students who usually do not have any cooking experience, the application aims to
+promote healthier eating without conscientiously having to watch our nutritional
+intake. This is hence an initiative aimed to combat obesity and the consumption
+of junk food, a growing issue in our society. 
+To achieve this, the app proposes the most economical and efficient way to 
+prepare for our next meals. The products' qualities will also be shown to the 
+user (alongside factors such as nutritional values and environmental 
+responsibility). Furthermore, the app will propose recipes adapted to what was 
+listed in the app, recipes that only lack a few ingredients, as well as 
+suggestions on what to purchase the next time for a healthier diet.
+
 *ToDo*
 
 *_Note : 15 lignes max, version anglaise du texte précédent_*
