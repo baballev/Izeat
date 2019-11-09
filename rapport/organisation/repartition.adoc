@@ -11,7 +11,7 @@
 
 [cols=",^,^,^,^,^,^,^",options="header",]
 |====
-| Nom        | Android | IA | Base de données | Services Web | Reconnaissance d'image | Module SES: Design | Test & Intégration
+| Nom        | Android | IA | Base de données | Services Web | Reconnaissance d'image | Module SES: Ergonomie | Test & Intégration
 | Nom Expert | à confirmer | Jean-Louis Dessalles(à confirmer) | Louis Jachiet(à confirmer) | Jean-Claude Moissinac | Stéphane Lathuiliere | Stéphane Safin | Lucien Maman
 
 | Pierre Rakotondrafara | X       |         |         |         |         | X          | X
