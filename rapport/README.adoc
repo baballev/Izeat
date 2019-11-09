@@ -32,7 +32,7 @@ ifdef::env-gitlab,env-browser[:outfilesuffix: .adoc]
 
 == Résumé du sujet choisi en français (PAN1)
 
-*_Note: 15 lignes max_*
+//*_Note: 15 lignes max_*
 
 Le projet que notre groupe va mener pendant cette année est un projet
 d'application de nutrition. Elle s'adresse aux étudiants en premier lieu qui
@@ -65,9 +65,8 @@ responsibility). Furthermore, the app will propose recipes adapted to what was
 listed in the app, recipes that only lack a few ingredients, as well as 
 suggestions on what to purchase the next time for a healthier diet.
 
-*ToDo*
 
-*_Note : 15 lignes max, version anglaise du texte précédent_*
+//*_Note : 15 lignes max, version anglaise du texte précédent_*
 
 
 ifndef::backend-pdf[]
