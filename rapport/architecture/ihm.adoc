@@ -23,6 +23,8 @@ image::../images/storyboard/inscription.png[Inscription, 600, 1000]
 image::../images/storyboard/inscription_avec_texte_rempli.png[Inscription, 600, 1000]
 image::../images/storyboard/connexion.png[Connexion, 600, 1000]
 
+
+
 On voit ci dessus (4 premières images) que l'on va devoir coder une première 
 activité très simple mais essentielle. Celle de la connexion/inscription.
 L'interface y comportera plusieurs champs d'entrée : identifiants et mot de passe.
@@ -33,7 +35,26 @@ compte.
 De plus cette activité devra gérer l'envoi des informations utilisateurs
 sensibles (mot de passe, adresse mail) au serveur.
 
+
+
 image::../images/storyboard/accueil.png[Accueil, 600, 1000]
+
+
+
+Ici une activité qui sera des plus importantes dans le cadre de notre volonté 
+d'une application ergonomique. C'est la que l'utilisateur entrera sa nourriture
+et donc c'est ce qu'il verra en premier lors d'un lancement standard de
+l'application. On peut y voir aussi un accès à son frigo virtuel qui est donc un
+lien vers une autre activité dont la conception graphique est importante. Les
+choses les plus mises en valeurs sont évidemment les méthodes pour faire entrer
+les aliments dans l'application. Cela sera peut être à retravailler pour voir s'il
+n'est pas plus simple d'avoir immédiatement une méthode par défaut plutôt que
+des liens vers les méthodes. Le défi de cette activité est dans tous les cas de
+donner toutes les possibilités à l'utilisateur dans une interface la plus épurée
+possible.
+
+
+
 image::../images/storyboard/ajout_aliment_photo.png[Scan code-barres, 600, 1000]
 image::../images/storyboard/ajout_aliment_photo_2.png[Reconnaissance d'image, 600, 1000]
 image::../images/storyboard/selection_aliment.png[Sélection aliment, 600, 1000]
