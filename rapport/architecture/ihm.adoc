@@ -57,6 +57,30 @@ possible.
 
 image::../images/storyboard/ajout_aliment_photo.png[Scan code-barres, 600, 1000]
 image::../images/storyboard/ajout_aliment_photo_2.png[Reconnaissance d'image, 600, 1000]
+
+
+
+Pour ces deux activités on doit programmer l'accès à la caméra du téléphone. De
+plus on devra prendre soin de bien relier cette interface au système de
+reconnaissance d'image : il faut savoir si l'interprétation de l'image peut être 
+faite localement ou si l'on doit programmer un système qui détermine uniquement
+si l'image est exploitable avant de l'envoyer sur serveur pour l'interprétation.
+L'interface devra de toute façon présenter en direct à l'utilisateur si son image
+est exploitable.
+
+
+
 image::../images/storyboard/selection_aliment.png[Sélection aliment, 600, 1000]
+
+
+
+La sélection d'aliment consistera elle uniquement en l'affichage d'une liste qui
+qui évolue en fonction des caractères tapés par l'utilisateur dans la barre de
+recherche. Il faudra donc du côté client uniquement récupérer les caractères
+entrés et les envoyer au serveur, lequel renverra une liste correspondant à la
+recherche dont le client gerera l'affichage et les interactions.
+
+
+
 image::../images/storyboard/profil_bouton_haut_droit_cliqué.png[Onglet profil, 600, 1000]
 image::../images/storyboard/profil_bouton_haut_droit_cliqué_ami.png[Première ouverture de l'application, 600, 1000]
