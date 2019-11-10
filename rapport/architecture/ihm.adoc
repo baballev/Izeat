@@ -84,3 +84,14 @@ recherche dont le client gerera l'affichage et les interactions.
 
 image::../images/storyboard/profil_bouton_haut_droit_cliqué.png[Onglet profil, 600, 1000]
 image::../images/storyboard/profil_bouton_haut_droit_cliqué_ami.png[Première ouverture de l'application, 600, 1000]
+
+
+
+L'onglet ici est l'onglet associé au réseau social qu'apportera l'application.
+Le système de progression est ici très succinct mais est sujet à nombreuses
+modifications lorsque la manière d'implémenter le côté social sera mieux définie.
+Sont présent toutefois les éléments les plus évidents : On devra pouvoir avoir
+une vue rapide de ses contacts sur l'application qui seront aussi un lien pour
+accéder à leur profil. On devra donc programmer deux interface : le profil
+personnel et le profil d'un contact, le profil d'un contact étant finalement une
+version allégée du profil personnel.
