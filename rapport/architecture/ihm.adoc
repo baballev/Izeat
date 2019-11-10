@@ -12,9 +12,16 @@
 //« storyboard ». Une description textuelle fait le lien entre tous les
 //éléments de l’IHM (ou des IHMs).
 
-*NB:* La charte graphique des interfaces n'est pas encore définitive et pourra
+*NB:* 
+La charte graphique des interfaces n'est pas encore définitive et pourra
 donc être modifiée dans le futur. En particulier, le module SES d'ergonomie
 apportera des éléments important dans la conception de l'interface graphique.
+De plus une partie importante de l'application est le côté progressif de
+l'application. Plus la fréquence d'utilisation est élevée, plus l'utilisateur
+lui verra proposé des nouvelles fonctionnalités qui seraient inutiles pour un
+utilisateur lambda. Ainsi le storyboard devra être différent à différents stades
+d'utilisation. Ce côté de l'application étant pour l'instant en discussion, il
+est absent dans cette version du storyboard.
 Le storyboard présenté ici est donc un point de départ de conception de 
 l'application amené à changer par la suite.
 
