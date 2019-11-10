@@ -22,6 +22,17 @@ image::../images/storyboard/Premiere_utilisation.png[Première ouverture de l'ap
 image::../images/storyboard/inscription.png[Inscription, 600, 1000]
 image::../images/storyboard/inscription_avec_texte_rempli.png[Inscription, 600, 1000]
 image::../images/storyboard/connexion.png[Connexion, 600, 1000]
+
+On voit ci dessus (4 premières images) que l'on va devoir coder une première 
+activité très simple mais essentielle. Celle de la connexion/inscription.
+L'interface y comportera plusieurs champs d'entrée : identifiants et mot de passe.
+Pour l'inscription, on programmera selon toute vraisemblance une activité
+différente pour la première utilisation : l'activité d'inscription. Elle
+comportera des champs en plus bien évidemment pour la création d'un nouveau
+compte.
+De plus cette activité devra gérer l'envoi des informations utilisateurs
+sensibles (mot de passe, adresse mail) au serveur.
+
 image::../images/storyboard/accueil.png[Accueil, 600, 1000]
 image::../images/storyboard/ajout_aliment_photo.png[Scan code-barres, 600, 1000]
 image::../images/storyboard/ajout_aliment_photo_2.png[Reconnaissance d'image, 600, 1000]
