@@ -28,6 +28,7 @@ l'application amené à changer par la suite.
 image::../images/storyboard/Premiere_utilisation.png[Première ouverture de l'application, 600, 1000]
 image::../images/storyboard/inscription.png[Inscription, 600, 1000]
 image::../images/storyboard/inscription_avec_texte_rempli.png[Inscription, 600, 1000]
+image::../images/storyboard/inscription_suite.png[Inscription - Suite, 600, 1000]
 image::../images/storyboard/connexion.png[Connexion, 600, 1000]
 
 
