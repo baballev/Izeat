@@ -34,7 +34,7 @@ image::../images/storyboard/connexion.png[Connexion, 600, 1000]
 
 
 
-On voit ci dessus (5 premières images) que l'on va devoir coder une première 
+On voit ci dessus (6 premières images) que l'on va devoir coder une première 
 activité très simple mais essentielle. Celle de la connexion/inscription.
 L'interface y comportera plusieurs champs d'entrée : identifiants et mot de passe.
 Pour l'inscription, on programmera selon toute vraisemblance une activité
