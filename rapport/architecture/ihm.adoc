@@ -44,7 +44,7 @@ sensibles (mot de passe, adresse mail) au serveur.
 
 
 
-image::../images/storyboard/accueil.png[Accueil, 600, 1000]
+image::../images/storyboard/accueil.png[Onglet accueil, 600, 1000]
 
 
 
@@ -87,6 +87,8 @@ recherche. Il faudra donc du côté client uniquement récupérer les caractère
 entrés et les envoyer au serveur, lequel renverra une liste correspondant à la
 recherche dont le client gerera l'affichage et les interactions.
 
+image::../images/storyboard/suivi.png[Onglet suivi, 600, 1000]
+*ToDo*
 
 
 image::../images/storyboard/profil_bouton_haut_droit_cliqué.png[Onglet profil, 600, 1000]
@@ -102,6 +104,4 @@ une vue rapide de ses contacts sur l'application qui seront aussi un lien pour
 accéder à leur profil. On devra donc programmer deux interface : le profil
 personnel et le profil d'un contact, le profil d'un contact étant finalement une
 version allégée du profil personnel.
-
-image::../images/storyboard/suivi.png[Sélection aliment, 600, 1000]
 
