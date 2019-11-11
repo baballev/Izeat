@@ -78,7 +78,7 @@ est exploitable.
 
 
 image::../images/storyboard/selection_aliment.png[Sélection aliment, 600, 1000]
-
+image::../images/storyboard/selection_aliment_recherche.png[Sélection aliment avec recherche, 600, 1000]
 
 
 La sélection d'aliment consistera elle uniquement en l'affichage d'une liste qui
@@ -102,3 +102,6 @@ une vue rapide de ses contacts sur l'application qui seront aussi un lien pour
 accéder à leur profil. On devra donc programmer deux interface : le profil
 personnel et le profil d'un contact, le profil d'un contact étant finalement une
 version allégée du profil personnel.
+
+image::../images/storyboard/suivi.png[Sélection aliment, 600, 1000]
+
