@@ -79,7 +79,8 @@ est exploitable.
 
 image::../images/storyboard/selection_aliment.png[Sélection aliment, 600, 1000]
 image::../images/storyboard/selection_aliment_recherche.png[Sélection aliment avec recherche, 600, 1000]
-
+image::../images/storyboard/ajout_aliment_final_sans.png[Ajout final de l'aliment, 600, 1000]
+image::../images/storyboard/ajout_aliment_final.png[Ajout final de l'aliment avec consommation directe, 600, 1000]
 
 La sélection d'aliment consistera elle uniquement en l'affichage d'une liste qui
 qui évolue en fonction des caractères tapés par l'utilisateur dans la barre de
