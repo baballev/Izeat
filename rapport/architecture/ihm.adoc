@@ -16,9 +16,9 @@
 La charte graphique des interfaces n'est pas encore définitive et pourra
 donc être modifiée dans le futur. En particulier, le module SES d'ergonomie
 apportera des éléments important dans la conception de l'interface graphique.
-De plus une partie importante de l'application est le côté progressif de
-l'application. Plus la fréquence d'utilisation est élevée, plus l'utilisateur
-lui verra proposé des nouvelles fonctionnalités qui seraient inutiles pour un
+De plus une partie importante de l'application est son côté progressif. 
+Plus la fréquence d'utilisation est élevée, plus l'utilisateur
+se verra proposé des nouvelles fonctionnalités qui seraient inutiles pour un
 utilisateur lambda. Ainsi le storyboard devra être différent à différents stades
 d'utilisation. Ce côté de l'application étant pour l'instant en discussion, il
 est absent dans cette version du storyboard.
@@ -87,6 +87,11 @@ qui évolue en fonction des caractères tapés par l'utilisateur dans la barre d
 recherche. Il faudra donc du côté client uniquement récupérer les caractères
 entrés et les envoyer au serveur, lequel renverra une liste correspondant à la
 recherche dont le client gerera l'affichage et les interactions.
+
+image::../images/storyboard/tous_mes_aliments.png[Frigo virtuel, 600, 1000]
+
+
+
 
 image::../images/storyboard/suivi.png[Onglet suivi, 600, 1000]
 *ToDo*
