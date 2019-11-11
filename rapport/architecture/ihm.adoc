@@ -98,6 +98,9 @@ image::../images/storyboard/tous_mes_aliments.png[Frigo virtuel, 600, 1000]
 image::../images/storyboard/suivi.png[Onglet suivi, 600, 1000]
 *ToDo*
 
+image::../images/storyboard/onglet_conseils.png[Onglet conseils, 600, 1000]
+*ToDo*
+
 
 image::../images/storyboard/profil_bouton_haut_droit_cliqué.png[Onglet profil, 600, 1000]
 image::../images/storyboard/profil_bouton_haut_droit_cliqué_ami.png[Première ouverture de l'application, 600, 1000]
