@@ -105,8 +105,6 @@ image::../images/storyboard/onglet_conseils.png[Onglet conseils, 600, 1000]
 image::../images/storyboard/profil_bouton_haut_droit_cliqué.png[Onglet profil, 600, 1000]
 image::../images/storyboard/profil_bouton_haut_droit_cliqué_ami.png[Première ouverture de l'application, 600, 1000]
 
-
-
 L'onglet ici est l'onglet associé au réseau social qu'apportera l'application.
 Le système de progression est ici très succinct mais est sujet à nombreuses
 modifications lorsque la manière d'implémenter le côté social sera mieux définie.
