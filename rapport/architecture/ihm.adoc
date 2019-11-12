@@ -84,8 +84,8 @@ image::../images/storyboard/selection_aliment_recherche.png[Sélection aliment a
 image::../images/storyboard/ajout_aliment_final_sans.png[Ajout final de l'aliment, 600, 1000]
 image::../images/storyboard/ajout_aliment_final.png[Ajout final de l'aliment avec consommation directe, 600, 1000]
 
-La sélection d'aliment consistera elle uniquement en l'affichage d'une liste qui
-qui évolue en fonction des caractères tapés par l'utilisateur dans la barre de
+La sélection d'aliment consistera elle uniquement en l'affichage d'une liste qui 
+évolue en fonction des caractères tapés par l'utilisateur dans la barre de
 recherche. Il faudra donc du côté client uniquement récupérer les caractères
 entrés et les envoyer au serveur, lequel renverra une liste correspondant à la
 recherche dont le client gerera l'affichage et les interactions.
@@ -96,10 +96,15 @@ image::../images/storyboard/tous_mes_aliments.png[Frigo virtuel, 600, 1000]
 
 
 image::../images/storyboard/suivi.png[Onglet suivi, 600, 1000]
-*ToDo*
+Cette partie de l'application correspond au suivi nutritif de l'utilisateur. 
+Elle comprendra plusieurs activités qui donneront le suivi des calories, nutriments ou encore des aliments consommés par l'utilisateur. 
+Le binôme du module android devra coder ces différents activités qui utiliseront les OpenSource pour avoir accès aux différents éléments. 
 
 image::../images/storyboard/onglet_conseils.png[Onglet conseils, 600, 1000]
-*ToDo*
+Cet onglet de l'application représente la partie "recommendation". Il s'appuiera sur des bases de données 
+pour générer des recettes en fonction des aliments présents dans le "frigo virtuel" de l'utilisateur. Des recettes pourront égalemment être
+propopées même si l'utilisateur ne dispose pas de tous les aliments nécessaire. Le binôme du module android s'attardera à afficher les différentes 
+propositions dans l'interface visuelle. 
 
 
 image::../images/storyboard/profil_bouton_haut_droit_cliqué.png[Onglet profil, 600, 1000]
@@ -108,7 +113,7 @@ image::../images/storyboard/profil_bouton_haut_droit_cliqué_ami.png[Première o
 L'onglet ici est l'onglet associé au réseau social qu'apportera l'application.
 Le système de progression est ici très succinct mais est sujet à nombreuses
 modifications lorsque la manière d'implémenter le côté social sera mieux définie.
-Sont présent toutefois les éléments les plus évidents : On devra pouvoir avoir
+Sont présents toutefois les éléments les plus évidents : On devra pouvoir avoir
 une vue rapide de ses contacts sur l'application qui seront aussi un lien pour
 accéder à leur profil. On devra donc programmer deux interface : le profil
 personnel et le profil d'un contact, le profil d'un contact étant finalement une
