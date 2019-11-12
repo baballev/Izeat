@@ -9,7 +9,7 @@ ifdef::env-gitlab,env-browser[:outfilesuffix: .adoc]
 //bibliographie : « comme démontré dans [2], … »
 
 Les applications proposant le type de service décrit ci-dessus sont multiples.
-Néanmoins, elles ont en générales plusieurs défauts. Le premier est le manque
+Néanmoins, elles ont en général plusieurs défauts. Le premier est le manque
 de simplicité d'utilisation. Souvent longues à utiliser, les interfaces
 proposées requièrent de l'uitilisateur un grand nombre d'entrées pour 
 fonctionner et ceci de manière régulière. Le second défaut principal de ces
@@ -20,7 +20,7 @@ Notre objectif est de palier ces défauts.
 La manière dont les données sont rentrées doit être simple et efficace. Pour ce
 faire, l'utilisateur aura à sa disposition différentes options telles que la
 reconnaissance d'image, la lecture de ticket de caisse pour identifier des
-aliments. Nous proposons par ailleurs un système de progression qui permettrai 
+aliments. Nous proposons par ailleurs un système de progression qui permettrait 
 de faire découvrir des fonctionalités à l'utilisateur de manière progressive 
 pour faciliter la prise en main du logiciel.
 
