@@ -11,10 +11,15 @@ ifdef::env-gitlab,env-browser[:outfilesuffix: .adoc]
 Les applications proposant le type de service décrit ci-dessus sont multiples.
 Néanmoins, elles ont en général plusieurs défauts. Le premier est le manque
 de simplicité d'utilisation. Souvent longues à utiliser, les interfaces
-proposées requièrent de l'uitilisateur un grand nombre d'entrées pour 
-fonctionner et ceci de manière régulière. Le second défaut principal de ces
+proposées requièrent de l'utilisateur un grand nombre d'entrées pour 
+fonctionner et ceci de manière régulière. Le second défaut de ces
 applications est de surcharger l'utilisateur d'informations qu'il ne désire pas
-forcément, ce qui rend l'application difficile à prendre en main.
+forcément, ce qui rend l'application difficile à prendre en main. En effet, prenons 
+l'exemple de Foodviser, une application de nutrition qui a les mêmes fonctionalités qu'Izeat. 
+Cependant, pour le bon fonctionnement de l'appli, l'utilisateur doit rentrer tous ses repas petit déjeuner, déjeuner et dîner de manière 
+assez précise. L'application est donc très complète voire trop complète... L'interface est un peu surchargée 
+et possède de nombreuses fonctionnalités peut utiles pour un utilisateur débutant. 
+
 
 Notre objectif est de palier ces défauts.
 La manière dont les données sont rentrées doit être simple et efficace. Pour ce
