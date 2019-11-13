@@ -1,4 +1,4 @@
-package server.api.openfoodfacts;
+package api.openfoodfacts;
 
 import java.net.HttpURLConnection;
 import java.lang.StringBuilder;

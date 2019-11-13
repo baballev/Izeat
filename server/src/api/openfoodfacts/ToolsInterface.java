@@ -1,4 +1,4 @@
-package server.api.openfoodfacts;
+package api.openfoodfacts;
 
 import java.lang.StringBuilder;
 
