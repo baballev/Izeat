@@ -1,5 +1,5 @@
 = Rapport d’avancement du groupe 2.3
-PACT groupe xy (Les plus beaux)
+PACT groupe 2.3 (Les plus beaux)
 ifdef::env-gitlab,env-browser[:outfilesuffix: .adoc]
 :doctype: book
 :stem: latexmath
@@ -47,9 +47,9 @@ donc lui indiquer la qualité des produits qu'il achète (tant de point de vue
 de la santé que d'un point de vue écologique et reponsable). De plus,
 seront proposées à l'utilisateur des recettes adaptées à ce qu'il a déjà
 renseigné dans l'application, des recettes pour lesquels il ne lui manque que
-quelques ingrédients et enfin des propositions des alternatives de produits pour
-ses prochaines courses avec des produits qu'il n'a pas qu'il pourrait acheter
-pour une alimentation plus saine.
+quelques ingrédients et enfin des propositions d'alternatives de produits ou des 
+produits qu'il n'a pas qu'il pourrait acheter pour une obtenir une alimentation 
+plus saine.
 
 == English Summary (PAN1)
 
