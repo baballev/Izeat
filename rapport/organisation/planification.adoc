@@ -53,30 +53,30 @@
 
 //* Android
 
-//[cols=",^,^,",options="header",]
-//|====
-//|Tâche |Quand |Fait |Remarques
-//|Installation de l’outil Android Studio | | |
-//|TP Android | | |
-//|Squelette d’application | | |
-//|GUI | | |
-//|Plan de test | | |
-//|====
+[cols=",^,^,",options="header",]
+|====
+|Tâche |Quand |Fait |Remarques
+|Installation de l’outil Android Studio |21 octobre |fait|
+|TP Android | | en cours| on suit le cours/TP d'OpenClassRoom
+|Squelette d’application | | pas fait |
+|GUI | |pas fait |
+|Plan de test | |pas fait |
+|====
 
 //* Autres modules
 
-//==== Tâches / PAN3 18/03/20
+==== Tâches / PAN3 18/03/20
 
 //===== Générales
 
 //* Préparer un déroulé de la démo et du ``matériel'' de démo
 
-//===== Modules
+===== Modules
 
-//* Android
+* Android
 
-//[cols=",^,^,",options="header",]
-//|====
+[cols=",^,^,",options="header",]
+|====
 //|Tâche |Quand |Fait |Remarques
 //|asynctask pour client-serveur | | |
 //|feature 1 | | |
