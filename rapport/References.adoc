@@ -14,3 +14,9 @@ https://fr.openfoodfacts.org/
 
 //* [[TOTO]]XXX : *M. S. Otor*, _Best paper ever_, Livre de la jungle,
 //**Volume 2, pages 33-34, 1777
+
+[] Foodviser : _ exemple d'application de nutrition (état de l'art)_, 
+https://www.foodvisor.io
+
+[] FrigoMagic : _exemple d'application de nutrition (état de l'art)_,
+https://www.frigomagic.com/blog/
