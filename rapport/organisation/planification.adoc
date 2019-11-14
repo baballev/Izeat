@@ -111,8 +111,8 @@
 [cols=",^,^,",options="header",]
 |====
 |Tâche |Quand |Fait |Remarques
-|1 ou un panier d'aliments arbitraires reconnaissables | | |(Demander au Rab si on peut essayer d'entrainer notre IA avec leur machine)
-|Savoir lire ticket de caisse uniquement du Franprix en face de Télécom | | |
+|Avoir construit un réseau de neurones | | |
+|Réseau de neurones entrainé sur un ou plusieurs aliments arbitraires: Pouvoir reconnaitre au moins 1 aliment | | |(Demander au Rab si on peut essayer d'entrainer notre IA avec leur machine)
 |====
 
 * IA
