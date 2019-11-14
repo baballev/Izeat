@@ -38,17 +38,17 @@ Le projet que notre groupe va mener pendant cette année est un projet
 d'application de nutrition. Elle s'adresse aux étudiants en premier lieu qui
 sont souvent livrés sans indice à la cuisine. Plus généralement, elle a pour
 but de permettre aux gens d'avoir une alimentation plus saine sans avoir
-à écumer des livres de nutrition. Elle s'inscrit donc parmis les initiatives
+à écumer des livres de nutrition. Elle s'inscrit donc parmi les initiatives
 pour lutter contre l'obésité et est une piste de réponse à la 'malbouffe' qui
 est un problème crucial de notre société.
-Pour faire cela, l'appli proposeras donc à l'utilisateur d'identifier les
+Pour faire cela, l'appli proposera donc à l'utilisateur d'identifier les
 produits qu'il achète de la manière la plus ergonomique possible. Elle pourra
-donc lui indiquer la qualité des produits qu'il achète (tant de point de vue
-de la santé que d'un point de vue écologique et reponsable). De plus,
+donc lui indiquer la qualité des produits qu'il achète (tant du point de vue
+nutritif que d'un point de vue écologique et reponsable). De plus,
 seront proposées à l'utilisateur des recettes adaptées à ce qu'il a déjà
-renseigné dans l'application, des recettes pour lesquels il ne lui manque que
+renseigné dans l'application, des recettes pour lesquelles il ne lui manque que
 quelques ingrédients et enfin des propositions d'alternatives de produits ou des 
-produits qu'il n'a pas qu'il pourrait acheter pour une obtenir une alimentation 
+produits qu'il n'a pas qu'il pourrait acheter afin d'avoir une alimentation 
 plus saine.
 
 == English Summary (PAN1)
@@ -56,7 +56,7 @@ plus saine.
 We have chosen to work on an application for nutrition. Intended primarily for 
 students who usually do not have any cooking experience, the application aims to
 promote healthier eating without conscientiously having to watch our nutritional
-intake. This is hence an initiative aimed to combat obesity and the consumption
+intake. This is therefore an initiative aimed to combat obesity and the consumption
 of junk food - a growing issue in our society. 
 To achieve this, the app proposes the most economical and efficient way to 
 prepare for our next meals. The products' qualities will also be shown to the 
