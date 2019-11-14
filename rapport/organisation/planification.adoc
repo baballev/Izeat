@@ -122,6 +122,15 @@
 |Tâche |Quand |Fait |Remarques
 |Savoir faire du decision making de recettes | | |À faire en fonction des produits dans le frigo et des nutriments consommmés (éventuellement aucun)
 |Proposer des achats : produits génériques mais avec des propositions précises pour certains en fonction de leur qualité écologique | | |À faire en fonction du frigo enregistré par l'utilisateur (des nutriments qu'ils manquent)
+|====
+
+* Test Intégration
+
+[cols=",^,^,",options="header",]
+|====
+|Tâche |Quand |Fait |Remarques
+|Faire les interfaces entre tous les blocs ci dessus et ceux du schéma GL | | |
+|====
 
 //==== Tâches / PAN4 04/05/20
 
