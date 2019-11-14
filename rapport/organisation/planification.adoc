@@ -84,7 +84,44 @@
 |Accès à la caméra envoi de la photo à l'IA de reconnaissance| | |
 |Accès à la caméra plus lecture code barre| | |
 |Affichage des 4 onglets avec fonctionnalités indispensables : accès à la liste déroulante, accès au frigo virtuel, onglet recommendations qui ping l'IA| | |
-//|====
+|====
+
+* Base de Donnée
+
+[cols=",^,^,",options="header",]
+|====
+|Tâche |Quand |Fait |Remarques
+|Prendre rdv avec diététicienne pour savoir les données importantes | | |
+|Structurer BD utilisateurs | | |
+|Avoir BD de recette | | |Première base trouvée : https://ciqual.anses.fr/#/aliments/25001/blanquette-de-veau
+|====
+
+* Web Service
+[cols=",^,^,",options="header",]
+|====
+|Tâche |Quand |Fait |Remarques
+|Client fait requête au server | | |
+|Réponse adaptée du serveur | | |
+|Récupérer les infos de produits d'Open Food Fact | | |
+|Recherche dans Open Food Fact | | |
+|====
+
+* Reconnaissance d'image
+
+[cols=",^,^,",options="header",]
+|====
+|Tâche |Quand |Fait |Remarques
+|1 ou un panier d'aliments arbitraires reconnaissables | | |(Demander au Rab si on peut essayer d'entrainer notre IA avec leur machine)
+|Savoir lire ticket de caisse uniquement du Franprix en face de Télécom | | |
+|====
+
+* IA
+
+[cols=",^,^,",options="header",]
+|====
+|Tâche |Quand |Fait |Remarques
+|Savoir faire du decision making de recettes | | |À faire en fonction des produits dans le frigo et des nutriments consommmés (éventuellement aucun)
+|Proposer des achats : produits génériques mais avec des propositions précises pour certains en fonction de leur qualité écologique | | |À faire en fonction du frigo enregistré par l'utilisateur (des nutriments qu'ils manquent)
 
 //==== Tâches / PAN4 04/05/20
 
