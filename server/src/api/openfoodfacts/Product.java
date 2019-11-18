@@ -15,7 +15,9 @@ public class Product {
 	 * For every getter getAttribute() in the class, there will be 
 	 * "attribute": getAttribute() 
 	 * in json.
-	 * For example: "name": "Nutella"
+	 * For example: "name": "Nutella",
+	 *
+	 * Use 
 	 */
 	
 	
@@ -25,8 +27,11 @@ public class Product {
 	private int novaScore;			 	// Example: 1
 	private final char nutriScore;	 	// Example: 'c'
 	private final String[] categories;  // Example: {"Produits à tartiner", "Petits-déjeuners", "Produits à tartiner sucrés", "Pâtes à tartiner au chocolat", ...}
+	private final boolean palmOil;		// Example: true
+	private final boolean vegan;	    // Example: false
+	private final boolean vegetarian;   // Example: true
 	
-	public Product(StringBuilder sb) {  // sb corresponds to the .JSON file's content.
+	public Product(StringBuilder sb) {  // sb corresponds to the .JSON file's content. Use Tools.getProductQuery to instanciate from a bar-code.
 		String str = sb.toString();
 		JSONObject jsonInfo = new JSONObject(str).getJSONObject("product");
 		
@@ -38,15 +43,46 @@ public class Product {
 		catch(JSONException e) {novaScore = 0;}
 		nutriScore = jsonInfo.getString("nutrition_grades").charAt(0);
 		categories = jsonInfo.getString("categories").split(", ");
+		
+		JSONArray analysis = jsonInfo.getJSONArray("ingredients_analysis_tags");
+		palmOil = (analysis.getString(0) == "en:palm-oil");
+		vegan = (analysis.getString(1) == "en:vegan");
+		vegetarian = (analysis.getString(2) == "en:vegetarian");
 	}
 	
+	public String getQuantity() { // Returns the quantity (mass) as a String.
+		return quantity;
+	}
+
+	public String getImageUrl() { // Returns an URL as a String to an image of the product. The image will be high definition. For a miniature, see TODO
+		return imageUrl;
+	}
+
+	public int getNovaScore() { // Returns the Nova score of the product as an integer i where 0 < i < 6. Will return 0 if the Nova score is unknown.
+		return novaScore;
+	}
+
+	public char getNutriScore() {  // Returns a character belonging to {a, b, c, d, e} according to the calculated nutri-score by OFF.
+		return nutriScore;
+	}
+
+	public String[] getCategories() {  // Returns an array of String containing every category the product belongs to.
+		return categories;
+	}
+
 	public String getName() { // Returns the french name of the product if available, and the english one otherwise.
 		return name;
 	}
-	
-	public HashMap<String, Float> getNutriment() {
-		return null; // TODO
-		
+	public boolean isPalmOil() {  // Returns true if the product is known to contains palm oil. If unknown, will return false by default.
+		return palmOil;
+	}
+
+	public boolean isVegan() {	// Returns true if the product is vegan. If it is unknown, will return false by default.
+		return vegan;
+	}
+
+	public boolean isVegetarian() {  // Returns true if the product is vegetarian. If it is unknown, will return false by default.
+		return vegetarian;
 	}
 	
 }
