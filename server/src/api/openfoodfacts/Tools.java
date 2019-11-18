@@ -9,11 +9,13 @@ import java.io.IOException;
 import java.io.InputStreamReader;
 import java.lang.StringBuilder;
 
+
+
 public class Tools implements ToolsInterface {
 
 	public static StringBuilder getProductQuery(String code) {  // Do not spam for no reason the function or we will be blocked by OFF.
 
-		String url = "https://world.openfoodfacts.org/api/v0/product/" + code + ".json";
+		String url = "https://fr.openfoodfacts.org/api/v0/product/" + code + ".json";
 		StringBuilder content = null;
 		try {
 			HttpURLConnection connection = (HttpURLConnection) new URL(url).openConnection();
@@ -39,4 +41,12 @@ public class Tools implements ToolsInterface {
 		return content;
 	}
 
+	
+	public static String[] getIngredients(String code) {
+		
+		
+		
+		return null;
+	}
+	
 }
