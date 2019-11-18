@@ -186,3 +186,14 @@ Base de données
 |Pouvoir effectuer une recherche dans la base de données| | |
 |====
 
+Test et intégration
+
+[cols=",^,^,",options="header",]
+|====
+|Tâche |Quand |Fait |Remarques
+| Les différentes parties du projet communiquent entre elles  | | | 
+| Les informations sont traitées en entrée de chaque bloc du projet | | |
+| Toutes les structures de données sont commentées | | | En ce qui concerne leur nature, leur format et les valeurs que l'on peut observer.
+| Chaque bloc a été testé sur différentes plages de valeurs. | | | 
+|====
+
