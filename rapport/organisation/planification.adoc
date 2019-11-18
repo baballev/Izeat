@@ -180,8 +180,8 @@ Base de données
 [cols=",^,^,",options="header",]
 |====
 |Tâche |Quand |Fait |Remarques
-|Avoir accès à la BD OpenFoodFacts | |pour récupérer les valeurs nutritifs des produits |
-|Structurer une BD consommation | |utile pour stocker la consommation par utilisateur et pouvoir faire le suivi  |
+|Avoir accès à la BD OpenFoodFacts | | |pour récupérer les valeurs nutritifs des produits
+|Structurer une BD consommation | | |utile pour stocker la consommation par utilisateur et pouvoir faire le suivi
 
 |====
 
