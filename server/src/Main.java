@@ -10,7 +10,7 @@ public class Main {
 		String code = "8076809529433";
 		StringBuilder sb = Tools.getProductQuery(code);
 		Product product = new Product(sb);
-		System.out.println(product.getCategories());
+		System.out.println(product.getCategories()[0]);
 		JSONObject d = new JSONObject(product);
 		System.out.println(d.toString());
 		

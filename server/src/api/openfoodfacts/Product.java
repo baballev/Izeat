@@ -1,6 +1,7 @@
 package api.openfoodfacts;
 
 import java.util.HashMap;
+import java.util.Iterator;
 
 import org.json.*;
 
@@ -19,26 +20,27 @@ public class Product {
 	 */
 	
 	
-	private final String name;		 	// Example: "Nutella"	
-	private final String quantity;	 	// Example: "100 g"
-	private final String imageUrl;	 	// Example: "https://static.openfoodfacts.org/images/products/301/762/040/2678/front_fr.77.400.jpg"
-	private int novaScore;			 	// Example: 1
-	private final char nutriScore;	 	// Example: 'c'
-	private final String[] categories;  // Example: {"Produits à tartiner", "Petits-déjeuners", "Produits à tartiner sucrés", "Pâtes à tartiner au chocolat", ...}
-	private final boolean palmOil;		// Example: true
-	private final boolean vegan;	    // Example: false
-	private final boolean vegetarian;   // Example: true
+	private final String name;		 			// Example: "Nutella"	
+	private final String quantity;	 			// Example: "100 g"
+	private final String imageUrl;	 			// Example: "https://static.openfoodfacts.org/images/products/301/762/040/2678/front_fr.77.400.jpg"
+	private int novaScore;			 			// Example: 1
+	private final char nutriScore;	 			// Example: 'c'
+	private final String[] categories;  		// Example: {"Produits à tartiner", "Petits-déjeuners", "Produits à tartiner sucrés", "Pâtes à tartiner au chocolat", ...}
+	private final boolean palmOil;				// Example: true
+	private final boolean vegan;	    		// Example: false
+	private final boolean vegetarian;   		// Example: true
+	private HashMap<String, Float> nutriments;	// Example: {"
 	
 	public Product(StringBuilder sb) {  // sb corresponds to the .JSON file's content. Use Tools.getProductQuery to instanciate from a bar-code.
-		String str = sb.toString();
-		JSONObject jsonInfo = new JSONObject(str).getJSONObject("product");
+		String jsonContent = sb.toString();
+		JSONObject jsonInfo = new JSONObject(jsonContent).getJSONObject("product");
 		
 		if (jsonInfo.getString("product_name_fr") != "") name = jsonInfo.getString("product_name_fr");
 		else name = jsonInfo.getString("product_name");
 		quantity = jsonInfo.getString("quantity");
 		imageUrl = jsonInfo.getString("image_url");
 		try {
-			Object nova = jsonInfo.get("nova_group");
+			Object nova = jsonInfo.get("nova_group");  // There's a problem with nova-score because it is either an integer or a string on OpenFoodFacts.
 			if (nova instanceof String) {
 				novaScore = Integer.parseInt((String) nova);
 			} else if(nova instanceof Integer) {
@@ -47,16 +49,25 @@ public class Product {
 			}
 		} catch(JSONException e) {
 			novaScore = 0;
-			}
+		}
 		nutriScore = jsonInfo.getString("nutrition_grades").charAt(0);
 		categories = jsonInfo.getString("categories").split(", ");
 		JSONArray analysis = jsonInfo.getJSONArray("ingredients_analysis_tags");
 		palmOil = (analysis.getString(0) == "en:palm-oil");
 		vegan = (analysis.getString(1) == "en:vegan");
 		vegetarian = (analysis.getString(2) == "en:vegetarian");
-		
+		JSONObject jNutriments = jsonInfo.getJSONObject("nutriments");
+		nutriments = new HashMap<String, Float>();
+		String[] nutrimentList = {"sodium", "fat", "fiber", "salt", "sugars", "proteins"}; // TODO: Complete with what's necessary
+		for (String s : nutrimentList){
+			nutriments.put(s, jNutriments.getFloat(s));
+		}
 	}
 	
+	public HashMap<String, Float> getNutriments() {
+		return nutriments;
+	}
+
 	public String getQuantity() { // Returns the quantity (mass) as a String.
 		return quantity;
 	}
