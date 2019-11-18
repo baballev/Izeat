@@ -9,9 +9,9 @@ public interface ToolsInterface {
 	// What it does not: Format data so that it is ready to be used.
 
 	// code is a 12 digits integer corresponding to the barcode of the desired
-	// product.
+	// product. It is represented as a string as every 0 at the begining matters.
 	// Returns a StringBuilder containing the JSON file.
-	public static StringBuilder getProductQuery(int code) {
+	public static StringBuilder getProductQuery(String code) {
 		return null;
 	}
 
