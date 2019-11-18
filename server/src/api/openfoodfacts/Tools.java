@@ -27,7 +27,7 @@ public class Tools implements ToolsInterface {
 				String line;
 				while ((line = input.readLine()) != null) {
 					content.append(line);
-					content.append(System.lineSeparator());
+					content.append('\\');
 				}
 			} catch (Exception e) {
 				e.printStackTrace();
@@ -48,5 +48,7 @@ public class Tools implements ToolsInterface {
 		
 		return null;
 	}
+	
+	
 	
 }
