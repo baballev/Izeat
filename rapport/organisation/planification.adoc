@@ -175,3 +175,13 @@ Reconnaissance d'image
 | Lecture de ticket de caisse du franprix à côté de Télécom Paris | | | Le système de reconnaissance est capable de lire les informations essentielles sur ces tickets de caisse.
 |====
 
+Base de données
+
+[cols=",^,^,",options="header",]
+|====
+|Tâche |Quand |Fait |Remarques
+|Avoir accès à la BD OpenFoodFacts | |pour récupérer les valeurs nutritifs des produits |
+|Structurer une BD consommation | |utile pour stocker la consommation par utilisateur et pouvoir faire le suivi  |
+
+|====
+
