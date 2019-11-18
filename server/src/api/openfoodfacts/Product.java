@@ -19,13 +19,14 @@ public class Product {
 	 */
 	
 	
-	private final String name;		 // Example: "Nutella"	
-	private final String quantity;	 // Example: "100 g"
-	private final String imageUrl;	 // Example: "https://static.openfoodfacts.org/images/products/301/762/040/2678/front_fr.77.400.jpg"
-	private int novaScore;			 // Example: 1
-	private final char nutriScore;	 // Example: 'c'
+	private final String name;		 	// Example: "Nutella"	
+	private final String quantity;	 	// Example: "100 g"
+	private final String imageUrl;	 	// Example: "https://static.openfoodfacts.org/images/products/301/762/040/2678/front_fr.77.400.jpg"
+	private int novaScore;			 	// Example: 1
+	private final char nutriScore;	 	// Example: 'c'
+	private final String[] categories;  // Example: {"Produits à tartiner", "Petits-déjeuners", "Produits à tartiner sucrés", "Pâtes à tartiner au chocolat", ...}
 	
-	public Product(StringBuilder sb) {  // sb corresponds to the json file.
+	public Product(StringBuilder sb) {  // sb corresponds to the .JSON file's content.
 		String str = sb.toString();
 		JSONObject jsonInfo = new JSONObject(str).getJSONObject("product");
 		
@@ -36,18 +37,7 @@ public class Product {
 		try {novaScore = Integer.parseInt(jsonInfo.getString("nova_group"));}
 		catch(JSONException e) {novaScore = 0;}
 		nutriScore = jsonInfo.getString("nutrition_grades").charAt(0);
-	}
-	public Product(String code) {  // code represents the 12 digits bar-code.
-		StringBuilder productInfo = Tools.getProductQuery(code);
-		String str = productInfo.toString();
-		JSONObject jsonInfo = new JSONObject(str).getJSONObject("product");
-		if (jsonInfo.getString("product_name_fr") != "") name = jsonInfo.getString("product_name_fr");
-		else name = jsonInfo.getString("product_name");
-		quantity = jsonInfo.getString("quantity");
-		imageUrl = jsonInfo.getString("image_url");
-		try {novaScore = Integer.parseInt(jsonInfo.getString("nova_group"));}
-		catch(JSONException e) {novaScore = 0;}
-		nutriScore = jsonInfo.getString("nutrition_grades").charAt(0);
+		categories = jsonInfo.getString("categories").split(", ");
 	}
 	
 	public String getName() { // Returns the french name of the product if available, and the english one otherwise.

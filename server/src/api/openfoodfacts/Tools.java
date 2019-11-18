@@ -10,10 +10,9 @@ import java.io.InputStreamReader;
 import java.lang.StringBuilder;
 
 
-
 public class Tools implements ToolsInterface {
 
-	public static StringBuilder getProductQuery(String code) {  // Do not spam for no reason the function or we will be blocked by OFF.
+	public static StringBuilder getProductQuery(String code) {
 
 		String url = "https://fr.openfoodfacts.org/api/v0/product/" + code + ".json";
 		StringBuilder content = null;
@@ -27,7 +26,7 @@ public class Tools implements ToolsInterface {
 				String line;
 				while ((line = input.readLine()) != null) {
 					content.append(line);
-					content.append('\\');
+					content.append(System.lineSeparator());
 				}
 			} catch (Exception e) {
 				e.printStackTrace();
