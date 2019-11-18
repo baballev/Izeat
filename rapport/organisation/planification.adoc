@@ -86,7 +86,7 @@
 |Affichage des 4 onglets avec fonctionnalités indispensables : accès à la liste déroulante, accès au frigo virtuel, onglet recommendations qui ping l'IA| | |
 |====
 
-* Base de Donnée
+* Base de Données
 
 [cols=",^,^,",options="header",]
 |====
