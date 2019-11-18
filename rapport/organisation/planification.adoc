@@ -132,7 +132,7 @@
 |Faire les interfaces entre tous les blocs ci dessus et ceux du schéma GL | | |
 |====
 
-//==== Tâches / PAN4 04/05/20
+==== Tâches / PAN4 04/05/20
 
 //===== Générales
 
@@ -142,12 +142,36 @@
 
 //===== Modules
 
-//* Android
+Android
 
-//[cols=",^,^,",options="header",]
-//|====
-//|Tâche |Quand |Fait |Remarques
-//|feature 8 | | |
-//|feature 9 | | |
-//|test | | |
-//|====
+[cols=",^,^,",options="header",]
+|====
+|Tâche |Quand |Fait |Remarques
+|feature 8 | | |
+|feature 9 | | |
+|test | | |
+|====
+
+
+Services Web
+
+[cols=",^,^,",options="header",]
+|====
+|Tâche |Quand |Fait |Remarques
+| Accès à la base de données | | | Le service web possède des méthodes qui permettent d'accéder ou de modifier les champs de la base de données.
+| Info produits | | | Lors de l'entrée d'un produit, toutes les informations nécessaires sont récupérables par le biais du service web.
+| Requête de recherche | | | Le service web est capable de retourner le résultat d'une recherche dans la base de données ou d'une liste de produits.
+| Communication reconnaissance d'image | | | Le service web possède une requête permettant d'envoyer au système de reconnaissance d'image une image uploadée par l'utilisateur et dont il renvoie le résulstat du système de reconnaissance.
+|====
+
+Reconnaissance d'image
+
+[cols=",^,^,",options="header",]
+|====
+|Tâche |Quand |Fait |Remarques
+| Reconnaissance d'un panier de produits | | | Une certaine liste de produits sont reconnaissables par le système de reconnaissance d'image.
+| Optimisation | | | La reconnaissance des biens choisis doit avoir un taux de succès suffisant (>90%) et être optimisé dans la mesure du possible.
+| Identification d'un ticket de caisse | | | Le système est capable de détecter un ticket de caisse sur une image.
+| Lecture de ticket de caisse du franprix à côté de Télécom Paris | | | Le système de reconnaissance est capable de lire les informations essentielles sur ces tickets de caisse.
+|====
+
