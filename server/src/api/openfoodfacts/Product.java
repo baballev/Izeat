@@ -16,8 +16,6 @@ public class Product {
 	 * "attribute": getAttribute() 
 	 * in json.
 	 * For example: "name": "Nutella",
-	 *
-	 * Use 
 	 */
 	
 	
@@ -39,15 +37,24 @@ public class Product {
 		else name = jsonInfo.getString("product_name");
 		quantity = jsonInfo.getString("quantity");
 		imageUrl = jsonInfo.getString("image_url");
-		try {novaScore = Integer.parseInt(jsonInfo.getString("nova_group"));}
-		catch(JSONException e) {novaScore = 0;}
+		try {
+			Object nova = jsonInfo.get("nova_group");
+			if (nova instanceof String) {
+				novaScore = Integer.parseInt((String) nova);
+			} else if(nova instanceof Integer) {
+				Integer novaInteger = (Integer) nova;
+				novaScore = novaInteger.intValue();
+			}
+		} catch(JSONException e) {
+			novaScore = 0;
+			}
 		nutriScore = jsonInfo.getString("nutrition_grades").charAt(0);
 		categories = jsonInfo.getString("categories").split(", ");
-		
 		JSONArray analysis = jsonInfo.getJSONArray("ingredients_analysis_tags");
 		palmOil = (analysis.getString(0) == "en:palm-oil");
 		vegan = (analysis.getString(1) == "en:vegan");
 		vegetarian = (analysis.getString(2) == "en:vegetarian");
+		
 	}
 	
 	public String getQuantity() { // Returns the quantity (mass) as a String.
