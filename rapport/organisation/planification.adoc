@@ -147,9 +147,8 @@ Android
 [cols=",^,^,",options="header",]
 |====
 |Tâche |Quand |Fait |Remarques
-|feature 8 | | |
-|feature 9 | | |
-|test | | |
+|design de l'appli finiet optimal pour la bonne utilisation | | |l'appli doit etre userfriendly
+|lecture d'un ticket de caisse intégré à l'appli | | |
 |====
 
 
