@@ -25,3 +25,4 @@ public class ServiceRessource {
         return "<html lang=\\\"en\\\"><body><h1>Hello, World!!</body></h1></html>";
     }
 }
+    
