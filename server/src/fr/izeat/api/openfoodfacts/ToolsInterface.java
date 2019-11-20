@@ -1,4 +1,4 @@
-package api.openfoodfacts;
+package fr.izeat.api.openfoodfacts;
 
 import java.lang.StringBuilder;
 
@@ -11,6 +11,7 @@ public interface ToolsInterface {
 	// code is a 12 digits integer corresponding to the barcode of the desired
 	// product. It is represented as a string as every 0 at the begining matters.
 	// Returns a StringBuilder containing the JSON file.
+	// If the method fails to get the JSON file, it will return null.
 	public static StringBuilder getProductQuery(String code) {
 		return null;
 	}
@@ -19,6 +20,7 @@ public interface ToolsInterface {
 	// pageNumber corresponds to the desired page number of the research result.
 	// pageSize corresponds to the number of products by page.
 	// Returns a StringBuilder containing the HTML doc.
+	// If the method fails to get the HTML doc, it will return null.
 	public static StringBuilder getSearchQuery(String query, int pageNumber, int pageSize) {
 		return null;
 	}

@@ -1,4 +1,4 @@
-package api.openfoodfacts;
+package fr.izeat.api.openfoodfacts;
 
 import java.net.HttpURLConnection;
 import java.net.MalformedURLException;

@@ -1,4 +1,4 @@
-package api.openfoodfacts;
+package fr.izeat.api.test.ressources;
 
 import java.util.HashMap;
 import java.util.Iterator;
