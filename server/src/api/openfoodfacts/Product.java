@@ -17,6 +17,8 @@ public class Product {
 	 * "attribute": getAttribute() 
 	 * in json.
 	 * For example: "name": "Nutella",
+	 * 
+	 * For org.json documentation, see: https://stleary.github.io/JSON-java/
 	 */
 	
 	
@@ -47,7 +49,7 @@ public class Product {
 				Integer novaInteger = (Integer) nova;
 				novaScore = novaInteger.intValue();
 			}
-		} catch(JSONException e) {
+		} catch(JSONException e) { 					  // JSONException is thrown when the field "nova_group" is not found in the .JSON file
 			novaScore = 0;
 		}
 		nutriScore = jsonInfo.getString("nutrition_grades").charAt(0);
