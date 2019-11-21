@@ -196,3 +196,11 @@ Test et intégration
 | Chaque bloc a été testé sur différentes plages de valeurs. | | | 
 |====
 
+Intelligence Artificielle
+[cols=",^,^,",options="header",]
+|====
+|Tâche |Quand |Fait |Remarques
+| Optimisation pour les recommandations pour les utilisateurs  | | Manière sera confirmée après la discussion avec Prof Jean Louis| 
+| Faire un système du feedback pour les plats recommandés pour chaque semaine  | | Sera aussi confirmé après la discussion avec Prof Jean Louis|
+|====
+
