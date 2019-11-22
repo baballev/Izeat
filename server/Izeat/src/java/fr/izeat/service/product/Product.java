@@ -1,7 +1,6 @@
-package api.openfoodfacts;
+package fr.izeat.service.product;
 
 import java.util.HashMap;
-import java.util.Iterator;
 
 import org.json.*;
 
@@ -17,18 +16,20 @@ public class Product {
 	 * "attribute": getAttribute() 
 	 * in json.
 	 * For example: "name": "Nutella",
+	 * 
+	 * For org.json documentation, see: https://stleary.github.io/JSON-java/
 	 */
 	
 	
-	private final String name;		 			// Example: "Nutella"	
-	private final String quantity;	 			// Example: "100 g"
-	private final String imageUrl;	 			// Example: "https://static.openfoodfacts.org/images/products/301/762/040/2678/front_fr.77.400.jpg"
-	private int novaScore;			 			// Example: 1
-	private final char nutriScore;	 			// Example: 'c'
-	private final String[] categories;  		// Example: {"Produits à tartiner", "Petits-déjeuners", "Produits à tartiner sucrés", "Pâtes à tartiner au chocolat", ...}
-	private final boolean palmOil;				// Example: true
+	private final String name;		 	// Example: "Nutella"	
+	private final String quantity;	 		// Example: "100 g"
+	private final String imageUrl;	 		// Example: "https://static.openfoodfacts.org/images/products/301/762/040/2678/front_fr.77.400.jpg"
+	private int novaScore;			 	// Example: 1
+	private final char nutriScore;	 		// Example: 'c'
+	private final String[] categories;  		// Example: {"Produits ï¿½ tartiner", "Petits-dï¿½jeuners", "Produits ï¿½ tartiner sucrï¿½s", "Pï¿½tes ï¿½ tartiner au chocolat", ...}
+	private final boolean palmOil;			// Example: true
 	private final boolean vegan;	    		// Example: false
-	private final boolean vegetarian;   		// Example: true
+	private final boolean vegetarian;   		// Example: true TODO: Implement the "maybe field"
 	private HashMap<String, Float> nutriments;	// Example: {"
 	
 	public Product(StringBuilder sb) {  // sb corresponds to the .JSON file's content. Use Tools.getProductQuery to instanciate from a bar-code.
@@ -47,7 +48,7 @@ public class Product {
 				Integer novaInteger = (Integer) nova;
 				novaScore = novaInteger.intValue();
 			}
-		} catch(JSONException e) {
+		} catch(JSONException e) { 					  // JSONException is thrown when the field "nova_group" is not found in the .JSON file
 			novaScore = 0;
 		}
 		nutriScore = jsonInfo.getString("nutrition_grades").charAt(0);
