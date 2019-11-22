@@ -7,7 +7,7 @@ import fr.izeat.service.user.User;
 
 
 @Path("/user/{username}")
-public class UsersRessource {
+public class UserRessource {
 
 	@GET
 	@Produces("text/json")
@@ -18,7 +18,7 @@ public class UsersRessource {
 		// TODO: 4) Return the JSONObject.toString()
 		User usr = new User(userName);
 		JSONObject jsonUser = new JSONObject(usr);
-		
+                    
 		return jsonUser.toString();
 	}
 	

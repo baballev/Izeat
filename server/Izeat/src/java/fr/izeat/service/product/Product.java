@@ -1,7 +1,6 @@
 package fr.izeat.service.product;
 
 import java.util.HashMap;
-import java.util.Iterator;
 
 import org.json.*;
 
@@ -30,7 +29,7 @@ public class Product {
 	private final String[] categories;  		// Example: {"Produits � tartiner", "Petits-d�jeuners", "Produits � tartiner sucr�s", "P�tes � tartiner au chocolat", ...}
 	private final boolean palmOil;			// Example: true
 	private final boolean vegan;	    		// Example: false
-	private final boolean vegetarian;   		// Example: true
+	private final boolean vegetarian;   		// Example: true TODO: Implement the "maybe field"
 	private HashMap<String, Float> nutriments;	// Example: {"
 	
 	public Product(StringBuilder sb) {  // sb corresponds to the .JSON file's content. Use Tools.getProductQuery to instanciate from a bar-code.

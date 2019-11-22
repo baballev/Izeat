@@ -1,5 +1,7 @@
 package fr.izeat.service.ressources;
 
+import fr.izeat.api.openfoodfacts.Tools;
+import fr.izeat.service.product.Product;
 import javax.ws.rs.core.Context;
 import javax.ws.rs.core.UriInfo;
 import javax.ws.rs.Produces;
@@ -8,6 +10,7 @@ import javax.ws.rs.GET;
 import javax.ws.rs.Path;
 import javax.ws.rs.PUT;
 import javax.ws.rs.core.MediaType;
+import org.json.JSONObject;
 
 @Path("/service")
 public class ServiceRessource {

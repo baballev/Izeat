@@ -25,8 +25,9 @@ public class ApplicationConfig extends Application {
      * If required, comment out calling this method in getClasses().
      */
     private void addRestResourceClasses(Set<Class<?>> resources) {
+        resources.add(fr.izeat.service.ressources.ProductRessource.class);
         resources.add(fr.izeat.service.ressources.ServiceRessource.class);
-        resources.add(fr.izeat.service.ressources.UsersRessource.class);
+        resources.add(fr.izeat.service.ressources.UserRessource.class);
     }
     
 }
