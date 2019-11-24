@@ -91,7 +91,7 @@
 [cols=",^,^,",options="header",]
 |====
 |Tâche |Quand |Fait |Remarques
-|Prendre rdv avec diététicienne pour savoir les données importantes | | |
+|Prendre rdv avec diététicienne pour savoir les données nécéssaires au suivit | | |
 |Structurer BD utilisateurs | | |
 |Avoir BD de recette | | |Première base trouvée : https://ciqual.anses.fr/#/aliments/25001/blanquette-de-veau
 |====
@@ -183,6 +183,8 @@ Base de données
 |Stocker les informations utilisateurs de manière sécurisée | | |
 |Proposer un protocole d'accès et de modification des données de la BD | | | De manière sécurisée.
 |Pouvoir effectuer une recherche dans la base de données| | |
+|Avoir un cache de recettes simples en cas de disfonctionnement du service web| | |
+|Mettre en place un "frigo virtuel" dans lequel est stocké ce que l'utilisateur a déjà chez lui| | | 
 |====
 
 Test et intégration
@@ -202,5 +204,6 @@ Intelligence Artificielle
 |Tâche |Quand |Fait |Remarques
 | Optimisation pour les recommandations pour les utilisateurs  | | | Manière sera confirmée après la discussion avec Prof Jean Louis
 | Faire un système du feedback pour les plats recommandés pour chaque semaine  | | | Sera aussi confirmé après la discussion avec Prof Jean Louis
+| Prendre en compte ce que l'utilisateur a déjà dans son frigo virtuel|||
 |====
 
