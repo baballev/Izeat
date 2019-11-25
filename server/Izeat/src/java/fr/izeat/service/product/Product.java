@@ -5,8 +5,8 @@ import java.util.HashMap;
 import org.json.*;
 
 public class Product {
-	
-	/* General notes:
+
+    /* General notes:
 	 * The class was built to be easily convertible to a .JSON file:
 	 * if product is instanced by this class,
 	 * JSONObject obj = new JSONObject(product);
@@ -18,91 +18,90 @@ public class Product {
 	 * For example: "name": "Nutella",
 	 * 
 	 * For org.json documentation, see: https://stleary.github.io/JSON-java/
-	 */
-	
-	
-	private final String name;		 	// Example: "Nutella"	
-	private final String quantity;	 		// Example: "100 g"
-	private final String imageUrl;	 		// Example: "https://static.openfoodfacts.org/images/products/301/762/040/2678/front_fr.77.400.jpg"
-	private int novaScore;			 	// Example: 1
-	private final char nutriScore;	 		// Example: 'c'
-	private final String[] categories;  		// Example: {"Produits � tartiner", "Petits-d�jeuners", "Produits � tartiner sucr�s", "P�tes � tartiner au chocolat", ...}
-	private final boolean palmOil;			// Example: true
-	private final boolean vegan;	    		// Example: false
-	private final boolean vegetarian;   		// Example: true TODO: Implement the "maybe field"
-	private HashMap<String, Float> nutriments;	// Example: {"
-	
-	public Product(StringBuilder sb) {  // sb corresponds to the .JSON file's content. Use Tools.getProductQuery to instanciate from a bar-code.
-		String jsonContent = sb.toString();
-		JSONObject jsonInfo = new JSONObject(jsonContent).getJSONObject("product");
-		
-		if (jsonInfo.getString("product_name_fr") != "") name = jsonInfo.getString("product_name_fr");
-		else name = jsonInfo.getString("product_name");
-		quantity = jsonInfo.getString("quantity");
-		imageUrl = jsonInfo.getString("image_url");
-		try {
-			Object nova = jsonInfo.get("nova_group");  // There's a problem with nova-score because it is either an integer or a string on OpenFoodFacts.
-			if (nova instanceof String) {
-				novaScore = Integer.parseInt((String) nova);
-			} else if(nova instanceof Integer) {
-				Integer novaInteger = (Integer) nova;
-				novaScore = novaInteger.intValue();
-			}
-		} catch(JSONException e) { 					  // JSONException is thrown when the field "nova_group" is not found in the .JSON file
-			novaScore = 0;
-		}
-		nutriScore = jsonInfo.getString("nutrition_grades").charAt(0);
-		categories = jsonInfo.getString("categories").split(", ");
-		JSONArray analysis = jsonInfo.getJSONArray("ingredients_analysis_tags");
-		palmOil = (analysis.getString(0) == "en:palm-oil");
-		vegan = (analysis.getString(1) == "en:vegan");
-		vegetarian = (analysis.getString(2) == "en:vegetarian");
-		JSONObject jNutriments = jsonInfo.getJSONObject("nutriments");
-		nutriments = new HashMap<String, Float>();
-		String[] nutrimentList = {"sodium", "fat", "fiber", "salt", "sugars", "proteins"}; // TODO: Complete with what's necessary
-		for (String s : nutrimentList){
-			nutriments.put(s, jNutriments.getFloat(s));
-		}
-	}
-	
-	public HashMap<String, Float> getNutriments() {
-		return nutriments;
-	}
+     */
+    private final String name;		 	// Example: "Nutella"	
+    private final String quantity;	 		// Example: "100 g"
+    private final String imageUrl;	 		// Example: "https://static.openfoodfacts.org/images/products/301/762/040/2678/front_fr.77.400.jpg"
+    private int novaScore;			 	// Example: 1
+    private final char nutriScore;	 		// Example: 'c'
+    private final String[] categories;  		// Example: {"Produits � tartiner", "Petits-d�jeuners", "Produits � tartiner sucr�s", "P�tes � tartiner au chocolat", ...}
+    private final boolean palmOil;			// Example: true
+    private final boolean vegan;	    		// Example: false
+    private final boolean vegetarian;   		// Example: true TODO: Implement the "maybe field"
+    private HashMap<String, Float> nutriments;	// Example: {"
 
-	public String getQuantity() { // Returns the quantity (mass) as a String.
-		return quantity;
-	}
+    public Product(StringBuilder sb) {  // sb corresponds to the .JSON file's content. Use Tools.getProductQuery to instanciate from a bar-code.
+        String jsonContent = sb.toString();
+        JSONObject jsonInfo = new JSONObject(jsonContent).getJSONObject("product");
+        if (!jsonInfo.isNull("product_name_fr")) {
+            name = jsonInfo.getString("product_name_fr");
+        } else {
+            name = jsonInfo.getString("product_name");
+        }
+        quantity = jsonInfo.getString("quantity");
+        imageUrl = jsonInfo.getString("image_url");
+        if (!jsonInfo.isNull("nova_group")) {
+            Object nova = jsonInfo.get("nova_group");  // There's a problem with nova-score because it is either an integer or a string on OpenFoodFacts.
+            if (nova instanceof String) {
+                novaScore = Integer.parseInt((String) nova);
+            } else if (nova instanceof Integer) {
+                Integer novaInteger = (Integer) nova;
+                novaScore = novaInteger.intValue();
+            }
+        } else novaScore = 0;
+        nutriScore = jsonInfo.getString("nutrition_grades").charAt(0);
+        categories = jsonInfo.getString("categories").split(", ");
+        JSONArray analysis = jsonInfo.getJSONArray("ingredients_analysis_tags");
+        palmOil = (analysis.getString(0) == "en:palm-oil");
+        vegan = (analysis.getString(1) == "en:vegan");
+        vegetarian = (analysis.getString(2) == "en:vegetarian");
+        JSONObject jNutriments = jsonInfo.getJSONObject("nutriments");
+        nutriments = new HashMap<String, Float>();
+        String[] nutrimentList = {"sodium", "fat", "fiber", "salt", "sugars", "proteins"}; // TODO: Complete with what's necessary
+        for (String s : nutrimentList) {
+               if(!jNutriments.isNull(s)) nutriments.put(s, jNutriments.getFloat(s));
+               else nutriments.put(s, 0f);
+        }
+    }
 
-	public String getImageUrl() { // Returns an URL as a String to an image of the product. The image will be high definition. For a miniature, see TODO
-		return imageUrl;
-	}
+    public HashMap<String, Float> getNutriments() {
+        return nutriments;
+    }
 
-	public int getNovaScore() { // Returns the Nova score of the product as an integer i where 0 < i < 6. Will return 0 if the Nova score is unknown.
-		return novaScore;
-	}
+    public String getQuantity() { // Returns the quantity (mass) as a String.
+        return quantity;
+    }
 
-	public char getNutriScore() {  // Returns a character belonging to {a, b, c, d, e} according to the calculated nutri-score by OFF.
-		return nutriScore;
-	}
+    public String getImageUrl() { // Returns an URL as a String to an image of the product. The image will be high definition. For a miniature, see TODO
+        return imageUrl;
+    }
 
-	public String[] getCategories() {  // Returns an array of String containing every category the product belongs to.
-		return categories;
-	}
+    public int getNovaScore() { // Returns the Nova score of the product as an integer i where 0 < i < 6. Will return 0 if the Nova score is unknown.
+        return novaScore;
+    }
 
-	public String getName() { // Returns the french name of the product if available, and the english one otherwise.
-		return name;
-	}
-	public boolean isPalmOil() {  // Returns true if the product is known to contains palm oil. If unknown, will return false by default.
-		return palmOil;
-	}
+    public char getNutriScore() {  // Returns a character belonging to {a, b, c, d, e} according to the calculated nutri-score by OFF.
+        return nutriScore;
+    }
 
-	public boolean isVegan() {	// Returns true if the product is vegan. If it is unknown, will return false by default.
-		return vegan;
-	}
+    public String[] getCategories() {  // Returns an array of String containing every category the product belongs to.
+        return categories;
+    }
 
-	public boolean isVegetarian() {  // Returns true if the product is vegetarian. If it is unknown, will return false by default.
-		return vegetarian;
-	}
-	
+    public String getName() { // Returns the french name of the product if available, and the english one otherwise.
+        return name;
+    }
+
+    public boolean isPalmOil() {  // Returns true if the product is known to contains palm oil. If unknown, will return false by default.
+        return palmOil;
+    }
+
+    public boolean isVegan() {	// Returns true if the product is vegan. If it is unknown, will return false by default.
+        return vegan;
+    }
+
+    public boolean isVegetarian() {  // Returns true if the product is vegetarian. If it is unknown, will return false by default.
+        return vegetarian;
+    }
+
 }
- 
