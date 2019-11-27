@@ -1,6 +1,8 @@
 package fr.izeat.service.product;
 
+import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.Iterator;
 
 import org.json.*;
 
@@ -30,9 +32,13 @@ public class Product {
     private final boolean vegetarian;   		// Example: true TODO: Implement the "maybe field"
     private HashMap<String, Float> nutriments;	// Example: {"
 
-    public Product(StringBuilder sb) {  // sb corresponds to the .JSON file's content. Use Tools.getProductQuery to instanciate from a bar-code.
-        String jsonContent = sb.toString();
-        JSONObject jsonInfo = new JSONObject(jsonContent).getJSONObject("product");
+    public Product(String s) {  // s corresponds to the .JSON file's content. Use Tools.getProductQuery to instanciate from a bar-code.
+        JSONObject jsonContent = new JSONObject(s);
+        JSONObject jsonInfo;
+        if (jsonContent.isNull("product")){
+            jsonInfo = jsonContent;
+        } else jsonInfo = jsonContent.getJSONObject("product");
+        
         if (!jsonInfo.isNull("product_name_fr")) {
             name = jsonInfo.getString("product_name_fr");
         } else {
@@ -58,10 +64,21 @@ public class Product {
         JSONObject jNutriments = jsonInfo.getJSONObject("nutriments");
         nutriments = new HashMap<String, Float>();
         String[] nutrimentList = {"sodium", "fat", "fiber", "salt", "sugars", "proteins"}; // TODO: Complete with what's necessary
-        for (String s : nutrimentList) {
-               if(!jNutriments.isNull(s)) nutriments.put(s, jNutriments.getFloat(s));
-               else nutriments.put(s, 0f);
+        for (String st : nutrimentList) {
+               if(!jNutriments.isNull(st)) nutriments.put(st, jNutriments.getFloat(s));
+               else nutriments.put(st, 0f);
         }
+    }
+    
+    public static ArrayList<Product>  productsFromJSON(StringBuilder sb) {
+        JSONObject jsonObj = new JSONObject(sb.toString());
+        JSONObject jsonProducts = new JSONObject(jsonObj.getJSONObject("products"));
+        Iterator<String> keys = jsonProducts.keys();
+        ArrayList<Product> products = new ArrayList<Product>();
+        while(keys.hasNext()){
+            products.add(new Product(jsonProducts.getJSONObject(keys.next()).toString()));
+        }
+        return products;
     }
 
     public HashMap<String, Float> getNutriments() {

@@ -39,14 +39,16 @@ public class Tools implements ToolsInterface {
 	}
 
     public static StringBuilder getSearchQuery(String query, int pageNumber, int pageSize) {
+        
         //TODO: implement pageNumber and pageSize, tags, ...
+        
         String url = "https://world.openfoodfacts.org/cgi/search.pl?search_terms=" + query + "&search_simple=1&action=process&json=1";
         StringBuilder content = null;
         try{
             HttpURLConnection connection = (HttpURLConnection) new URL(url).openConnection();
             connection.setRequestMethod("GET");
             try{
-                BufferedReader input = new BufferedReader(new InputStreamreader(connection.getInputStream(), "UTF-8"));
+                BufferedReader input = new BufferedReader(new InputStreamReader(connection.getInputStream(), "UTF-8"));
                 content = new StringBuilder();
                 String line;
                 while((line = input.readLine()) != null){
@@ -55,6 +57,8 @@ public class Tools implements ToolsInterface {
                 }
             } catch(Exception e){
                 e.printStackTrace();
+            } finally{
+                connection.disconnect();
             }
         }catch(Exception e){
             e.printStackTrace();
