@@ -38,7 +38,7 @@ public class Tools implements ToolsInterface {
 		return content;  // Returns a StringBuilder Object which can be interpreted using .toString() method which corresponds to the .JSON file content.
 	}
 
-    public static StringBuilder getSearchQuery(String query, int pageNumber, int pageSize) {
+    public static String getSearchQuery(String query, int pageNumber, int pageSize) {
         
         //TODO: implement pageNumber and pageSize, tags, ...
         
@@ -63,7 +63,7 @@ public class Tools implements ToolsInterface {
         }catch(Exception e){
             e.printStackTrace();
         }
-        return content;
+        return content.toString();
     }
 }
 

@@ -70,8 +70,8 @@ public class Product {
         }
     }
     
-    public static ArrayList<Product>  productsFromJSON(StringBuilder sb) {
-        JSONObject jsonObj = new JSONObject(sb.toString());
+    public static ArrayList<Product>  productsFromJSON(String s) {
+        JSONObject jsonObj = new JSONObject(s);
         JSONObject jsonProducts = new JSONObject(jsonObj.getJSONObject("products"));
         Iterator<String> keys = jsonProducts.keys();
         ArrayList<Product> products = new ArrayList<Product>();
