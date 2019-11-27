@@ -8,6 +8,10 @@ import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
 import java.lang.StringBuilder;
+import javax.net.ssl.HttpsURLConnection;
+import javax.net.ssl.SSLContext;
+import javax.net.ssl.TrustManager;
+import javax.net.ssl.X509TrustManager;
 
 
 public class Tools implements ToolsInterface {
@@ -41,12 +45,28 @@ public class Tools implements ToolsInterface {
     public static String getSearchQuery(String query, int pageNumber, int pageSize) {
         
         //TODO: implement pageNumber and pageSize, tags, ...
+           TrustManager[] httpsCertsManager = new TrustManager[]{ // Fix problems with https certs
+                new X509TrustManager() {
+                    public java.security.cert.X509Certificate[] getAcceptedIssuers() { return null; }
+                    public void checkClientTrusted(java.security.cert.X509Certificate[] certs, String authType) {}
+                    public void checkServerTrusted(java.security.cert.X509Certificate[] certs, String authType) {}
+                }
+            };
         
-        String url = "https://world.openfoodfacts.org/cgi/search.pl?search_terms=" + query + "&search_simple=1&action=process&json=1";
+        String url = "https://fr.openfoodfacts.org/cgi/search.pl?search_terms=" + query + "&search_simple=1&action=process&json=1.json";
+        System.out.println(url);
         StringBuilder content = null;
         try{
-            HttpURLConnection connection = (HttpURLConnection) new URL(url).openConnection();
+            SSLContext sc = SSLContext.getInstance("SSL");
+            sc.init(null, httpsCertsManager, new java.security.SecureRandom());
+            HttpsURLConnection.setDefaultSSLSocketFactory(sc.getSocketFactory());
+            
+            HttpsURLConnection connection = (HttpsURLConnection) new URL(url).openConnection();
             connection.setRequestMethod("GET");
+            connection.setUseCaches(false);
+            connection.addRequestProperty("Accept", "text/json");
+            connection.addRequestProperty("Accept-Language", "fr,fr-FR;q=0.8,en-US;q=0.5,en;q=0.3");
+            connection.addRequestProperty("User-Agent", "IzEat"); // TODO: Pass parameters to customize userAgent field in the request's header          
             try{
                 BufferedReader input = new BufferedReader(new InputStreamReader(connection.getInputStream(), "UTF-8"));
                 content = new StringBuilder();

@@ -16,6 +16,7 @@ public class ProductSearchRessource {
     @Produces("text/json")
     public String getSearchProducts(@PathParam("search_terms") String searchTerms){
         String s = Tools.getSearchQuery(searchTerms, 1, 20);
+        System.out.println(s);
         ArrayList<Product> searchResult = Product.productsFromJSON(s);
         JSONObject jsonSearchResult = new JSONObject(searchResult);
         return jsonSearchResult.toString();
