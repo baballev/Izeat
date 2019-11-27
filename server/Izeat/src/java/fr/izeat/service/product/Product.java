@@ -59,10 +59,16 @@ public class Product {
         if (!jsonInfo.isNull("nutritiopn_grades")) nutriScore = jsonInfo.getString("nutrition_grades").charAt(0);
         else nutriScore = 'n'; // Default value when nutriscore not found.
         categories = jsonInfo.getString("categories").split(", ");
-        JSONArray analysis = jsonInfo.getJSONArray("ingredients_analysis_tags");
-        palmOil = (analysis.getString(0) == "en:palm-oil");
-        vegan = (analysis.getString(1) == "en:vegan");
-        vegetarian = (analysis.getString(2) == "en:vegetarian");
+        if (!jsonInfo.isNull("ingredients_analysis_tags")){
+            JSONArray analysis = jsonInfo.getJSONArray("ingredients_analysis_tags");
+            palmOil = (analysis.getString(0) == "en:palm-oil"); // TODO add not sure management
+            vegan = (analysis.getString(1) == "en:vegan");   
+            vegetarian = (analysis.getString(2) == "en:vegetarian");
+        } else{
+            palmOil = false;
+            vegan = false;
+            vegetarian = false;
+        }
         JSONObject jNutriments = jsonInfo.getJSONObject("nutriments");
         nutriments = new HashMap<>();
         String[] nutrimentList = {"sodium", "fat", "fiber", "salt", "sugars", "proteins"}; // TODO: Complete with what's necessary
@@ -75,13 +81,14 @@ public class Product {
     public static ArrayList<Product>  productsFromJSON(String s) {
         JSONObject jsonObj = new JSONObject(s);
         JSONArray jsonProducts = jsonObj.getJSONArray("products");
+        System.out.println(jsonProducts.toString());
         ArrayList<Product> products = new ArrayList<Product>();
         int k = 0;
         for(Object product : jsonProducts){
             System.out.println(k);
             JSONObject prod = (JSONObject) product;
             if (!prod.isNull("completeness")){ 
-              if(Float.valueOf(prod.getString("completeness")) > 0.45){ // Sort products with very few information TODO: modify the cap if needed.
+              if(prod.getFloat("completeness") > 0.45){ // Sort products with very few information TODO: modify the cap if needed.
                   products.add(new Product(prod.toString())); 
               }   
             }
