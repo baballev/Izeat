@@ -81,18 +81,14 @@ public class Product {
     public static ArrayList<Product>  productsFromJSON(String s) {
         JSONObject jsonObj = new JSONObject(s);
         JSONArray jsonProducts = jsonObj.getJSONArray("products");
-        System.out.println(jsonProducts.toString());
         ArrayList<Product> products = new ArrayList<Product>();
-        int k = 0;
         for(Object product : jsonProducts){
-            System.out.println(k);
             JSONObject prod = (JSONObject) product;
             if (!prod.isNull("completeness")){ 
               if(prod.getFloat("completeness") > 0.45){ // Sort products with very few information TODO: modify the cap if needed.
                   products.add(new Product(prod.toString())); 
               }   
             }
-            k++;
         }
         return products;
     }

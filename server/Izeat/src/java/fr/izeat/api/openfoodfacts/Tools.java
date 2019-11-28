@@ -54,7 +54,6 @@ public class Tools implements ToolsInterface {
             };
         
         String url = "https://fr.openfoodfacts.org/cgi/search.pl?search_terms=" + query + "&search_simple=1&action=process&json=1.json";
-        System.out.println(url);
         StringBuilder content = null;
         try{
             SSLContext sc = SSLContext.getInstance("SSL");
