@@ -14,9 +14,15 @@ public class ProductRessource {
     @GET
     @Produces("text/json")
     public String getProduct(@PathParam("code") String code){
-        StringBuilder sb = Tools.getProductQuery(code); // Fetch data from OpenFoodFacts
-        Product product = new Product(sb.toString());              // Create a corresponding product object (Format data)0
+        try{
+        String sb = Tools.getProductQuery(code); // Fetch data from OpenFoodFacts
+        Product product = new Product(sb);          // Create a corresponding product object (Format data)0
         JSONObject jsonProduct = new JSONObject(product);
-        return jsonProduct.toString();                  // Transfer .JSON file
+        return jsonProduct.toString();// Transfer .JSON file
+        }catch(Exception e){
+            e.printStackTrace();
+        }
+            
+        return null;
     }
-}
+}    

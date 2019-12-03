@@ -16,7 +16,7 @@ import javax.net.ssl.X509TrustManager;
 
 public class Tools implements ToolsInterface {
 
-	public static StringBuilder getProductQuery(String code) {
+	public static String getProductQuery(String code) {
 		String url = "http://fr.openfoodfacts.org/api/v0/product/" + code + ".json"; // Problèmes si on met en https car les certificats ne sont pas valides, TODO: voir comment configurer les certifs ssl
 		StringBuilder content = null;
 		try {
@@ -39,8 +39,12 @@ public class Tools implements ToolsInterface {
 		} catch (Exception e) {
 			e.printStackTrace();
                 }
-		return content;  // Returns a StringBuilder Object which can be interpreted using .toString() method which corresponds to the .JSON file content.
+                if (content.toString()!=null){
+                    return content.toString(); }// Returns a StringBuilder Object which can be interpreted using .toString() method which corresponds to the .JSON file content.
+                else return null;
+
 	}
+                
 
     public static String getSearchQuery(String query, int pageNumber, int pageSize) {
         
