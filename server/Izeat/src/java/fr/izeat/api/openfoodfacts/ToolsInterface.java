@@ -13,7 +13,7 @@ public interface ToolsInterface {
      * Returns a String containing the JSON file.
      * If the method fails to get the JSON file, it will return null.
      */
-    public static StringBuilder getProductQuery(String code) {
+    public static String getProductQuery(String code) {
         return null;
     }
 
@@ -23,7 +23,7 @@ public interface ToolsInterface {
      * Returns a String containing the HTML doc.
      * If the method fails to get the HTML doc, it will return null.
      */
-    public static StringBuilder getSearchQuery(String query, int pageNumber, int pageSize) {
+    public static String getSearchQuery(String query, int pageNumber, int pageSize) {
         return null;
     }
 
