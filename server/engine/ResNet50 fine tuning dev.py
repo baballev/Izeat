@@ -67,7 +67,7 @@ with open("test.txt", 'r') as f:
         k+=1
     for k in range(numClasses):
         tmp = []
-        for file in os.listdir("images\\" + labels[k] + "\\")
+        for file in os.listdir("images\\" + labels[k] + "\\"):
             tmp.append("images\\" + labels[k] + "\\" + file)
         files[k] = list(set(tmp) - set(testFiles[k]))
     # files = les fichiers différents de ceux du test set
@@ -98,14 +98,18 @@ lasagna_test = np.array(lasagna_test, dtype=np.float32)
 pizza_test = np.array(pizza_test, dtype=np.float32)
 steak_test = np.array(steak_test, dtype=np.float32)
 sushi_test = np.array(sushi_test, dtype=np.float32)
+
+test_dataset = np.concatenate((churros_test, club_sandwich_test, donuts_test, french_fries_test, gnocchi_test, greek_salad_test, lasagna_test, pizza_test, steak_test, sushi_test), axis=0)
+
+n = churros_test.shape[0]
+print(n)
 # TODO if needed: appeler le garbage collector ici
 
-test_dataset = np.concatenate((churros_test, club_sandwich_test, donuts_test, french_fries_test, gnocchi_test, greek_salad_test, lasagna_test, pizza_test, steak_test, sushi_test) axis=0)
-
-
-test_labels = np.array(shape=(), dtype=np.int32)
+test_labels = np.zeros(n, dtype=np.int32)
 for k in range(1, numClasses):
-    test_labels = np.array(range(test_dataset.shape[0]), dtype=np.int32)
+    test_labels = np.concatenate((test_labels, k*np.ones(n , dtype=np.int32)))
+
+print(test_labels.shape)
 
 # TODO: Train set et valid set
 # TODO: shuffle les arrays
