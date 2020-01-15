@@ -68,11 +68,11 @@ with open("test.txt", 'r') as f:
     for k in range(numClasses):
         tmp = []
         for file in os.listdir("images\\" + labels[k] + "\\")
-            tmp.append(file)
+            tmp.append("images\\" + labels[k] + "\\" + file)
         files[k] = list(set(tmp) - set(testFiles[k]))
     # files = les fichiers différents de ceux du test set
 
-
+# TODO: Commenter, mettre en anglais
 # TODO: Code hyper sale à retravailler pour une généralisation
 churros_test, club_sandwich_test, donuts_test, french_fries_test, gnocchi_test, greek_salad_test, lasagna_test, pizza_test, steak_test, sushi_test  = [], [], [], [], [], [], [], [], [], []
 
@@ -88,18 +88,24 @@ for i in range(len(testFiles[0])):
     steak_test.append(img_to_array(load_img(testFiles[8][i], target_size=IMG_DIM)))
     sushi_test.append(img_to_array(load_img(testFiles[9][i], target_size=IMG_DIM)))
 
-churros_test = np.array(churros_test)
-club_sandwich_test = np.array(club_sandwich_test)
-donuts_test = np.array(donuts_test)
-french_fries_test = np.array(french_fries_test)
-gnocchi_test = np.array(gnocchi_test)
-greek_salad_test = np.array(greek_salad_test)
-lasagna_test = np.array(lasagna_test)
-pizza_test = np.array(pizza_test)
-steak_test = np.array(steak_test)
-sushi_test = np.array(sushi_test)
+churros_test = np.array(churros_test, dtype=np.float32)
+club_sandwich_test = np.array(club_sandwich_test, dtype=np.float32)
+donuts_test = np.array(donuts_test, dtype=np.float32)
+french_fries_test = np.array(french_fries_test, dtype=np.float32)
+gnocchi_test = np.array(gnocchi_test, dtype=np.float32)
+greek_salad_test = np.array(greek_salad_test, dtype=np.float32)
+lasagna_test = np.array(lasagna_test, dtype=np.float32)
+pizza_test = np.array(pizza_test, dtype=np.float32)
+steak_test = np.array(steak_test, dtype=np.float32)
+sushi_test = np.array(sushi_test, dtype=np.float32)
+# TODO if needed: appeler le garbage collector ici
+
+test_dataset = np.concatenate((churros_test, club_sandwich_test, donuts_test, french_fries_test, gnocchi_test, greek_salad_test, lasagna_test, pizza_test, steak_test, sushi_test) axis=0)
 
 
+test_labels = np.array(shape=(), dtype=np.int32)
+for k in range(1, numClasses):
+    test_labels = np.array(range(test_dataset.shape[0]), dtype=np.int32)
 
 # TODO: Train set et valid set
 # TODO: shuffle les arrays
