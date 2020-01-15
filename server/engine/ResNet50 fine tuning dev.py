@@ -9,8 +9,8 @@ Répartition:
     Valid set -> 125 images de chaque catégorie
     Train set -> 750 images de chaque catégorie
 """
-# TODO: Sauvegarder l'entrainement sur le disque dur
-# TODO: Setup branch commune + 2 forks pour le ML et faire les commits
+# TODO: Sauvegarder l'entrainement sur le disque dur ?
+# TODO: Setup 2 branch forks de recoImage pour chacun et faire les commits
 
 ##
 import glob
@@ -25,33 +25,11 @@ from keras.preprocessing.image import ImageDataGenerator, load_img, img_to_array
 np.random.seed(44)
 ## Varibles globales
 
-folder = "\\images"
 labels = ["churros", "club_sandwich", "donuts", "french_fries", "gnocchi", "greek_salad", "lasagna", "pizza", "steak", "sushi"]
 numClasses = len(labels)
 IMG_SIZE = 300
 IMG_DIM = (IMG_SIZE, IMG_SIZE)
-pixelDepth = 255.0
-
-## Utils
-
-def pickleData(dataFolder, minNum, force=False):
-    datasetNames = []
-    for folder in dataFolders:
-        if folder in labels:
-            filename = folder + '.pickle'
-            datasetNames.append(filename)
-            if os.path.exists(filename) and not force:
-                print('%s already pickled, Skipping...' % filename)
-            else:
-                print('Pickling %s.' % filename)
-                dataset = loadFood(folder, minNum)
-                try:
-                    with open(filename, 'wb') as f:
-                        pickle.dump(dataset, f, pickle.HIGHEST_PROTOCOL)
-                except Exception as e:
-                    print('Unable to save data to', set_filename, ':', e)
-
-    return dataset_names
+pixelDepth = 255.0 # TODO: Check if useful
 
 ## DATA
 os.chdir("E:\\Programmation\\Python\\dataset-food")
@@ -70,6 +48,7 @@ with open("test.txt", 'r') as f:
         for file in os.listdir("images\\" + labels[k] + "\\"):
             tmp.append("images\\" + labels[k] + "\\" + file)
         files[k] = list(set(tmp) - set(testFiles[k]))
+
     # files = les fichiers différents de ceux du test set
 
 # TODO: Commenter, mettre en anglais
@@ -101,15 +80,32 @@ sushi_test = np.array(sushi_test, dtype=np.float32)
 
 test_dataset = np.concatenate((churros_test, club_sandwich_test, donuts_test, french_fries_test, gnocchi_test, greek_salad_test, lasagna_test, pizza_test, steak_test, sushi_test), axis=0)
 
-n = churros_test.shape[0]
-print(n)
+n = churros_test.shape[0] # length of test set and valid set
 # TODO if needed: appeler le garbage collector ici
 
 test_labels = np.zeros(n, dtype=np.int32)
 for k in range(1, numClasses):
     test_labels = np.concatenate((test_labels, k*np.ones(n , dtype=np.int32)))
 
-print(test_labels.shape)
+tmp = []
+for k in range(numClasses):
+    for i in range(n):
+        tmp.append(img_to_array(load_img(files[k][i], target_size=IMG_DIM)))
+
+valid_dataset = np.array(tmp, dtype=np.float32)
+valid_labels = np.copy(test_labels)
+
+m = len(files[n:])
+tmp = []
+for k in range(numClasses):
+    for i in range(m):
+        tmp.append(img_to_array(load_img(files[k][i], target_size=IMG_DIM)))
+train_dataset = np.array(tmp, dtype=np.float32)
+
+print("Training dataset shape: ")
+print("Validation dataset shape: " + str(valid_dataset.shape))
+print("Test dataset shape: " + str(test_dataset.shape))
+
 
 # TODO: Train set et valid set
 # TODO: shuffle les arrays
