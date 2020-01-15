@@ -24,6 +24,11 @@ utilisera probablement des librairies pour visualiser des données sous forme
 de graphes. L'application doit pouvoir accéder à l'appareil photo et en 
 récupérer une entrée sous forme d'image pour la classification automatique.
 
+Déroulement des taches à effectuer pour les autres PAN: 
+- PAN2: recherche de bibliographies et début du codage 
+- PAN3: première version de l'application avec le minimum  d'activités pour que l'appli fonctionne bien et réponde aux attentes 
+- PAN4: ajout d'activités en plus et de fonctionnalités non indispesbales au bon fonctionnement de l'appli 
+
 ===== Services Web
 
 Le module services web nous permettra d'utiliser efficacement l'API 

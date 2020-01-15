@@ -25,7 +25,7 @@
 //|répétition | | | |
 //|====
 
-//==== Taches / PAN2 20/01/20
+==== Taches / PAN2 20/01/20
 
 //===== Générales
 
@@ -53,38 +53,86 @@
 
 //* Android
 
-//[cols=",^,^,",options="header",]
-//|====
-//|Tâche |Quand |Fait |Remarques
-//|Installation de l’outil Android Studio | | |
-//|TP Android | | |
-//|Squelette d’application | | |
-//|GUI | | |
-//|Plan de test | | |
-//|====
+[cols=",^,^,",options="header",]
+|====
+|Tâche |Quand |Fait |Remarques
+|Installation de l’outil Android Studio |21 octobre |fait|
+|TP Android | | en cours| on suit le cours/TP d'OpenClassRoom
+|Squelette d’application | | pas fait |
+|GUI | |pas fait |
+|Plan de test | |pas fait |
+|====
 
 //* Autres modules
 
-//==== Tâches / PAN3 18/03/20
+==== Tâches / PAN3 18/03/20
 
 //===== Générales
 
 //* Préparer un déroulé de la démo et du ``matériel'' de démo
 
-//===== Modules
+===== Modules
 
-//* Android
+* Android
 
-//[cols=",^,^,",options="header",]
-//|====
-//|Tâche |Quand |Fait |Remarques
+[cols=",^,^,",options="header",]
+|====
+|Tâche |Quand |Fait |Remarques
 //|asynctask pour client-serveur | | |
-//|feature 1 | | |
-//|feature 2 | | |
-//|test | | |
-//|====
+|Écran d'inscription / envoi sur la BD| | |
+|Connexion avec vérif des login sur la BD| | |
+|Accès à la caméra envoi de la photo à l'IA de reconnaissance| | |
+|Accès à la caméra plus lecture code barre| | |
+|Affichage des 4 onglets avec fonctionnalités indispensables : accès à la liste déroulante, accès au frigo virtuel, onglet recommendations qui ping l'IA| | |
+|====
 
-//==== Tâches / PAN4 04/05/20
+* Base de Données
+
+[cols=",^,^,",options="header",]
+|====
+|Tâche |Quand |Fait |Remarques
+|Prendre rdv avec diététicienne pour savoir les données nécéssaires au suivit | | |
+|Structurer BD utilisateurs | | |
+|Avoir BD de recette | | |Première base trouvée : https://ciqual.anses.fr/#/aliments/25001/blanquette-de-veau
+|====
+
+* Web Service
+[cols=",^,^,",options="header",]
+|====
+|Tâche |Quand |Fait |Remarques
+|Client fait requête au server | | |
+|Réponse adaptée du serveur | | |
+|Récupérer les infos de produits d'Open Food Fact | | |
+|Recherche dans Open Food Fact | | |
+|====
+
+* Reconnaissance d'image
+
+[cols=",^,^,",options="header",]
+|====
+|Tâche |Quand |Fait |Remarques
+|Avoir construit un réseau de neurones | | |
+|Réseau de neurones entrainé sur un ou plusieurs aliments arbitraires: Pouvoir reconnaitre au moins 1 aliment | | |(Demander au Rab si on peut essayer d'entrainer notre IA avec leur machine)
+|====
+
+* IA
+
+[cols=",^,^,",options="header",]
+|====
+|Tâche |Quand |Fait |Remarques
+|Savoir faire du decision making de recettes | | |À faire en fonction des produits dans le frigo et des nutriments consommmés (éventuellement aucun)
+|Proposer des achats : produits génériques mais avec des propositions précises pour certains en fonction de leur qualité écologique | | |À faire en fonction du frigo enregistré par l'utilisateur (des nutriments qu'ils manquent)
+|====
+
+* Test Intégration
+
+[cols=",^,^,",options="header",]
+|====
+|Tâche |Quand |Fait |Remarques
+|Faire les interfaces entre tous les blocs ci dessus et ceux du schéma GL | | |
+|====
+
+==== Tâches / PAN4 04/05/20
 
 //===== Générales
 
@@ -94,12 +142,68 @@
 
 //===== Modules
 
-//* Android
+Android
 
-//[cols=",^,^,",options="header",]
-//|====
-//|Tâche |Quand |Fait |Remarques
-//|feature 8 | | |
-//|feature 9 | | |
-//|test | | |
-//|====
+[cols=",^,^,",options="header",]
+|====
+|Tâche |Quand |Fait |Remarques
+|design de l'appli finiet optimal pour la bonne utilisation | | |l'appli doit etre userfriendly
+|lecture d'un ticket de caisse intégré à l'appli | | |
+|====
+
+
+Services Web
+
+[cols=",^,^,",options="header",]
+|====
+|Tâche |Quand |Fait |Remarques
+| Accès à la base de données | | | Le service web possède des méthodes qui permettent d'accéder ou de modifier les champs de la base de données.
+| Info produits | | | Lors de l'entrée d'un produit, toutes les informations nécessaires sont récupérables par le biais du service web.
+| Requête de recherche | | | Le service web est capable de retourner le résultat d'une recherche dans la base de données ou d'une liste de produits.
+| Communication reconnaissance d'image | | | Le service web possède une requête permettant d'envoyer au système de reconnaissance d'image une image uploadée par l'utilisateur et dont il renvoie le résulstat du système de reconnaissance.
+|====
+
+Reconnaissance d'image
+
+[cols=",^,^,",options="header",]
+|====
+|Tâche |Quand |Fait |Remarques
+| Reconnaissance d'un panier de produits | | | Une certaine liste de produits sont reconnaissables par le système de reconnaissance d'image.
+| Optimisation | | | La reconnaissance des biens choisis doit avoir un taux de succès suffisant (>90%) et être optimisé dans la mesure du possible.
+| Identification d'un ticket de caisse | | | Le système est capable de détecter un ticket de caisse sur une image.
+| Lecture de ticket de caisse du franprix à côté de Télécom Paris | | | Le système de reconnaissance est capable de lire les informations essentielles sur ces tickets de caisse.
+|====
+
+Base de données
+
+[cols=",^,^,",options="header",]
+|====
+|Tâche |Quand |Fait |Remarques
+|Structurer une BD consommation | | | Utile pour stocker la consommation de l'utilisateur et pouvoir faire un suivi.
+|Stocker les informations utilisateurs de manière sécurisée | | |
+|Proposer un protocole d'accès et de modification des données de la BD | | | De manière sécurisée.
+|Pouvoir effectuer une recherche dans la base de données| | |
+|Avoir un cache de recettes simples en cas de disfonctionnement du service web| | |
+|Mettre en place un "frigo virtuel" dans lequel est stocké ce que l'utilisateur a déjà chez lui| | | 
+|====
+
+Test et intégration
+
+[cols=",^,^,",options="header",]
+|====
+|Tâche |Quand |Fait |Remarques
+| Les différentes parties du projet communiquent entre elles  | | | 
+| Les informations sont traitées en entrée de chaque bloc du projet | | |
+| Toutes les structures de données sont commentées | | | En ce qui concerne leur nature, leur format et les valeurs que l'on peut observer.
+| Chaque bloc a été testé sur différentes plages de valeurs. | | | 
+|====
+
+Intelligence Artificielle
+[cols=",^,^,",options="header",]
+|====
+|Tâche |Quand |Fait |Remarques
+| Optimisation pour les recommandations pour les utilisateurs  | | | Manière sera confirmée après la discussion avec Prof Jean Louis
+| Faire un système du feedback pour les plats recommandés pour chaque semaine  | | | Sera aussi confirmé après la discussion avec Prof Jean Louis
+| Prendre en compte ce que l'utilisateur a déjà dans son frigo virtuel|||
+|====
+
