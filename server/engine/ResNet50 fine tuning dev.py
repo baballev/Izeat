@@ -95,20 +95,25 @@ for k in range(numClasses):
 valid_dataset = np.array(tmp, dtype=np.float32)
 valid_labels = np.copy(test_labels)
 
-m = len(files[n:])
+m = len(files[0][n:])
+print("m = " + str(m))
 tmp = []
+train_labels = np.zeros(m, dtype=np.int32)
 for k in range(numClasses):
+    if k!=0:
+        truc = k*np.ones(m, dtype=np.int32)
+    train_labels = np.concatenate((train_labels, truc), axis=0)
     for i in range(m):
-        tmp.append(img_to_array(load_img(files[k][i], target_size=IMG_DIM)))
+        tmp.append(img_to_array(load_img(files[k][i+n], target_size=IMG_DIM)))
+
 train_dataset = np.array(tmp, dtype=np.float32)
 
-print("Training dataset shape: ")
-print("Validation dataset shape: " + str(valid_dataset.shape))
-print("Test dataset shape: " + str(test_dataset.shape))
+print("Training dataset shape: " + str(train_dataset.shape) + " - Training labels shape: " + str(train_labels.shape))
+print("Validation dataset shape: " + str(valid_dataset.shape) + " - Validation labels shape: " + str(valid_labels.shape))
+print("Test dataset shape: " + str(test_dataset.shape) + " - Test labels shape: " + str(test_labels.shape))
 
 
-# TODO: Train set et valid set
-# TODO: shuffle les arrays
+# TODO: shuffle les arrays cf uda assign1
 # TODO: normalize les arrays
 
 ##
