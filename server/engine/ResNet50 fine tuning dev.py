@@ -20,12 +20,12 @@ import numpy as np
 import pandas as pd
 import os
 import shutil
-#import matplotlib.pyplot as plt
+import matplotlib.pyplot as plt
 from keras.preprocessing.image import ImageDataGenerator, load_img, img_to_array, array_to_img
 from six.moves import cPickle as pickle
 
 ## GLOBAL VARIABLES
-np.random.seed(14)
+np.random.seed(3)
 labels = ["churros", "club_sandwich", "donuts", "french_fries", "gnocchi", "greek_salad", "lasagna", "pizza", "steak", "sushi"]
 numClasses = len(labels)
 IMG_SIZE = 300
@@ -33,10 +33,9 @@ IMG_DIM = (IMG_SIZE, IMG_SIZE)
 pixelDepth = 255.0
 
 ## UTILS
-def randomize(dataset, labels): # En place pour gagner de la RAM ou bien pickle avant ?
-    permutation = np.random.permutation(labels.shape[0])
-    rd_dataset = dataset[permutation, :, :, :]
-    rd_labels = labels[permutation]
+def randomize(dataset, labels):
+    idx = np.random.permutation(labels.shape[0])
+    rd_dataset, rd_labels = dataset[idx], labels[idx]
     return rd_dataset, rd_labels
 
 ## DATA IMPORT
@@ -55,8 +54,11 @@ if ENABLE_DATA_IMPORT:
             testFiles.append([])
             files.append([])
         k = 1
-        while (k <= 1250):
-            testFiles[2*(k-1)//250].append("images\\" + f.readline()[:-1].replace("/", "\\") + ".jpg")
+        while (k <= 2500):
+            if k%2 == 0:
+                testFiles[(k-1)//250].append("images\\" + f.readline()[:-1].replace("/", "\\") + ".jpg")
+            else:
+                f.readline()
             k+=1
         for k in range(numClasses):
             tmp = []
@@ -172,15 +174,17 @@ if ENABLE_DATA_IMPORT:
 
     # TODO: Data Augmentation?
 
-
-
 ##
 else:
     with open(test_pickle_file, 'rb') as f:
         neat = pickle.load(f)
-    X = neat['test_labels']
+    X = neat['test_dataset']
+    Y = neat['test_labels']
     print(X.shape)
-    print(X[0:300])
+    print(Y[33])
+    plt.imshow(array_to_img(X[32]))
+    plt.plot()
+    plt.show()
 
 
 
