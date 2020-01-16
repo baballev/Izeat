@@ -8,6 +8,8 @@ Répartition:
     Test set -> 125 images de chaque catégorie
     Valid set -> 125 images de chaque catégorie
     Train set -> 750 images de chaque catégorie
+
+Taille des données: environ 10GB en ready-to-use
 """
 # TODO: Sauvegarder l'entrainement sur le disque dur ?
 # TODO: Setup 2 branch forks de recoImage pour chacun et faire les commits
@@ -37,9 +39,11 @@ def randomize(dataset, labels): # En place pour gagner de la RAM ou bien pickle 
     labels = labels[permutation]
 
 ## DATA IMPORT
-ENABLE_DATA_IMPORT = True
+ENABLE_DATA_IMPORT = False
+
+os.chdir("E:\\Programmation\\Python\\dataset-food")
+pickle_file = 'foodData.pickle'
 if ENABLE_DATA_IMPORT:
-    os.chdir("E:\\Programmation\\Python\\dataset-food")
     with open("test.txt", 'r') as f:
         testFiles = []
         files = []
@@ -127,8 +131,6 @@ if ENABLE_DATA_IMPORT:
     randomize(valid_dataset, valid_labels)
     randomize(test_dataset, test_labels)
 
-    pickle_file = 'foodData.pickle'
-
     try:
         f = open(pickle_file, 'wb')
         save = {
@@ -147,7 +149,10 @@ if ENABLE_DATA_IMPORT:
 
 ##
 else:
-    pass
+    with open(pickle_file, 'rb') as f:
+        neat = pickle.load(f)
+    X = np.reshape(neat['train_dataset'], (7500, 300*300, 3))
+    print(X.shape)
 
 
 
