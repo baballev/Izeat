@@ -20,9 +20,15 @@ import numpy as np
 import pandas as pd
 import os
 import shutil
+import keras
 import matplotlib.pyplot as plt
 from keras.preprocessing.image import ImageDataGenerator, load_img, img_to_array, array_to_img
 from six.moves import cPickle as pickle
+from keras.applications.resnet50 import ResNet50
+from keras.models import Model, Sequential
+from keras.layers import Conv2D, MaxPooling2D, Flatten, Dense, Dropout, InputLayer
+
+
 
 ## GLOBAL VARIABLES
 np.random.seed(3)
@@ -180,11 +186,18 @@ else:
         neat = pickle.load(f)
     X = neat['test_dataset']
     Y = neat['test_labels']
-    print(X.shape)
-    print(Y[33])
-    plt.imshow(array_to_img(X[32]))
-    plt.plot()
-    plt.show()
+
+    restnet = ResNet50(include_top=False, weights='imagenet', input_shape =(IMG_SIZE, IMG_SIZE, 3))
+    output = restnet.layers[-1].output
+    output = keras.layers.Flatten()(output)
+
+    restnet = Model(restnet.input, output=output)
+
+    for layer in restnet.layers:
+        layer.trainable = False
+
+    restnet.summary()
+
 
 
 
