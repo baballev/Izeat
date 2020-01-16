@@ -29,7 +29,6 @@ from keras.models import Model, Sequential
 from keras.layers import Conv2D, MaxPooling2D, Flatten, Dense, Dropout, InputLayer
 
 
-
 ## GLOBAL VARIABLES
 np.random.seed(3)
 labels = ["churros", "club_sandwich", "donuts", "french_fries", "gnocchi", "greek_salad", "lasagna", "pizza", "steak", "sushi"]
@@ -187,20 +186,26 @@ else:
     X = neat['test_dataset']
     Y = neat['test_labels']
 
+
     restnet = ResNet50(include_top=False, weights='imagenet', input_shape =(IMG_SIZE, IMG_SIZE, 3))
     output = restnet.layers[-1].output
     output = keras.layers.Flatten()(output)
 
     restnet = Model(restnet.input, output=output)
 
-    for layer in restnet.layers:
+    for layer in restnet.layers: # Disable trainability on the layers already trained
         layer.trainable = False
+    #restnet.summary() # See all the layers
 
-    restnet.summary()
-
-
-
-
+    model = Sequential()
+    model.add(restnet)
+    model.add(Dense(512, activation='relu', input_dim=(IMG_SIZE,IMG_SIZE,3))) # Fully connected layer
+    model.add(Dropout(0.3))
+    model.add(Dense(512, activation='relu'))
+    model.add(Dropout(0.3))
+    model.add(Dense(10, activation='sigmoid'))
+    model.compile(loss='categorical_crossentropy', optimizer=keras.optimizers.RMSprop(learning_rate=2e-5), metrics=['accuracy'])
+    model.summary() # Display trainable layers
 
 
 
