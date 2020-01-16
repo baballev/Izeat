@@ -11,27 +11,33 @@ Répartition:
 """
 # TODO: Sauvegarder l'entrainement sur le disque dur ?
 # TODO: Setup 2 branch forks de recoImage pour chacun et faire les commits
+# TODO: Refactor tout le code, noms de variables appropriés, commenter, anglais...
 
-##
-import glob
+## LIB
 import numpy as np
 import pandas as pd
 import os
 import shutil
 import matplotlib.pyplot as plt
 from keras.preprocessing.image import ImageDataGenerator, load_img, img_to_array, array_to_img
+from six.moves import cPickle as pickle
 
-
+## GLOBAL VARIABLES
 np.random.seed(44)
-## Varibles globales
-
 labels = ["churros", "club_sandwich", "donuts", "french_fries", "gnocchi", "greek_salad", "lasagna", "pizza", "steak", "sushi"]
 numClasses = len(labels)
 IMG_SIZE = 300
 IMG_DIM = (IMG_SIZE, IMG_SIZE)
-pixelDepth = 255.0 # TODO: Check if useful
+pixelDepth = 255.0
 
-## DATA
+## UTILS
+def randomize(dataset, labels): # En place pour gagner de la RAM ou bien pickle avant ?
+    permutation = np.random.permutation(labels.shape[0])
+    dataset = dataset[permutation, :, :]
+    labels = labels[permutation, :, :]
+
+
+## DATA IMPORT
 os.chdir("E:\\Programmation\\Python\\dataset-food")
 with open("test.txt", 'r') as f:
     testFiles = []
@@ -51,7 +57,6 @@ with open("test.txt", 'r') as f:
 
     # files = les fichiers différents de ceux du test set
 
-# TODO: Commenter, mettre en anglais
 # TODO: Code hyper sale à retravailler pour une généralisation
 churros_test, club_sandwich_test, donuts_test, french_fries_test, gnocchi_test, greek_salad_test, lasagna_test, pizza_test, steak_test, sushi_test  = [], [], [], [], [], [], [], [], [], []
 
@@ -80,8 +85,9 @@ sushi_test = np.array(sushi_test, dtype=np.float32)
 
 test_dataset = np.concatenate((churros_test, club_sandwich_test, donuts_test, french_fries_test, gnocchi_test, greek_salad_test, lasagna_test, pizza_test, steak_test, sushi_test), axis=0)
 
+del club_sandwich_test, donuts_test, french_fries_test, gnocchi_test, greek_salad_test, lasagna_test, pizza_test, steak_test, sushi_test
+
 n = churros_test.shape[0] # length of test set and valid set
-# TODO if needed: appeler le garbage collector ici
 
 test_labels = np.zeros(n, dtype=np.int32)
 for k in range(1, numClasses):
@@ -92,32 +98,30 @@ for k in range(numClasses):
     for i in range(n):
         tmp.append(img_to_array(load_img(files[k][i], target_size=IMG_DIM)))
 
-valid_dataset = np.array(tmp, dtype=np.float32)
+valid_dataset = (np.array(tmp, dtype=np.float32) - (pixelDepth/2))/pixelDepth
 valid_labels = np.copy(test_labels)
 
 m = len(files[0][n:])
-print("m = " + str(m))
 tmp = []
 train_labels = np.zeros(m, dtype=np.int32)
 for k in range(numClasses):
     if k!=0:
         truc = k*np.ones(m, dtype=np.int32)
-    train_labels = np.concatenate((train_labels, truc), axis=0)
+        train_labels = np.concatenate((train_labels, truc), axis=0)
     for i in range(m):
         tmp.append(img_to_array(load_img(files[k][i+n], target_size=IMG_DIM)))
 
-train_dataset = np.array(tmp, dtype=np.float32)
+train_dataset = (np.array(tmp, dtype=np.float32) - (pixelDepth/2))/pixelDepth
+del tmp
+del files
+del testFiles
 
 print("Training dataset shape: " + str(train_dataset.shape) + " - Training labels shape: " + str(train_labels.shape))
 print("Validation dataset shape: " + str(valid_dataset.shape) + " - Validation labels shape: " + str(valid_labels.shape))
 print("Test dataset shape: " + str(test_dataset.shape) + " - Test labels shape: " + str(test_labels.shape))
 
-
 # TODO: shuffle les arrays cf uda assign1
-# TODO: normalize les arrays
-
-##
-
+# TODO: Data Augmentation?
 
 
 
