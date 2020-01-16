@@ -25,7 +25,7 @@ from keras.preprocessing.image import ImageDataGenerator, load_img, img_to_array
 from six.moves import cPickle as pickle
 
 ## GLOBAL VARIABLES
-np.random.seed(44)
+np.random.seed(14)
 labels = ["churros", "club_sandwich", "donuts", "french_fries", "gnocchi", "greek_salad", "lasagna", "pizza", "steak", "sushi"]
 numClasses = len(labels)
 IMG_SIZE = 300
@@ -35,14 +35,18 @@ pixelDepth = 255.0
 ## UTILS
 def randomize(dataset, labels): # En place pour gagner de la RAM ou bien pickle avant ?
     permutation = np.random.permutation(labels.shape[0])
-    dataset = dataset[permutation, :, :, :]
-    labels = labels[permutation]
+    rd_dataset = dataset[permutation, :, :, :]
+    rd_labels = labels[permutation]
+    return rd_dataset, rd_labels
 
 ## DATA IMPORT
 ENABLE_DATA_IMPORT = False
 
+train_pickle_file = 'trainData.pickle'
+valid_pickle_file = 'validData.pickle'
+test_pickle_file = 'testData.pickle'
+
 os.chdir("E:\\Programmation\\Python\\dataset-food")
-pickle_file = 'foodData.pickle'
 if ENABLE_DATA_IMPORT:
     with open("test.txt", 'r') as f:
         testFiles = []
@@ -93,10 +97,25 @@ if ENABLE_DATA_IMPORT:
     del club_sandwich_test, donuts_test, french_fries_test, gnocchi_test, greek_salad_test, lasagna_test, pizza_test, steak_test, sushi_test
 
     n = churros_test.shape[0] # length of test set and valid set
-
     test_labels = np.zeros(n, dtype=np.int32)
     for k in range(1, numClasses):
         test_labels = np.concatenate((test_labels, k*np.ones(n , dtype=np.int32)))
+    valid_labels = np.copy(test_labels)
+    # Pickle test data
+    test_dataset, test_labels = randomize(test_dataset, test_labels)
+    print("Test dataset shape: " + str(test_dataset.shape) + " - Test labels shape: " + str(test_labels.shape))
+    try:
+        f = open(test_pickle_file, 'wb')
+        save = {
+        'test_dataset': test_dataset,
+        'test_labels': test_labels,
+        }
+        pickle.dump(save, f, pickle.HIGHEST_PROTOCOL)
+        f.close()
+    except Exception as e:
+        print('Unable to save data to', test_pickle_file, ':', e)
+        raise e
+    del test_dataset, test_labels
 
     tmp = []
     for k in range(numClasses):
@@ -104,7 +123,21 @@ if ENABLE_DATA_IMPORT:
             tmp.append(img_to_array(load_img(files[k][i], target_size=IMG_DIM)))
 
     valid_dataset = (np.array(tmp, dtype=np.float32) - (pixelDepth/2))/pixelDepth
-    valid_labels = np.copy(test_labels)
+    # Pickle validation data
+    valid_dataset, valid_labels = randomize(valid_dataset, valid_labels)
+    print("Validation dataset shape: " + str(valid_dataset.shape) + " - Validation labels shape: " + str(valid_labels.shape))
+    try:
+        f = open(valid_pickle_file, 'wb')
+        save = {
+        'valid_dataset': valid_dataset,
+        'valid_labels': valid_labels,
+        }
+        pickle.dump(save, f, pickle.HIGHEST_PROTOCOL)
+        f.close()
+    except Exception as e:
+        print('Unable to save data to', valid_pickle_file, ':', e)
+        raise e
+    del valid_dataset, valid_labels
 
     m = len(files[0][n:])
     tmp = []
@@ -118,41 +151,36 @@ if ENABLE_DATA_IMPORT:
 
     train_dataset = (np.array(tmp, dtype=np.float32) - (pixelDepth/2))/pixelDepth
     del tmp
-    del files
-    del testFiles
-
+    # Pickle train data
+    train_dataset, train_labels = randomize(train_dataset, train_labels)
     print("Training dataset shape: " + str(train_dataset.shape) + " - Training labels shape: " + str(train_labels.shape))
-    print("Validation dataset shape: " + str(valid_dataset.shape) + " - Validation labels shape: " + str(valid_labels.shape))
-    print("Test dataset shape: " + str(test_dataset.shape) + " - Test labels shape: " + str(test_labels.shape))
-
-    # TODO: Data Augmentation?
-
-    randomize(train_dataset, train_labels)
-    randomize(valid_dataset, valid_labels)
-    randomize(test_dataset, test_labels)
-
     try:
-        f = open(pickle_file, 'wb')
+        f = open(train_pickle_file, 'wb')
         save = {
         'train_dataset': train_dataset,
         'train_labels': train_labels,
-        'valid_dataset': valid_dataset,
-        'valid_labels': valid_labels,
-        'test_dataset': test_dataset,
-        'test_labels': test_labels,
         }
         pickle.dump(save, f, pickle.HIGHEST_PROTOCOL)
         f.close()
     except Exception as e:
-        print('Unable to save data to', pickle_file, ':', e)
-    raise
+        print('Unable to save data to', train_pickle_file, ':', e)
+        raise e
+    del train_dataset, train_labels
+
+    del files
+    del testFiles
+
+    # TODO: Data Augmentation?
+
+
 
 ##
 else:
-    with open(pickle_file, 'rb') as f:
+    with open(test_pickle_file, 'rb') as f:
         neat = pickle.load(f)
-    X = np.reshape(neat['train_dataset'], (7500, 300*300, 3))
+    X = neat['test_labels']
     print(X.shape)
+    print(X[0:300])
 
 
 
