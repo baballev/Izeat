@@ -14,7 +14,7 @@ Taille des données: environ 10GB en ready-to-use
 
 # TODO: Setup 2 branch forks de recoImage pour chacun et faire les commits
 # TODO: Refactor tout le code, noms de variables appropriés, commenter, anglais...
-# TODO: Pistes d'amélioration: Trop de couches donc overfitting?
+# TODO: Pistes d'amélioration: Trop de couches donc overfitting? Réduire la taille des images vers 222x222 ? Check si bidouiller le drop out fonctionne? Rajouter du pooling?
 
 ## LIB
 import numpy as np
@@ -34,7 +34,7 @@ from keras.layers import Conv2D, MaxPooling2D, Flatten, Dense, Dropout, InputLay
 np.random.seed(3)
 labels = ["churros", "club_sandwich", "donuts", "french_fries", "gnocchi", "greek_salad", "lasagna", "pizza", "steak", "sushi"]
 numClasses = len(labels)
-IMG_SIZE = 300
+IMG_SIZE = 256
 IMG_DIM = (IMG_SIZE, IMG_SIZE)
 pixelDepth = 255.0
 
@@ -137,7 +137,7 @@ if ENABLE_DATA_IMPORT:
         for i in range(n):
             tmp.append(img_to_array(load_img(files[k][i], target_size=IMG_DIM)))
 
-    valid_dataset = (np.array(tmp, dtype=np.float32))/pixelDepth
+    valid_dataset = (np.array(tmp, dtype=np.float32))
     # Pickle validation data
     valid_dataset, valid_labels = randomize(valid_dataset, valid_labels)
     print("Validation dataset shape: " + str(valid_dataset.shape) + " - Validation labels shape: " + str(valid_labels.shape))
@@ -166,7 +166,7 @@ if ENABLE_DATA_IMPORT:
         for i in range(m):
             tmp.append(img_to_array(load_img(files[k][i+n], target_size=IMG_DIM)))
 
-    train_dataset = (np.array(tmp, dtype=np.float32))/pixelDepth
+    train_dataset = (np.array(tmp, dtype=np.float32))
     del tmp
     # Pickle train data
     train_dataset, train_labels = randomize(train_dataset, train_labels)
@@ -187,10 +187,9 @@ if ENABLE_DATA_IMPORT:
     del files
     del testFiles
 
-    # TODO: Data Augmentation?
-
 ## DATA LOADING + AUGMENTATION
 else:
+    '''
     # Load train data
     with open(train_pickle_file, 'rb') as f:
         neat = pickle.load(f)
@@ -204,15 +203,15 @@ else:
     X_valid = neat2['valid_dataset']
     Y_valid = neat2['valid_labels']
     del neat2
+    '''
+# TODO: re import data and add rescale in the ImageDataGenerator and also for val
+    train_datagen = ImageDataGenerator(rescale=1./255, zoom_range=0.3, rotation_range=50, width_shift_range=0.2, height_shift_range=0.2, shear_range=0.2, horizontal_flip=True, fill_mode='nearest')
+    valid_datagen = ImageDataGenerator(rescale=1./255)
 
-    print(Y_valid[1])
-    plt.imshow(array_to_img(X_valid[1]))
-    plt.plot()
-    plt.show()
+    train_generator = train_datagen.flow_from_directory('E:/Programmation/Python/dataset-food/images', save_format='jpg', target_size=(256, 256), color_mode='rgb', batch_size=32)
 
 ## SETUP RESTNET50
-
-    restnet = ResNet50(include_top=False, weights='imagenet', input_shape =(IMG_SIZE, IMG_SIZE, 3))
+    restnet = ResNet50(include_top=False, weights='imagenet', input_shape=(IMG_SIZE, IMG_SIZE, 3))
     output = restnet.layers[-1].output
     output = keras.layers.Flatten()(output)
 
@@ -220,18 +219,17 @@ else:
 
     for layer in restnet.layers: # Disable trainability on the layers already trained
         layer.trainable = False
-    #restnet.summary() # See all the layers
 
     model = Sequential()
     model.add(restnet)
-    model.add(Dense(512, activation='relu', input_dim=(IMG_SIZE, IMG_SIZE, 3))) # Fully connected layer
-    model.add(Dropout(0.5))
-    model.add(Dense(512, activation='relu'))
-    model.add(Dropout(0.5))
-    model.add(Dense(10, activation='sigmoid'))
-    model.compile(loss='categorical_crossentropy', optimizer=keras.optimizers.RMSprop(lr=2e-5), metrics=['accuracy'])
+    model.add(Dense(numClasses, activation='softmax'))
+    model.compile(loss='categorical_crossentropy', optimizer=keras.optimizers.Adadelta(), metrics=['accuracy'])
     model.summary() # Display trainable layers
-    history = model.fit(x=X_train, y=Y_train, batch_size=32, epochs=5, validation_data=(X_valid, Y_valid), verbose=2)
-
-
-    model.save('ResNet50-firsttest-16-01-2020.h5')
+    history = model.fit_generator(train_generator, steps_per_epoch=100, epochs=5, validation_steps=50, verbose=2)
+"""
+    x_test = np.zeros((1, IMG_SIZE, IMG_SIZE, 3), dtype=np.float32)
+    x_test[0] = img_to_array(load_img("E:\\Programmation\\Python\\test.jpg", target_size=IMG_DIM))
+    y_prob = history.model.predict_classes(x_test)
+    print(y_prob)
+"""
+    model.save('ResNet50-test-17-01-2020.h5')
