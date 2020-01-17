@@ -225,11 +225,11 @@ else:
     model.add(Dense(numClasses, activation='softmax'))
     model.compile(loss='categorical_crossentropy', optimizer=keras.optimizers.Adadelta(), metrics=['accuracy'])
     model.summary() # Display trainable layers
-    history = model.fit_generator(train_generator, steps_per_epoch=100, epochs=5, validation_steps=50, verbose=2)
-"""
+    history = model.fit_generator(train_generator, steps_per_epoch=100, epochs=30, validation_steps=50, verbose=2)
+    """
     x_test = np.zeros((1, IMG_SIZE, IMG_SIZE, 3), dtype=np.float32)
     x_test[0] = img_to_array(load_img("E:\\Programmation\\Python\\test.jpg", target_size=IMG_DIM))
     y_prob = history.model.predict_classes(x_test)
     print(y_prob)
-"""
+    """
     model.save('ResNet50-test-17-01-2020.h5')
