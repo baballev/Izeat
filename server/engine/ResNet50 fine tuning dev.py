@@ -11,9 +11,10 @@ Répartition:
 
 Taille des données: environ 10GB en ready-to-use
 """
-# TODO: Sauvegarder l'entrainement sur le disque dur ?
+
 # TODO: Setup 2 branch forks de recoImage pour chacun et faire les commits
 # TODO: Refactor tout le code, noms de variables appropriés, commenter, anglais...
+# TODO: Pistes d'amélioration: Trop de couches donc overfitting?
 
 ## LIB
 import numpy as np
@@ -104,9 +105,16 @@ if ENABLE_DATA_IMPORT:
     del club_sandwich_test, donuts_test, french_fries_test, gnocchi_test, greek_salad_test, lasagna_test, pizza_test, steak_test, sushi_test
 
     n = churros_test.shape[0] # length of test set and valid set
-    test_labels = np.zeros(n, dtype=np.int32)
-    for k in range(1, numClasses):
-        test_labels = np.concatenate((test_labels, k*np.ones(n , dtype=np.int32)))
+    test_labels = np.zeros((n, numClasses), dtype=np.int32)
+    for k in range(numClasses):
+        if k!=0:
+            truc = np.zeros((n, numClasses), dtype=np.int32)
+            for i in range(n):
+                truc[i, k] = 1
+            test_labels = np.concatenate((test_labels, truc))
+        else:
+            for i in range(n):
+                test_labels[i, 0] = 1
     valid_labels = np.copy(test_labels)
     # Pickle test data
     test_dataset, test_labels = randomize(test_dataset, test_labels)
@@ -129,7 +137,7 @@ if ENABLE_DATA_IMPORT:
         for i in range(n):
             tmp.append(img_to_array(load_img(files[k][i], target_size=IMG_DIM)))
 
-    valid_dataset = (np.array(tmp, dtype=np.float32) - (pixelDepth/2))/pixelDepth
+    valid_dataset = (np.array(tmp, dtype=np.float32))/pixelDepth
     # Pickle validation data
     valid_dataset, valid_labels = randomize(valid_dataset, valid_labels)
     print("Validation dataset shape: " + str(valid_dataset.shape) + " - Validation labels shape: " + str(valid_labels.shape))
@@ -148,15 +156,17 @@ if ENABLE_DATA_IMPORT:
 
     m = len(files[0][n:])
     tmp = []
-    train_labels = np.zeros(m, dtype=np.int32)
+    train_labels = np.zeros((m, numClasses), dtype=np.int32)
     for k in range(numClasses):
         if k!=0:
-            truc = k*np.ones(m, dtype=np.int32)
+            truc = np.zeros((m, numClasses), dtype=np.int32)
+            for i in range(m):
+                truc[i,k] = 1
             train_labels = np.concatenate((train_labels, truc), axis=0)
         for i in range(m):
             tmp.append(img_to_array(load_img(files[k][i+n], target_size=IMG_DIM)))
 
-    train_dataset = (np.array(tmp, dtype=np.float32) - (pixelDepth/2))/pixelDepth
+    train_dataset = (np.array(tmp, dtype=np.float32))/pixelDepth
     del tmp
     # Pickle train data
     train_dataset, train_labels = randomize(train_dataset, train_labels)
@@ -179,13 +189,28 @@ if ENABLE_DATA_IMPORT:
 
     # TODO: Data Augmentation?
 
-##
+## DATA LOADING + AUGMENTATION
 else:
-    with open(test_pickle_file, 'rb') as f:
+    # Load train data
+    with open(train_pickle_file, 'rb') as f:
         neat = pickle.load(f)
-    X = neat['test_dataset']
-    Y = neat['test_labels']
+    X_train = neat['train_dataset']
+    Y_train = neat['train_labels']
+    del neat
 
+    # Load validation data
+    with open(valid_pickle_file, 'rb') as f:
+        neat2 = pickle.load(f)
+    X_valid = neat2['valid_dataset']
+    Y_valid = neat2['valid_labels']
+    del neat2
+
+    print(Y_valid[1])
+    plt.imshow(array_to_img(X_valid[1]))
+    plt.plot()
+    plt.show()
+
+## SETUP RESTNET50
 
     restnet = ResNet50(include_top=False, weights='imagenet', input_shape =(IMG_SIZE, IMG_SIZE, 3))
     output = restnet.layers[-1].output
@@ -199,15 +224,14 @@ else:
 
     model = Sequential()
     model.add(restnet)
-    model.add(Dense(512, activation='relu', input_dim=(IMG_SIZE,IMG_SIZE,3))) # Fully connected layer
-    model.add(Dropout(0.3))
+    model.add(Dense(512, activation='relu', input_dim=(IMG_SIZE, IMG_SIZE, 3))) # Fully connected layer
+    model.add(Dropout(0.5))
     model.add(Dense(512, activation='relu'))
-    model.add(Dropout(0.3))
+    model.add(Dropout(0.5))
     model.add(Dense(10, activation='sigmoid'))
-    model.compile(loss='categorical_crossentropy', optimizer=keras.optimizers.RMSprop(learning_rate=2e-5), metrics=['accuracy'])
+    model.compile(loss='categorical_crossentropy', optimizer=keras.optimizers.RMSprop(lr=2e-5), metrics=['accuracy'])
     model.summary() # Display trainable layers
+    history = model.fit(x=X_train, y=Y_train, batch_size=32, epochs=5, validation_data=(X_valid, Y_valid), verbose=2)
 
 
-
-
-
+    model.save('ResNet50-firsttest-16-01-2020.h5')
