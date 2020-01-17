@@ -52,10 +52,10 @@ test_pickle_file = 'testData.pickle'
 os.chdir("E:\\Programmation\\Python\\dataset-food")
 
 ## DATA LOADING + AUGMENTATION
-    train_datagen = ImageDataGenerator(rescale=1./255, zoom_range=0.3, rotation_range=50, width_shift_range=0.2, height_shift_range=0.2, shear_range=0.2, horizontal_flip=True, fill_mode='nearest')
-    valid_datagen = ImageDataGenerator(rescale=1./255)
+train_datagen = ImageDataGenerator(rescale=1./255, zoom_range=0.3, rotation_range=50, width_shift_range=0.2, height_shift_range=0.2, shear_range=0.2, horizontal_flip=True, fill_mode='nearest')
+valid_datagen = ImageDataGenerator(rescale=1./255)
 
-    train_generator = train_datagen.flow_from_directory('E:/Programmation/Python/dataset-food/images', save_format='jpg', target_size=(256, 256), color_mode='rgb', batch_size=32)
+train_generator = train_datagen.flow_from_directory('E:/Programmation/Python/dataset-food/images', save_format='jpg', target_size=(256, 256), color_mode='rgb', batch_size=32)
 
 ## SETUP RESTNET50
 loadNN = True # True to load an already trained NN, False to start a new training from scratch
@@ -81,13 +81,10 @@ if needTrain:
     history = model.fit_generator(train_generator, steps_per_epoch=100, epochs=20, validation_steps=50, verbose=2)
     model.save('ResNet50-test-17-01-2020.h5')
 else: # predict tests
-    x_test = np.zeros((5, IMG_SIZE, IMG_SIZE, 3), dtype=np.float32)
-    x_test[0] = img_to_array(load_img("E:\\Programmation\\Python\\dataset-food\\test-images\\frites\\1.jpg", target_size=IMG_DIM))
-    x_test[1] = img_to_array(load_img("E:\\Programmation\\Python\\dataset-food\\test-images\\frites\\2.jpg", target_size=IMG_DIM))
-    x_test[2] = img_to_array(load_img("E:\\Programmation\\Python\\dataset-food\\test-images\\frites\\3.jpg", target_size=IMG_DIM))
-    x_test[3] = img_to_array(load_img("E:\\Programmation\\Python\\dataset-food\\test-images\\frites\\4.jpg", target_size=IMG_DIM))
-    x_test[4] = img_to_array(load_img("E:\\Programmation\\Python\\dataset-food\\test-images\\frites\\5.jpg", target_size=IMG_DIM))
-    y_prob = history.model.predict_classes(x_test)
+    x_test = np.zeros((25, IMG_SIZE, IMG_SIZE, 3), dtype=np.float32)
+    for i in range(25):
+        x_test[i] = img_to_array(load_img("E:\\Programmation\\Python\\dataset-food\\test-images\\sushi\\" + str(i+1) + ".jpg", target_size=IMG_DIM))
+    y_prob = model.predict_classes(x_test)
     print(y_prob)
 
 
