@@ -63,6 +63,7 @@
 |Plan de test | |pas fait |
 |Rapport Génie Logiciel |7 février | en cours|
 |Découverte de Siquli | |en cours |
+|Installation d'un serveur | |Fait |
 |====
 
 //* Autres modules
