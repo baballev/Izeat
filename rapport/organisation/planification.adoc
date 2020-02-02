@@ -58,9 +58,11 @@
 |Tâche |Quand |Fait |Remarques
 |Installation de l’outil Android Studio |21 octobre |fait|
 |TP Android | | en cours| on suit le cours/TP d'OpenClassRoom
-|Squelette d’application | | pas fait |
-|GUI | |pas fait |
+|Squelette d’application | | en cours |
+|GUI | |en cours |
 |Plan de test | |pas fait |
+|Rapport Génie Logiciel |7 février | en cours|
+|Découverte de Siquli | |en cours |
 |====
 
 //* Autres modules
