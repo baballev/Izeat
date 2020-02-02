@@ -105,8 +105,8 @@
 |Tâche |Quand |Fait |Remarques
 |Client fait requête au server | | |
 |Réponse adaptée du serveur | | |
-|Récupérer les infos de produits d'Open Food Fact | | |
-|Recherche dans Open Food Fact | | |
+|Récupérer les infos de produits d'Open Food Fact | | X | Cf méthode serveur dans package api.openfoodfacts
+|Recherche dans Open Food Fact | | X | Cf méthode serveur dans package api.openfoodfacts
 |====
 
 * Reconnaissance d'image
@@ -114,8 +114,8 @@
 [cols=",^,^,",options="header",]
 |====
 |Tâche |Quand |Fait |Remarques
-|Avoir construit un réseau de neurones | | |
-|Réseau de neurones entrainé sur un ou plusieurs aliments arbitraires: Pouvoir reconnaitre au moins 1 aliment | | |(Demander au Rab si on peut essayer d'entrainer notre IA avec leur machine)
+|Avoir construit un réseau de neurones | | X |
+|Réseau de neurones entrainé sur un ou plusieurs aliments arbitraires: Pouvoir reconnaitre au moins 1 aliment | X | Premiers tests sur un panier de 10 aliments effectués avec une précision de 76%. 
 |====
 
 * IA
