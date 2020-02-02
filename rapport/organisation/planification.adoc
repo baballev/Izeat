@@ -133,7 +133,7 @@
 [cols=",^,^,",options="header",]
 |====
 |Tâche |Quand |Fait |Remarques
-|Faire les interfaces entre tous les blocs ci dessus et ceux du schéma GL | | |
+|Faire les interfaces entre tous les blocs ci dessus et ceux du schéma GL | | Ok en grande partie |
 |====
 
 ==== Tâches / PAN4 04/05/20
