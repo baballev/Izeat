@@ -59,7 +59,7 @@ train_generator = train_datagen.flow_from_directory('E:/Programmation/Python/dat
 
 ## SETUP RESTNET50
 loadNN = True # True to load an already trained NN, False to start a new training from scratch
-needTrain = False # Make false for testing only
+needTrain = True # Make false for testing only
 if loadNN:
     model = keras.models.load_model('ResNet50-test-17-01-2020.h5')
 else:
@@ -74,11 +74,11 @@ else:
     model = Sequential()
     model.add(restnet)
     model.add(Dense(numClasses, activation='softmax'))
-    model.compile(loss='categorical_crossentropy', optimizer=keras.optimizers.Adadelta(), metrics=['accuracy'])
+    model.compile(loss='categorical_crossentropy', optimizer=keras.optimizers.SGD(0.01), metrics=['accuracy'])
     model.summary() # Display trainable layers
 
 if needTrain:
-    history = model.fit_generator(train_generator, steps_per_epoch=100, epochs=20, validation_steps=50, verbose=2)
+    history = model.fit_generator(train_generator, steps_per_epoch=100, epochs=10, validation_steps=50, verbose=1)
     model.save('ResNet50-test-17-01-2020.h5')
 else: # predict tests
     x_test = np.zeros((25, IMG_SIZE, IMG_SIZE, 3), dtype=np.float32)
