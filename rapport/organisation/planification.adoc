@@ -86,6 +86,7 @@
 |Connexion avec vérif des login sur la BD| | |
 |Accès à la caméra envoi de la photo à l'IA de reconnaissance| | |
 |Accès à la caméra plus lecture code barre| | |
+|Intégrer scan de code barre | | | https://github.com/zxing/zxing/blob/master/android-integration/src/main/java/com/google/zxing/integration/android/IntentIntegrator.java
 |Affichage des 4 onglets avec fonctionnalités indispensables : accès à la liste déroulante, accès au frigo virtuel, onglet recommendations qui ping l'IA| | |
 |====
 
