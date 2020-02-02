@@ -115,7 +115,7 @@
 |====
 |Tâche |Quand |Fait |Remarques
 |Avoir construit un réseau de neurones | | X |
-|Réseau de neurones entrainé sur un ou plusieurs aliments arbitraires: Pouvoir reconnaitre au moins 1 aliment | X | Premiers tests sur un panier de 10 aliments effectués avec une précision de 76%. 
+|Réseau de neurones entrainé sur un ou plusieurs aliments arbitraires: Pouvoir reconnaitre au moins 1 aliment | | X | Premiers tests sur un panier de 10 aliments effectués avec une précision de 76%. 
 |====
 
 * IA
