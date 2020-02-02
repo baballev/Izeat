@@ -1,14 +1,33 @@
 package fr.izeat.service.user;
 
-public class User {
+import java.util.ArrayList;
 
-	private final String name;
+import fr.izeat.service.nutritionEngine.Recipe;
+
+public class User {
 	
-	public User(String name) {
-		this.name = name;
+	private UserInfo userInfo;
+	private NutritionStatusInterface status;
+	
+	public User(String passWord, String name) {
+		
+		initUserInfo(passWord,name);
+		
 	}
 	
-	public String getName() {
-		return this.name;
+	public void initUserInfo(String passWord, String name) {
+		/*
+		 * TODO : initialized userInfo from dataBase 
+		 */
+	}
+	
+	public void saveUserInfo() {
+		/* TODO : implement method that saves the changes made to
+		 *  it's profile in the dataBase.
+		 */
+	}
+	
+	public ArrayList<Recipe> generateRecommandation(int howManyMeals){
+		
 	}
 }
