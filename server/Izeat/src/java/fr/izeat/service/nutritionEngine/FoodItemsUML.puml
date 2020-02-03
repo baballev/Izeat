@@ -1,0 +1,15 @@
+@startuml
+
+
+
+class FoodItem {
+    private NutritionValues nutritionValues
+    private String name
+    public NutritionValues getNutritionValues()
+    public void setNutritionValues(NutritionValues nutritionValues)
+    public String getName()
+    public void setName(String name)
+}
+
+
+@enduml
