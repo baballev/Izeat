@@ -3,35 +3,35 @@
 3    package="com.example.izeat.test" >
 4
 5    <uses-sdk
-5-->/Users/leazerah/Desktop/PACT/pact23/client/izeat3/app/build/intermediates/tmp/manifest/androidTest/debug/manifestMerger1603655841316674567.xml:5:5-74
+5-->/Users/leazerah/Desktop/PACT/pact23/client/izeat3/app/build/intermediates/tmp/manifest/androidTest/debug/manifestMerger5514503795485879167.xml:5:5-74
 6        android:minSdkVersion="15"
-6-->/Users/leazerah/Desktop/PACT/pact23/client/izeat3/app/build/intermediates/tmp/manifest/androidTest/debug/manifestMerger1603655841316674567.xml:5:15-41
+6-->/Users/leazerah/Desktop/PACT/pact23/client/izeat3/app/build/intermediates/tmp/manifest/androidTest/debug/manifestMerger5514503795485879167.xml:5:15-41
 7        android:targetSdkVersion="29" />
-7-->/Users/leazerah/Desktop/PACT/pact23/client/izeat3/app/build/intermediates/tmp/manifest/androidTest/debug/manifestMerger1603655841316674567.xml:5:42-71
+7-->/Users/leazerah/Desktop/PACT/pact23/client/izeat3/app/build/intermediates/tmp/manifest/androidTest/debug/manifestMerger5514503795485879167.xml:5:42-71
 8
 9    <instrumentation
-9-->/Users/leazerah/Desktop/PACT/pact23/client/izeat3/app/build/intermediates/tmp/manifest/androidTest/debug/manifestMerger1603655841316674567.xml:11:5-15:67
+9-->/Users/leazerah/Desktop/PACT/pact23/client/izeat3/app/build/intermediates/tmp/manifest/androidTest/debug/manifestMerger5514503795485879167.xml:11:5-15:67
 10        android:name="androidx.test.runner.AndroidJUnitRunner"
-10-->/Users/leazerah/Desktop/PACT/pact23/client/izeat3/app/build/intermediates/tmp/manifest/androidTest/debug/manifestMerger1603655841316674567.xml:11:22-76
+10-->/Users/leazerah/Desktop/PACT/pact23/client/izeat3/app/build/intermediates/tmp/manifest/androidTest/debug/manifestMerger5514503795485879167.xml:11:22-76
 11        android:functionalTest="false"
-11-->/Users/leazerah/Desktop/PACT/pact23/client/izeat3/app/build/intermediates/tmp/manifest/androidTest/debug/manifestMerger1603655841316674567.xml:14:22-52
+11-->/Users/leazerah/Desktop/PACT/pact23/client/izeat3/app/build/intermediates/tmp/manifest/androidTest/debug/manifestMerger5514503795485879167.xml:14:22-52
 12        android:handleProfiling="false"
-12-->/Users/leazerah/Desktop/PACT/pact23/client/izeat3/app/build/intermediates/tmp/manifest/androidTest/debug/manifestMerger1603655841316674567.xml:13:22-53
+12-->/Users/leazerah/Desktop/PACT/pact23/client/izeat3/app/build/intermediates/tmp/manifest/androidTest/debug/manifestMerger5514503795485879167.xml:13:22-53
 13        android:label="Tests for com.example.izeat"
-13-->/Users/leazerah/Desktop/PACT/pact23/client/izeat3/app/build/intermediates/tmp/manifest/androidTest/debug/manifestMerger1603655841316674567.xml:15:22-65
+13-->/Users/leazerah/Desktop/PACT/pact23/client/izeat3/app/build/intermediates/tmp/manifest/androidTest/debug/manifestMerger5514503795485879167.xml:15:22-65
 14        android:targetPackage="com.example.izeat" />
-14-->/Users/leazerah/Desktop/PACT/pact23/client/izeat3/app/build/intermediates/tmp/manifest/androidTest/debug/manifestMerger1603655841316674567.xml:12:22-63
+14-->/Users/leazerah/Desktop/PACT/pact23/client/izeat3/app/build/intermediates/tmp/manifest/androidTest/debug/manifestMerger5514503795485879167.xml:12:22-63
 15
 16    <uses-permission android:name="android.permission.REORDER_TASKS" />
 16-->[androidx.test:core:1.2.0] /Users/leazerah/.gradle/caches/transforms-2/files-2.1/ff25c04162ff943dff3292e200c3e8d4/core-1.2.0/AndroidManifest.xml:24:5-72
 16-->[androidx.test:core:1.2.0] /Users/leazerah/.gradle/caches/transforms-2/files-2.1/ff25c04162ff943dff3292e200c3e8d4/core-1.2.0/AndroidManifest.xml:24:22-69
 17
 18    <application android:debuggable="true" >
-18-->/Users/leazerah/Desktop/PACT/pact23/client/izeat3/app/build/intermediates/tmp/manifest/androidTest/debug/manifestMerger1603655841316674567.xml:7:5-9:19
-18-->/Users/leazerah/Desktop/PACT/pact23/client/izeat3/app/build/intermediates/tmp/manifest/androidTest/debug/manifestMerger1603655841316674567.xml:7:18-43
+18-->/Users/leazerah/Desktop/PACT/pact23/client/izeat3/app/build/intermediates/tmp/manifest/androidTest/debug/manifestMerger5514503795485879167.xml:7:5-9:19
+18-->/Users/leazerah/Desktop/PACT/pact23/client/izeat3/app/build/intermediates/tmp/manifest/androidTest/debug/manifestMerger5514503795485879167.xml:7:18-43
 19        <uses-library android:name="android.test.runner" />
-19-->/Users/leazerah/Desktop/PACT/pact23/client/izeat3/app/build/intermediates/tmp/manifest/androidTest/debug/manifestMerger1603655841316674567.xml:8:9-60
-19-->/Users/leazerah/Desktop/PACT/pact23/client/izeat3/app/build/intermediates/tmp/manifest/androidTest/debug/manifestMerger1603655841316674567.xml:8:23-57
+19-->/Users/leazerah/Desktop/PACT/pact23/client/izeat3/app/build/intermediates/tmp/manifest/androidTest/debug/manifestMerger5514503795485879167.xml:8:9-60
+19-->/Users/leazerah/Desktop/PACT/pact23/client/izeat3/app/build/intermediates/tmp/manifest/androidTest/debug/manifestMerger5514503795485879167.xml:8:23-57
 20
 21        <activity
 21-->[androidx.test:core:1.2.0] /Users/leazerah/.gradle/caches/transforms-2/files-2.1/ff25c04162ff943dff3292e200c3e8d4/core-1.2.0/AndroidManifest.xml:27:9-33:20
