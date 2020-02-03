@@ -9,6 +9,7 @@ public class Recipe {
 
 	public NutritionValues computeNutritionValues(){
 		//TODO : implemente method
+                return null;
 	}
 	
 }

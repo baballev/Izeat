@@ -28,6 +28,6 @@ public class User {
 	}
 	
 	public ArrayList<Recipe> generateRecommandation(int howManyMeals){
-		
+		return null;
 	}
 }
