@@ -11,17 +11,20 @@ public interface NutritionStatusInterface {
 	 * 
 	 */
 
-	public void setStatusFromDataBase(int userId);
+	void setStatusFromDataBase(int userId);
 	/*
 	 * Using a user's ID, this method will generate his current status
 	 * by asking the dataBase for all entries during the last week
 	 */
 	
-	public NutritionValues getUserNeeds();
+	NutritionValues getUserNeeds();
 	/*
 	 * generate the raw amount of nutriments that a user needs to get to it's 
 	 * optimal nutrition status, taking into account it's constraints.
 	 */
+	
+	NutritionValues setUserNeeds();
+	
 	
 	
 	

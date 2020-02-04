@@ -1,0 +1,30 @@
+@startuml
+
+
+
+class Product {
+    private final String name
+    private final String quantity
+    private final String imageUrl
+    private int novaScore
+    private final char nutriScore
+    private final String[] categories
+    private final NutritionValues nutritionValues
+
+    Product(String s)      //init from JSON file
+    public static ArrayList<Product>  productsFromJSON(String s)
+    public NutritionValues getNutritionValues()
+
+        public String getQuantity()
+        public String getImageUrl()
+        public int getNovaScore()
+       public char getNutriScore()
+        public String[] getCategories()
+        public String getName()
+        public boolean isPalmOil()
+        public boolean isVegan()
+        public boolean isVegetarian()
+}
+
+
+@enduml
