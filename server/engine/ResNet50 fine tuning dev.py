@@ -35,6 +35,8 @@ numClasses = len(labels)
 IMG_SIZE = 256
 IMG_DIM = (IMG_SIZE, IMG_SIZE)
 pixelDepth = 255.0
+root_path = "E:\\Programmation\\Python\\dataset-food"
+weights_file = 'ResNet50-test-17-01-2020.h5'
 
 ## UTILS
 def randomize(dataset, labels):
@@ -45,23 +47,20 @@ def randomize(dataset, labels):
 ## DATA IMPORT
 ENABLE_DATA_IMPORT = False
 
-train_pickle_file = 'trainData.pickle'
-valid_pickle_file = 'validData.pickle'
-test_pickle_file = 'testData.pickle'
-
-os.chdir("E:\\Programmation\\Python\\dataset-food")
+os.chdir(root_path)
 
 ## DATA LOADING + AUGMENTATION
 train_datagen = ImageDataGenerator(rescale=1./255, zoom_range=0.3, rotation_range=50, width_shift_range=0.2, height_shift_range=0.2, shear_range=0.2, horizontal_flip=True, fill_mode='nearest')
 valid_datagen = ImageDataGenerator(rescale=1./255)
 
-train_generator = train_datagen.flow_from_directory('E:/Programmation/Python/dataset-food/images', save_format='jpg', target_size=(256, 256), color_mode='rgb', batch_size=32)
+train_generator = train_datagen.flow_from_directory(root_path + '/images', save_format='jpg', target_size=(256, 256), color_mode='rgb', batch_size=32)
 
-## SETUP RESTNET50
+## SETUP RESTNET5
+# TODO: Ask in console what to do
 loadNN = True # True to load an already trained NN, False to start a new training from scratch
 needTrain = True # Make false for testing only
 if loadNN:
-    model = keras.models.load_model('ResNet50-test-17-01-2020.h5')
+    model = keras.models.load_model(weights_file)
 else:
     restnet = ResNet50(include_top=False, weights='imagenet', input_shape=(IMG_SIZE, IMG_SIZE, 3))
     output = restnet.layers[-1].output
@@ -79,7 +78,7 @@ else:
 
 if needTrain:
     history = model.fit_generator(train_generator, steps_per_epoch=100, epochs=10, validation_steps=50, verbose=1)
-    model.save('ResNet50-test-17-01-2020.h5')
+    model.save(weights_file)
 else: # predict tests
     x_test = np.zeros((25, IMG_SIZE, IMG_SIZE, 3), dtype=np.float32)
     for i in range(25):
