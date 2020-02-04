@@ -25,7 +25,7 @@ public class ServiceRessource {
     @GET
     @Produces(MediaType.TEXT_HTML)
     public String getHtml() {
-        return "<html lang=\\\"en\\\"><body><h1>Hello, World!!</body></h1></html>";
+        return "<html lang=\\\"en\\\"><body><h1>Bienvenue sur le serveur Izeat !</body></h1></html>";
     }
 }
     
