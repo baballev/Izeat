@@ -6,6 +6,9 @@ import java.util.Iterator;
 
 import org.json.*;
 
+import fr.izeat.service.nutritionEngine.Constraints;
+import fr.izeat.service.nutritionEngine.NutritionValues;
+
 public class Product {
 
     /* General notes:
@@ -27,13 +30,12 @@ public class Product {
     private int novaScore;			 	// Example: 1
     private final char nutriScore;	 		// Example: 'c'
     private final String[] categories;  		// Example: {"Produits � tartiner", "Petits-d�jeuners", "Produits � tartiner sucr�s", "P�tes � tartiner au chocolat", ...}
-    private final boolean palmOil;			// Example: true
-    private final boolean vegan;	    		// Example: false
-    private final boolean vegetarian;   		// Example: true TODO: Implement the "maybe field"
-    private final HashMap<String, Float> nutriments;          // Example: {"sodium": 0.5f, "fat":12.3, ...}
+    private final NutritionValues nutritionValues;  		// Example: true TODO: Implement the "maybe field"
+             
 
     public Product(String s) {  // s corresponds to the .JSON file's content. Use Tools.getProductQuery to instanciate from a bar-code.0
-        JSONObject jsonContent = new JSONObject(s);
+    	nutritionValues = new NutritionValues();
+    	JSONObject jsonContent = new JSONObject(s);
         JSONObject jsonInfo;
         if (jsonContent.isNull("product")){
             jsonInfo = jsonContent;
@@ -59,22 +61,36 @@ public class Product {
         if (!jsonInfo.isNull("nutritiopn_grades")) nutriScore = jsonInfo.getString("nutrition_grades").charAt(0);
         else nutriScore = 'n'; // Default value when nutriscore not found.
         categories = jsonInfo.getString("categories").split(", ");
+        Constraints constraints = new Constraints();
         if (!jsonInfo.isNull("ingredients_analysis_tags")){
             JSONArray analysis = jsonInfo.getJSONArray("ingredients_analysis_tags");
-            palmOil = (analysis.getString(0) == "en:palm-oil"); // TODO add not sure management
-            vegan = (analysis.getString(1) == "en:vegan");   
-            vegetarian = (analysis.getString(2) == "en:vegetarian");
-        } else{
-            palmOil = false;
-            vegan = false;
-            vegetarian = false;
-        }
+            
+            boolean palmOil = (analysis.getString(0) == "en:palm-oil"); // TODO add not sure management
+            
+            if(palmOil) {
+            	constraints.addConstraint("palmOil");
+            }
+            boolean vegan = (analysis.getString(1) == "en:vegan");  
+            
+            if(vegan) {
+            	constraints.addConstraint("vegan");
+            }
+            
+            boolean vegetarian = (analysis.getString(2) == "en:vegetarian");
+            
+            if(vegetarian) {
+            	constraints.addConstraint("vegetarian");
+            }
+        } 
+        nutritionValues.setConstraints(constraints);
+        
+        
         JSONObject jNutriments = jsonInfo.getJSONObject("nutriments");
-        nutriments = new HashMap<>();
+        
         String[] nutrimentList = {"sodium", "fat", "fiber", "salt", "sugars", "proteins"}; // TODO: Complete with what's necessary
         for (String st : nutrimentList) {
-               if(!jNutriments.isNull(st)) nutriments.put(st, jNutriments.getFloat(st));
-               else nutriments.put(st, 0f);
+               if(!jNutriments.isNull(st)) nutritionValues.addNutriment(st, jNutriments.getFloat(st));
+               else nutritionValues.addNutriment(st, 0f);
         }
     }
     
@@ -93,8 +109,8 @@ public class Product {
         return products;
     }
 
-    public HashMap<String, Float> getNutriments() {
-        return nutriments;
+    public NutritionValues getNutritionValues() {
+        return nutritionValues;
     }
 
     public String getQuantity() { // Returns the quantity (mass) as a String. If not found/not applicable (for example: fruits), returns "NONE".
@@ -122,15 +138,15 @@ public class Product {
     }
 
     public boolean isPalmOil() {  // Returns true if the product is known to contains palm oil. If unknown, will return false by default.
-        return palmOil;
+        return nutritionValues.getConstraints().is("palOil");
     }
 
     public boolean isVegan() {	// Returns true if the product is vegan. If it is unknown, will return false by default.
-        return vegan;
+    	return nutritionValues.getConstraints().is("vegan");
     }
 
     public boolean isVegetarian() {  // Returns true if the product is vegetarian. If it is unknown, will return false by default.
-        return vegetarian;
+    	return nutritionValues.getConstraints().is("vegetarian");
     }
 
 }

@@ -1,7 +1,7 @@
 {
     "logs": [
         {
-            "outputFile": "/Users/leazerah/AndroidStudioProjects/izeat3/app/build/intermediates/incremental/mergeDebugResources/merged.dir/values-ky/values-ky.xml",
+            "outputFile": "/Users/leazerah/Desktop/PACT/pact23/client/izeat3/app/build/intermediates/incremental/mergeDebugResources/merged.dir/values-ky/values-ky.xml",
             "map": [
                 {
                     "source": "/Users/leazerah/.gradle/caches/transforms-2/files-2.1/f5bdf8930f5b0dade80802408310dda6/appcompat-1.1.0/res/values-ky/values-ky.xml",

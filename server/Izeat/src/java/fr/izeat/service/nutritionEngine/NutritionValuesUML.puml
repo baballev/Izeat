@@ -1,0 +1,15 @@
+@startuml
+
+class NutritionValues {
+
+    private HashMap<String, Float> nutriments
+    private Constraints constraints
+    public Constraints getConstraints()
+    public void setConstraints(Constraints constraints)
+    public void addNutriment(String nutriment, Float quantity)
+}
+
+
+
+
+@enduml

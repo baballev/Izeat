@@ -1,7 +1,10 @@
 package fr.izeat.service.user;
 
-public class User {
+import java.util.ArrayList;
 
+import fr.izeat.service.nutritionEngine.Recipe;
+
+<<<<<<< HEAD
 	private final String firstname;
         private final String lastname;
         private final int age;
@@ -25,6 +28,33 @@ public class User {
 	
 	public String getFirstName() {
 		return this.firstname;
+=======
+public class User {
+	
+	private UserInfo userInfo;
+	private NutritionStatusInterface status;
+	
+	public User(String passWord, String name) {
+		
+		initUserInfo(passWord,name);
+		
+	}
+	
+	public void initUserInfo(String passWord, String name) {
+		/*
+		 * TODO : initialized userInfo from dataBase 
+		 */
+	}
+	
+	public void saveUserInfo() {
+		/* TODO : implement method that saves the changes made to
+		 *  it's profile in the dataBase.
+		 */
+	}
+	
+	public ArrayList<Recipe> generateRecommandation(int howManyMeals){
+		return null;
+>>>>>>> 6b7fbcb783c6fd45c183e83c73c4a703fac8b3bc
 	}
         public String getLastName(){
             return this.lastname;

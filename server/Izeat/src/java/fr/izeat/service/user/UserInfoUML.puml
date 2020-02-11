@@ -1,0 +1,27 @@
+@startuml
+
+class UserInfo{
+    private int weight
+	private int sizeCentimetre
+	private char sex
+	private String surname
+	private String name
+	private String passWord
+	private int id
+
+
+	public int getWeight()
+	public void setWeight(int weight)
+	public int getSizeCentimetre()
+	public void setSizeCentimetre(int sizeCentimetre)
+	public char getSex()
+	public void setSex(char sex)
+	public String getSurname()
+    	public void setSurname(String surname)
+    	public String getName()
+    	public void setName(String name)
+    	public int getId()
+    	public void setId(int id)
+}
+
+@enduml

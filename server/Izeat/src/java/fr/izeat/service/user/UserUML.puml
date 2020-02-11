@@ -1,0 +1,17 @@
+@startuml
+
+
+class User {
+    private UserInfo userInfo
+    private NutritionStatusInterface status
+    public User(String passWord, String name) // CONSTRUCTOR
+    public void initUserInfo(String passWord, String name)
+    public void saveUserInfo()
+    public ArrayList<Recipe> generateRecommandation(int howManyMeals)
+
+
+}
+
+
+
+@enduml
