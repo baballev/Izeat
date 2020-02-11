@@ -4,8 +4,11 @@ import java.util.ArrayList;
 
 import fr.izeat.service.nutritionEngine.Recipe;
 
-<<<<<<< HEAD
-	private final String firstname;
+
+	
+
+public class User {
+        private final String firstname;
         private final String lastname;
         private final int age;
 	private final String gender;
@@ -13,6 +16,9 @@ import fr.izeat.service.nutritionEngine.Recipe;
         private final int weight;
         private final String preferences;
         private final String allergies;
+        private UserInfo userInfo;
+	private NutritionStatusInterface status;
+	
         
 	public User(String firstname,String lastname,int age,String gender,int height,int weight,String preferences,String allergies ) {
             this.firstname = firstname;
@@ -26,19 +32,12 @@ import fr.izeat.service.nutritionEngine.Recipe;
             
 	}
 	
-	public String getFirstName() {
-		return this.firstname;
-=======
-public class User {
 	
-	private UserInfo userInfo;
-	private NutritionStatusInterface status;
-	
-	public User(String passWord, String name) {
+	//public User(String passWord, String name) {
 		
-		initUserInfo(passWord,name);
+	//	initUserInfo(passWord,name);
 		
-	}
+        //}
 	
 	public void initUserInfo(String passWord, String name) {
 		/*
@@ -54,8 +53,12 @@ public class User {
 	
 	public ArrayList<Recipe> generateRecommandation(int howManyMeals){
 		return null;
->>>>>>> 6b7fbcb783c6fd45c183e83c73c4a703fac8b3bc
+
 	}
+        public String getFirstName() {
+		return this.firstname;
+	
+        }
         public String getLastName(){
             return this.lastname;
         }
