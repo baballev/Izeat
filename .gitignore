@@ -1,12 +1,9 @@
 /server/Izeat/nbproject/private/
 /server/Izeat/build/
-/server/Izeat/dist/
 *.class
 *.log
 *.ctxt
 .mtj.tmp/
-*.jar
-*.war
 *.nar
 *.ear
 *.zip
