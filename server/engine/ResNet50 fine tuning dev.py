@@ -1,17 +1,19 @@
 ## Specifications
 """
-Réalisé dans le cadre du projet PACT de Télécom Paris
+This program was designed for Telecom Paris PACT.
 
-Aliments retenus: Donut, Churros, Frites, Sushi, Steak, Club Sandwich, Gnocchi, Salade Grecque, Lasagne, Pizza
-Dataset: 1000 images dans chaque catégorie, 100 catégories à disposition
-Répartition:
-    Test set -> 125 images de chaque catégorie
-    Valid set -> 125 images de chaque catégorie
-    Train set -> 750 images de chaque catégorie
+aliments: avocat, banane, courgette, oeuf sur le plat, oignon, pizza, pomme, pomme de terre, sushi, tomate
+Dataset: Manually retrieved from instagram + refined ImageNet
+    Train set:
+    Test set:
+~550 MB
 
-Taille des données: environ 10GB en ready-to-use
 """
-# TODO: Refactor tout le code, noms de variables appropriés, commenter, anglais...
+# TODO: Refactor tout le code, noms de variables appropriés
+
+# TODO : Change data augmentation and see if it improves on 10 epochs 300x300x3
+# TODO : Test grayscales
+# TODO : Adapt prediction section
 
 ## LIB
 import numpy as np
@@ -28,15 +30,16 @@ from keras.layers import Conv2D, MaxPooling2D, Flatten, Dense, Dropout, InputLay
 
 ## GLOBAL VARIABLES
 np.random.seed(9)
-labels = ["churros", "club_sandwich", "donuts", "french_fries", "gnocchi", "greek_salad", "lasagna", "pizza", "steak", "sushi"]
+labels = ["avocat", "banane", "courgette", "oeuf_sur_le_plat", "oignon", "pizza", "pomme", "pomme_de_terre", "sushi", "tomate"]
 numClasses = len(labels)
-img_size = 128
+img_size = 512
 img_dim = (img_size, img_size)
 depth = 3 # 3 = RGB, 1 = Greyscale
 pixelDepth = 255.0
 nb_of_epochs = 10 # Number of times the entire dataset will be gone through during training
 root_path = "E:\\Programmation\\Python\\dataset-food"
-weights_file = 'ResNet50-test-13-02-2020.h5'
+image_folder = "\\Izeat_dataset"
+weights_file = 'RN50&1Dense-512x512x3-13-02-2020.h5'
 
 ## UTILS
 def randomize(dataset, labels):
@@ -45,8 +48,8 @@ def randomize(dataset, labels):
     return rd_dataset, rd_labels
 
 ## Quick menu
-loadNN = (input("Load NN? (y/n): ") == "y") # True to load an already trained NN, False to start a new training from scratch
-needTrain = (input("Train NN ? (y/n, n for tests only): ") == "y") # Make false for testing only
+loadNN = (input("Load NN? (y/n)(default=n): ") == "y") # True to load an already trained NN, False to start a new training from scratch
+needTrain = (input("Train NN ? (y/n, default=n for tests only): ") == "y") # Make false for testing only
 s = input("Root directory (default : " + root_path + "): ")
 if s != "": root_path = s
 os.chdir(root_path)
@@ -69,7 +72,7 @@ if needTrain:
 train_datagen = ImageDataGenerator(rescale=1./255, zoom_range=0.3, rotation_range=50, width_shift_range=0.2, height_shift_range=0.2, shear_range=0.2, horizontal_flip=True, fill_mode='nearest')
 valid_datagen = ImageDataGenerator(rescale=1./255)
 
-train_generator = train_datagen.flow_from_directory(root_path + '/images', save_format='jpg', target_size=img_dim, color_mode='rgb', batch_size=32)
+train_generator = train_datagen.flow_from_directory(root_path + image_folder, save_format='jpg', target_size=img_dim, color_mode='rgb', batch_size=32)
 
 ## SETUP RESTNET5
 
@@ -86,8 +89,6 @@ else:
         layer.trainable = False
     model = Sequential()
     model.add(restnet)
-    model.add(Dense(10000, activation='softmax'))
-    model.add(Dense(1000, activation='softmax'))
     model.add(Dense(numClasses, activation='softmax'))
     model.compile(loss='categorical_crossentropy', optimizer=keras.optimizers.SGD(0.01), metrics=['accuracy'])
     model.summary() # Display trainable layers
