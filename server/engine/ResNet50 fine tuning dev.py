@@ -11,8 +11,6 @@ Répartition:
 
 Taille des données: environ 10GB en ready-to-use
 """
-
-# TODO: Setup 2 branch forks de recoImage pour chacun et faire les commits
 # TODO: Refactor tout le code, noms de variables appropriés, commenter, anglais...
 
 ## LIB
@@ -29,16 +27,16 @@ from keras.models import Model, Sequential
 from keras.layers import Conv2D, MaxPooling2D, Flatten, Dense, Dropout, InputLayer
 
 ## GLOBAL VARIABLES
-np.random.seed(3)
+np.random.seed(9)
 labels = ["churros", "club_sandwich", "donuts", "french_fries", "gnocchi", "greek_salad", "lasagna", "pizza", "steak", "sushi"]
 numClasses = len(labels)
-img_size = 256
+img_size = 128
 img_dim = (img_size, img_size)
-depth = 3
+depth = 3 # 3 = RGB, 1 = Greyscale
 pixelDepth = 255.0
-nb_of_epochs = 10
+nb_of_epochs = 10 # Number of times the entire dataset will be gone through during training
 root_path = "E:\\Programmation\\Python\\dataset-food"
-weights_file = 'ResNet50-test-17-01-2020.h5'
+weights_file = 'ResNet50-test-13-02-2020.h5'
 
 ## UTILS
 def randomize(dataset, labels):
@@ -46,21 +44,12 @@ def randomize(dataset, labels):
     rd_dataset, rd_labels = dataset[idx], labels[idx]
     return rd_dataset, rd_labels
 
-## DATA IMPORT
-ENABLE_DATA_IMPORT = False
-
-os.chdir(root_path)
-
-## DATA LOADING + AUGMENTATION
-train_datagen = ImageDataGenerator(rescale=1./255, zoom_range=0.3, rotation_range=50, width_shift_range=0.2, height_shift_range=0.2, shear_range=0.2, horizontal_flip=True, fill_mode='nearest')
-valid_datagen = ImageDataGenerator(rescale=1./255)
-
-train_generator = train_datagen.flow_from_directory(root_path + '/images', save_format='jpg', target_size=(256, 256), color_mode='rgb', batch_size=32)
-
 ## Quick menu
-loadNN = (input("Load NN? (y/n)") == "y") # True to load an already trained NN, False to start a new training from scratch
-print("LoadNN = " + str(loadNN))
-needTrain = (input("Train NN ? n for tests only: (y/n)") == "y") # Make false for testing only
+loadNN = (input("Load NN? (y/n): ") == "y") # True to load an already trained NN, False to start a new training from scratch
+needTrain = (input("Train NN ? (y/n, n for tests only): ") == "y") # Make false for testing only
+s = input("Root directory (default : " + root_path + "): ")
+if s != "": root_path = s
+os.chdir(root_path)
 if loadNN:
     s = input("Weights file location to load (.h5)(default: " + weights_file + "): ")
     if s != "": weights_file = y
@@ -75,6 +64,12 @@ if needTrain:
     if s != "": img_size = int(s)
     s = input("Color ? (y = color/ n = grayscale, default = color): ")
     if s == "n": depth = 1
+
+## DATA LOADING + AUGMENTATION
+train_datagen = ImageDataGenerator(rescale=1./255, zoom_range=0.3, rotation_range=50, width_shift_range=0.2, height_shift_range=0.2, shear_range=0.2, horizontal_flip=True, fill_mode='nearest')
+valid_datagen = ImageDataGenerator(rescale=1./255)
+
+train_generator = train_datagen.flow_from_directory(root_path + '/images', save_format='jpg', target_size=img_dim, color_mode='rgb', batch_size=32)
 
 ## SETUP RESTNET5
 
@@ -91,6 +86,8 @@ else:
         layer.trainable = False
     model = Sequential()
     model.add(restnet)
+    model.add(Dense(10000, activation='softmax'))
+    model.add(Dense(1000, activation='softmax'))
     model.add(Dense(numClasses, activation='softmax'))
     model.compile(loss='categorical_crossentropy', optimizer=keras.optimizers.SGD(0.01), metrics=['accuracy'])
     model.summary() # Display trainable layers
