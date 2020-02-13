@@ -32,9 +32,11 @@ from keras.layers import Conv2D, MaxPooling2D, Flatten, Dense, Dropout, InputLay
 np.random.seed(3)
 labels = ["churros", "club_sandwich", "donuts", "french_fries", "gnocchi", "greek_salad", "lasagna", "pizza", "steak", "sushi"]
 numClasses = len(labels)
-IMG_SIZE = 256
-IMG_DIM = (IMG_SIZE, IMG_SIZE)
+img_size = 256
+img_dim = (img_size, img_size)
+depth = 3
 pixelDepth = 255.0
+nb_of_epochs = 10
 root_path = "E:\\Programmation\\Python\\dataset-food"
 weights_file = 'ResNet50-test-17-01-2020.h5'
 
@@ -60,18 +62,26 @@ loadNN = (input("Load NN? (y/n)") == "y") # True to load an already trained NN, 
 print("LoadNN = " + str(loadNN))
 needTrain = (input("Train NN ? n for tests only: (y/n)") == "y") # Make false for testing only
 if loadNN:
-    s = input("Weights file location to load (.h5)(leave blank for default: " + weights_file + "): ")
+    s = input("Weights file location to load (.h5)(default: " + weights_file + "): ")
     if s != "": weights_file = y
 else:
-    s = input("Weights file location to save (.h5)(leave blank for default: " + weights_file + "): ")
+    s = input("Weights file location to save (.h5)(default: " + weights_file + "): ")
     if s != "": weights_file = y
+
+if needTrain:
+    s = input("Number of epochs to train (default = " + str(nb_of_epochs) + "): ")
+    if s != "": nb_of_epochs = int(s)
+    s = input("Image size (default: " + str(img_size) + "->" + str(img_dim) + "): ")
+    if s != "": img_size = int(s)
+    s = input("Color ? (y = color/ n = grayscale, default = color): ")
+    if s == "n": depth = 1
 
 ## SETUP RESTNET5
 
 if loadNN:
     model = keras.models.load_model(weights_file)
 else:
-    restnet = ResNet50(include_top=False, weights='imagenet', input_shape=(IMG_SIZE, IMG_SIZE, 3))
+    restnet = ResNet50(include_top=False, weights='imagenet', input_shape=(img_size, img_size, depth))
     output = restnet.layers[-1].output
     output = keras.layers.Flatten()(output)
 
@@ -86,12 +96,12 @@ else:
     model.summary() # Display trainable layers
 
 if needTrain:
-    history = model.fit_generator(train_generator, steps_per_epoch=100, epochs=10, validation_steps=50, verbose=1)
+    history = model.fit_generator(train_generator, steps_per_epoch=100, epochs=nb_of_epochs, validation_steps=50, verbose=1)
     model.save(weights_file)
 else: # predict tests
-    x_test = np.zeros((25, IMG_SIZE, IMG_SIZE, 3), dtype=np.float32)
+    x_test = np.zeros((25, img_size, img_size, depth), dtype=np.float32)
     for i in range(25):
-        x_test[i] = img_to_array(load_img("E:\\Programmation\\Python\\dataset-food\\test-images\\sushi\\" + str(i+1) + ".jpg", target_size=IMG_DIM))
+        x_test[i] = img_to_array(load_img("E:\\Programmation\\Python\\dataset-food\\test-images\\sushi\\" + str(i+1) + ".jpg", target_size=img_dim))
     y_prob = model.predict_classes(x_test)
     print(y_prob)
 
