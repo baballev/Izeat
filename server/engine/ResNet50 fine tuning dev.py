@@ -55,10 +55,19 @@ valid_datagen = ImageDataGenerator(rescale=1./255)
 
 train_generator = train_datagen.flow_from_directory(root_path + '/images', save_format='jpg', target_size=(256, 256), color_mode='rgb', batch_size=32)
 
+## Quick menu
+loadNN = (input("Load NN? (y/n)") == "y") # True to load an already trained NN, False to start a new training from scratch
+print("LoadNN = " + str(loadNN))
+needTrain = (input("Train NN ? n for tests only: (y/n)") == "y") # Make false for testing only
+if loadNN:
+    s = input("Weights file location to load (.h5)(leave blank for default: " + weights_file + "): ")
+    if s != "": weights_file = y
+else:
+    s = input("Weights file location to save (.h5)(leave blank for default: " + weights_file + "): ")
+    if s != "": weights_file = y
+
 ## SETUP RESTNET5
-# TODO: Ask in console what to do
-loadNN = True # True to load an already trained NN, False to start a new training from scratch
-needTrain = True # Make false for testing only
+
 if loadNN:
     model = keras.models.load_model(weights_file)
 else:
