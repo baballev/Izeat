@@ -3,12 +3,12 @@ Le répertoire `client` contient le code source l'application android en Java.
 Le répertoire `server` contient le code source de l'application en Java sur le serveur.
 Adresse du serveur: izeat.r2.enst.fr
 
-**Structure des URI du web service**
-Root: **http://izeat.r2.enst.fr/ws/Izeat/webresources**
-Accueil: /service
-Infos produit: /product/{code barre du produit}
-Recherche de produits: /product/search/{mots clés}
-Utilisateurs: /user/{identifiant utilisateur}
+**Structure des URI du web service**    
+**Root:** http://izeat.r2.enst.fr/ws/Izeat/webresources       
+**Accueil:** /service   
+**Infos produit:** /product/{code barre du produit} 
+**Recherche de produits:** /product/search/{mots clés}  
+**Utilisateurs:** /user/{identifiant utilisateur}   
 
 
 
