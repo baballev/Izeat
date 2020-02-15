@@ -14,6 +14,9 @@ Dataset: Manually retrieved from instagram + refined ImageNet
 # TODO : Change data augmentation and see if it improves on 10 epochs 300x300x3
 # TODO : Test grayscales
 # TODO : Adapt prediction section
+# TODO : Try to add layers on top with relu as activation, final one being softmax:
+#        1 RELU 1024 (+dropout eventually) +  1 softmax 10 for probability
+
 
 ## LIB
 import numpy as np
@@ -102,5 +105,3 @@ else: # predict tests
         x_test[i] = img_to_array(load_img("E:\\Programmation\\Python\\dataset-food\\test-images\\sushi\\" + str(i+1) + ".jpg", target_size=img_dim))
     y_prob = model.predict_classes(x_test)
     print(y_prob)
-
-
