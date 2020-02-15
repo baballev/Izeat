@@ -6,9 +6,9 @@ Adresse du serveur: izeat.r2.enst.fr
 **Structure des URI du web service**    
 **Root:** http://izeat.r2.enst.fr/ws/Izeat/webresources       
 **Accueil:** /service   
-**Infos produit:** /product/{code barre du produit} 
-**Recherche de produits:** /product/search/{mots clés}  
-**Utilisateurs:** /user/{identifiant utilisateur}   
+**Infos produit:** /product/{code barre du produit}     
+**Recherche de produits:** /product/search/{mots clés}      
+**Utilisateurs:** /user/{identifiant utilisateur}       
 
 
 
