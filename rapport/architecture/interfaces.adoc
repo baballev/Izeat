@@ -23,26 +23,29 @@ un document HTML.
 [source,java]
 ----
 public interface ToolsInterface {
-	/* Class inspired by the official Python release of the OpenFoodFacts' SDK.
-	 What it does: Gives methods to retrieve queries result from OpenFoodFacts as
-	 a StringBuilder object. This StringBuilder contains the JSON file's content.
-	 What it does not: Format data so that it is ready to be used. */
 
-	/* code is a 12 digits integer corresponding to the barcode of the desired
-	 product.
-	 Returns a StringBuilder containing the JSON file. */
-	public static StringBuilder getProductQuery(int code) {
-		return null;
-	}
+    /* What it does: Gives methods to retrieve queries result from OpenFoodFacts as
+     * a  String. This String contains the JSON file's content.
+     * What it does not: Format data so that it is ready to be used. See Product class for that purpose.
+     * 
+     * code is a 12-13 digits integer corresponding to the barcode of the desired
+     * product. It is represented as a string as every 0 at the begining matters.
+     * Returns a String containing the JSON file.
+     * If the method fails to get the JSON file, it will return null.
+     */
+    public static String getProductQuery(String code) {
+        return null;
+    }
 
-	/* query corresponds to the search field.
-	 pageNumber corresponds to the desired page number of the research result.
-	 pageSize corresponds to the number of products by page.
-	 Returns a StringBuilder containing the HTML doc. */
-	public static StringBuilder getSearchQuery(String query, int pageNumber, int pageSize) {
-		return null;
-	}
-}
+    /* query corresponds to the search field.
+     * pageNumber corresponds to the desired page number of the research result.
+     * pageSize corresponds to the number of products by page.
+     * Returns a String containing the JSON file with every products that matched the research terms.
+     * If the method fails to get the JSON doc, it will return null.
+     */
+    public static String getSearchQuery(String query, int pageNumber, int pageSize) {
+        return null;
+    }
 ----
 
 ==== Interface Android - Serveur
@@ -50,6 +53,10 @@ public interface ToolsInterface {
 Le serveur disposera de son propre service web permettant au client Android
 de récupérer les informations essentielles concernant des produits ou des 
 données personelles de l'uitilsateur.
+
+Le serveur donne les infos sur les utilisateurs et le produits sous forme de 
+fichier json à travers les URI du service web. Le client effectue une requête 
+http GET vers le web service afin de récupérer ces .json.
 
 
 
