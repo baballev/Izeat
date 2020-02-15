@@ -1,6 +1,6 @@
 Le répertoire `rapport` contient le rapport d'avancement et est structuré en sous dossiers.
 Le répertoire `client` contient le code source l'application android en Java.
-Le répertoire `server` contient le code source de l'application en Java sur le serveur. Il s'agit principalement du service web hébergé à l'adresse izeat.r2.enst.fr .
+Le répertoire `server` contient le code source de l'application en Java sur le serveur. Il s'agit principalement du service web hébergé à l'adresse http://izeat.r2.enst.fr/ws/Izeat/webresources/ .
 
 Le rapport d'avancement est rédigé  en utilisant le langage [**AsciiDoc**](http://asciidoc.org/).
 
