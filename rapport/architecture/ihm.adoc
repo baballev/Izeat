@@ -25,12 +25,14 @@ est absent dans cette version du storyboard.
 Le storyboard présenté ici est donc un point de départ de conception de 
 l'application amené à changer par la suite.
 
-image::../images/storyboard/Premiere_utilisation.png[Première ouverture de l'application, 600, 1000]
-image::../images/storyboard/inscription.png[Inscription, 600, 1000]
-image::../images/storyboard/inscription_avec_texte_rempli.png[Inscription, 600, 1000]
-image::../images/storyboard/inscription_-_suite.png[Inscription - Suite, 600, 1000]
-image::../images/storyboard/inscription_-_suite_cliqué.png[Inscription - Suite bouton cliqué, 600, 1000]
-image::../images/storyboard/connexion.png[Connexion, 600, 1000]
+// TODO: ACTUALISER LE STORYBOARD AVEC LES IMAGES FINALES QUAND LETUDE SERA FAITE
+
+image::../images/storyboard/StoryBoard_1/Premiere_utilisation.png[Première ouverture de l'application, 600, 1000]
+image::../images/storyboard/StoryBoard_1/inscription.png[Inscription, 600, 1000]
+image::../images/storyboard/StoryBoard_1/inscription_avec_texte_rempli.png[Inscription, 600, 1000]
+image::../images/storyboard/StoryBoard_1/inscription_-_suite.png[Inscription - Suite, 600, 1000]
+image::../images/storyboard/StoryBoard_1/inscription_-_suite_cliqué.png[Inscription - Suite bouton cliqué, 600, 1000]
+image::../images/storyboard/StoryBoard_1/connexion.png[Connexion, 600, 1000]
 
 
 
@@ -46,7 +48,7 @@ sensibles (mot de passe, adresse mail) au serveur.
 
 
 
-image::../images/storyboard/accueil.png[Onglet accueil, 600, 1000]
+image::../images/storyboard/StoryBoard_1/accueil.png[Onglet accueil, 600, 1000]
 
 
 
@@ -64,8 +66,8 @@ possible.
 
 
 
-image::../images/storyboard/ajout_aliment_photo.png[Scan code-barres, 600, 1000]
-image::../images/storyboard/ajout_aliment_photo_2.png[Reconnaissance d'image, 600, 1000]
+image::../images/storyboard/StoryBoard_1/ajout_aliment_photo.png[Scan code-barres, 600, 1000]
+image::../images/storyboard/StoryBoard_1/ajout_aliment_photo_2.png[Reconnaissance d'image, 600, 1000]
 
 
 
@@ -79,10 +81,10 @@ est exploitable.
 
 
 
-image::../images/storyboard/selection_aliment.png[Sélection aliment, 600, 1000]
-image::../images/storyboard/selection_aliment_recherche.png[Sélection aliment avec recherche, 600, 1000]
-image::../images/storyboard/ajout_aliment_final_sans.png[Ajout final de l'aliment, 600, 1000]
-image::../images/storyboard/ajout_aliment_final.png[Ajout final de l'aliment avec consommation directe, 600, 1000]
+image::../images/storyboard/StoryBoard_1/selection_aliment.png[Sélection aliment, 600, 1000]
+image::../images/storyboard/StoryBoard_1/selection_aliment_recherche.png[Sélection aliment avec recherche, 600, 1000]
+image::../images/storyboard/StoryBoard_1/ajout_aliment_final_sans.png[Ajout final de l'aliment, 600, 1000]
+image::../images/storyboard/StoryBoard_1/ajout_aliment_final.png[Ajout final de l'aliment avec consommation directe, 600, 1000]
 
 La sélection d'aliment consistera elle uniquement en l'affichage d'une liste qui 
 évolue en fonction des caractères tapés par l'utilisateur dans la barre de
@@ -90,25 +92,25 @@ recherche. Il faudra donc du côté client uniquement récupérer les caractère
 entrés et les envoyer au serveur, lequel renverra une liste correspondant à la
 recherche dont le client gerera l'affichage et les interactions.
 
-image::../images/storyboard/tous_mes_aliments.png[Frigo virtuel, 600, 1000]
+image::../images/storyboard/StoryBoard_1/tous_mes_aliments.png[Frigo virtuel, 600, 1000]
 
 
 
 
-image::../images/storyboard/suivi.png[Onglet suivi, 600, 1000]
+image::../images/storyboard/StoryBoard_1/suivi.png[Onglet suivi, 600, 1000]
 Cette partie de l'application correspond au suivi nutritif de l'utilisateur. 
 Elle comprendra plusieurs activités qui donneront le suivi des calories, nutriments ou encore des aliments consommés par l'utilisateur. 
 Le binôme du module android devra coder ces différents activités qui utiliseront les OpenSource pour avoir accès aux différents éléments. 
 
-image::../images/storyboard/onglet_conseils.png[Onglet conseils, 600, 1000]
+image::../images/storyboard/StoryBoard_1/onglet_conseils.png[Onglet conseils, 600, 1000]
 Cet onglet de l'application représente la partie "recommendation". Il s'appuiera sur des bases de données 
 pour générer des recettes en fonction des aliments présents dans le "frigo virtuel" de l'utilisateur. Des recettes pourront égalemment être
 propopées même si l'utilisateur ne dispose pas de tous les aliments nécessaire. Le binôme du module android s'attardera à afficher les différentes 
 propositions dans l'interface visuelle. 
 
 
-image::../images/storyboard/profil_bouton_haut_droit_cliqué.png[Onglet profil, 600, 1000]
-image::../images/storyboard/profil_bouton_haut_droit_cliqué_ami.png[Première ouverture de l'application, 600, 1000]
+image::../images/storyboard/StoryBoard_1/profil_bouton_haut_droit_cliqué.png[Onglet profil, 600, 1000]
+image::../images/storyboard/StoryBoard_1/profil_bouton_haut_droit_cliqué_ami.png[Première ouverture de l'application, 600, 1000]
 
 L'onglet ici est l'onglet associé au réseau social qu'apportera l'application.
 Le système de progression est ici très succinct mais est sujet à nombreuses
