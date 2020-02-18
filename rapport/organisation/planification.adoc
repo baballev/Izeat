@@ -57,11 +57,11 @@
 |====
 |Tâche |Quand |Fait |Remarques
 |Installation de l’outil Android Studio |21 octobre |fait|
-|TP Android | | en cours| on suit le cours/TP d'OpenClassRoom
+|TP Android | | Fait| on suit le cours/TP d'OpenClassRoom
 |Squelette d’application | | en cours |
 |GUI | |en cours |
 |Plan de test | |pas fait |
-|Rapport Génie Logiciel |7 février | en cours|
+|Rapport Génie Logiciel |7 février | Fait|
 |Découverte de Siquli | |en cours |
 |Installation d'un serveur | |Fait |
 |====
