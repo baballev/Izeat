@@ -4,6 +4,8 @@ import android.widget.TextView;
 
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.example.izeat.Model.Recipe;
+
 public class RecipesViewHolder extends RecyclerView.ViewHolder {
 
     public TextView recipeName;
@@ -13,4 +15,7 @@ public class RecipesViewHolder extends RecyclerView.ViewHolder {
         recipeName = v;
     }
 
+    public void setHolder(Recipe r){
+        recipeName.setText(r.getRecipeName());
+    }
 }

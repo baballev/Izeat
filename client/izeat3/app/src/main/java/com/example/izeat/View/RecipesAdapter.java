@@ -9,16 +9,14 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import java.util.ArrayList;
 
-import com.example.izeat.Model.Recipes;
+import com.example.izeat.Model.Recipe;
 import com.example.izeat.R;
-
-import org.w3c.dom.Text;
 
 public class RecipesAdapter extends RecyclerView.Adapter<RecipesViewHolder> {
 
-    private ArrayList<Recipes> recipesList;
+    private ArrayList<Recipe> recipesList;
 
-    public RecipesAdapter(ArrayList<Recipes> recipesList){
+    public RecipesAdapter(ArrayList<Recipe> recipesList){
         this.recipesList = recipesList;
     }
 
@@ -34,7 +32,7 @@ public class RecipesAdapter extends RecyclerView.Adapter<RecipesViewHolder> {
     @Override
     public void onBindViewHolder(@NonNull RecipesViewHolder holder, int position) {
 
-        holder.recipeName.setHolder((CharSequence) recipesList.get(position));
+        holder.setHolder(recipesList.get(position));
 
     }
 
