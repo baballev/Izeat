@@ -17,5 +17,5 @@ hs_err_pid*
 *iml
 .gradle
 build/
-app/build/
+client/izeat3/app/build/
 local.properties
