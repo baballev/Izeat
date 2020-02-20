@@ -14,20 +14,9 @@ import com.example.izeat.R;
 
 import org.w3c.dom.Text;
 
-public class RecipesAdapter extends RecyclerView.Adapter<RecipesAdapter.RecipesViewHolder> {
+public class RecipesAdapter extends RecyclerView.Adapter<RecipesViewHolder> {
 
     private ArrayList<Recipes> recipesList;
-
-    public static class RecipesViewHolder extends RecyclerView.ViewHolder {
-
-        public TextView recipeName;
-
-        public RecipesViewHolder(TextView v) {
-            super(v);
-            recipeName = v;
-        }
-
-    }
 
     public RecipesAdapter(ArrayList<Recipes> recipesList){
         this.recipesList = recipesList;
@@ -35,7 +24,7 @@ public class RecipesAdapter extends RecyclerView.Adapter<RecipesAdapter.RecipesV
 
     @NonNull
     @Override
-    public RecipesAdapter.RecipesViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
+    public RecipesViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
 
         TextView v = (TextView) LayoutInflater.from(parent.getContext()).inflate(R.layout.recipe_view, parent, false);
         RecipesViewHolder recipesViewHolder = new RecipesViewHolder(v);
