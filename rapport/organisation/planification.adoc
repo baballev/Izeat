@@ -81,6 +81,7 @@
 //|asynctask pour client-serveur | | |
 |Écran d'inscription / envoi sur la BD| | |
 |Connexion avec vérif des login sur la BD| | |
+|Design des recycler view pour afficher les listes de recettes et produits| | |
 |Accès à la caméra envoi de la photo à l'IA de reconnaissance| | |
 |Accès à la caméra plus lecture code barre| | |
 |Affichage des 4 onglets avec fonctionnalités indispensables : accès à la liste déroulante, accès au frigo virtuel, onglet recommendations qui ping l'IA| | |
