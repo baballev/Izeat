@@ -10,7 +10,7 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
         <activity android:name=".Controller.RecipesListActivity"></activity>
-        <activity android:name=".Inscription" />
+        <activity android:name=".Controller.Login" />
         <activity android:name=".Controller.SignUp">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
