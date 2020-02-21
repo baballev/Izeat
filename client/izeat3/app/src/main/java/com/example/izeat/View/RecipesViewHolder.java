@@ -15,7 +15,7 @@ public class RecipesViewHolder extends RecyclerView.ViewHolder {
         recipeName = v;
     }
 
-    public void setHolder(Recipe r){
+    public void updateHolder(Recipe r){
         recipeName.setText(r.getRecipeName());
     }
 }

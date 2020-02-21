@@ -1,4 +1,4 @@
-package com.example.izeat.Controller.;
+package com.example.izeat.Controller;
 
 import androidx.appcompat.app.AppCompatActivity;
 
