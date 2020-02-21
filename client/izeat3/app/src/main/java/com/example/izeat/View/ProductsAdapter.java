@@ -7,16 +7,16 @@ import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
-import java.util.ArrayList;
-
 import com.example.izeat.Model.Recipe;
 import com.example.izeat.R;
 
-public class RecipesAdapter extends RecyclerView.Adapter<RecipesViewHolder> {
+import java.util.ArrayList;
+
+public class ProductsAdapter extends RecyclerView.Adapter<RecipesViewHolder> {
 
     private ArrayList<Recipe> recipesList;
 
-    public RecipesAdapter(ArrayList<Recipe> recipesList){
+    public ProductsAdapter(ArrayList<Recipe> recipesList){
         this.recipesList = recipesList;
     }
 

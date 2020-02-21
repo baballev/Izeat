@@ -1,21 +1,22 @@
 package com.example.izeat.View;
 
+import android.view.View;
 import android.widget.TextView;
 
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.example.izeat.Model.Product;
 import com.example.izeat.Model.Recipe;
 
-public class RecipesViewHolder extends RecyclerView.ViewHolder {
+public class ProductsViewHolder extends RecyclerView.ViewHolder {
 
-    public TextView recipeName;
-
-    public RecipesViewHolder(TextView v) {
+    public TextView productName;
+    public ProductsViewHolder(View v) {
         super(v);
-        recipeName = v;
+        ButterKnife.bind(this, v);
     }
 
-    public void updateHolder(Recipe r){
-        recipeName.setText(r.getRecipeName());
+    public void updateHolder(Product p){
+        productName.setText(p.getProductName());
     }
 }
