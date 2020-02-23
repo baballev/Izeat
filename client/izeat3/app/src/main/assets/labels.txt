@@ -1,0 +1,10 @@
+Avocat
+Banane
+Courgette
+Oeuf_sur_le_plat
+Oignon
+Pizza
+Pomme
+Pomme_de_terre
+Sushi
+Tomate
