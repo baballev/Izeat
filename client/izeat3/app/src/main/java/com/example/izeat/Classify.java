@@ -174,7 +174,7 @@ public class Classify extends AppCompatActivity {
             Bitmap bitmap = MediaStore.Images.Media.getBitmap(getContentResolver(), uri);
             selected_image.setImageBitmap(bitmap);
             // Strange but needed
-            selected_image.setRotation(selected_image.getRotation() + 90);
+            //selected_image.setRotation(selected_image.getRotation() + 90);
         } catch (IOException e) {
             e.printStackTrace();
         }

@@ -113,12 +113,12 @@ public class ImageRecognitionActivity extends AppCompatActivity {
     @Override
     protected void onActivityResult(int requestCode, int resultCode, Intent data){
         super.onActivityResult(requestCode, resultCode, data);
-        // if the camera activity is finished, obtained the uri, crop it to make it square, and send it to 'Classify' activity
+        // If the camera activity is finished, obtained the uri, crop it to make it square, and send it to 'Classify' activity
         if(requestCode == REQUEST_IMAGE && resultCode == RESULT_OK) {
             try {
                 Uri source_uri = imageUri;
                 Uri dest_uri = Uri.fromFile(new File(getCacheDir(), "cropped"));
-                // need to crop it to square image as CNN's always required square input
+                // Need to crop it to square image as CNN's always required square input
                 Crop.of(source_uri, dest_uri).asSquare().start(ImageRecognitionActivity.this);
             } catch (Exception e) {
                 e.printStackTrace();
