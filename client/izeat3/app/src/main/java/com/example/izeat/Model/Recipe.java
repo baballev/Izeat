@@ -17,7 +17,11 @@ public class Recipe {
         this.recipeName = recipeName;
     }
 
-    public Object getImageUrl() {
+    public String getImageUrl() {
         return recipeImageUrl;
+    }
+
+    public void setRecipeImageUrl(String recipeImageUrl) {
+        this.recipeImageUrl = recipeImageUrl;
     }
 }
