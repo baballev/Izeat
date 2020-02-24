@@ -9,6 +9,7 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
+<<<<<<< HEAD
         <activity
             android:name=".accueil"
             android:label="@string/title_activity_accueil"></activity>
@@ -18,6 +19,12 @@
             android:theme="@style/AppTheme.NoActionBar" />
         <activity android:name=".Inscription" />
         <activity android:name=".SignUp">
+=======
+        <activity android:name=".Controller.ProductsRecomendationActivity"></activity>
+        <activity android:name=".Controller.RecipesListActivity" />
+        <activity android:name=".Controller.Login" />
+        <activity android:name=".Controller.SignUp">
+>>>>>>> d6c7a3ed5408d95c6889273335f2a92f26daee7f
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
