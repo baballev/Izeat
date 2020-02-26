@@ -13,7 +13,7 @@ public class ProductsViewHolder extends RecyclerView.ViewHolder {
     public TextView productName;
     public ProductsViewHolder(View v) {
         super(v);
-        //this, v;
+        this, v;
     }
 
     public void updateHolder(Product p){
