@@ -7,6 +7,7 @@ import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.bumptech.glide.RequestManager;
 import com.example.izeat.Model.Recipe;
 import com.example.izeat.R;
 
@@ -15,9 +16,11 @@ import java.util.ArrayList;
 public class ProductsAdapter extends RecyclerView.Adapter<RecipesViewHolder> {
 
     private ArrayList<Recipe> recipesList;
+    private RequestManager glide;
 
-    public ProductsAdapter(ArrayList<Recipe> recipesList){
+    public ProductsAdapter(ArrayList<Recipe> recipesList,RequestManager glide){
         this.recipesList = recipesList;
+        this.glide = glide;
     }
 
     @NonNull
@@ -32,7 +35,7 @@ public class ProductsAdapter extends RecyclerView.Adapter<RecipesViewHolder> {
     @Override
     public void onBindViewHolder(@NonNull RecipesViewHolder holder, int position) {
 
-        holder.updateHolder(recipesList.get(position));
+        holder.updateHolder(recipesList.get(position),glide);
 
     }
 

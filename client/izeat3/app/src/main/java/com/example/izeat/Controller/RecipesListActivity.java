@@ -6,6 +6,7 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import android.os.Bundle;
 
+import com.bumptech.glide.Glide;
 import com.example.izeat.Model.Recipe;
 import com.example.izeat.R;
 import com.example.izeat.View.RecipesAdapter;
@@ -34,7 +35,7 @@ public class RecipesListActivity extends AppCompatActivity {
         layoutManager = new GridLayoutManager(this, 3);
         recipesRecyclerView.setLayoutManager(layoutManager);
 
-        recipesAdapter = new RecipesAdapter(recipeList);
+        recipesAdapter = new RecipesAdapter(recipeList, Glide.with(this));
         recipesRecyclerView.setAdapter(recipesAdapter);
 
     }
