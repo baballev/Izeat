@@ -7,7 +7,6 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.izeat.Model.Product;
 import com.example.izeat.Model.Recipe;
-import com.example.izeat.R;
 
 public class ProductsViewHolder extends RecyclerView.ViewHolder {
 
