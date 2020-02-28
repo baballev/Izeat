@@ -30,9 +30,10 @@
         android:textStyle="bold"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.6"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.45" />
+        app:layout_constraintVertical_bias="0.596" />
 
     <LinearLayout
         android:id="@+id/linearLayout2"
@@ -54,7 +55,7 @@
         app:layout_constraintHorizontal_bias="0.285"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.34"
+        app:layout_constraintVertical_bias="0.378"
         app:srcCompat="@android:color/white"
         tools:ignore="VectorDrawableCompat" />
 
@@ -108,8 +109,8 @@
 
     <TextView
         android:id="@+id/textView6"
-        android:layout_width="245dp"
-        android:layout_height="37dp"
+        android:layout_width="256dp"
+        android:layout_height="56dp"
         android:text="Prends en photo ton aliment "
         android:textAllCaps="false"
         android:textSize="18sp"
@@ -119,18 +120,19 @@
         app:layout_constraintHorizontal_bias="0.096"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.253" />
+        app:layout_constraintVertical_bias="0.296" />
 
     <ImageButton
         android:id="@+id/btnTakePicture"
-        android:layout_width="87dp"
-        android:layout_height="76dp"
+        android:layout_width="104dp"
+        android:layout_height="101dp"
+        android:background="#4CAF50"
         android:src="@drawable/ic_photo_camera_black_24dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.783"
+        app:layout_constraintHorizontal_bias="0.882"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.332" />
+        app:layout_constraintVertical_bias="0.398" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
