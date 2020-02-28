@@ -4,6 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="#ECE9C0"
     tools:context=".Controller.Login">
 
     <TextView
@@ -79,8 +80,8 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="216dp"
         android:ems="10"
-        android:inputType="textEmailAddress"
         android:hint="adresse mail"
+        android:inputType="textEmailAddress"
         android:textColorHint="#BDDAA8"
         app:layout_constraintHorizontal_bias="0.502"
         app:layout_constraintLeft_toLeftOf="parent"
@@ -93,8 +94,8 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="272dp"
         android:ems="10"
-        android:inputType="textPassword"
         android:hint="Mot de passe "
+        android:inputType="textPassword"
         android:textColorHint="#BDDAA8"
         app:layout_constraintHorizontal_bias="0.502"
         app:layout_constraintLeft_toLeftOf="parent"
