@@ -1,8 +1,9 @@
-package com.example.izeat;
+package com.example.izeat.Controller;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.content.FileProvider;
 
+import android.annotation.SuppressLint;
 import android.content.Intent;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
@@ -12,7 +13,10 @@ import android.os.Environment;
 import android.provider.MediaStore;
 import android.view.View;
 import android.widget.Button;
+import android.widget.ImageButton;
 import android.widget.ImageView;
+
+import com.example.izeat.R;
 
 import java.io.File;
 import java.io.IOException;
@@ -22,7 +26,7 @@ import java.util.Date;
 public class add extends AppCompatActivity {
 
     private static final int RETURN_TAKE_PICTURE=1;
-    private Button btnTakePicture;
+    private ImageButton btnTakePicture;
     private ImageView imgAffichePhoto;
     private String photoPath;
 
@@ -34,9 +38,10 @@ public class add extends AppCompatActivity {
         initActivity();
     }
 
+    @SuppressLint("WrongViewCast")
     private void initActivity() {
         //reccupération des objets graphiques
-        btnTakePicture=(Button)findViewById(R.id.btnTakePicture);
+        btnTakePicture=(ImageButton) findViewById(R.id.btnTakePicture);
         imgAffichePhoto=(ImageView)findViewById(R.id.imgAffichePhoto);
 
         //methode pour gérer les évènements

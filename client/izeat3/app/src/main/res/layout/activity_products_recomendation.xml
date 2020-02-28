@@ -17,7 +17,7 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <com.google.android.material.floatingactionbutton.FloatingActionButton
-        android:id="@+id/floatingActionButton"
+        android:id="@+id/btnAdd"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:clickable="true"
@@ -42,7 +42,7 @@
         app:layout_constraintVertical_bias="1.0"></LinearLayout>
 
     <ImageView
-        android:id="@+id/imageView4"
+        android:id="@+id/btnRecipes"
         android:layout_width="111dp"
         android:layout_height="107dp"
         android:layout_weight="1"
@@ -55,7 +55,7 @@
         app:srcCompat="@drawable/icone_recette" />
 
     <ImageView
-        android:id="@+id/imageView6"
+        android:id="@+id/btnFrigo"
         android:layout_width="100dp"
         android:layout_height="107dp"
         android:layout_marginStart="16dp"
@@ -69,7 +69,7 @@
         app:srcCompat="@drawable/icone_frigo" />
 
     <ImageView
-        android:id="@+id/imageView7"
+        android:id="@+id/btnProduct"
         android:layout_width="112dp"
         android:layout_height="107dp"
         app:layout_constraintBottom_toBottomOf="parent"
@@ -79,7 +79,7 @@
         app:srcCompat="@drawable/icone_aliment" />
 
     <ImageView
-        android:id="@+id/imageView8"
+        android:id="@+id/btnProfil"
         android:layout_width="92dp"
         android:layout_height="107dp"
         app:layout_constraintBottom_toBottomOf="parent"
