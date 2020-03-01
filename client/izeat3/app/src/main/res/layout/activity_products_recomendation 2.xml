@@ -4,7 +4,8 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".Controller.Frigo">
+    tools:context=".Controller.RecipesListActivity">
+
 
     <ImageView
         android:id="@+id/imageView3"
@@ -18,7 +19,15 @@
         app:layout_constraintVertical_bias="0.0"
         app:srcCompat="@drawable/logo_petit" />
 
-
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/recipes_recycler_view"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:scrollbars="vertical"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 
     <com.google.android.material.floatingactionbutton.FloatingActionButton
         android:id="@+id/btnAdd"
@@ -36,7 +45,6 @@
         tools:ignore="VectorDrawableCompat" />
 
     <LinearLayout
-        android:id="@+id/linearLayout"
         android:layout_width="410dp"
         android:layout_height="110dp"
         android:background="#FFFEFE"
@@ -65,7 +73,6 @@
         android:layout_height="107dp"
         android:layout_marginStart="16dp"
         android:layout_marginLeft="16dp"
-        android:background="#FFFFFF"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.715"
@@ -94,20 +101,5 @@
         app:layout_constraintStart_toStartOf="parent"
         app:srcCompat="@drawable/ic_person_black_24dp"
         tools:ignore="VectorDrawableCompat" />
-
-    <TextView
-        android:id="@+id/textView7"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Voici ce que contient votre frigo"
-        android:textColor="#4CAF50"
-        android:textSize="24sp"
-        android:textStyle="bold"
-        app:layout_constraintBottom_toBottomOf="@+id/linearLayout"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.492"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.164" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
