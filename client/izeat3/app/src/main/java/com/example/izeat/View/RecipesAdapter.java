@@ -1,6 +1,7 @@
 package com.example.izeat.View;
 
 import android.view.LayoutInflater;
+import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
 
@@ -27,7 +28,7 @@ public class RecipesAdapter extends RecyclerView.Adapter<RecipesViewHolder> {
     @Override
     public RecipesViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
 
-        TextView v = (TextView) LayoutInflater.from(parent.getContext()).inflate(R.layout.recipe_view, parent, false);
+        View v = LayoutInflater.from(parent.getContext()).inflate(R.layout.recipe_view, parent, false);
         RecipesViewHolder recipesViewHolder = new RecipesViewHolder(v);
         return recipesViewHolder;
     }
