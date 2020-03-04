@@ -35,6 +35,11 @@ import java.util.PriorityQueue;
 
 public class Classify extends AppCompatActivity {
 
+
+    // TODO: USE QUANTIZED MODELS INSTEAD OF FULL FLOAT ONES AND ADAPT CODE
+
+
+
     // RGB conversion and normalize
     private static final int RESULTS_TO_SHOW = 3;
     private static final int IMAGE_MEAN = 128;
