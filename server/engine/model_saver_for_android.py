@@ -8,7 +8,7 @@ import tensorflow as tf
 import os
 
 root_path = "E:\\Programmation\\Python\\dataset-food"
-weights_file = 'RN50&1Dense-300x300x3-13-02-2020 - (40epochs) acc=0.8414.h5'
+weights_file = 'RN50&3Dense-300x300x3-28-02-2020 - (40epochs) - acc=0.8870.h5'
 os.chdir(root_path)
 
 model = tf.keras.models.load_model(weights_file)
@@ -17,4 +17,4 @@ tf_converter = tf.lite.TFLiteConverter.from_keras_model(model)
 tf_converter.optimizations = [tf.lite.Optimize.DEFAULT]
 tf_converter.target_spec.supported_types = [tf.float16]
 tf_model = tf_converter.convert()
-open("tf_lite_model_RestNet50_fine_tuned_izeat_23-02-2020.tflite", "wb").write(tf_model)
+open("tf_lite_model_RestNet50_fine_tuned_izeat_05-03-2020.tflite", "wb").write(tf_model)
