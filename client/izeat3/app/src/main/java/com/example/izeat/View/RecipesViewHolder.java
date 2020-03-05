@@ -1,6 +1,5 @@
 package com.example.izeat.View;
 
-import android.app.DownloadManager;
 import android.view.View;
 import android.widget.ImageButton;
 import android.widget.TextView;
@@ -24,9 +23,9 @@ public class RecipesViewHolder extends RecyclerView.ViewHolder {
 
 
 
-    public void updateHolder(Recipe r, RequestManager glide){
+    public void updateHolder(Recipe p, RequestManager glide){
 
-        recipeName.setText(r.getRecipeName());
-        glide.load(r.getImageUrl()).into(recipeImage);
+        recipeName.setText(p.getRecipeName());
+        glide.load(p.getImageUrl()).into(recipeImage);
     }
 }

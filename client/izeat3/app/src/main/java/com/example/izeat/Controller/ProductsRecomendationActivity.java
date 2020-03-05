@@ -1,18 +1,34 @@
 package com.example.izeat.Controller;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.recyclerview.widget.GridLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
 
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.ImageView;
 
+import com.bumptech.glide.Glide;
+import com.example.izeat.Model.Product;
 import com.example.izeat.R;
+import com.example.izeat.View.ProductsAdapter;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
+
+import java.util.ArrayList;
 
 
 public class ProductsRecomendationActivity extends AppCompatActivity {
 
+    //PRODUCTS RECOMMENDATIONS DATA
+    private ArrayList<Product> productsReco;
+
+    //For the recycler view
+    private RecyclerView productsRecoRecyclerView;
+    private RecyclerView.Adapter productsRecoAdapter;
+    private RecyclerView.LayoutManager productsLayoutManager;
+
+    //navigation Bar
     private ImageView btnRecipes;
     private ImageView btnProfil;
     private ImageView btnFrigo;
@@ -23,6 +39,19 @@ public class ProductsRecomendationActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_products_recomendation);
 
+        //-------------------------------------------------------------------------------------
+        //SETS THE RECYCLER VIEW
+
+        productsRecoRecyclerView = (RecyclerView) findViewById(R.id.products_recycler_view);
+
+        productsLayoutManager = new GridLayoutManager(this, 3);
+        productsRecoRecyclerView.setLayoutManager(productsLayoutManager);
+
+        productsRecoAdapter = new ProductsAdapter(productsReco, Glide.with(this));
+        productsRecoRecyclerView.setAdapter(productsRecoAdapter);
+
+        //-------------------------------------------------------------------------------------
+        // SETS THE NAVIGATION BAR BUTTONS
 
         this.btnRecipes= (ImageView) findViewById(R.id.btnRecipes);
         btnRecipes.setOnClickListener(new View.OnClickListener(){
@@ -68,5 +97,6 @@ public class ProductsRecomendationActivity extends AppCompatActivity {
 
             }
         });
+        //---------------------------------------------------------------------------------------
     }
 }

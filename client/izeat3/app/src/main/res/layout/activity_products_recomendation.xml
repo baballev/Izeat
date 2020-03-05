@@ -32,7 +32,7 @@ android:layout_height="match_parent">
         android:orientation="vertical">
 
         <androidx.recyclerview.widget.RecyclerView
-            android:id="@+id/recipes_recycler_view"
+            android:id="@+id/products_recycler_view"
             android:layout_width="match_parent"
             android:layout_height="411dp"
             android:scrollbars="vertical"
