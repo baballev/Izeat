@@ -21,7 +21,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Voici ce que contient votre frigo"
-        android:textColor="#4CAF50"
+        android:textColor="#3F51B5"
         android:textSize="24sp"
         android:textStyle="bold" />
 
@@ -43,7 +43,7 @@
             android:layout_height="wrap_content"
             android:clickable="true"
             android:src="@drawable/ic_action_name"
-            app:backgroundTint="#E91E63" />
+            app:backgroundTint="#3F51B5" />
 
         <com.google.android.material.floatingactionbutton.FloatingActionButton
             android:id="@+id/btnconsume"
@@ -52,15 +52,15 @@
             android:clickable="true"
             android:src="@drawable/ic_add_shopping_cart_black_24dp"
             android:visibility="visible"
-            app:backgroundTint="#4CAF50" />
+            app:backgroundTint="#2196F3" />
     </LinearLayout>
 
     <LinearLayout
         android:id="@+id/linearLayout"
         android:layout_width="match_parent"
-        android:layout_height="100dp"
-        android:background="#FFFEFE"
+        android:layout_height="73dp"
         android:layout_gravity="center"
+        android:background="#FFFEFE"
         android:orientation="horizontal">
 
         <ImageView
@@ -68,14 +68,16 @@
             android:layout_width="13dp"
             android:layout_height="match_parent"
             android:layout_weight="1"
-            app:srcCompat="@drawable/icone_recette" />
+            app:srcCompat="@drawable/ic_restaurant_black_24dp"
+            tools:ignore="VectorDrawableCompat" />
 
         <ImageView
             android:id="@+id/btnProduct"
             android:layout_width="24dp"
             android:layout_height="match_parent"
             android:layout_weight="1"
-            app:srcCompat="@drawable/icone_aliment" />
+            app:srcCompat="@drawable/ic_shopping_cart_black_24dp"
+            tools:ignore="VectorDrawableCompat" />
 
         <ImageView
             android:id="@+id/btnFrigo"
@@ -83,7 +85,8 @@
 
             android:layout_height="match_parent"
             android:layout_weight="1"
-            app:srcCompat="@drawable/icone_frigo" />
+            app:srcCompat="@drawable/ic_kitchen_black_24dp"
+            tools:ignore="VectorDrawableCompat" />
 
         <ImageView
             android:id="@+id/btnProfil"
