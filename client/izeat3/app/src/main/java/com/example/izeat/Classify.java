@@ -32,8 +32,7 @@ import java.util.Map;
 import java.util.PriorityQueue;
 
 public class Classify extends AppCompatActivity {
-
-    // presets for rgb conversion
+    
     private static final int RESULTS_TO_SHOW = 3;
     private static final int IMAGE_MEAN = 128;
     private static final float IMAGE_STD = 128.0f;
