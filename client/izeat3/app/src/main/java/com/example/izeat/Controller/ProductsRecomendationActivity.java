@@ -2,12 +2,9 @@ package com.example.izeat.Controller;
 
 import androidx.appcompat.app.AppCompatActivity;
 
-import android.annotation.SuppressLint;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
-import android.widget.Button;
-import android.widget.ImageButton;
 import android.widget.ImageView;
 
 import com.example.izeat.R;
@@ -61,7 +58,7 @@ public class ProductsRecomendationActivity extends AppCompatActivity {
             }
         });
 
-        this.btnAdd=(FloatingActionButton) findViewById(R.id.btnAdd);
+        this.btnAdd=(FloatingActionButton) findViewById(R.id.btnadd);
         btnAdd.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {

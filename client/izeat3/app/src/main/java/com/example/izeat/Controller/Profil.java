@@ -4,7 +4,6 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
 import android.os.Bundle;
-import android.provider.ContactsContract;
 import android.view.View;
 import android.widget.ImageView;
 
@@ -58,7 +57,7 @@ public class Profil extends AppCompatActivity {
             }
         });
 
-        this.btnAdd=(FloatingActionButton) findViewById(R.id.btnAdd);
+        this.btnAdd=(FloatingActionButton) findViewById(R.id.btnadd);
         btnAdd.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {

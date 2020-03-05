@@ -57,7 +57,7 @@ public class Frigo extends AppCompatActivity {
             }
         });
 
-        this.btnAdd=(FloatingActionButton) findViewById(R.id.btnAdd);
+        this.btnAdd=(FloatingActionButton) findViewById(R.id.btnadd);
         btnAdd.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
