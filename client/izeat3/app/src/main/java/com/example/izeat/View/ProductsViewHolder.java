@@ -24,7 +24,18 @@ public class ProductsViewHolder extends RecyclerView.ViewHolder {
 
     public void updateHolder(Product p, RequestManager glide){
         productName.setText(p.getProductName());
-        glide.load(p.getProductUrl()).into(productImage);
+        String url = p.getProductUrl();
+        System.out.println("ViewHolder -> I'm gonna update the image");
+        System.out.println("The url is : " + url);
 
+        if (url != "") {
+            System.out.println("I'm in the if with an url");
+            glide.load(url).into(productImage);
+        }
+        else {
+            System.out.println("I'm in the if with an empty url");
+            productImage.setImageResource(R.drawable.icone_recette);
+        }
+        System.out.println("IMAGE UPDATED");
     }
 }

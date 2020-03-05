@@ -42,6 +42,10 @@ public class ProductsRecomendationActivity extends AppCompatActivity {
         //-------------------------------------------------------------------------------------
         //SETS THE RECYCLER VIEW
 
+        productsReco = new ArrayList<Product>(0);
+        for (int i = 0 ; i < 50 ; i++)
+            productsReco.add(i,new Product("Product #" + i, ""));
+
         productsRecoRecyclerView = (RecyclerView) findViewById(R.id.products_recycler_view);
 
         productsLayoutManager = new GridLayoutManager(this, 3);

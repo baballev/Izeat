@@ -37,7 +37,11 @@ public class ProductsAdapter extends RecyclerView.Adapter<ProductsViewHolder> {
     @Override
     public void onBindViewHolder(@NonNull ProductsViewHolder holder, int position) {
 
+        System.out.println("!! Fetching the data of product number" + position + "to the RecyclerView");
+
         holder.updateHolder(productslist.get(position),glide);
+
+        System.out.println("FETCHING DONE");
 
     }
 
