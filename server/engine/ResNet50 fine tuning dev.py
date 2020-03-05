@@ -38,7 +38,7 @@ pixelDepth = 255.0
 nb_of_epochs = 10 # Number of times the entire dataset will be gone through during training
 root_path = "E:\\Programmation\\Python\\dataset-food"
 image_folder = "\\Izeat_dataset"
-weights_file = 'RN50&3Dense-300x300x3_28-02-2020 - acc=0.8154.h5'
+weights_file = 'RN50&3Dense-300x300x3_28-02-2020 - acc=0.8154.h5y'
 out = weights_file
 
 ## UTILS
