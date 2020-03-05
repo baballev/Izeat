@@ -38,7 +38,7 @@ pixelDepth = 255.0
 nb_of_epochs = 10 # Number of times the entire dataset will be gone through during training
 root_path = "E:\\Programmation\\Python\\dataset-food"
 image_folder = "\\Izeat_dataset"
-weights_file = 'RN50&3Dense-300x300x3 - Adadelta - 05-003-2020.h5'
+weights_file = 'RN50&3Dense-300x300x3_28-02-2020 - acc=0.8154.h5'
 out = weights_file
 
 ## UTILS
@@ -100,8 +100,8 @@ if needTrain:
     model.save(out)
 
 else: # predict tests
-    x_test = np.zeros((25, img_size, img_size, depth), dtype=np.float32)
-    for i in range(25):
-        x_test[i] = img_to_array(load_img("E:\\Programmation\\Python\\dataset-food\\test-images\\sushi\\" + str(i+1) + ".jpg", target_size=img_dim))
+    x_test = np.zeros((50, img_size, img_size, depth), dtype=np.float32)
+    for i in range(50):
+        x_test[i] = img_to_array(load_img("E:\\Programmation\\Python\\dataset-food\\Izeat_test\\" + str(i+1) + ".jpg", target_size=img_dim))
     y_prob = model.predict_classes(x_test)
     print(y_prob)
