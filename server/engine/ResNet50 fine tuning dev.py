@@ -10,12 +10,8 @@ Dataset: Manually retrieved from instagram + refined ImageNet
 
 """
 # TODO: Refactor tout le code, noms de variables appropriés
-
 # TODO : Change data augmentation and see if it improves on 10 epochs 300x300x3
-# TODO : Test grayscales
 # TODO : Adapt prediction section
-# TODO : Try to add layers on top with relu as activation, final one being softmax:
-#        1 RELU 1024 (+dropout eventually) +  1 softmax 10 for probability
 
 
 ## LIB
@@ -42,7 +38,7 @@ pixelDepth = 255.0
 nb_of_epochs = 10 # Number of times the entire dataset will be gone through during training
 root_path = "E:\\Programmation\\Python\\dataset-food"
 image_folder = "\\Izeat_dataset"
-weights_file = 'RN50&3Dense-300x300x3-28-02-2020 - (40epochs) - acc=0.8870.h5'
+weights_file = 'RN50&3Dense-300x300x3 - Adadelta - 05-003-2020.h5'
 out = weights_file
 
 ## UTILS
