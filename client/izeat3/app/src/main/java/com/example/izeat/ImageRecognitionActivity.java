@@ -70,7 +70,7 @@ public class ImageRecognitionActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 // filename in assets
-                model = "tf_lite_model_RestNet50_fine_tuned_izeat_23-02-2020.tflite";
+                model = "RN50&3Dense_300x300x3_10epochs.tflite";
                 // open camera
                 openCameraIntent();
             }
