@@ -5,7 +5,9 @@ import java.net.MalformedURLException;
 import java.net.URL;
 import java.sql.Connection;
 import java.io.BufferedReader;
+import java.io.FileInputStream;
 import java.io.IOException;
+import java.io.InputStream;
 import java.io.InputStreamReader;
 import java.lang.StringBuilder;
 import javax.net.ssl.HttpsURLConnection;
@@ -17,6 +19,18 @@ import javax.net.ssl.X509TrustManager;
 public class Tools implements ToolsInterface {
 
 	public static String getProductQuery(String code) {
+                /*try{
+                    InputStream content=new FileInputStream("off_product.txt");
+                    InputStreamReader lecture=new InputStreamReader(content);
+                    BufferedReader buff=new BufferedReader(lecture);
+                    String line;
+                    line=buff.readLine();
+                    buff.close();
+                    
+                }catch(Exception e){
+                    System.out.println(e.toString());
+                }*/
+                
 		String url = "http://fr.openfoodfacts.org/api/v0/product/" + code + ".json"; // Problèmes si on met en https car les certificats ne sont pas valides, TODO: voir comment configurer les certifs ssl
 		StringBuilder content = null;
 		try {
@@ -56,7 +70,18 @@ public class Tools implements ToolsInterface {
                     public void checkServerTrusted(java.security.cert.X509Certificate[] certs, String authType) {}
                 }
             };
-        
+        /*try{
+            InputStream flux=new FileInputStream("off_search.txt");
+            InputStreamReader lecture=new InputStreamReader(flux);
+            BufferedReader buff=new BufferedReader(lecture);
+            String line1;
+            line1=buff.readLine();
+            line2=buff.readline();
+            buff.close();
+            
+        }catch(Exception e){
+            System.out.println(e.toString());
+        }*/
         String url = "https://fr.openfoodfacts.org/cgi/search.pl?search_terms=" + query + "&search_simple=1&action=process&json=1.json";
         StringBuilder content = null;
         try{
