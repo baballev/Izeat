@@ -30,14 +30,31 @@ android:layout_height="match_parent">
         android:src="@drawable/ic_action_name"
         app:backgroundTint="#3F51B5" />
 
-    <com.google.android.material.floatingactionbutton.FloatingActionButton
-        android:id="@+id/btnconsume"
-        android:layout_width="wrap_content"
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:clickable="true"
-        android:src="@drawable/ic_add_shopping_cart_black_24dp"
-        android:visibility="visible"
-        app:backgroundTint="#2196F3" /></LinearLayout>
+        android:gravity="end"
+        android:orientation="horizontal">
+
+        <com.google.android.material.floatingactionbutton.FloatingActionButton
+            android:id="@+id/btnadd"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:clickable="true"
+            android:src="@drawable/ic_action_name"
+            app:backgroundTint="#3F51B5" />
+
+        <com.google.android.material.floatingactionbutton.FloatingActionButton
+            android:id="@+id/btnconsume"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:clickable="true"
+            android:src="@drawable/ic_add_shopping_cart_black_24dp"
+            android:visibility="visible"
+            app:backgroundTint="#2196F3" />
+    </LinearLayout>
 
     <LinearLayout
         android:id="@+id/linearLayout"

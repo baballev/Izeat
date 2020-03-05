@@ -42,7 +42,7 @@ public class add extends AppCompatActivity {
     private void initActivity() {
         //reccupération des objets graphiques
         btnTakePicture=(ImageButton) findViewById(R.id.btnTakePicture);
-        imgAffichePhoto=(ImageView)findViewById(R.id.imgAffichePhoto);
+        //imgAffichePhoto=(ImageView)findViewById(R.id.imgAffichePhoto);
 
         //methode pour gérer les évènements
         createOnClickBtnTakePicture();
