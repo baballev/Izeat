@@ -57,7 +57,7 @@ public class Profil extends AppCompatActivity {
             }
         });
 
-        this.btnAdd=(FloatingActionButton) findViewById(R.id.btnadd);
+        this.btnAdd=(FloatingActionButton) findViewById(R.id.btnphoto);
         btnAdd.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {

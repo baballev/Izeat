@@ -29,12 +29,12 @@
         android:orientation="horizontal">
 
         <com.google.android.material.floatingactionbutton.FloatingActionButton
-            android:id="@+id/btnadd"
+            android:id="@+id/btnphoto"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:clickable="true"
             android:src="@drawable/ic_action_name"
-            app:backgroundTint="#E91E63" />
+            app:backgroundTint="#3F51B5" />
 
         <com.google.android.material.floatingactionbutton.FloatingActionButton
             android:id="@+id/btnconsume"
@@ -43,7 +43,7 @@
             android:clickable="true"
             android:src="@drawable/ic_add_shopping_cart_black_24dp"
             android:visibility="visible"
-            app:backgroundTint="#4CAF50" />
+            app:backgroundTint="#2196F3" />
     </LinearLayout>
 
     <LinearLayout
