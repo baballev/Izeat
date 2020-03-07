@@ -1,6 +1,7 @@
 package com.example.izeat.View;
 
 import android.view.LayoutInflater;
+import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
 
@@ -8,40 +9,45 @@ import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.bumptech.glide.RequestManager;
+import com.example.izeat.Model.Product;
 import com.example.izeat.Model.Recipe;
 import com.example.izeat.R;
 
 import java.util.ArrayList;
 
-public class ProductsAdapter extends RecyclerView.Adapter<RecipesViewHolder> {
+public class ProductsAdapter extends RecyclerView.Adapter<ProductsViewHolder> {
 
-    private ArrayList<Recipe> recipesList;
+    private ArrayList<Product> productslist;
     private RequestManager glide;
 
-    public ProductsAdapter(ArrayList<Recipe> recipesList,RequestManager glide){
-        this.recipesList = recipesList;
+    public ProductsAdapter(ArrayList<Product> productsList, RequestManager glide){
+        this.productslist = productsList;
         this.glide = glide;
     }
 
     @NonNull
     @Override
-    public RecipesViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
+    public ProductsViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
 
-        TextView v = (TextView) LayoutInflater.from(parent.getContext()).inflate(R.layout.recipe_view, parent, false);
-        RecipesViewHolder recipesViewHolder = new RecipesViewHolder(v);
-        return recipesViewHolder;
+        View v = LayoutInflater.from(parent.getContext()).inflate(R.layout.product_view, parent, false);
+        ProductsViewHolder productsViewHolder = new ProductsViewHolder(v);
+        return productsViewHolder;
     }
 
     @Override
-    public void onBindViewHolder(@NonNull RecipesViewHolder holder, int position) {
+    public void onBindViewHolder(@NonNull ProductsViewHolder holder, int position) {
 
-        holder.updateHolder(recipesList.get(position),glide);
+        System.out.println("!! Fetching the data of product number" + position + "to the RecyclerView");
+
+        holder.updateHolder(productslist.get(position),glide);
+
+        System.out.println("FETCHING DONE");
 
     }
 
     @Override
     public int getItemCount() {
-        return recipesList.size();
+        return productslist.size();
     }
 
 }

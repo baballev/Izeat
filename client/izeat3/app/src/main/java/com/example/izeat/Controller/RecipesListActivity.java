@@ -23,6 +23,7 @@ public class RecipesListActivity extends AppCompatActivity {
     private RecyclerView.Adapter recipesAdapter;
     private RecyclerView.LayoutManager layoutManager;
 
+    //Navigation bar
     private ImageView btnProfil;
     private ImageView btnFrigo;
     private ImageView btnProduct;
@@ -36,6 +37,8 @@ public class RecipesListActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_recipes_list);
 
+        //-------------------------------------------------------------------------------------
+        //SETS THE RECYCLER VIEW
         recipeList = new ArrayList<Recipe>(0);
         for (int i = 0; i < 1000; i++ ) recipeList.add(new Recipe("Recipe number " + i));
 
@@ -46,6 +49,9 @@ public class RecipesListActivity extends AppCompatActivity {
 
         recipesAdapter = new RecipesAdapter(recipeList, Glide.with(this));
         recipesRecyclerView.setAdapter(recipesAdapter);
+
+        //-------------------------------------------------------------------------------------
+        //SETS THE BOTTOM NAVIGATION BAR
 
         this.btnProfil= (ImageView) findViewById(R.id.btnProfil);
         btnProfil.setOnClickListener(new View.OnClickListener(){
@@ -91,5 +97,6 @@ public class RecipesListActivity extends AppCompatActivity {
 
             }
         });
+        //-------------------------------------------------------------------------------------
     }
 }
