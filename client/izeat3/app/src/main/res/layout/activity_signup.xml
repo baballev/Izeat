@@ -121,7 +121,7 @@
         android:id="@+id/suivant_button"
         android:layout_width="210dp"
         android:layout_height="68dp"
-        android:layout_marginBottom="104dp"
+        android:layout_marginBottom="124dp"
         android:background="#744331"
         android:text="SUIVANT"
         android:textColor="#F7ECDF"
@@ -130,7 +130,7 @@
         android:textSize="20sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.459"
+        app:layout_constraintHorizontal_bias="0.462"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
         app:layout_constraintStart_toStartOf="parent" />

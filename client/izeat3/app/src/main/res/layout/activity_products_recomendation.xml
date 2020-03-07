@@ -41,13 +41,6 @@ android:layout_height="match_parent">
             android:layout_height="match_parent" />
 
 
-    <com.google.android.material.floatingactionbutton.FloatingActionButton
-        android:id="@+id/btnphoto"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:clickable="true"
-        android:src="@drawable/ic_action_name"
-        app:backgroundTint="#3F51B5" />
     </LinearLayout>
 
     <LinearLayout
@@ -62,7 +55,7 @@ android:layout_height="match_parent">
             android:layout_height="wrap_content"
             android:clickable="true"
             android:src="@drawable/ic_action_name"
-            app:backgroundTint="#3F51B5" />
+            app:backgroundTint="#A0522D" />
 
         <com.google.android.material.floatingactionbutton.FloatingActionButton
             android:id="@+id/btnconsume"
@@ -71,7 +64,7 @@ android:layout_height="match_parent">
             android:clickable="true"
             android:src="@drawable/ic_add_shopping_cart_black_24dp"
             android:visibility="visible"
-            app:backgroundTint="#2196F3" />
+            app:backgroundTint="#B36700" />
     </LinearLayout>
 
     <LinearLayout
@@ -79,7 +72,7 @@ android:layout_height="match_parent">
         android:layout_width="match_parent"
         android:layout_height="73dp"
         android:layout_gravity="center"
-        android:background="#FFFEFE"
+        android:background="#F0CDB3"
         android:orientation="horizontal">
 
         <ImageView

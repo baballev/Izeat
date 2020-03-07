@@ -2,6 +2,7 @@ package com.example.izeat.Controller;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.annotation.SuppressLint;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
@@ -16,6 +17,9 @@ public class Profil extends AppCompatActivity {
     private ImageView btnProduct;
     private ImageView btnRecipes;
     private FloatingActionButton btnAdd;
+    private FloatingActionButton btnsearch;
+    private FloatingActionButton btnphoto;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -57,13 +61,18 @@ public class Profil extends AppCompatActivity {
             }
         });
 
-        this.btnAdd=(FloatingActionButton) findViewById(R.id.btnphoto);
+
+
+        this.btnAdd=(FloatingActionButton) findViewById(R.id.btnadd2);
+        this.btnphoto=(FloatingActionButton)findViewById(R.id.btnphoto2);
+        this.btnsearch=(FloatingActionButton)findViewById(R.id.btnsearch2);
         btnAdd.setOnClickListener(new View.OnClickListener() {
+            @SuppressLint("RestrictedApi")
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(getApplicationContext(), add.class);
-                startActivity(intent);
-                finish();
+                btnAdd.setVisibility(View.GONE);
+                btnsearch.setVisibility(View.VISIBLE);
+                btnphoto.setVisibility(View.VISIBLE);
 
             }
         });

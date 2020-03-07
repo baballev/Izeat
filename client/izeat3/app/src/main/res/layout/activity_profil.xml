@@ -20,7 +20,42 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_weight="1"
-        android:orientation="vertical"></LinearLayout>
+        android:orientation="vertical">
+
+        <TextView
+            android:id="@+id/textView5"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Regarde de plus près ton suivi nutritif "
+            android:textColor="#AE8964"
+            android:textSize="24sp"
+            android:textStyle="bold" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="horizontal">
+
+            <com.google.android.material.floatingactionbutton.FloatingActionButton
+                android:id="@+id/btnsearch2"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:clickable="true"
+                android:src="@drawable/ic_search_black_24dp"
+                android:visibility="gone"
+                app:backgroundTint="#DEB887" />
+
+            <com.google.android.material.floatingactionbutton.FloatingActionButton
+                android:id="@+id/btnphoto2"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:clickable="true"
+                android:src="@drawable/ic_photo_camera_black_24dp"
+                android:visibility="gone"
+                app:backgroundTint="#AE8964" />
+        </LinearLayout>
+
+    </LinearLayout>
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -29,12 +64,12 @@
         android:orientation="horizontal">
 
         <com.google.android.material.floatingactionbutton.FloatingActionButton
-            android:id="@+id/btnphoto"
+            android:id="@+id/btnadd2"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:clickable="true"
             android:src="@drawable/ic_action_name"
-            app:backgroundTint="#3F51B5" />
+            app:backgroundTint="#A0522D" />
 
         <com.google.android.material.floatingactionbutton.FloatingActionButton
             android:id="@+id/btnconsume"
@@ -43,7 +78,7 @@
             android:clickable="true"
             android:src="@drawable/ic_add_shopping_cart_black_24dp"
             android:visibility="visible"
-            app:backgroundTint="#2196F3" />
+            app:backgroundTint="#B36700" />
     </LinearLayout>
 
     <LinearLayout
@@ -51,7 +86,7 @@
         android:layout_width="match_parent"
         android:layout_height="73dp"
         android:layout_gravity="center"
-        android:background="#FFFEFE"
+        android:background="#F0CDB3"
         android:orientation="horizontal">
 
         <ImageView

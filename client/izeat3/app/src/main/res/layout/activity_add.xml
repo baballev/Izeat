@@ -67,7 +67,7 @@ android:layout_height="match_parent">
     android:orientation="horizontal">
 
     <com.google.android.material.floatingactionbutton.FloatingActionButton
-        android:id="@+id/btnphoto"
+        android:id="@+id/btnadd"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:clickable="true"

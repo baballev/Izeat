@@ -4,6 +4,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.GridLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import android.annotation.SuppressLint;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
@@ -33,6 +34,9 @@ public class ProductsRecomendationActivity extends AppCompatActivity {
     private ImageView btnProfil;
     private ImageView btnFrigo;
     private FloatingActionButton btnAdd;
+    private FloatingActionButton btnsearch;
+    private FloatingActionButton btnphoto;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -91,16 +95,24 @@ public class ProductsRecomendationActivity extends AppCompatActivity {
             }
         });
 
-        this.btnAdd=(FloatingActionButton) findViewById(R.id.btnphoto);
+
+        //---------------------------------------------------------------------------------------
+
+
+
+        this.btnAdd=(FloatingActionButton) findViewById(R.id.btnadd);
+        this.btnphoto=(FloatingActionButton)findViewById(R.id.btnphoto);
+        this.btnsearch=(FloatingActionButton)findViewById(R.id.btnsearch);
         btnAdd.setOnClickListener(new View.OnClickListener() {
+            @SuppressLint("RestrictedApi")
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(getApplicationContext(), add.class);
-                startActivity(intent);
-                finish();
+                btnAdd.setVisibility(View.GONE);
+                btnsearch.setVisibility(View.VISIBLE);
+                btnphoto.setVisibility(View.VISIBLE);
 
             }
         });
-        //---------------------------------------------------------------------------------------
     }
+
 }
