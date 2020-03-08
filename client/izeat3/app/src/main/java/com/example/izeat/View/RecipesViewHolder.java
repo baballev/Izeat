@@ -2,6 +2,7 @@ package com.example.izeat.View;
 
 import android.view.View;
 import android.widget.ImageButton;
+import android.widget.ImageView;
 import android.widget.TextView;
 
 import androidx.recyclerview.widget.RecyclerView;
@@ -13,7 +14,7 @@ import com.example.izeat.R;
 public class RecipesViewHolder extends RecyclerView.ViewHolder {
 
     public TextView recipeName;
-    public ImageButton recipeImage;
+    public ImageView recipeImage;
 
     public RecipesViewHolder(View v) {
         super(v);

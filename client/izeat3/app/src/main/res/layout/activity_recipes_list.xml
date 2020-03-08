@@ -55,8 +55,6 @@ android:layout_height="match_parent">
                 app:backgroundTint="#DEB887" />
         </LinearLayout>
 
-
-        =======
     </LinearLayout>
 
     <LinearLayout

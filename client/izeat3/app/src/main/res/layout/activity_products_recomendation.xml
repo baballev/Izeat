@@ -8,26 +8,18 @@ android:layout_height="match_parent">
 
 
     <ImageView
-    android:id="@+id/imageView3"
-    android:layout_width="match_parent"
-    android:layout_height="100dp"
-    android:layout_gravity="top"
-    android:layout_margin="10dp"
+        android:id="@+id/imageView3"
+        android:layout_width="match_parent"
+        android:layout_height="100dp"
+        android:layout_gravity="top"
+        android:layout_margin="10dp"
 
-    app:srcCompat="@drawable/logo_petit" />
-
-    <TextView
-        android:id="@+id/textView7"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Voici ce que contient votre frigo"
-        android:textColor="#3F51B5"
-        android:textSize="24sp"
-        android:textStyle="bold" />
+        app:srcCompat="@drawable/logo_petit" />
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_weight="1"
         android:orientation="vertical"
         android:scrollbars="vertical"
         app:layout_constraintBottom_toBottomOf="parent"
@@ -38,7 +30,7 @@ android:layout_height="match_parent">
         <androidx.recyclerview.widget.RecyclerView
             android:id="@+id/products_recycler_view"
             android:layout_width="match_parent"
-            android:layout_height="match_parent" />
+            android:layout_height="wrap_content" />
 
 
     </LinearLayout>
