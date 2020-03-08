@@ -16,25 +16,32 @@ android:layout_height="match_parent">
 
     app:srcCompat="@drawable/logo_petit" />
 
-    <LinearLayout
+    <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_weight="1"
-        android:orientation="vertical">
+        android:layout_weight="1">
 
         <androidx.recyclerview.widget.RecyclerView
             android:id="@+id/recipes_recycler_view"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:clickable="true"
-            android:src="@drawable/ic_action_name"
-            app:backgroundTint="#3F51B5" />
+            android:clickable="true" />
 
         <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="66dp"
+            android:layout_height="wrap_content"
+            android:layout_alignParentBottom="true"
             android:gravity="end"
             android:orientation="horizontal">
+
+            <com.google.android.material.floatingactionbutton.FloatingActionButton
+                android:id="@+id/btnsearch"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:clickable="true"
+                android:src="@drawable/ic_search_black_24dp"
+                android:visibility="gone"
+                app:backgroundTint="#DEB887" />
 
             <com.google.android.material.floatingactionbutton.FloatingActionButton
                 android:id="@+id/btnphoto"
@@ -46,40 +53,24 @@ android:layout_height="match_parent">
                 app:backgroundTint="#AE8964" />
 
             <com.google.android.material.floatingactionbutton.FloatingActionButton
-                android:id="@+id/btnsearch"
+                android:id="@+id/btnadd"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:clickable="true"
-                android:src="@drawable/ic_search_black_24dp"
-                android:visibility="gone"
-                app:backgroundTint="#DEB887" />
+                android:src="@drawable/ic_action_name"
+                app:backgroundTint="#A0522D" />
+
+            <com.google.android.material.floatingactionbutton.FloatingActionButton
+                android:id="@+id/btnconsume"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:clickable="true"
+                android:src="@drawable/ic_add_shopping_cart_black_24dp"
+                android:visibility="visible"
+                app:backgroundTint="#B36700" />
         </LinearLayout>
 
-    </LinearLayout>
-
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:gravity="end"
-        android:orientation="horizontal">
-
-        <com.google.android.material.floatingactionbutton.FloatingActionButton
-            android:id="@+id/btnadd"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:clickable="true"
-            android:src="@drawable/ic_action_name"
-            app:backgroundTint="#A0522D" />
-
-        <com.google.android.material.floatingactionbutton.FloatingActionButton
-            android:id="@+id/btnconsume"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:clickable="true"
-            android:src="@drawable/ic_add_shopping_cart_black_24dp"
-            android:visibility="visible"
-            app:backgroundTint="#B36700" />
-    </LinearLayout>
+    </RelativeLayout>
 
     <LinearLayout
         android:id="@+id/linearLayout"
