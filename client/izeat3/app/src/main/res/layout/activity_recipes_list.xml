@@ -42,7 +42,7 @@ android:layout_height="match_parent">
                 android:layout_height="match_parent"
                 android:clickable="true"
                 android:src="@drawable/ic_photo_camera_black_24dp"
-                android:visibility="invisible"
+                android:visibility="gone"
                 app:backgroundTint="#AE8964" />
 
             <com.google.android.material.floatingactionbutton.FloatingActionButton
