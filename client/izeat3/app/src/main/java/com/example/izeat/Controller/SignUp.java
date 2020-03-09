@@ -23,7 +23,7 @@ public class SignUp extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_signup);
 
-        suivant = findViewById(R.id.suivant_button);
+        suivant = findViewById(R.id.btn_suivant);
         suivant.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {

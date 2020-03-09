@@ -2,7 +2,10 @@ package com.example.izeat.Controller;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.annotation.SuppressLint;
+import android.content.Intent;
 import android.os.Bundle;
+import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
@@ -11,28 +14,38 @@ import com.example.izeat.R;
 
 
 public class Login extends AppCompatActivity {
-
-    private TextView welcome;
-    private TextView conection;
-    private EditText mail;
-    private EditText password;
-    private Button signup;
-    private Button passwordforgotten;
-    private Button next;
+    private Button suivant;
+    private Button inscription;
 
 
+    @SuppressLint("WrongViewCast")
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
 
-        welcome=(TextView) findViewById(R.id.activity_main_welcome_txt);
-        conection=(TextView) findViewById(R.id.activity_main_conection_txt);
-        mail=(EditText) findViewById(R.id.activity_main_mail_input);
-        password=(EditText) findViewById(R.id.activity_main_password_input);
-        signup=(Button) findViewById(R.id.activity_main_signup_btn);
-        passwordforgotten=(Button) findViewById(R.id.activity_passwordforgotten_btn);
-        next=(Button) findViewById(R.id.activity_main_next_btn);
+
+        suivant = findViewById(R.id.btnsuivant);
+        suivant.setOnClickListener(new View.OnClickListener(){
+
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(getApplicationContext(), RecipesListActivity.class);
+                startActivity(intent);
+                finish();
+            }
+        });
+
+        inscription = findViewById(R.id.btninscription);
+        inscription.setOnClickListener(new View.OnClickListener(){
+
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(getApplicationContext(), SignUp.class);
+                startActivity(intent);
+                finish();
+            }
+        });
     }
 
 }

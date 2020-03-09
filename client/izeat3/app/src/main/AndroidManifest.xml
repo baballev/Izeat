@@ -16,13 +16,13 @@
         <activity android:name=".Controller.Profil" />
         <activity android:name=".Controller.ProductsRecomendationActivity" />
         <activity android:name=".Controller.RecipesListActivity" />
-        <activity android:name=".Controller.Login" />
-        <activity android:name=".Controller.SignUp">
+        <activity android:name=".Controller.Login">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+        <activity android:name=".Controller.SignUp"/>
 
         <provider
             android:name="androidx.core.content.FileProvider"
