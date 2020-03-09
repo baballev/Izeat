@@ -7,6 +7,12 @@ public class Recipe {
 
     public Recipe(String recipeName) {
         this.recipeName = recipeName;
+        recipeImageUrl = "";
+    }
+
+    public Recipe(String recipeName, String recipeImageUrl){
+        this.recipeImageUrl = recipeImageUrl;
+        this.recipeName = recipeName;
     }
 
     public String getRecipeName() {
@@ -17,7 +23,7 @@ public class Recipe {
         this.recipeName = recipeName;
     }
 
-    public Object getImageUrl() {
+    public String getImageUrl() {
         return recipeImageUrl;
     }
 }

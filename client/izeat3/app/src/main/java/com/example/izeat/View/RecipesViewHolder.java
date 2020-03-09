@@ -24,9 +24,15 @@ public class RecipesViewHolder extends RecyclerView.ViewHolder {
 
 
 
-    public void updateHolder(Recipe p, RequestManager glide){
+    public void updateHolder(Recipe r, RequestManager glide){
 
-        recipeName.setText(p.getRecipeName());
-        glide.load(p.getImageUrl()).into(recipeImage);
+        recipeName.setText(r.getRecipeName());
+        String url = r.getImageUrl();
+        if ( url != "") {
+            glide.load(url).into(recipeImage);
+        }
+        else {
+            recipeImage.setImageResource(R.drawable.recipes);
+        }
     }
 }
