@@ -41,5 +41,5 @@ dependencies {
     implementation 'com.soundcloud.android:android-crop:1.0.1@aar'
     implementation files('src/main/lib/json-20190722.jar')
 
-    compile files('lib/json-20190722.jar')
+    implementation files('src/main/lib/json-20190722.jar')
 }
