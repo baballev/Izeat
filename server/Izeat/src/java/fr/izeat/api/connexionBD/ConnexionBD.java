@@ -56,7 +56,8 @@ public class ConnexionBD {
             Statement state=connection.createStatement();
             state.executeUpdate(query);
             System.out.println("User added");
-            
+
+
              
             
         
@@ -65,6 +66,20 @@ public class ConnexionBD {
           System.out.println(e.getMessage());  
         }
         
+    }
+    public static User readUser(int id){
+        try{
+            Connection connection = connecterDB()
+            Statement st;
+            st=connection.createStatement();
+            ResultSet rst = st.executeQuery("SELECT * FROM appuser WHERE id =" + Integer(id).toString());
+            User user = new User(rst);
+
+
+
+        }catch(SQLException e){
+            System.out.println(e.getMessage());
+        }
     }
 }
 
