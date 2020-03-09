@@ -39,8 +39,8 @@ public class ConnexionBD {
             System.out.println("Driver ok");
             String url="jdbc:mysql://localhost:3306/izeat";
             String userName="root";
-            String password="devala";
-            System.out.println("In process");
+            String password="iejaePh5Oh";
+                System.out.println("In process");
             Connection connection=DriverManager.getConnection(url,userName
                     ,password);
             System.out.println("Connection established");
