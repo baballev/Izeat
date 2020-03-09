@@ -1,6 +1,21 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <color name="colorPrimary">#008577</color>
-    <color name="colorPrimaryDark">#00574B</color>
+    <color name="colorPrimaryDark">#baa17c</color>
+    <color name="colorPrimaryLight">#ffffdd</color>
+
+    <!-- palette associated with the primaryColor : from the lighter to the darker-->
+
+    <color name="lighter">#f8eddd</color>
+    <color name="colorPrimary">#EED2AB</color>
+    <color name="darker_1">#e3b572</color>
+    <color name="darker_2">#d99738</color>
+    <color name="darker_3">#d38300</color>
+    <color name="darker_4">#cc7000</color>
+    <color name="darker_5">#c96500</color>
+    <color name="darker_6">#c45600</color>
+    <color name="darker_7">#bd4600</color>
+    <color name="darker_8">#b42900</color>
+
+
     <color name="colorAccent">#D81B60</color>
 </resources>
