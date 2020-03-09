@@ -7,12 +7,14 @@ import androidx.recyclerview.widget.RecyclerView;
 import android.annotation.SuppressLint;
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.ImageView;
 
 import com.bumptech.glide.Glide;
 import com.example.izeat.Model.Product;
 import com.example.izeat.R;
+import com.example.izeat.Utils.ItemClickSupport;
 import com.example.izeat.View.ProductsAdapter;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 
@@ -113,6 +115,20 @@ public class ProductsRecomendationActivity extends AppCompatActivity {
 
             }
         });
+
+        this.configureOnClickRecyclerView();
+    }
+
+    // 1 - Configure item click on RecyclerView
+    private void configureOnClickRecyclerView(){
+        ItemClickSupport.addTo(productsRecoRecyclerView, R.layout.activity_products_recomendation)
+                .setOnItemClickListener(new ItemClickSupport.OnItemClickListener() {
+                    @Override
+                    public void onItemClicked(RecyclerView recyclerView, int position, View v) {
+                        Log.e("TAG", "Position : "+position);
+                        System.out.println("clicked on item " + position);
+                    }
+                });
     }
 
 }

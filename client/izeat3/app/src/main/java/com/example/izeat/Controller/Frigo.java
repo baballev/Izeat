@@ -25,7 +25,7 @@ public class Frigo extends AppCompatActivity {
 
     //For the recycler view
     private RecyclerView productsInFridgeRecyclerView;
-    private RecyclerView.Adapter productsInFridgeAdapter;
+    private RecyclerView.Adapter productsRecoAdapter;
     private RecyclerView.LayoutManager productsLayoutManager;
 
     private ImageView btnProfil;
@@ -52,8 +52,8 @@ public class Frigo extends AppCompatActivity {
         productsLayoutManager = new GridLayoutManager(this, 3);
         productsInFridgeRecyclerView.setLayoutManager(productsLayoutManager);
 
-        productsInFridgeAdapter = new ProductsAdapter(productsInFridge, Glide.with(this));
-        productsInFridgeRecyclerView.setAdapter(productsInFridgeAdapter);
+        productsRecoAdapter = new ProductsAdapter(productsInFridge, Glide.with(this));
+        productsInFridgeRecyclerView.setAdapter(productsRecoAdapter);
 
         //-------------------------------------------------------------------------------------
         // SETS THE NAVIGATION BAR BUTTONS
