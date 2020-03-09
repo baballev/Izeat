@@ -47,14 +47,15 @@ public class Tools implements ToolsInterface {
 				}
 			} catch (Exception e) {
 				e.printStackTrace();
-			} finally {
+                    	} finally {
 				connection.disconnect();
 			}
 		} catch (Exception e) {
 			e.printStackTrace();
                 }
-                if (content.toString()!=null){
-                    return content.toString(); }// Returns a StringBuilder Object which can be interpreted using .toString() method which corresponds to the .JSON file content.
+                if (content != null){
+                    return content.toString(); 
+                }
                 else return null;
 
 	}

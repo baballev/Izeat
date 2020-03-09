@@ -16,7 +16,7 @@ public class UserRessource {
 		// TODO: 2) Create a User object accordingly
 		// TODO: 3) Make it a JSONObject
 		// TODO: 4) Return the JSONObject.toString()
-		int idd = Integer.getInteger(id);
+		int idd = Integer.parseInt(id);
 		//User usr = new User(userFirstName,"d",19,"h",169,75,"no","no");
 		
 		User usr = ConnexionBD.readUser(idd);
