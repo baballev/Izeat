@@ -1,0 +1,11 @@
+@startuml
+
+
+interface NutritionStatusInterface{
+void setStatusFromDataBase(int userId)
+NutritionValues getUserNeeds()
+NutritionValues setUserNeeds()
+}
+
+
+@enduml

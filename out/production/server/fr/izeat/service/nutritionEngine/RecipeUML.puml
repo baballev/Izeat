@@ -1,0 +1,11 @@
+@startuml
+
+
+class Recipe {
+	private String name
+	private HashSet<FoodItems> ingredients
+	public NutritionValues computeNutritionValues()
+}
+
+
+@enduml

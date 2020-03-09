@@ -1,5 +1,6 @@
 package fr.izeat.service.user;
 
+import java.sql.ResultSet;
 import java.util.ArrayList;
 
 import fr.izeat.service.nutritionEngine.Recipe;
@@ -14,8 +15,10 @@ public class User {
 	private final String gender;
         private final int height;
         private final int weight;
-        private final String preferences;
-        private final String allergies;
+        private final boolean vegan;
+        private final boolean vegetarian;
+        private final boolean palmoil;
+        private final String password;
         private UserInfo userInfo;
 	private NutritionStatusInterface status;
 	
@@ -27,10 +30,22 @@ public class User {
             this.gender=gender;
             this.height=height;
             this.weight=weight;
-            this.preferences=preferences;
-            this.allergies=allergies;
+
             
 	}
+
+	public User(ResultSet rst){
+        this.firstname = rst.getString("firstName");
+        this.lastname = rst.getString("lastName");
+        this.age=rst.getInt("age");
+        this.gender=rst.getString("gender");
+        this.height=rst.getInt("height_cm");
+        this.weight=rst.getInt("weight_g");
+        this.vegan=rst.getBoolean("vegan")
+        this.vegetarian=rst.getBoolean("vegetarian");
+        this.palmoil = rst.getBoolean("palmoil");
+        this.password = rst.getString("password");
+    }
 	
 	
 	//public User(String passWord, String name) {
