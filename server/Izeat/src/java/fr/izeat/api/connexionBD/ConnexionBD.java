@@ -26,9 +26,7 @@ public class ConnexionBD {
                 System.out.print(rst.getInt("id")+"  ");
                 System.out.print(rst.getString("firstname"));
                 System.out.println();
-            }
-            
-            
+            }                   
         }catch(Exception e){
             e.printStackTrace();
         }
@@ -57,31 +55,23 @@ public class ConnexionBD {
             Statement state=connection.createStatement();
             state.executeUpdate(query);
             System.out.println("User added");
-
-
-             
-            
-        
-            
+            connection.close();
         }catch(SQLException e){
           System.out.println(e.getMessage());  
         }
-        
     }
     public static User readUser(int id){
         try{
             Connection connection = connecterDB();
-            Statement st;
-            st=connection.createStatement();
+            Statement st = connection.createStatement();
             ResultSet rst = st.executeQuery("SELECT * FROM appuser WHERE id =" + Integer.toString(id));
             User user = new User(rst);
-
-
+            connection.close();
             return user;
         }catch(SQLException e){
             System.out.println(e.getMessage());
             return null;
-        }
+        } 
     }
 }
 
