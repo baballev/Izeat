@@ -40,7 +40,7 @@ public class Login extends AppCompatActivity {
             }
         });
 
-        String s = Product.getProductQuery("3017760589895");
+        /*String s = Product.getProductQuery("3017760589895");
         s.length();
         JSONObject jsonProduct = null;
         try {
@@ -52,7 +52,7 @@ public class Login extends AppCompatActivity {
             System.out.println(jsonProduct.getString("quantity"));
         } catch (JSONException e) {
             e.printStackTrace();
-        }
+        }*/
 
         inscription = findViewById(R.id.btninscription);
         inscription.setOnClickListener(new View.OnClickListener(){
