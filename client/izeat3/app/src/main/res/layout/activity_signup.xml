@@ -25,6 +25,7 @@
         android:layout_height="wrap_content"
         android:gravity="center"
         android:text="Inscription"
+        android:textColor="@color/darker_6"
         android:textSize="30sp"
         android:textStyle="bold" />
 
@@ -38,7 +39,7 @@
         android:layout_height="wrap_content"
         android:gravity="center"
         android:text="Dis nous en un peu plus sur toi..."
-        android:textColor="#FFEB3B"
+        android:textColor="@color/darker_1"
         android:textSize="18sp" />
 
     <ScrollView
@@ -58,8 +59,10 @@
             <TextView
                 android:id="@+id/textView8"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
+                android:layout_height="43dp"
+                android:gravity="center"
                 android:text="Identifiant"
+                android:textColor="@color/lighter"
                 android:textSize="18sp" />
 
             <EditText
@@ -67,14 +70,20 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:ems="10"
-                android:inputType="textEmailAddress" />
+                android:gravity="center"
+                android:inputType="textEmailAddress"
+                android:text="Adresse Mail"
+                android:textColor="@color/lighter" />
 
             <EditText
                 android:id="@+id/editText9"
                 android:layout_width="match_parent"
-                android:layout_height="23dp"
+                android:layout_height="wrap_content"
                 android:ems="10"
-                android:inputType="textPassword" />
+                android:gravity="center"
+                android:inputType="textPassword"
+                android:text="Mot de passe"
+                android:textColor="@color/lighter" />
 
             <Space
                 android:layout_width="match_parent"
@@ -91,7 +100,7 @@
                     android:layout_height="40dp"
                     android:layout_weight="1"
                     android:text="Sexe"
-                    android:textColor="#FFC107"
+                    android:textColor="@color/darker_2"
                     android:textSize="24sp"
                     android:textStyle="bold" />
 
@@ -101,6 +110,7 @@
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
                     android:text="Femme"
+                    android:textColor="@color/darker_1"
                     android:textStyle="bold" />
 
                 <CheckBox
@@ -109,6 +119,7 @@
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
                     android:text="Homme"
+                    android:textColor="@color/darker_1"
                     android:textStyle="bold" />
 
             </LinearLayout>
@@ -129,7 +140,8 @@
                     android:layout_weight="1"
                     android:ems="10"
                     android:inputType="number"
-                    android:text="Age" />
+                    android:text="Age"
+                    android:textColor="@color/darker_1" />
 
                 <EditText
                     android:id="@+id/editText6"
@@ -138,21 +150,23 @@
                     android:layout_weight="1"
                     android:ems="10"
                     android:inputType="number"
-                    android:text="Poids" />
+                    android:text="Poids"
+                    android:textColor="@color/darker_1" />
 
             </LinearLayout>
 
             <Space
                 android:layout_width="match_parent"
-                android:layout_height="52dp" />
+                android:layout_height="35dp" />
 
-            <EditText
-                android:id="@+id/editText7"
+            <TextView
+                android:id="@+id/textView9"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:ems="10"
-                android:inputType="textPersonName"
-                android:text="Quel est ton régime alimentaire? " />
+                android:text="Quel est ton régime alimentaire? "
+                android:textColor="@color/darker_2"
+                android:textSize="18sp"
+                android:textStyle="bold" />
 
             <Space
                 android:layout_width="match_parent"
