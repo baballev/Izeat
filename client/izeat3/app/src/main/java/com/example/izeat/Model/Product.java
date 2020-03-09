@@ -23,21 +23,10 @@ public class Product {
     public String getProductUrl() {
         return productUrl;
     }
-
+/*
     public static String getProductQuery(String code) {
-                /*try{
-                    InputStream content=new FileInputStream("off_product.txt");
-                    InputStreamReader lecture=new InputStreamReader(content);
-                    BufferedReader buff=new BufferedReader(lecture);
-                    String line;
-                    line=buff.readLine();
-                    buff.close();
 
-                }catch(Exception e){
-                    System.out.println(e.toString());
-                }*/
-
-        String url = "http://izeat.r2.enst.fr/ws/Izeat/webresources/product/" + code + ".json"; // Problèmes si on met en https car les certificats ne sont pas valides, TODO: voir comment configurer les certifs ssl
+        String url = "https://izeat.r2.enst.fr/ws/Izeat/webresources/product/" + code + ".json"; // Problèmes si on met en https car les certificats ne sont pas valides, TODO: voir comment configurer les certifs ssl
         StringBuilder content = null;
         try {
             HttpURLConnection connection = (HttpURLConnection) new URL(url).openConnection();
@@ -48,6 +37,7 @@ public class Product {
                 content = new StringBuilder();
                 String line;
                 while ((line = input.readLine()) != null) {  // In fact there should be only 1 line for a .JSON file.
+                    System.out.println(line);
                     content.append(line);
                     if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.KITKAT) {
                         content.append(System.lineSeparator());
@@ -64,6 +54,6 @@ public class Product {
         if (content !=null){
             return content.toString(); }// Returns a StringBuilder Object which can be interpreted using .toString() method which corresponds to the .JSON file content.
         else return null;
-    }
+    }*/
 
 }
