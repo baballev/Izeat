@@ -1,6 +1,7 @@
 
 package fr.izeat.api.connexionBD;
 
+import static fr.izeat.api.connexionBD.ConnexionBD.*;
 import fr.izeat.service.user.User;
 import java.sql.Connection;
 import java.sql.DriverManager;
@@ -51,7 +52,7 @@ public class ConnexionBD {
     }
     public static void addUser(User user){
         try{
-            String query="INSERT INTO appuser(firstname,lastname,age,gender,height,weight,preferences,allergies) VALUES ('"+user.getFirstName()+"','"+user.getLastName()+"',"+user.getAge()+",'"+user.getGender()+"',"+user.getHeight()+","+user.getWeight()+",'"+user.getPreferences()+"','"+user.getAllergies()+"')";
+            String query="INSERT INTO appuser(firstname,lastname,age,gender,height,weight,preferences,allergies) VALUES ('"+user.getFirstName()+"','"+user.getLastName()+"',"+user.getAge()+",'"+user.getGender()+"',"+user.getHeight()+","+user.getWeight()+",'"+user.getVegan()+"','"+user.getVegetarian()+"')";
             Connection connection = connecterDB();
             Statement state=connection.createStatement();
             state.executeUpdate(query);
@@ -67,18 +68,19 @@ public class ConnexionBD {
         }
         
     }
-    public User readUser(int id){
+    public static User readUser(int id){
         try{
-            Connection connection = connecterDB()
+            Connection connection = connecterDB();
             Statement st;
             st=connection.createStatement();
-            ResultSet rst = st.executeQuery("SELECT * FROM appuser WHERE id =" + Integer(id).toString());
+            ResultSet rst = st.executeQuery("SELECT * FROM appuser WHERE id =" + Integer.toString(id));
             User user = new User(rst);
 
 
-
+            return user;
         }catch(SQLException e){
             System.out.println(e.getMessage());
+            return null;
         }
     }
 }

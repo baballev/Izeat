@@ -16,10 +16,10 @@ public class UserRessource {
 		// TODO: 2) Create a User object accordingly
 		// TODO: 3) Make it a JSONObject
 		// TODO: 4) Return the JSONObject.toString()
-		int idd = Integer(id);
+		int idd = Integer.getInteger(id);
 		//User usr = new User(userFirstName,"d",19,"h",169,75,"no","no");
-		ConnexionBD connexion = new ConnexionBD();
-		User usr = connexion.readUser(id);
+		
+		User usr = ConnexionBD.readUser(idd);
 		JSONObject jsonUser = new JSONObject(usr);
     
 		return jsonUser.toString();
