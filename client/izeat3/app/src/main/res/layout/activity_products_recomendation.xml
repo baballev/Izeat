@@ -35,6 +35,28 @@ android:layout_height="match_parent">
             android:orientation="horizontal">
 
             <com.google.android.material.floatingactionbutton.FloatingActionButton
+                android:id="@+id/btnsearch"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:clickable="true"
+                android:visibility="gone"
+                app:backgroundTint="#DEB887"
+                app:srcCompat="@drawable/ic_search_black_24dp"
+                tools:ignore="VectorDrawableCompat" />
+
+            <com.google.android.material.floatingactionbutton.FloatingActionButton
+                android:id="@+id/btnphoto"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:clickable="true"
+                android:visibility="gone"
+                app:backgroundTint="#AE8964"
+                app:srcCompat="@drawable/ic_photo_camera_black_24dp"
+                tools:ignore="VectorDrawableCompat" />
+
+            <com.google.android.material.floatingactionbutton.FloatingActionButton
                 android:id="@+id/btnadd"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"

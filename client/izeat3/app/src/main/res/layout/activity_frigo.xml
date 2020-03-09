@@ -29,40 +29,31 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_weight="1"
-        android:orientation="vertical">
-
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="64dp"
-            android:gravity="end"
-            android:orientation="horizontal">
-
-            <com.google.android.material.floatingactionbutton.FloatingActionButton
-                android:id="@+id/btnphoto"
-                android:layout_width="wrap_content"
-                android:layout_height="match_parent"
-                android:clickable="true"
-                android:src="@drawable/ic_photo_camera_black_24dp"
-                android:visibility="gone"
-                app:backgroundTint="#AE8964" />
-
-            <com.google.android.material.floatingactionbutton.FloatingActionButton
-                android:id="@+id/btnsearch"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:clickable="true"
-                android:src="@drawable/ic_search_black_24dp"
-                android:visibility="gone"
-                app:backgroundTint="#DEB887" />
-        </LinearLayout>
-
-    </LinearLayout>
+        android:orientation="vertical"/>
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:gravity="end"
         android:orientation="horizontal">
+
+        <com.google.android.material.floatingactionbutton.FloatingActionButton
+            android:id="@+id/btnsearch"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:clickable="true"
+            android:src="@drawable/ic_search_black_24dp"
+            android:visibility="gone"
+            app:backgroundTint="#DEB887" />
+
+        <com.google.android.material.floatingactionbutton.FloatingActionButton
+            android:id="@+id/btnphoto"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:clickable="true"
+            android:src="@drawable/ic_photo_camera_black_24dp"
+            android:visibility="gone"
+            app:backgroundTint="#AE8964" />
 
         <com.google.android.material.floatingactionbutton.FloatingActionButton
             android:id="@+id/btnadd"
