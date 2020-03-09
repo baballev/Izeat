@@ -32,7 +32,7 @@ public class RecipesViewHolder extends RecyclerView.ViewHolder {
             glide.load(url).into(recipeImage);
         }
         else {
-            recipeImage.setImageResource(R.drawable.recipes);
+            recipeImage.setImageResource(R.drawable.icone_frigo);
         }
     }
 }
