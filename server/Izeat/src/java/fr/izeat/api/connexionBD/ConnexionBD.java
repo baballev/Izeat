@@ -67,7 +67,7 @@ public class ConnexionBD {
         }
         
     }
-    public static User readUser(int id){
+    public User readUser(int id){
         try{
             Connection connection = connecterDB()
             Statement st;
