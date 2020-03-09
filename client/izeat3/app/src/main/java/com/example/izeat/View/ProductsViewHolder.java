@@ -21,6 +21,7 @@ public class ProductsViewHolder extends RecyclerView.ViewHolder {
         super(v);
         productName = v.findViewById(R.id.product_name);
         productImage = v.findViewById(R.id.product_image);
+       // ButterKnife.bind(this, v);
     }
 
     public void updateHolder(Product p, RequestManager glide){

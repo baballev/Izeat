@@ -21,6 +21,8 @@ import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import java.util.ArrayList;
 
 
+import com.example.izeat.R;
+
 public class ProductsRecomendationActivity extends AppCompatActivity {
 
     //PRODUCTS RECOMMENDATIONS DATA
