@@ -17,7 +17,7 @@ public class UserRessource {
 		User usr = ConnexionBD.readUser(idd);
 		JSONObject jsonUser = new JSONObject(usr);
 		return jsonUser.toString();
-		// User usr = new User(userName); TODO 
+		// User usr = new User(userName); TODO  
 	}
 	
 }

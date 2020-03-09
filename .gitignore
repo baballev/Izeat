@@ -16,3 +16,4 @@ hs_err_pid*
 build/
 client/izeat3/app/build/
 local.properties
+/server/Izeat/dist/
