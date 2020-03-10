@@ -19,7 +19,7 @@ import com.google.android.material.floatingactionbutton.FloatingActionButton;
 
 import java.util.ArrayList;
 
-public class Frigo extends AppCompatActivity {
+public class FrigoActivity extends AppCompatActivity {
 
     //PRODUCTS RECOMMENDATIONS DATA
     private ArrayList<Product> productsInFridge;
@@ -102,7 +102,7 @@ public class Frigo extends AppCompatActivity {
 
             @Override
             public void onClick(View v) {
-                Intent imageRecognitionIntent = new Intent(Frigo.this, ImageRecognitionActivity.class);
+                Intent imageRecognitionIntent = new Intent(FrigoActivity.this, ImageRecognitionActivity.class);
                 startActivity(imageRecognitionIntent);
             }
         });

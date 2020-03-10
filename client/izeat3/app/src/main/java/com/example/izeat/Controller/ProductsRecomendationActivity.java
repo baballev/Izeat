@@ -7,7 +7,6 @@ import androidx.recyclerview.widget.RecyclerView;
 import android.annotation.SuppressLint;
 import android.content.Intent;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.View;
 import android.widget.ImageView;
 import android.widget.Toast;
@@ -21,9 +20,6 @@ import com.example.izeat.View.ProductsAdapter;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 
 import java.util.ArrayList;
-
-
-import com.example.izeat.R;
 
 public class ProductsRecomendationActivity extends AppCompatActivity {
 
@@ -95,7 +91,7 @@ public class ProductsRecomendationActivity extends AppCompatActivity {
 
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(getApplicationContext(), Frigo.class);
+                Intent intent = new Intent(getApplicationContext(), FrigoActivity.class);
                 startActivity(intent);
                 finish();
             }

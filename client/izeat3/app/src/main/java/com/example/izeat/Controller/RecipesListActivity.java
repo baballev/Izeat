@@ -74,7 +74,7 @@ public class RecipesListActivity extends AppCompatActivity {
 
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(getApplicationContext(), Frigo.class);
+                Intent intent = new Intent(getApplicationContext(), FrigoActivity.class);
                 startActivity(intent);
                 finish();
             }
