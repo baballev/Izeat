@@ -56,7 +56,7 @@ public class Profil extends AppCompatActivity {
 
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(getApplicationContext(), FrigoActivity.class);
+                Intent intent = new Intent(getApplicationContext(), FridgeActivity.class);
                 startActivity(intent);
                 finish();
             }
