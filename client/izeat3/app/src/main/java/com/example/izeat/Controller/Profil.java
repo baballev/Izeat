@@ -8,6 +8,7 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.ImageView;
 
+import com.example.izeat.ImageRecognitionActivity;
 import com.example.izeat.R;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 
@@ -65,6 +66,15 @@ public class Profil extends AppCompatActivity {
 
         this.btnAdd=(FloatingActionButton) findViewById(R.id.btnadd2);
         this.btnphoto=(FloatingActionButton)findViewById(R.id.btnphoto2);
+        btnphoto.setOnClickListener(new View.OnClickListener() {
+
+            @Override
+            public void onClick(View v) {
+                Intent imageRecognitionIntent = new Intent(Profil.this, ImageRecognitionActivity.class);
+                startActivity(imageRecognitionIntent);
+            }
+        });
+
         this.btnsearch=(FloatingActionButton)findViewById(R.id.btnsearch2);
         btnAdd.setOnClickListener(new View.OnClickListener() {
             @SuppressLint("RestrictedApi")

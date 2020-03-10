@@ -11,6 +11,7 @@ import android.view.View;
 import android.widget.ImageView;
 
 import com.bumptech.glide.Glide;
+import com.example.izeat.ImageRecognitionActivity;
 import com.example.izeat.Model.Recipe;
 import com.example.izeat.R;
 import com.example.izeat.View.RecipesAdapter;
@@ -92,6 +93,14 @@ public class RecipesListActivity extends AppCompatActivity {
 
         this.btnAdd=(FloatingActionButton) findViewById(R.id.btnadd);
         this.btnphoto=(FloatingActionButton)findViewById(R.id.btnphoto);
+        btnphoto.setOnClickListener(new View.OnClickListener() {
+
+            @Override
+            public void onClick(View v) {
+                Intent imageRecognitionIntent = new Intent(RecipesListActivity.this, ImageRecognitionActivity.class);
+                startActivity(imageRecognitionIntent);
+            }
+        });
         this.btnsearch=(FloatingActionButton)findViewById(R.id.btnsearch);
         btnAdd.setOnClickListener(new View.OnClickListener() {
             @SuppressLint("RestrictedApi")
