@@ -16,4 +16,6 @@ hs_err_pid*
 build/
 client/izeat3/app/build/
 local.properties
+*.jar
+client/izeat3/app/src/main/lib/json-20190722.jar
 /server/Izeat/dist/
