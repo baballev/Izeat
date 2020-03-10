@@ -1,3 +1,7 @@
+Dépôt Git du projet pact du groupe 2.3 de Télécom Paris, année 2019-2020.
+
+Il s'agit d'une application mobile. Pour plus d'informations, voir le rapport.
+
 Le répertoire `rapport` contient le rapport d'avancement et est structuré en sous dossiers.
 Le répertoire `client` contient le code source l'application android en Java.
 Le répertoire `server` contient le code source de l'application en Java sur le serveur.

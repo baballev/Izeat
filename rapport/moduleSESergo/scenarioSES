@@ -1,0 +1,91 @@
+4 Onglets: Recommandations de recette, Recommandation de produit, frigo, profil
+quand on ajoute un aliment, popup qui demande la quantité à ajouter/consommer si nécessaire et adapaté au type d'aliment.
+Pour les openfoodfacts, ce sera toujours des unités.
+
+===========================
+Premier scénario: "casual"
+===========================
+
+Il scan de temps en temps ce QUIL MANGE (pas trop frigo),
+Il utilise pas beauoup l'application. Ce sont des recommandations assez basiques
+l'application émet surtout des recommandations basés sur le TYPE d'aliments et
+de nutriments et sur la simplicité à faire la recette.
+Lorqu'il y a rien il émet des recommandations par défaut.
+
+2 types de recomandations recetes simples et + personalisées healthy.
+
+Affichage produits et recettes similaires. On peut consommer depuis l'onglet des recommandations sans avoir à cliquer dessus pour le détail.
+
+
+Affichage d'une recette/ d'un produit:
+  Simplicité 3 niveaux: Rouge / Jaune / Vert
+  Pareil pour la nutrition.
+  Bouton consommer / jeter(j'en veux pas) /
+Ces niveaux sont extrapolés à partir des infos sur le nombre d'aliment dans la recette,
+la qualité des aliments, temps de préparation.
+
+Bouton +: 2 modes: ajouter et consommer
+  Ajouter: Recherche, Scan CodeBarre, photo
+  Consommer: Recherche, Depuis frigo, Scan codebarre, photo
+  quand on a trouver un produit à ajouter, on afficher la fiche produit
+l'onglet d'acceuil c'est recommandation recette
+
+On peut aussi consommer depuis LE FRIGO et depuis LES RECOMMANDATIONS RECETTES
+
+Onglet profil:
+  Les nutriments consommés cette semaine
+  La composition de son frigo en terme de nutriments
+
+
+Scénario précis:
+Etudiant affamé qui rentre le soir chez lui. Il a faim. Il ouvre l'appli et il va
+voir l'onglet recommandations. Il va pouvoir avoir une recette simple à préparer.
+
+============================
+Deuxième scénario: "Lambda"
+============================
+
+Onglet recomandation recette:
+  2 type de recommandations: healthy et simples
+  Healthy grisée si pas assez de data input pour inciter à ce qu'il rentre plus de données.
+
+Onglet produit:
+  détail d'un produit: les nutriments, photo, ...
+
+Bouton +: Pareil que pour casual
+
+Onglet profil: Pareil que pour le casual
+
+
+Scénarion précis:
+Il ouvre l'appli, il arrive sur recomandations recettes. Il voit qu'il peut pas avoir de recommandations personalisées helathy (grisé)
+Il clique sur le bouton +. Il choisit l'option d'ajout dans le frigo. Il utilise son moyen d'ajout préféré et il choisit une unité de quantitié.
+Il va ensuite dans une recette de l'onglet recommandation recette. Il regarde le détail. Il la prépare, la mange et clique sur le bouton consommer.
+Il va voir son profil (suivi) et il regarde les barres qui lui indique ce qu'il a mangé cette semaine.
+
+
+===============================
+Troisième scénario: "Tryharder"
+===============================
+Spam de notification l'utilisateur quand il utilise pas chaque jour ou qu'il a pas rentré d'alimet récemment.
+
+Bouton +:
+  Juste pour l'ajout plutot. Quand il a choisi un aliment et la quantité, 2 optionns: Consommer ou ajouter au frigo.
+  Si consommé, demandé date + here avec par défaut l'heure et la date actuelle
+
+Recommandation recettes:
+  Recommandations healthy/personalisées sont plus pondérantes graphiquement.
+  Les recommandations simples sont plus axées sur ce qu'il a dans son frigo.
+  Mettre en rouge/griser les reco healthy quand y'a pas assez de donées.
+  Détail d'une recette:
+    Afficher un histogramme/graphe quelconque pour chaque recette. Donner le plus d'info possible dans le détail de la recette.
+  Pas de possibilité d'ajouter une cosommation de recette directement, il faut forcément passer par le détail de la recette.
+
+Profil:
+  Journalier + choix pour passer sur les 7 derniers jours.
+  Nutriments (le + possible), sous forme d'anneaux si possible ou d'histogramme.
+  Pareil pour les aliments dans son frigo.
+
+Scénario précis
+Tous les jours/À Chaque repas il utilise l'appli. Il rentre tout ce qu'il achète dans son frigo.
+Il va dans l'onglet recommandation recette pour obtenir des recettes qui match son état actuel de nutrition. La recette recomandée est très adapatée.m

@@ -1,0 +1,13 @@
+@startuml
+
+
+
+class Constraints {
+private HashSet<String> constraintsSet
+public void addConstraint(String constraint)
+public boolean is(String constraint)
+}
+
+
+
+@enduml
