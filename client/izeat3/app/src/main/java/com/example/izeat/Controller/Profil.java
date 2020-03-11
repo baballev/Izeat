@@ -21,12 +21,10 @@ public class Profil extends AppCompatActivity {
     private FloatingActionButton btnsearch;
     private FloatingActionButton btnphoto;
 
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_profil);
-
 
         this.btnRecipes= (ImageView) findViewById(R.id.btnRecipes);
         btnRecipes.setOnClickListener(new View.OnClickListener(){

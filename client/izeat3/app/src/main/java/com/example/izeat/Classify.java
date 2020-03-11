@@ -197,9 +197,9 @@ public class Classify extends AppCompatActivity {
             for (int j = 0; j < DIM_IMG_SIZE_Y; ++j) {
                 final int val = intValues[pixel++];
                 // get rgb values from intValues where each int holds the rgb values for a pixel.
-                    imgData.putFloat((((val >> 16) & 0xFF)-IMAGE_MEAN)/IMAGE_STD);
-                    imgData.putFloat((((val >> 8) & 0xFF)-IMAGE_MEAN)/IMAGE_STD);
-                    imgData.putFloat((((val) & 0xFF)-IMAGE_MEAN)/IMAGE_STD);
+                    imgData.putFloat((((val >> 16) & 0xFF)));
+                    imgData.putFloat((((val >> 8) & 0xFF)));
+                    imgData.putFloat((((val) & 0xFF)));
 
             }
         }
