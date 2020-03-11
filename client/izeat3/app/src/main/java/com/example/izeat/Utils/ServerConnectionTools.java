@@ -2,12 +2,14 @@ package com.example.izeat.Utils;
 
 import android.content.Context;
 
-import com.android.volley.Request;
 import com.android.volley.RequestQueue;
 import com.android.volley.Response;
 import com.android.volley.VolleyError;
-import com.android.volley.toolbox.StringRequest;
+import com.android.volley.toolbox.JsonArrayRequest;
 import com.android.volley.toolbox.Volley;
+
+import org.json.JSONArray;
+import org.json.JSONException;
 
 public final class ServerConnectionTools {
 
@@ -15,21 +17,21 @@ public final class ServerConnectionTools {
         // Instantiate the RequestQueue.
         RequestQueue queue = Volley.newRequestQueue(context);
         // Request a string response from the provided URL.
-        StringRequest stringRequest = new StringRequest(Request.Method.GET, url,
-                new Response.Listener<String>() {
-                    @Override
-                    public void onResponse(String response) {
-                        System.out.println("Response received correctly: "+ response.toString());
+        JsonArrayRequest jsonRequest = new JsonArrayRequest(url,
+                new Response.Listener<JSONArray>() {
+                    public void onResponse(final JSONArray response) {
+                        System.out.println("Request received: " + response.toString());
                     }
-                }, new Response.ErrorListener() {
-            @Override
-            public void onErrorResponse(VolleyError error) {
-                System.err.println(error.getMessage());
-            }
+                },
+                new Response.ErrorListener() {
+                    @Override
+                    public void onErrorResponse(VolleyError error) {
+                        System.err.println("An error occurred while retrieving json from izeat server.");
+                    }
         });
         // Add the request to the RequestQueue.
-        queue.add(stringRequest);
-        return stringRequest.toString();
+        queue.add(jsonRequest);
+        return jsonRequest.toString();
     }
     /*
      * Method Usage:

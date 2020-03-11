@@ -36,9 +36,9 @@ public class Product {
     private final boolean palmOil;			// Example: true
     private final boolean vegan;	    		// Example: false
     private final boolean vegetarian;   		// Example: true TODO: Implement the "maybe field"
-    private final HashMap<String, Float> nutriments;          // Example: {"sodium": 0.5f, "fat":12.3, ...}
+    private final HashMap<String, Double> nutriments;          // Example: {"sodium": 0.5f, "fat":12.3, ...}
 
-    public Product(String s) throws JSONException {  // s corresponds to the .JSON file's content. Use Tools.getProductQuery to instanciate from a bar-code.0
+    public Product(String s) throws JSONException {  // s corresponds to the .JSON file's content. Use Tools.getProductQuery to instantiate from a bar-code.
         JSONObject jsonContent = new JSONObject(s);
         JSONObject jsonInfo;
         if (jsonContent.isNull("product")){
@@ -79,27 +79,12 @@ public class Product {
         nutriments = new HashMap<>();
         String[] nutrimentList = {"sodium", "fat", "fiber", "salt", "sugars", "proteins"}; // TODO: Complete with what's necessary
         for (String st : nutrimentList) {
-               if(!jNutriments.isNull(st)) nutriments.put(st, jNutriments.getFloat(st));
-               else nutriments.put(st, 0f);
+               if(!jNutriments.isNull(st)) nutriments.put(st, jNutriments.getDouble(st));
+               else nutriments.put(st, 0.0);
         }
     }
 
-    public static ArrayList<Product> productsFromJSON(String s) {
-        JSONObject jsonObj = new JSONObject(s);
-        JSONArray jsonProducts = jsonObj.getJSONArray("products");
-        ArrayList<Product> products = new ArrayList<Product>();
-        for(Object product : jsonProducts){
-            JSONObject prod = (JSONObject) product;
-            if (!prod.isNull("completeness")){
-              if(prod.getFloat("completeness") > 0.45){ // Sort products with very few information TODO: modify the cap if needed.
-                  products.add(new Product(prod.toString()));
-              }
-            }
-        }
-        return products;
-    }
-
-    public HashMap<String, Float> getNutriments() {
+    public HashMap<String, Double> getNutriments() {
         return nutriments;
     }
 
