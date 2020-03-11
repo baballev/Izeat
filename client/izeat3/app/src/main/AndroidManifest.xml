@@ -18,14 +18,14 @@ xmlns:tools="http://schemas.android.com/tools"
         <activity android:name=".Controller.ProductsRecomendationActivity" />
         <activity android:name=".Controller.RecipesListActivity" />
         <activity android:name=".Controller.Login">
-        </activity>
-        <activity android:name="com.soundcloud.android.crop.CropImageActivity" />
-        <activity android:name=".Classify"/>
-        <activity android:name=".ImageRecognitionActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
+        </activity>
+        <activity android:name="com.soundcloud.android.crop.CropImageActivity" />
+        <activity android:name=".Classify"/>
+        <activity android:name=".ImageRecognitionActivity">
         </activity>
         <activity android:name=".Controller.SignUp"/>
 
