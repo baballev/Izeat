@@ -30,6 +30,7 @@ public final class ServerConnectionTools {
         });
         // Add the request to the RequestQueue.
         queue.add(stringRequest);
+        return stringRequest.toString();
 
     }
 

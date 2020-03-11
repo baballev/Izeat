@@ -16,6 +16,7 @@ import com.android.volley.VolleyError;
 import com.android.volley.toolbox.StringRequest;
 import com.android.volley.toolbox.Volley;
 import com.example.izeat.R;
+import com.example.izeat.Utils.ServerConnectionTools;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 
 public class Profil extends AppCompatActivity {
@@ -78,6 +79,7 @@ public class Profil extends AppCompatActivity {
                 btnAdd.setVisibility(View.GONE);
                 btnsearch.setVisibility(View.VISIBLE);
                 btnphoto.setVisibility(View.VISIBLE);
+                System.out.println(ServerConnectionTools.getProduct(getApplicationContext(),"3017760589895"));
 
             }
         });
