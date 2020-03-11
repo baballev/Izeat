@@ -7,6 +7,7 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.ImageView;
+import android.widget.TextView;
 
 import com.example.izeat.R;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
@@ -73,6 +74,31 @@ public class Profil extends AppCompatActivity {
                 btnAdd.setVisibility(View.GONE);
                 btnsearch.setVisibility(View.VISIBLE);
                 btnphoto.setVisibility(View.VISIBLE);
+                final TextView textView = (TextView) findViewById(R.id.text);
+// ...
+
+// Instantiate the RequestQueue.
+                Volley.RequestQueue queue = Volley.newRequestQueue(this);
+                String url ="http://www.google.com";
+
+// Request a string response from the provided URL.
+                StringRequest stringRequest = new StringRequest(Request.Method.GET, url,
+                        new Response.Listener<String>() {
+                            @Override
+                            public void onResponse(String response) {
+                                // Display the first 500 characters of the response string.
+                                textView.setText("Response is: "+ response.substring(0,500));
+                            }
+                        }, new Response.ErrorListener() {
+                    @Override
+                    public void onErrorResponse(VolleyError error) {
+                        textView.setText("That didn't work!");
+                    }
+                });
+
+// Add the request to the RequestQueue.
+                queue.add(stringRequest);
+
 
             }
         });
