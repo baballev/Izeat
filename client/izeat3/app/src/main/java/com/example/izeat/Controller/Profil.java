@@ -19,6 +19,9 @@ import com.example.izeat.R;
 import com.example.izeat.Utils.ServerConnectionTools;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 
+import org.json.JSONException;
+import org.json.JSONObject;
+
 public class Profil extends AppCompatActivity {
 
     private ImageView btnFrigo;
@@ -79,7 +82,13 @@ public class Profil extends AppCompatActivity {
                 btnAdd.setVisibility(View.GONE);
                 btnsearch.setVisibility(View.VISIBLE);
                 btnphoto.setVisibility(View.VISIBLE);
-                System.out.println(ServerConnectionTools.getProduct(getApplicationContext(),"3017760589895"));
+                String jsonString = ServerConnectionTools.getProduct(getApplicationContext(),"3017760589895");
+                try {
+                    JSONObject testobject = new JSONObject(jsonString);
+                    System.out.println("Quantity of test item: " + testobject.getString("quantity"));
+                } catch (JSONException e) {
+                    e.printStackTrace();
+                }
 
             }
         });
