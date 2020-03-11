@@ -58,12 +58,16 @@
 
         <Button
             android:id="@+id/btninscription"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
+            android:layout_width="182dp"
+            android:layout_height="21dp"
+            android:layout_gravity="center"
             android:layout_marginLeft="0dp"
             android:layout_weight="1"
+            android:background="@color/colorPrimary"
             android:text="S'inscrire"
-            android:textSize="12sp" />
+            android:textColor="@color/colorPrimaryDark"
+            android:textSize="24sp"
+            android:textStyle="bold" />
 
         <Button
             android:id="@+id/btnsuivant"
@@ -72,6 +76,7 @@
             android:layout_gravity="center"
             android:layout_marginLeft="5dp"
             android:layout_marginRight="5dp"
+            android:background="@color/darker_1"
             android:gravity="center"
             android:text="Suivant"
             android:textSize="24sp" />
