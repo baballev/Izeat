@@ -1,4 +1,4 @@
-package com.example.izeat.Model;
+package com.example.izeat.Utils;
 
 import android.os.Build;
 
@@ -62,7 +62,7 @@ public class ProductInfo {
                 novaScore = novaInteger.intValue();
             }
         } else novaScore = 0;
-        if (!jsonInfo.isNull("nutritiopn_grades")) nutriScore = jsonInfo.getString("nutrition_grades").charAt(0);
+        if (!jsonInfo.isNull("nutrition_grades")) nutriScore = jsonInfo.getString("nutrition_grades").charAt(0);
         else nutriScore = 'n'; // Default value when nutriscore not found.
         categories = jsonInfo.getString("categories").split(", ");
         if (!jsonInfo.isNull("ingredients_analysis_tags")){
@@ -82,6 +82,63 @@ public class ProductInfo {
             if(!jNutriments.isNull(st)) nutriments.put(st, jNutriments.getDouble(st));
             else nutriments.put(st, 0.0);
         }
+    }
+
+    public ProductInfo(JSONObject jsonInfo) throws JSONException{ // Constructor used for JSON files coming from Izeat server.
+        if (!jsonInfo.isNull("name")) {
+            name = jsonInfo.getString("name");
+        } else{
+            name = "Erreur_Nom";
+        }
+        if (!jsonInfo.isNull("quantity")) quantity = jsonInfo.getString("quantity");
+        else quantity = "NONE";
+        imageUrl = jsonInfo.getString("imageUrl");
+        if (!jsonInfo.isNull("novaScore")) {
+            novaScore = jsonInfo.getInt("novaScore");
+        } else novaScore = 0;
+        if (!jsonInfo.isNull("nutriScore")) nutriScore = jsonInfo.getString("nutriScore").charAt(0);
+        else nutriScore = 'n'; // Default value when nutriscore not found.
+        JSONArray array = jsonInfo.getJSONArray("categories");
+        categories = new String[array.length()];
+            for(int k = 0; k < array.length(); k++){
+                categories[k] = array.get(k).toString();
+            }
+        if (!jsonInfo.isNull("palmOil")) palmOil = jsonInfo.getBoolean("palmOil");
+        else palmOil = false;
+        if(!jsonInfo.isNull("vegan")) vegan = jsonInfo.getBoolean("vegan");
+        else vegan = false;
+        if (!jsonInfo.isNull("vegetarian")) vegetarian = jsonInfo.getBoolean("vegetarian");
+        else vegetarian = false;
+        nutriments = new HashMap<>();
+        String[] nutrimentList = {"sodium", "fat", "fiber", "salt", "sugars", "proteins"}; // TODO: Complete with what's necessary
+        if (!jsonInfo.isNull("nutriments")) {
+            JSONObject jNutriments = jsonInfo.getJSONObject("nutriments");
+            for (String st : nutrimentList) {
+                if (!jNutriments.isNull(st)) nutriments.put(st, jNutriments.getDouble(st));
+                else nutriments.put(st, 0.0);
+            }
+        } else{
+            for(String st : nutrimentList){
+                nutriments.put(st, 0.0);
+            }
+        }
+    }
+
+
+    public static ArrayList<ProductInfo>  productsFromJSON(String s) throws JSONException {
+        JSONObject jsonObj = new JSONObject(s);
+        JSONArray jsonProducts = jsonObj.getJSONArray("products");
+        ArrayList<ProductInfo> products = new ArrayList<ProductInfo>();
+        int n = jsonProducts.length();
+        for(int k = 0; k < n; k++){
+            JSONObject prod = (JSONObject) jsonProducts.get(k);
+            if (!prod.isNull("completeness")){
+                if(prod.getDouble("completeness") > 0.4){ // Sort products with very few information TODO: modify the cap if needed.
+                    products.add(new ProductInfo(prod.toString()));
+                }
+            }
+        }
+        return products;
     }
 
     public HashMap<String, Double> getNutriments() {

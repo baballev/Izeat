@@ -7,20 +7,9 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.ImageView;
-import android.widget.TextView;
 
-import com.android.volley.Request;
-import com.android.volley.RequestQueue;
-import com.android.volley.Response;
-import com.android.volley.VolleyError;
-import com.android.volley.toolbox.StringRequest;
-import com.android.volley.toolbox.Volley;
 import com.example.izeat.R;
-import com.example.izeat.Utils.ServerConnectionTools;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
-
-import org.json.JSONException;
-import org.json.JSONObject;
 
 public class Profil extends AppCompatActivity {
 
@@ -82,13 +71,6 @@ public class Profil extends AppCompatActivity {
                 btnAdd.setVisibility(View.GONE);
                 btnsearch.setVisibility(View.VISIBLE);
                 btnphoto.setVisibility(View.VISIBLE);
-                String jsonString = ServerConnectionTools.getProduct(getApplicationContext(),"3017760589895");
-                try {
-                    JSONObject testobject = new JSONObject(jsonString);
-                    System.out.println("Quantity of test item: " + testobject.getString("quantity"));
-                } catch (JSONException e) {
-                    e.printStackTrace();
-                }
 
             }
         });
