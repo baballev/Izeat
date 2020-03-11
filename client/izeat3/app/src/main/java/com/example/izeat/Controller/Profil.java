@@ -27,40 +27,10 @@ public class Profil extends AppCompatActivity {
     private FloatingActionButton btnsearch;
     private FloatingActionButton btnphoto;
 
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_profil);
-
-        /*
-         *  BEGINING OF NETWORK REQUEST SETUP
-         */
-
-        // Instantiate the RequestQueue.
-        RequestQueue queue = Volley.newRequestQueue(this);
-        String url ="http://izeat.r2.enst.fr/ws/Izeat/webresources/product/3017760589895";
-
-        // Request a string response from the provided URL.
-        StringRequest stringRequest = new StringRequest(Request.Method.GET, url,
-                new Response.Listener<String>() {
-                    @Override
-                    public void onResponse(String response) {
-                        // Display the first 500 characters of the response string.
-                        System.out.println("Response is: "+ response.toString());
-                    }
-                }, new Response.ErrorListener() {
-            @Override
-            public void onErrorResponse(VolleyError error) {
-                System.out.println("######################### That didn't work! ##################");
-                System.out.println(error.getMessage());
-            }
-        });
-        // Add the request to the RequestQueue.
-        queue.add(stringRequest);
-        /*
-         *  END OF NETWORK REQUEST SETUP
-         */
 
         this.btnRecipes= (ImageView) findViewById(R.id.btnRecipes);
         btnRecipes.setOnClickListener(new View.OnClickListener(){
