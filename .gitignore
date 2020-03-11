@@ -6,8 +6,6 @@
 *.log
 *.ctxt
 .mtj.tmp/
-*.jar
-*.war
 *.nar
 *.ear
 *.zip

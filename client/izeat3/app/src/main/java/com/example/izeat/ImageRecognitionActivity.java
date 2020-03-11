@@ -64,17 +64,11 @@ public class ImageRecognitionActivity extends AppCompatActivity {
                     REQUEST_PERMISSION);
         }
 
-        // on click for inception float model
-        inceptionFloat = (Button)findViewById(R.id.classifier);
-        inceptionFloat.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                // filename in assets
-                model = "RN50&3Dense_300x300x3_10epochs.tflite";
-                // open camera
-                openCameraIntent();
-            }
-        });
+        // filename in assets
+        model = "RN50&3Dense_300x300x3_10epochs.tflite";
+
+        // open camera
+        openCameraIntent();
     }
 
     // opens camera for user

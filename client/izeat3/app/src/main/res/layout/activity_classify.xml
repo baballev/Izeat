@@ -22,6 +22,7 @@
         android:layout_height="45dp"
         android:layout_below="@id/selected_image"
         android:layout_centerHorizontal="true"
+        android:background="@drawable/border_image"
         android:text="Classify!" />
 
     <Button
@@ -30,6 +31,7 @@
         android:layout_height="45dp"
         android:layout_below="@id/classify_image"
         android:layout_centerHorizontal="true"
+        android:background="@drawable/border_image"
         android:text="Back" />
 
     <LinearLayout

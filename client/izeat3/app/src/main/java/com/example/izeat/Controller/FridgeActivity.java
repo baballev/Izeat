@@ -11,6 +11,7 @@ import android.view.View;
 import android.widget.ImageView;
 
 import com.bumptech.glide.Glide;
+import com.example.izeat.ImageRecognitionActivity;
 import com.example.izeat.Model.Product;
 import com.example.izeat.R;
 import com.example.izeat.View.ProductsAdapter;
@@ -18,7 +19,7 @@ import com.google.android.material.floatingactionbutton.FloatingActionButton;
 
 import java.util.ArrayList;
 
-public class Frigo extends AppCompatActivity {
+public class FridgeActivity extends AppCompatActivity {
 
     //PRODUCTS RECOMMENDATIONS DATA
     private ArrayList<Product> productsInFridge;
@@ -97,6 +98,15 @@ public class Frigo extends AppCompatActivity {
         
         this.btnAdd=(FloatingActionButton) findViewById(R.id.btnadd);
         this.btnphoto=(FloatingActionButton)findViewById(R.id.btnphoto);
+        btnphoto.setOnClickListener(new View.OnClickListener() {
+
+            @Override
+            public void onClick(View v) {
+                Intent imageRecognitionIntent = new Intent(FridgeActivity.this, ImageRecognitionActivity.class);
+                startActivity(imageRecognitionIntent);
+            }
+        });
+
         this.btnsearch=(FloatingActionButton)findViewById(R.id.btnsearch);
         btnAdd.setOnClickListener(new View.OnClickListener() {
             @SuppressLint("RestrictedApi")

@@ -35,18 +35,10 @@ public class Login extends AppCompatActivity {
                 finish();
             }
         });
-/*
-        try {
-        String s = new ServerTools().execute("3017760589895").get();
-        System.out.println(s);
-        JSONObject jsonProduct;
-        jsonProduct = new JSONObject(s);
-        System.out.println(jsonProduct.getString("quantity"));
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
 
-*/
+        /*String s = Product.getProductQuery("3017760589895");
+        s.length();
+        JSONObject jsonProduct = null;*/
 
         inscription = findViewById(R.id.btninscription);
         inscription.setOnClickListener(new View.OnClickListener(){
