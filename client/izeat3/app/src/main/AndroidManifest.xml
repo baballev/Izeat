@@ -25,18 +25,18 @@
         android:theme="@style/AppTheme"
         android:usesCleartextTraffic="true"
         tools:ignore="GoogleAppIndexingWarning">
-        <activity android:name=".Utils.ExampleActivity">            <intent-filter>
-            <action android:name="android.intent.action.MAIN" />
-
-            <category android:name="android.intent.category.LAUNCHER" />
-        </intent-filter></activity>
+        <activity android:name=".Utils.ExampleActivity"></activity>
         <activity android:name=".Controller.Frigo" />
         <activity android:name=".Controller.add" />
         <activity android:name=".Controller.Profil" />
         <activity android:name=".Controller.ProductsRecomendationActivity" />
         <activity android:name=".Controller.RecipesListActivity" />
         <activity android:name=".Controller.Login">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
 
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
         </activity>
         <activity android:name="com.soundcloud.android.crop.CropImageActivity" />
         <activity android:name=".Classify" />

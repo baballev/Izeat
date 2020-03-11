@@ -126,17 +126,12 @@ public class ProductInfo {
 
 
     public static ArrayList<ProductInfo>  productsFromJSON(String s) throws JSONException {
-        JSONObject jsonObj = new JSONObject(s);
-        JSONArray jsonProducts = jsonObj.getJSONArray("products");
+        JSONArray jsonProducts = new JSONArray(s);
         ArrayList<ProductInfo> products = new ArrayList<ProductInfo>();
         int n = jsonProducts.length();
         for(int k = 0; k < n; k++){
             JSONObject prod = (JSONObject) jsonProducts.get(k);
-            if (!prod.isNull("completeness")){
-                if(prod.getDouble("completeness") > 0.4){ // Sort products with very few information TODO: modify the cap if needed.
-                    products.add(new ProductInfo(prod.toString()));
-                }
-            }
+            products.add(new ProductInfo(prod));
         }
         return products;
     }
