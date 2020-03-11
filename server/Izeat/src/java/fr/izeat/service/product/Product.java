@@ -58,16 +58,16 @@ public class Product {
                 novaScore = novaInteger.intValue();
             }
         } else novaScore = 0;
-        if (!jsonInfo.isNull("nutritiopn_grades")) nutriScore = jsonInfo.getString("nutrition_grades").charAt(0);
+        if (!jsonInfo.isNull("nutrition_grades")) nutriScore = jsonInfo.getString("nutrition_grades").charAt(0);
         else nutriScore = 'n'; // Default value when nutriscore not found.
         categories = jsonInfo.getString("categories").split(", ");
         
-        // Constraints constraints = new Constraints();
+        Constraints constraints = new Constraints();
         if (!jsonInfo.isNull("ingredients_analysis_tags")){
             JSONArray analysis = jsonInfo.getJSONArray("ingredients_analysis_tags");
             
             boolean palmOil = (analysis.getString(0) == "en:palm-oil"); // TODO add not sure management
-            /*
+            
             if(palmOil) {
             	constraints.addConstraint("palmOil");
             }
@@ -82,9 +82,9 @@ public class Product {
             if(vegetarian) {
             	constraints.addConstraint("vegetarian");
             }
-*/
+
         } 
-        // nutritionValues.setConstraints(constraints);
+        nutritionValues.setConstraints(constraints);
         
         
         JSONObject jNutriments = jsonInfo.getJSONObject("nutriments");
