@@ -109,7 +109,7 @@
             android:layout_width="24dp"
             android:layout_height="match_parent"
             android:layout_weight="1"
-            app:srcCompat="@drawable/ic_shopping_cart_black_24dp"
+            app:srcCompat="@drawable/ic_add_shopping_cart_black_24dp"
             tools:ignore="VectorDrawableCompat" />
 
         <ImageView
@@ -118,7 +118,9 @@
 
             android:layout_height="match_parent"
             android:layout_weight="1"
-            app:srcCompat="@drawable/ic_kitchen_black_24dp"
+            android:paddingTop="5dp"
+            android:paddingBottom="5dp"
+            app:srcCompat="@drawable/ic_fridge_black"
             tools:ignore="VectorDrawableCompat" />
 
         <ImageView

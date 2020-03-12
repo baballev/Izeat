@@ -112,7 +112,9 @@
             android:layout_width="13dp"
             android:layout_height="match_parent"
             android:layout_weight="1"
-            app:srcCompat="@drawable/ic_restaurant_menu_black_24dp"
+            android:paddingTop="5dp"
+            android:paddingBottom="5dp"
+            app:srcCompat="@drawable/ic_gloves"
             tools:ignore="VectorDrawableCompat" />
 
         <ImageView
@@ -120,7 +122,9 @@
             android:layout_width="24dp"
             android:layout_height="match_parent"
             android:layout_weight="1"
-            app:srcCompat="@drawable/ic_shopping_cart_black_24dp"
+            android:paddingTop="5dp"
+            android:paddingBottom="5dp"
+            app:srcCompat="@drawable/ic_buy_cart"
             tools:ignore="VectorDrawableCompat" />
 
         <ImageView
@@ -129,7 +133,9 @@
 
             android:layout_height="match_parent"
             android:layout_weight="1"
-            app:srcCompat="@drawable/ic_kitchen_clicked_24dp"
+            android:paddingTop="5dp"
+            android:paddingBottom="5dp"
+            app:srcCompat="@drawable/ic_fridge_clicked"
             tools:ignore="VectorDrawableCompat" />
 
         <ImageView
