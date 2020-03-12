@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <color name="colorPrimaryDark">#BAA17C</color>
-    <color name="colorPrimaryLight">#ffffdd</color>
+    <color name="colorPrimaryLight">#B3F3DAB5</color>
 
     <!-- palette associated with the primaryColor : from the lighter to the darker-->
 
@@ -15,6 +15,7 @@
     <color name="darker_6">#C45600</color>
     <color name="darker_7">#bd4600</color>
     <color name="darker_8">#B42900</color>
+    <color name="grey">#DA9C9385</color>
 
 
     <color name="colorAccent">#D81B60</color>
