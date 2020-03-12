@@ -53,6 +53,8 @@ needTrain = (input("Train NN ? (y/n, default=n for tests only): ") == "y") # Mak
 s = input("Root directory (default : " + root_path + "): ")
 if s != "": root_path = s
 os.chdir(root_path)
+s = input("Training images folder (default : " + image_folder + "): ")
+if s != "": image_folder = s
 if loadNN:
     s = input("Weights file location to load (.h5)(default: " + weights_file + "): ")
     if s != "": weights_file = y
