@@ -9,6 +9,7 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
 import fr.izeat.service.nutritionEngine.Recipe;
+import java.util.ArrayList;
 
 
 
@@ -93,5 +94,23 @@ public class ConnexionBD {
         } 
         
     }
+    public static ArrayList<Recipe> readRecipe_calories(int cal){
+        try{
+            Connection connection=connecterDB();
+            Statement st=connection.createStatement();
+            ResultSet rst=st.executeQuery("SELECT mealID FROM recipes WHERE calories_Kcal= " +Integer.toString(cal));
+            ArrayList<Recipe> recipes=new ArrayList<Recipe>();
+            while(rst.next()){
+                recipes.add(readRecipe(rst.getInt("mealID")));// c'est une liste de recette
+            }
+            connection.close();
+            return recipes;
+            
+        }catch(SQLException e){
+            System.out.println(e.getMessage());
+            return null;
+        } 
+    }
+     
 }
 
