@@ -94,6 +94,7 @@ public class ConnexionBD {
         } 
         
     }
+     // une méthode qui retourne une liste de recette avec la valeur calorique fournie
     public static ArrayList<Recipe> readRecipe_calories(int cal){
         try{
             Connection connection=connecterDB();
@@ -110,6 +111,22 @@ public class ConnexionBD {
             System.out.println(e.getMessage());
             return null;
         } 
+    }
+    // une méthode pour ajouter une consommation d'un utilisateur à une date donnée
+    public static void addConsumtion(int id,int cal,int mag,int calc,int sod,int lip,int pro){
+        try{
+            Connection connection=connecterDB();
+            Statement st=connection.createStatement();
+            st.executeUpdate("INSERT INTO consumption(date,proteins,lipids,sodium,calcium,magnesium,calories,userID) "
+                    + "VALUES (now(),"+Integer.toString(pro)+Integer.toString(lip)+Integer.toString(sod)+Integer.toString(calc)
+                    +Integer.toString(mag)+Integer.toString(cal)+Integer.toString(id)+")");
+            connection.close();
+        
+        }catch(SQLException e){
+            System.out.println(e.getMessage());
+            
+        } 
+        
     }
      
 }
