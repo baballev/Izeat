@@ -139,6 +139,17 @@ public class ConnexionBD {
             System.out.println(e.getMessage());
         }
     }
-     
+    
+    public static void fridgeUpdate(int userID, int itemID){
+         try{
+            String query="DELETE FROM fridge WHERE userID="+Integer.toString(userID)+" AND itemID="+Integer.toString(itemID);
+            Connection connection=connecterDB();
+            Statement st=connection.createStatement();
+            st.executeUpdate(query);
+            connection.close();
+        }catch(SQLException e){
+            System.out.println(e.getMessage());
+        }
+    }
 }
 
