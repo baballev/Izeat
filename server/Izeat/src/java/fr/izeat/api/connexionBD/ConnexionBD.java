@@ -151,5 +151,21 @@ public class ConnexionBD {
             System.out.println(e.getMessage());
         }
     }
+    public static void consume(int userID, int itemID,int qty){
+         try{
+            String query="UPDATE fridge "
+                    + "SET qtyPercent=  "+Integer.toString(qty)+"WHERE itemID="+Integer.toString(itemID)
+                    +" AND userID="+Integer.toString(userID);
+            Connection connection=connecterDB();
+            Statement st=connection.createStatement();
+            st.executeUpdate(query);
+            connection.close();
+        }catch(SQLException e){
+            System.out.println(e.getMessage());
+        }
+        
+    }
+    
+    
 }
 
