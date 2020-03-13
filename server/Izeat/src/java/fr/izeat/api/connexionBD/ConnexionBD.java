@@ -8,6 +8,7 @@ import java.sql.DriverManager;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
+import fr.izeat.service.nutritionEngine.Recipe;
 
 
 
@@ -74,6 +75,18 @@ public class ConnexionBD {
             System.out.println(e.getMessage());
             return null;
         } 
+        
     }
+    /* public static Recipe readRecipe(int id){
+        // le parametre id  peut etre modifier par un autre selon les besoins de recommandations
+        try{
+            Connection connection=connecterDB();
+            Statement st = connection.createStatement();
+            ResultSet rst = st.executeQuery("SELECT * FROM recipes WHERE mealID="+Integer.toString(id));
+            
+            
+        }
+        
+    }*/
 }
 
