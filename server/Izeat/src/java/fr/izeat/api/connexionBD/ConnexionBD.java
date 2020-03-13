@@ -118,7 +118,7 @@ public class ConnexionBD {
             Connection connection=connecterDB();
             Statement st=connection.createStatement();
             st.executeUpdate("INSERT INTO consumption(date,proteins,lipids,sodium,calcium,magnesium,calories,userID) "
-                    + "VALUES (now(),"+Integer.toString(pro)+Integer.toString(lip)+Integer.toString(sod)+Integer.toString(calc)
+                    + "VALUES (NOW(),"+Integer.toString(pro)+Integer.toString(lip)+Integer.toString(sod)+Integer.toString(calc)
                     +Integer.toString(mag)+Integer.toString(cal)+Integer.toString(id)+")");
             connection.close();
         
@@ -127,6 +127,17 @@ public class ConnexionBD {
             
         } 
         
+    }
+    public static void addToFridge(int userID ,int itemID ,int qty){
+        try{
+            Connection connection=connecterDB();
+            Statement st=connection.createStatement();
+            st.executeUpdate("INSERT INTO fridge(date,itemID,qtyPercent,userID) VALUES (NOW(),"
+                    +Integer.toString(itemID)+Integer.toString(qty)+Integer.toString(userID)+")");
+            connection.close();
+        }catch(SQLException e){
+            System.out.println(e.getMessage());
+        }
     }
      
 }
