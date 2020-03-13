@@ -3,8 +3,9 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:orientation="vertical"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    android:background="@color/lighter"
+    android:orientation="vertical">
 
 
     <ImageView
@@ -25,6 +26,12 @@
         android:textSize="24sp"
         android:textStyle="bold" />
 
+    <View
+        android:id="@+id/divider3"
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:background="@color/colorPrimaryDark" />
+
     <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -34,12 +41,12 @@
         <androidx.recyclerview.widget.RecyclerView
             android:id="@+id/products_recycler_view"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content" />
+            android:layout_height="match_parent" />
 
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_alignBottom="@id/products_recycler_view"
+            android:layout_alignParentBottom="true"
             android:gravity="end"
             android:orientation="horizontal">
 
@@ -86,12 +93,18 @@
 
     </RelativeLayout>
 
+    <View
+        android:id="@+id/divider4"
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:background="@color/grey" />
+
     <LinearLayout
         android:id="@+id/linearLayout"
         android:layout_width="match_parent"
         android:layout_height="73dp"
         android:layout_gravity="center"
-        android:background="#F0CDB3"
+        android:background="@color/colorPrimary"
         android:orientation="horizontal">
 
         <ImageView
@@ -99,7 +112,9 @@
             android:layout_width="13dp"
             android:layout_height="match_parent"
             android:layout_weight="1"
-            app:srcCompat="@drawable/ic_restaurant_black_24dp"
+            android:paddingTop="5dp"
+            android:paddingBottom="5dp"
+            app:srcCompat="@drawable/ic_gloves"
             tools:ignore="VectorDrawableCompat" />
 
         <ImageView
@@ -107,7 +122,9 @@
             android:layout_width="24dp"
             android:layout_height="match_parent"
             android:layout_weight="1"
-            app:srcCompat="@drawable/ic_shopping_cart_black_24dp"
+            android:paddingTop="5dp"
+            android:paddingBottom="5dp"
+            app:srcCompat="@drawable/ic_buy_cart"
             tools:ignore="VectorDrawableCompat" />
 
         <ImageView
@@ -116,7 +133,9 @@
 
             android:layout_height="match_parent"
             android:layout_weight="1"
-            app:srcCompat="@drawable/ic_kitchen_black_24dp"
+            android:paddingTop="5dp"
+            android:paddingBottom="5dp"
+            app:srcCompat="@drawable/ic_fridge_clicked"
             tools:ignore="VectorDrawableCompat" />
 
         <ImageView

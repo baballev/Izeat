@@ -39,13 +39,13 @@ public class FridgeActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_frigo);
+        setContentView(R.layout.activity_fridge);
 
         //-------------------------------------------------------------------------------------
         //SETS THE RECYCLER VIEW
 
         productsInFridge = new ArrayList<Product>(0);
-        for (int i = 0 ; i < 50 ; i++)
+        for (int i = 0 ; i < 5 ; i++)
             productsInFridge.add(i,new Product("Product #" + i, ""));
 
         productsInFridgeRecyclerView = (RecyclerView) findViewById(R.id.products_recycler_view);

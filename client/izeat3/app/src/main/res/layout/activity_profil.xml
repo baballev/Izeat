@@ -3,8 +3,9 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:orientation="vertical"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    android:background="@color/lighter"
+    android:orientation="vertical">
 
 
     <ImageView
@@ -15,6 +16,12 @@
         android:layout_margin="10dp"
 
         app:srcCompat="@drawable/logo_petit" />
+
+    <View
+        android:id="@+id/divider5"
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:background="#FFFFFF" />
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -27,7 +34,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="Regarde de plus près ton suivi nutritif "
-            android:textColor="#AE8964"
+            android:textColor="@color/colorPrimaryDark"
             android:textSize="24sp"
             android:textStyle="bold" />
 
@@ -75,12 +82,18 @@
             app:backgroundTint="#B36700" />
     </LinearLayout>
 
+    <View
+        android:id="@+id/divider6"
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:background="#FFFFFF" />
+
     <LinearLayout
         android:id="@+id/linearLayout"
         android:layout_width="match_parent"
         android:layout_height="73dp"
         android:layout_gravity="center"
-        android:background="#F0CDB3"
+        android:background="@color/colorPrimary"
         android:orientation="horizontal">
 
         <ImageView
@@ -88,7 +101,7 @@
             android:layout_width="13dp"
             android:layout_height="match_parent"
             android:layout_weight="1"
-            app:srcCompat="@drawable/ic_restaurant_black_24dp"
+            app:srcCompat="@drawable/ic_restaurant_menu_black_24dp"
             tools:ignore="VectorDrawableCompat" />
 
         <ImageView
@@ -96,7 +109,7 @@
             android:layout_width="24dp"
             android:layout_height="match_parent"
             android:layout_weight="1"
-            app:srcCompat="@drawable/ic_shopping_cart_black_24dp"
+            app:srcCompat="@drawable/ic_add_shopping_cart_black_24dp"
             tools:ignore="VectorDrawableCompat" />
 
         <ImageView
@@ -105,7 +118,9 @@
 
             android:layout_height="match_parent"
             android:layout_weight="1"
-            app:srcCompat="@drawable/ic_kitchen_black_24dp"
+            android:paddingTop="5dp"
+            android:paddingBottom="5dp"
+            app:srcCompat="@drawable/ic_fridge_black"
             tools:ignore="VectorDrawableCompat" />
 
         <ImageView
@@ -113,7 +128,7 @@
             android:layout_width="14dp"
             android:layout_height="match_parent"
             android:layout_weight="1"
-            app:srcCompat="@drawable/ic_person_black_24dp"
+            app:srcCompat="@drawable/ic_person_clicked_24dp"
             tools:ignore="VectorDrawableCompat" />
 
     </LinearLayout>

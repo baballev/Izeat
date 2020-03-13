@@ -28,11 +28,21 @@
         <activity android:name=".Controller.ProductDetailActivity"></activity>
         <activity android:name=".Controller.RecipeDetailActivity" />
         <activity android:name=".Controller.FridgeActivity" />
-        <activity android:name=".Utils.ExampleActivity"></activity>
+        <activity android:name=".Utils.ExampleActivity">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
         <activity android:name=".Controller.add" />
         <activity android:name=".Controller.Profil" />
         <activity android:name=".Controller.ProductsRecomendationActivity" />
-        <activity android:name=".Controller.RecipesListActivity" />
+        <activity android:name=".Controller.RecipesListActivity">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
         <activity android:name=".Controller.Login">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
