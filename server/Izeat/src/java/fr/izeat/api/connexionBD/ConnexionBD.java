@@ -77,16 +77,21 @@ public class ConnexionBD {
         } 
         
     }
-    /* public static Recipe readRecipe(int id){
+     public static Recipe readRecipe(int id){
         // le parametre id  peut etre modifier par un autre selon les besoins de recommandations
         try{
             Connection connection=connecterDB();
             Statement st = connection.createStatement();
             ResultSet rst = st.executeQuery("SELECT * FROM recipes WHERE mealID="+Integer.toString(id));
+            Recipe recipe=new Recipe(rst);
+            connection.close();
+            return(recipe);
             
-            
-        }
+        }catch(SQLException e){
+            System.out.println(e.getMessage());
+            return null;
+        } 
         
-    }*/
+    }
 }
 
