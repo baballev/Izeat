@@ -66,6 +66,7 @@ public class ConnexionBD {
             Connection connection = connecterDB();
             Statement st = connection.createStatement();
             ResultSet rst = st.executeQuery("SELECT * FROM appUser WHERE id =" + Integer.toString(id));
+            //System.out.println(rst.getString("firstName"));
             User user = new User(rst);
             connection.close();
             return user;

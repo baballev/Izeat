@@ -38,6 +38,7 @@ public class User {
 	}
 
 	public User(ResultSet rst) throws SQLException{
+        rst.absolute(1);
         this.firstname = rst.getString("firstName");
         this.lastname = rst.getString("lastName");
         this.age=rst.getInt("age");
@@ -63,7 +64,7 @@ public class User {
 		 * TODO : initialized userInfo from dataBase 
 		 */
 	}
-	
+            
 	public void saveUserInfo() {
 		/* TODO : implement method that saves the changes made to
 		 *  it's profile in the dataBase.
