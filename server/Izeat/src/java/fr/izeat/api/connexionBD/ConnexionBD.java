@@ -35,7 +35,7 @@ public class ConnexionBD {
         try{
             Class.forName("com.mysql.jdbc.Driver");
             System.out.println("Driver ok");
-            String url="jdbc:mysql://127.0.0.1:3306/izeat?autoReconnect=true&useSSL=false";
+            String url="jdbc:mysql://127.0.0.1/izeat?autoReconnect=true&useSSL=false";
             String userName="vince";
             String password="tretre3.14";
                 System.out.println("In process");
