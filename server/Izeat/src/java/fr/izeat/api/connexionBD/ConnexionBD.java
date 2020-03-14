@@ -165,6 +165,24 @@ public class ConnexionBD {
         }
         
     }
+    // une première version pour se connecter (à améliorer)
+    public static boolean connect(String firstname,String password){
+        try{
+            Connection connection=connecterDB();
+            Statement st=connection.createStatement();
+            ResultSet rst=st.executeQuery("SELECT id FROM appUser WHERE firstname="+firstname+" AND password="+password);
+            if (rst ==null){
+                System.out.println("Check firstname or password");
+                return false;
+            }
+            connection.close();
+            return true;
+        }catch(SQLException e){
+            System.out.println(e.getMessage());
+            return false;
+        }
+    }
+    
     
     
 }
