@@ -24,17 +24,17 @@ public class User {
 	private NutritionStatusInterface status;
 	
         
-	public User(String firstname,String lastname,int age,String gender,int height,int weight,String preferences,String allergies ) {
+	public User(String firstname,String lastname,int age,String gender,int height,int weight,boolean vegan,boolean vegetarian,boolean palmoil,String password ) {
             this.firstname = firstname;
             this.lastname = lastname;
             this.age=age;
             this.gender=gender;
             this.height=height;
             this.weight=weight;
-            this.vegan=false; // TODO CTHAT LINE
-            this.vegetarian=false; // TODO CHAT LINE
-            this.palmoil = false; // TODO CHAT LINE
-            this.password = "azert"; // TODO CHANGE THAT LINE
+            this.vegan=vegan; // TODO CTHAT LINE
+            this.vegetarian=vegetarian; // TODO CHAT LINE
+            this.palmoil = palmoil; // TODO CHAT LINE
+            this.password = password; // TODO CHANGE THAT LINE
 	}
 
 	public User(ResultSet rst) throws SQLException{
@@ -50,6 +50,10 @@ public class User {
         this.palmoil = rst.getBoolean("palmoil");
         this.password = rst.getString("password");
 
+    }
+
+    public String getPassword() {
+        return password;
     }
 	
 	

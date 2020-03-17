@@ -15,8 +15,8 @@ import java.util.ArrayList;
 
 
 public class ConnexionBD {
-  /*  public static void main(String args[]){
-        User usr = new User("Ala","gabsi",21,"h",16,75,"no","no");
+    public static void main(String args[]){
+        User usr = new User("Ala","gabsi",21,"h",16,75,false,false,false,"sfax");
         addUser(usr);
         try{
             Connection connection= connecterDB();
@@ -32,7 +32,7 @@ public class ConnexionBD {
         }catch(Exception e){
             e.printStackTrace();
         }
-    }*/
+    }
     public static Connection connecterDB(){
         try{
             Class.forName("com.mysql.jdbc.Driver");
@@ -53,7 +53,9 @@ public class ConnexionBD {
     }
     public static void addUser(User user){
         try{
-            String query="INSERT INTO appUser(firstname,lastname,age,gender,height,weight,preferences,allergies) VALUES ('"+user.getFirstName()+"','"+user.getLastName()+"',"+user.getAge()+",'"+user.getGender()+"',"+user.getHeight()+","+user.getWeight()+",'"+user.getVegan()+"','"+user.getVegetarian()+"')";
+            String query="INSERT INTO appUser(firstName,lastName,age,gender,height_cm,weight_g,vegan,vegetarian,palmoil,password) VALUES"
+                    + " ('"+user.getFirstName()+"','"+user.getLastName()+"',"+user.getAge()+",'"+user.getGender()+"',"+user.getHeight()+","
+                    + ""+user.getWeight()+",'"+user.getVegan()+"','"+user.getVegetarian()+"','"+user.getPassword()+"')";
             Connection connection = connecterDB();
             Statement state=connection.createStatement();
             state.executeUpdate(query);
@@ -182,6 +184,7 @@ public class ConnexionBD {
             return false;
         }
     }
+    
     
     
     
