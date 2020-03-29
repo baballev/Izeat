@@ -3,6 +3,7 @@ package fr.izeat.api.connexionBD;
 
 import static fr.izeat.api.connexionBD.ConnexionBD.*;
 import fr.izeat.service.user.User;
+        
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.ResultSet;
@@ -10,12 +11,22 @@ import java.sql.SQLException;
 import java.sql.Statement;
 import fr.izeat.service.nutritionEngine.Recipe;
 import java.util.ArrayList;
+import java.math.BigInteger;
+import java.security.MessageDigest;
+import java.security.NoSuchAlgorithmException;
 
 
 
 
 public class ConnexionBD {
+    private static String code;
+    
     public static void main(String args[]){
+       String Pw="ma phrase caché en MD5";
+       Hash(Pw);
+       System.out.println(code);
+    }
+   /* public static void main(String args[]){
         User usr = new User("Ala","gabsi",21,"h",16,75,false,false,false,"sfax");
         addUser(usr);
         try{
@@ -32,7 +43,7 @@ public class ConnexionBD {
         }catch(Exception e){
             e.printStackTrace();
         }
-    }
+    }*/
     public static Connection connecterDB(){
         try{
             Class.forName("com.mysql.jdbc.Driver");
@@ -184,9 +195,24 @@ public class ConnexionBD {
             return false;
         }
     }
-    
-    
-    
+     
+    public static  void Hash(String pass){
+        byte[] passBytes = pass.getBytes();
+        try {
+            MessageDigest algorithm = MessageDigest.getInstance("MD5");
+            algorithm.reset();
+            algorithm.update(passBytes);
+            MessageDigest md = MessageDigest.getInstance("MD5");
+            byte[] messageDigest = md.digest(passBytes);
+            BigInteger number = new BigInteger(1, messageDigest);
+            code= number.toString(16);
+            } catch (NoSuchAlgorithmException e) {
+                throw new Error("invalid JRE: have not 'MD5' impl.", e);
+        }
+    }
+    public static String getCode(){
+        return code;
+    }
     
 }
 
