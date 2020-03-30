@@ -36,25 +36,26 @@ public class User {
             this.gender=gender;
             this.height=height;
             this.weight=weight;
-            this.vegan=vegan; // TODO CTHAT LINE
-            this.vegetarian=vegetarian; // TODO CHAT LINE
-            this.palmoil = palmoil; // TODO CHAT LINE
-            this.password = password; // TODO CHANGE THAT LINE  
+            this.vegan=vegan; 
+            this.vegetarian=vegetarian;
+            this.palmoil = palmoil; 
+            this.password = password;   
             
             
 	}
 
 	public User(ResultSet rst) throws SQLException{
-            rst.absolute(1);
+            System.out.println("ICI ICI ICI ICI CICICICICI ICICICICICI");
+            rst.absolute(1); 
             this.firstname = rst.getString("firstName");
             this.lastname = rst.getString("lastName");
             this.age=rst.getInt("age");
             this.gender=rst.getString("gender");
             this.height=rst.getInt("height_cm");
             this.weight=rst.getInt("weight_g");
-            this.vegan=rst.getBoolean("vegan");
-            this.vegetarian=rst.getBoolean("vegetarian");
-            this.palmoil = rst.getBoolean("palmoil");
+            this.vegan=rst.getInt("vegan") == 1; // MIAM
+            this.vegetarian=rst.getInt("vegetarian") == 1; // MIAM
+            this.palmoil = rst.getInt("palmoil") == 1; // MIAM
             this.password = rst.getString("password");
             
 

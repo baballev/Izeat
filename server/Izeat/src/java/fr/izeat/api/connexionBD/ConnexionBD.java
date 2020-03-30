@@ -95,7 +95,7 @@ public class ConnexionBD {
             connection.close();
             return user;
         }catch(SQLException e){
-            System.out.println(e.getMessage());
+            System.err.println(e.getMessage());
             return null;
         } 
         
