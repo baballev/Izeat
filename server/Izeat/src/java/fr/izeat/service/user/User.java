@@ -4,7 +4,10 @@ import java.sql.ResultSet;
 import java.util.ArrayList;
 
 import fr.izeat.service.nutritionEngine.Recipe;
+import java.security.NoSuchAlgorithmException;
 import java.sql.SQLException;
+import javax.crypto.KeyGenerator;
+import javax.crypto.SecretKey;
 
 
 	
@@ -22,9 +25,11 @@ public class User {
         private final String password;
         private UserInfo userInfo;
 	private NutritionStatusInterface status;
+       
+        
 	
         
-	public User(String firstname,String lastname,int age,String gender,int height,int weight,boolean vegan,boolean vegetarian,boolean palmoil,String password ) {
+	public User(String firstname,String lastname,int age,String gender,int height,int weight,boolean vegan,boolean vegetarian,boolean palmoil,String password )   {
             this.firstname = firstname;
             this.lastname = lastname;
             this.age=age;
@@ -34,27 +39,32 @@ public class User {
             this.vegan=vegan; // TODO CTHAT LINE
             this.vegetarian=vegetarian; // TODO CHAT LINE
             this.palmoil = palmoil; // TODO CHAT LINE
-            this.password = password; // TODO CHANGE THAT LINE
+            this.password = password; // TODO CHANGE THAT LINE  
+            
+            
 	}
 
 	public User(ResultSet rst) throws SQLException{
-        rst.absolute(1);
-        this.firstname = rst.getString("firstName");
-        this.lastname = rst.getString("lastName");
-        this.age=rst.getInt("age");
-        this.gender=rst.getString("gender");
-        this.height=rst.getInt("height_cm");
-        this.weight=rst.getInt("weight_g");
-        this.vegan=rst.getBoolean("vegan");
-        this.vegetarian=rst.getBoolean("vegetarian");
-        this.palmoil = rst.getBoolean("palmoil");
-        this.password = rst.getString("password");
+            rst.absolute(1);
+            this.firstname = rst.getString("firstName");
+            this.lastname = rst.getString("lastName");
+            this.age=rst.getInt("age");
+            this.gender=rst.getString("gender");
+            this.height=rst.getInt("height_cm");
+            this.weight=rst.getInt("weight_g");
+            this.vegan=rst.getBoolean("vegan");
+            this.vegetarian=rst.getBoolean("vegetarian");
+            this.palmoil = rst.getBoolean("palmoil");
+            this.password = rst.getString("password");
+            
 
-    }
+        }
 
-    public String getPassword() {
-        return password;
-    }
+        
+
+        public String getPassword() {
+            return password;
+        }
 	
 	
 	//public User(String passWord, String name) {
@@ -104,6 +114,7 @@ public class User {
         public int getWeight(){
             return this.weight;
         }
+        
         
         
 }

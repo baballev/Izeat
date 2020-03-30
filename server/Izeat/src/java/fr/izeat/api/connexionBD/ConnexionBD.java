@@ -12,8 +12,15 @@ import java.sql.Statement;
 import fr.izeat.service.nutritionEngine.Recipe;
 import java.util.ArrayList;
 import java.math.BigInteger;
+import java.security.InvalidKeyException;
+
 import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
+import javax.crypto.BadPaddingException;
+
+import javax.crypto.IllegalBlockSizeException;
+
+import javax.crypto.NoSuchPaddingException;
 
 
 
@@ -21,11 +28,13 @@ import java.security.NoSuchAlgorithmException;
 public class ConnexionBD {
     private static String code;
     
-    public static void main(String args[]){
+    // test de hashage en MD5
+    public static void main(String args[]) throws NoSuchAlgorithmException, NoSuchPaddingException, InvalidKeyException, IllegalBlockSizeException, BadPaddingException{
        String Pw="ma phrase caché en MD5";
-       Hash(Pw);
-       System.out.println(code);
+       
+       System.out.println(Hash_MD5(Pw));
     }
+    //test de connection à la base de donnée
    /* public static void main(String args[]){
         User usr = new User("Ala","gabsi",21,"h",16,75,false,false,false,"sfax");
         addUser(usr);
@@ -66,7 +75,7 @@ public class ConnexionBD {
         try{
             String query="INSERT INTO appUser(firstName,lastName,age,gender,height_cm,weight_g,vegan,vegetarian,palmoil,password) VALUES"
                     + " ('"+user.getFirstName()+"','"+user.getLastName()+"',"+user.getAge()+",'"+user.getGender()+"',"+user.getHeight()+","
-                    + ""+user.getWeight()+",'"+user.getVegan()+"','"+user.getVegetarian()+"','"+user.getPassword()+"')";
+                    + ""+user.getWeight()+",'"+user.getVegan()+"','"+user.getVegetarian()+"','"+Hash_MD5(user.getPassword())+"')";
             Connection connection = connecterDB();
             Statement state=connection.createStatement();
             state.executeUpdate(query);
@@ -76,7 +85,7 @@ public class ConnexionBD {
           System.out.println(e.getMessage());  
         }
     }
-    public static User readUser(int id){
+    public static User readUser(int id) {
         try{
             Connection connection = connecterDB();
             Statement st = connection.createStatement();
@@ -183,7 +192,7 @@ public class ConnexionBD {
         try{
             Connection connection=connecterDB();
             Statement st=connection.createStatement();
-            ResultSet rst=st.executeQuery("SELECT id FROM appUser WHERE firstname="+firstname+" AND password="+password);
+            ResultSet rst=st.executeQuery("SELECT id FROM appUser WHERE firstname="+firstname+" AND password="+Hash_MD5(password));
             if (rst ==null){
                 System.out.println("Check firstname or password");
                 return false;
@@ -195,8 +204,8 @@ public class ConnexionBD {
             return false;
         }
     }
-     
-    public static  void Hash(String pass){
+    //MD5 algorithm is irreversible so we have to compare hashed passwords
+    public static  String Hash_MD5(String pass){
         byte[] passBytes = pass.getBytes();
         try {
             MessageDigest algorithm = MessageDigest.getInstance("MD5");
@@ -206,13 +215,14 @@ public class ConnexionBD {
             byte[] messageDigest = md.digest(passBytes);
             BigInteger number = new BigInteger(1, messageDigest);
             code= number.toString(16);
+            return code;
             } catch (NoSuchAlgorithmException e) {
                 throw new Error("invalid JRE: have not 'MD5' impl.", e);
         }
     }
-    public static String getCode(){
-        return code;
-    }
     
-}
+  
+  }
+    
+
 
