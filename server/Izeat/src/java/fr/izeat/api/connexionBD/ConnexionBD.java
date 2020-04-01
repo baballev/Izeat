@@ -12,8 +12,6 @@ import java.sql.Statement;
 import fr.izeat.service.nutritionEngine.Recipe;
 import java.util.ArrayList;
 import java.math.BigInteger;
-
-
 import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
 
@@ -25,14 +23,17 @@ import java.security.NoSuchAlgorithmException;
 
 public class ConnexionBD {
     private static String code;
-    
+    /******************************************TEST******************************/
     // test de hashage en MD5
+    
     /*public static void main(String args[]) throws NoSuchAlgorithmException, NoSuchPaddingException, InvalidKeyException, IllegalBlockSizeException, BadPaddingException{
        String Pw="ma phrase caché en MD5";
        
        System.out.println(Hash_MD5(Pw));
     }*/
+    
     //test de connection à la base de donnée
+    
     public static void main(String args[]){
         User usr = new User("Ala","gabsi",21,"h",16,75,false,false,false,"sfax");
         //addUser(usr);
@@ -51,6 +52,7 @@ public class ConnexionBD {
             e.printStackTrace();
         }
     }
+    /*******************Connection to DB***************************/
     public static Connection connecterDB(){
         try{
             Class.forName("com.mysql.jdbc.Driver");
@@ -69,6 +71,8 @@ public class ConnexionBD {
             return null;
         }
     }
+    
+    /********************Interroger la table appUser*********************/
     public static void addUser(User user){
         try{
             String query="INSERT INTO appUser(firstName,lastName,age,gender,height_cm,weight_g,vegan,vegetarian,palmoil,password) VALUES"
@@ -98,6 +102,108 @@ public class ConnexionBD {
         } 
         
     }
+    public static void infoUpdate_firstname(int id,String firstname){
+        try{
+            String query="UPDATE appUser "
+                    + "SET firstName=  "+firstname+"WHERE id="+Integer.toString(id);
+            Connection connection=connecterDB();
+            Statement st=connection.createStatement();
+            st.executeUpdate(query);
+            connection.close();
+        }catch(SQLException e){
+            System.out.println(e.getMessage());
+        }    
+    }
+    public static void infoUpdate_lastname(int id,String lastname){
+        try{
+            String query="UPDATE appUser "
+                    + "SET firstName=  "+lastname+"WHERE id="+Integer.toString(id);
+            Connection connection=connecterDB();
+            Statement st=connection.createStatement();
+            st.executeUpdate(query);
+            connection.close();
+        }catch(SQLException e){
+            System.out.println(e.getMessage());
+        }    
+    }
+    public static void infoUpdate_age(int id,int age){
+        try{
+            String query="UPDATE appUser "
+                    + "SET age=  "+Integer.toString(age)+"WHERE id="+Integer.toString(id);
+            Connection connection=connecterDB();
+            Statement st=connection.createStatement();
+            st.executeUpdate(query);
+            connection.close();
+        }catch(SQLException e){
+            System.out.println(e.getMessage());
+        }    
+    }
+    public static void infoUpdate_height(int id,int height){
+        try{
+            String query="UPDATE appUser "
+                    + "SET height_cm=  "+Integer.toString(height)+"WHERE id="+Integer.toString(id);
+            Connection connection=connecterDB();
+            Statement st=connection.createStatement();
+            st.executeUpdate(query);
+            connection.close();
+        }catch(SQLException e){
+            System.out.println(e.getMessage());
+        }    
+    }
+    public static void infoUpdate_weight(int id,int weight){
+        try{
+            String query="UPDATE appUser "
+                    + "SET weight_g=  "+Integer.toString(weight)+"WHERE id="+Integer.toString(id);
+            Connection connection=connecterDB();
+            Statement st=connection.createStatement();
+            st.executeUpdate(query);
+            connection.close();
+        }catch(SQLException e){
+            System.out.println(e.getMessage());
+        }    
+    }
+    
+    // une première version pour se connecter (à améliorer)
+    public static boolean connect(String firstname,String password){
+        try{
+            Connection connection=connecterDB();
+            Statement st=connection.createStatement();
+            ResultSet rst=st.executeQuery("SELECT id FROM appUser WHERE firstname="+firstname+" AND password="+Hash_MD5(password));
+            if (rst ==null){
+                System.out.println("Check firstname or password");
+                return false;
+            }
+            connection.close();
+            return true;
+        }catch(SQLException e){
+            System.out.println(e.getMessage());
+            return false;
+        }
+    }
+    
+    
+    
+    
+    
+    //MD5 algorithm is irreversible so we have to compare hashed passwords
+    public static  String Hash_MD5(String pass){
+        byte[] passBytes = pass.getBytes();
+        try {
+            MessageDigest algorithm = MessageDigest.getInstance("MD5");
+            algorithm.reset();
+            algorithm.update(passBytes);
+            MessageDigest md = MessageDigest.getInstance("MD5");
+            byte[] messageDigest = md.digest(passBytes);
+            BigInteger number = new BigInteger(1, messageDigest);
+            code= number.toString(16);
+            return code;
+            } catch (NoSuchAlgorithmException e) {
+                throw new Error("invalid JRE: have not 'MD5' impl.", e);
+        }
+    }
+    
+    /******************Interroger la table recipes*************************/
+    
      public static Recipe readRecipe(int id){
         // le parametre id  peut etre modifier par un autre selon les besoins de recommandations
         try{
@@ -132,6 +238,7 @@ public class ConnexionBD {
             return null;
         } 
     }
+    /*************************Interroger la table consumption*************************/
     // une méthode pour ajouter une consommation d'un utilisateur à une date donnée
     public static void addConsumtion(int id,int cal,int mag,int calc,int sod,int lip,int pro){
         try{
@@ -148,6 +255,8 @@ public class ConnexionBD {
         } 
         
     }
+    /*********************Interroger la table fridge*************************/
+    
     public static void addToFridge(int userID ,int itemID ,int qty){
         try{
             Connection connection=connecterDB();
@@ -185,39 +294,7 @@ public class ConnexionBD {
         }
         
     }
-    // une première version pour se connecter (à améliorer)
-    public static boolean connect(String firstname,String password){
-        try{
-            Connection connection=connecterDB();
-            Statement st=connection.createStatement();
-            ResultSet rst=st.executeQuery("SELECT id FROM appUser WHERE firstname="+firstname+" AND password="+Hash_MD5(password));
-            if (rst ==null){
-                System.out.println("Check firstname or password");
-                return false;
-            }
-            connection.close();
-            return true;
-        }catch(SQLException e){
-            System.out.println(e.getMessage());
-            return false;
-        }
-    }
-    //MD5 algorithm is irreversible so we have to compare hashed passwords
-    public static  String Hash_MD5(String pass){
-        byte[] passBytes = pass.getBytes();
-        try {
-            MessageDigest algorithm = MessageDigest.getInstance("MD5");
-            algorithm.reset();
-            algorithm.update(passBytes);
-            MessageDigest md = MessageDigest.getInstance("MD5");
-            byte[] messageDigest = md.digest(passBytes);
-            BigInteger number = new BigInteger(1, messageDigest);
-            code= number.toString(16);
-            return code;
-            } catch (NoSuchAlgorithmException e) {
-                throw new Error("invalid JRE: have not 'MD5' impl.", e);
-        }
-    }
+    
     
   
   }
