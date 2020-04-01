@@ -26,7 +26,7 @@ import javax.ws.rs.core.MediaType;
 @Path("/user/{Firstname}/{Lastname}/{age}/{gender}/{height}/{weight}/{vegan}/{vegetarian}/{palmoil}/{password}/")
 public class UserSignUp {
 
-   @PUT
+   @GET
    @Produces(MediaType.TEXT_HTML)
  
    

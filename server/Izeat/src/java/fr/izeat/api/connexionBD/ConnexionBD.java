@@ -12,15 +12,13 @@ import java.sql.Statement;
 import fr.izeat.service.nutritionEngine.Recipe;
 import java.util.ArrayList;
 import java.math.BigInteger;
-import java.security.InvalidKeyException;
+
 
 import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
-import javax.crypto.BadPaddingException;
 
-import javax.crypto.IllegalBlockSizeException;
 
-import javax.crypto.NoSuchPaddingException;
+
 
 
 
@@ -29,15 +27,15 @@ public class ConnexionBD {
     private static String code;
     
     // test de hashage en MD5
-    public static void main(String args[]) throws NoSuchAlgorithmException, NoSuchPaddingException, InvalidKeyException, IllegalBlockSizeException, BadPaddingException{
+    /*public static void main(String args[]) throws NoSuchAlgorithmException, NoSuchPaddingException, InvalidKeyException, IllegalBlockSizeException, BadPaddingException{
        String Pw="ma phrase caché en MD5";
        
        System.out.println(Hash_MD5(Pw));
-    }
+    }*/
     //test de connection à la base de donnée
-   /* public static void main(String args[]){
+    public static void main(String args[]){
         User usr = new User("Ala","gabsi",21,"h",16,75,false,false,false,"sfax");
-        addUser(usr);
+        //addUser(usr);
         try{
             Connection connection= connecterDB();
             Statement st;
@@ -52,7 +50,7 @@ public class ConnexionBD {
         }catch(Exception e){
             e.printStackTrace();
         }
-    }*/
+    }
     public static Connection connecterDB(){
         try{
             Class.forName("com.mysql.jdbc.Driver");
