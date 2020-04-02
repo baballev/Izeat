@@ -29,7 +29,7 @@ nécessaires à son utilisation et on a pu résoudre le problème de l'intégrat
 de celle ci dans le serveur. Ce jeu de méthodes simplifiera grandement l'intégration
 avec les autres modules.
 
-Comme cela a été dit plus haut, l'intégration client -> server est aussi en cours
+Comme cela a été dit plus haut, l'intégration client -> server est aussi en cours.
 Le module android travaille avec celui du web service pour permettre la communication
 de l'application avec le serveur.
 
