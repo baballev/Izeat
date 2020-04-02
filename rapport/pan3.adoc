@@ -21,3 +21,6 @@ L'intégration des modules propres au serveur n'ont pas pu être fait encore :
 Johnathan était responsable de l'intégration de ce module, or au moment du pan3
 il était occupé principalement à faire avancer le module IA/recommendation qui 
 rencontrait des problèmes. La base de donnée a néanmoins
+
+
+== OBJECTIFS PAN4
