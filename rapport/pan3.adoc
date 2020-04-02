@@ -20,7 +20,7 @@ On peut alors faire tout ce qui a trait au modèle de reconnaissance d'image. Le
 retour à l'application avec ajout n'est pas encore géré car cela relève de
 l'intégration client -> serveur qui est en cours.
 
-L'intégration des modules propres au serveur n'ont pas pu être fait encore :
+L'intégration des modules propres au serveur n'a pas encore pu être faite:
 
 Johnathan était responsable de l'intégration de ce module, or au moment du pan3
 il était occupé principalement à faire avancer le module IA/recommendation qui 
