@@ -13,23 +13,47 @@ L'intégration de notre application se sépare en trois parties :
 L'intégration des modules propres aux clients (la reconnaissance d'image) a été entièrement faite, y compris la 
 correspondance avec la charte graphique : 
 
- On est donc capable depuis l'application
- de cliquer sur le bouton + qui nous donne la possibilité d'accéder au bouton photo 
- qui lance alors une activité qui intègre le modèle entrainé par Vincent et Léa.
- On peut alors faire tout ce qui a trait au modèle de reconnaissance d'image. Le 
- retour à l'application avec ajout n'est pas encore géré car cela relève de
- l'intégration client -> serveur qui est en cours.
+On est donc capable depuis l'application
+de cliquer sur le bouton + qui nous donne la possibilité d'accéder au bouton photo 
+qui lance alors une activité qui intègre le modèle entrainé par Vincent et Léa.
+On peut alors faire tout ce qui a trait au modèle de reconnaissance d'image. Le 
+retour à l'application avec ajout n'est pas encore géré car cela relève de
+l'intégration client -> serveur qui est en cours.
 
 L'intégration des modules propres au serveur n'ont pas pu être fait encore :
 
- Johnathan était responsable de l'intégration de ce module, or au moment du pan3
- il était occupé principalement à faire avancer le module IA/recommendation qui 
- rencontrait des problèmes. La base de donnée a néanmoins fourni toute les méthodes
- nécessaires à son utilisation et on a pu résoudre le problème de l'intégration
- de celle ci dans le serveur. Ce jeu de méthodes simplifiera grandement l'intégration
- avec les autres modules.
+Johnathan était responsable de l'intégration de ce module, or au moment du pan3
+il était occupé principalement à faire avancer le module IA/recommendation qui 
+rencontrait des problèmes. La base de donnée a néanmoins fourni toute les méthodes
+nécessaires à son utilisation et on a pu résoudre le problème de l'intégration
+de celle ci dans le serveur. Ce jeu de méthodes simplifiera grandement l'intégration
+avec les autres modules.
 
+Comme cela a été dit plus haut, l'intégration client -> server est aussi en cours
+Le module android travaille avec celui du web service pour permettre la communication
+de l'application avec le serveur.
 
-
+Même si ils ne sont pas répertoriés exactement, de nombreux test ont été fait pour
+l'intégration de la reconnaissance d'image. Ils ont été fait aux différents stades
+de l'intégration, sur différents émulateurs comme sur un vrai téléphone android. 
 
 == OBJECTIFS PAN4
+
+=== Intégration
+
+L'intégration va continuer évidemment et a pour objectif de terminer les 3 parties
+citées. L'absence de Johnathan (qui était un des responsable du module) va bien évidemment 
+compliquer la tâche. De plus la distance entre tous les membres du groupe à cause du contexte actuel
+est le deuxième facteur critique concernant l'intégration du projet. 
+La responsabilité de l'intégration du serveur, tout en restant
+supervisée par le deuxième reponsable test et intégration (Pierre), va s'appuyer plus fortement
+sur les responsables de chaque module qui devront (comme ils le faisaient déjà en partie),
+s'attacher à fournir un jeu de méthodes facilement utilisables pour les autres modules.
+Le fait qu'Alaedinne, David et Vincent soient tous les trois uniquement sur des 
+modules dédiés au serveur va, on l'espère, faciliter cette tâche.
+
+Nous allons, dans cette optique, revoir les exigences de chaque module à la baisse.
+Nous préférons avoir un projet plus simple mais qui a une chance de fonctionner
+qu'un projet aux grandes ambitions qui n'aboutiront pas. Ainsi, la priorité est
+d'arriver à faire communiquer le client et le serveur, même si les tâches
+grâce à cette communication sont limitées.
