@@ -1,0 +1,18 @@
+= PAN3 RAPPORT
+
+== AVANCEMENT DES MODULES
+
+=== Intégration
+
+L'intégration de notre application se sépare en trois parties :
+* Intégrer la partie client : la reconnaissance d'image à l'application android
+* Intégrer la partie serveur : faire fonctionner la base de donnée avec le web service et le moteur de recommendation
+* Intégrer la partie serveur au client
+
+L'intégration de la reconnaissance d'image a été entièrement faite, y compris la 
+correspondance avec la charte graphique. On est donc capable depuis l'application
+de cliquer sur le bouton + qui nous donne la possibilité d'accéder au bouton photo 
+qui lance alors une activité qui intègre le modèle entrainé par Vincent et Léa.
+On peut alors faire tout ce qui a trait au modèle de reconnaissance d'image. Le 
+retour à l'application avec ajout n'est pas encore géré car cela relève de
+l'intégration client -> serveur qui est en cours.
