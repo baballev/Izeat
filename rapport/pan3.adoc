@@ -37,7 +37,7 @@ Même si ils ne sont pas répertoriés exactement, de nombreux test ont été fa
 l'intégration de la reconnaissance d'image. Ils ont été fait aux différents stades
 de l'intégration, sur différents émulateurs comme sur un vrai téléphone android. 
 
-== Android
+=== Android
 
 Concernant le module android, nous avons implémenter tous les différents onglets qui composent l'application:
 
@@ -65,6 +65,11 @@ comme son poids, son age, son régime alimentaire ...
 Pour finir, avec l'aide du module SES, nous avons essayé de travailler sur le design de l'application. Les activités sont épurées, pas trop chargées pour
 ne pas perdre l'attention de l'utilisateur dans des détails inutiles. De plus, nous avons choisi une gamme de couleurs sobre et apaisante (marrons/beige) 
 pour ne pas "agresser" l'utilisateur par des couleurs qui pourraient être trop vives. 
+
+=== Reconnaissance d'image
+
+=== Service Web
+
 
 == OBJECTIFS PAN4
 
