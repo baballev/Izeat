@@ -47,8 +47,8 @@ Concernant le module android, nous avons implémenter tous les différents ongle
 * onglet profil 
 
 Les onglets recettes, produits et frigo se ressemblent beaucoup pour le moment puisqu'ils sont composés de recycler view qui afficheront respectivement
-les recettes suggérées par l'IA, les produits recommendés et les produits ajoutés dans le frigo virtuel. De plus, les activités permettant de détailler 
-les produits et les recettes lorsque l'on clique dessus sont crées mais pas encore liées aux éléments des recycler view.  
+les recettes suggérées par l'IA, les produits recommandés et les produits ajoutés dans le frigo virtuel. De plus, les activités permettant de détailler 
+les produits et les recettes lorsque l'on clique dessus sont crées mais pas encore liées aux éléments des recycler view. 
 
 L'onglet profil a été créé mais pas encore complètement implémenté. 
 
@@ -56,7 +56,7 @@ Par ailleurs, nous avons crée un bouton add qui est présent sur chaque activit
 produit à son frigo virtuel. Lorsqu'il clique dessus, il se décompose en deux boutons: un bouton search qui affichera une barre de recherche pour trouver un 
 produit dans une base de données, et un bouton "photo" qui permet d'ajouter un produit par reconnaissance d'image.
 
-Lorsque l'utilsateur ouvre l'application, c'est l'activité de connexion qui s'affiche en premier: elle demande à l'utilisateur de rentrer son adresse mail 
+Lorsque l'utilisateur ouvre l'application, c'est l'activité de connexion qui s'affiche en premier: elle demande à l'utilisateur de rentrer son adresse mail 
 mot de passe. Il peut ensuite accéder au contenu de l'application grâce à un bouton suivant qui permet d'arriver directement sur les recommendations de 
 recettes, le coeur l'application. Si l'utilisateur n'est toujours pas connecté, il peut s'inscrire: il tombe alors sur une nouvelle activité
 qui lui demande de rentrer un identifiant, adresse mail, mot de passe et des données sur lui, indispensables pour le bon fonctionnement de l'application, 
@@ -64,7 +64,7 @@ comme son poids, son age, son régime alimentaire ...
 
 Pour finir, avec l'aide du module SES, nous avons essayé de travailler sur le design de l'application. Les activités sont épurées, pas trop chargées pour
 ne pas perdre l'attention de l'utilisateur dans des détails inutiles. De plus, nous avons choisi une gamme de couleurs sobre et apaisante (marrons/beige) 
-pour ne pas "aggresser" l'utilisateur par des couleurs qui pourraient etre trop vives. 
+pour ne pas "agresser" l'utilisateur par des couleurs qui pourraient être trop vives. 
 
 == OBJECTIFS PAN4
 
@@ -86,3 +86,13 @@ Nous préférons avoir un projet plus simple mais qui a une chance de fonctionne
 qu'un projet aux grandes ambitions qui n'aboutiront pas. Ainsi, la priorité est
 d'arriver à faire communiquer le client et le serveur, même si les tâches
 grâce à cette communication sont limitées.
+
+== Android
+
+Pour le pan4, les objectifs du module android sont les suivants: 
+
+* Terminer l'onglet profil pour qu'il puisse afficher le détail des informations
+rentrées par l'utilisateur lors de l'inscription et le suivi nutritif personnalisé. 
+* créer la barre de recherche (deuxième mode d'ajout des éléments au frigo) 
+* Permettre à l'utilisateur de visualiser les details des recettes et produits recomméndés grâce à des activités déjà créées mais pas encore liées 
+aux éléments des recycler view. 
