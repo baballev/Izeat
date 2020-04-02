@@ -94,5 +94,6 @@ Pour le pan4, les objectifs du module android sont les suivants:
 * Terminer l'onglet profil pour qu'il puisse afficher le détail des informations
 rentrées par l'utilisateur lors de l'inscription et le suivi nutritif personnalisé. 
 * créer la barre de recherche (deuxième mode d'ajout des éléments au frigo) 
-* Permettre à l'utilisateur de visualiser les details des recettes et produits recomméndés grâce à des activités déjà créées mais pas encore liées 
+* Permettre à l'utilisateur de visualiser les details des recettes et produits recommendés grâce à des activités déjà créées mais pas encore liées 
 aux éléments des recycler view. 
+* Travailler en collaboration avec le module webservice pour la communication avec le serveur : on doit pouvoir récupérer une liste de porduits ou une liste de recette mais aussi envoyer et récupérer le contenu du frigo virtuel. 
