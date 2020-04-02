@@ -5,12 +5,14 @@
 === Intégration
 
 L'intégration de notre application se sépare en trois parties :
+
 * Intégrer la partie client : la reconnaissance d'image à l'application android
 * Intégrer la partie serveur : faire fonctionner la base de donnée avec le web service et le moteur de recommendation
 * Intégrer la partie serveur au client
 
 L'intégration des modules propres aux clients (la reconnaissance d'image) a été entièrement faite, y compris la 
 correspondance avec la charte graphique : 
+
  On est donc capable depuis l'application
  de cliquer sur le bouton + qui nous donne la possibilité d'accéder au bouton photo 
  qui lance alors une activité qui intègre le modèle entrainé par Vincent et Léa.
@@ -19,6 +21,7 @@ correspondance avec la charte graphique :
  l'intégration client -> serveur qui est en cours.
 
 L'intégration des modules propres au serveur n'ont pas pu être fait encore :
+
  Johnathan était responsable de l'intégration de ce module, or au moment du pan3
  il était occupé principalement à faire avancer le module IA/recommendation qui 
  rencontrait des problèmes. La base de donnée a néanmoins fourni toute les méthodes
