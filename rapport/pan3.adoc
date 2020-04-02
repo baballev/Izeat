@@ -37,6 +37,35 @@ Même si ils ne sont pas répertoriés exactement, de nombreux test ont été fa
 l'intégration de la reconnaissance d'image. Ils ont été fait aux différents stades
 de l'intégration, sur différents émulateurs comme sur un vrai téléphone android. 
 
+== Android
+
+Concernant le module android, nous avons implémenter tous les différents onglets qui composent l'application:
+
+* onglet recettes
+* onglet produits 
+* onglet frigo
+* onglet profil 
+
+Les onglets recettes, produits et frigo se ressemblent beaucoup pour le moment puisqu'ils sont composés de recycler view qui afficheront respectivement
+les recettes suggérées par l'IA, les produits recommendés et les produits ajoutés dans le frigo virtuel. De plus, les activités permettant de détailler 
+les produits et les recettes lorsque l'on clique dessus sont crées mais pas encore liées aux éléments des recycler view.  
+
+L'onglet profil a été créé mais pas encore complètement implémenté. 
+
+Par ailleurs, nous avons crée un bouton add qui est présent sur chaque activité et qui permet à l'utilisateur d'ajouter rapidement un 
+produit à son frigo virtuel. Lorsqu'il clique dessus, il se décompose en deux boutons: un bouton search qui affichera une barre de recherche pour trouver un 
+produit dans une base de données, et un bouton "photo" qui permet d'ajouter un produit par reconnaissance d'image.
+
+Lorsque l'utilsateur ouvre l'application, c'est l'activité de connexion qui s'affiche en premier: elle demande à l'utilisateur de rentrer son adresse mail 
+mot de passe. Il peut ensuite accéder au contenu de l'application grâce à un bouton suivant qui permet d'arriver directement sur les recommendations de 
+recettes, le coeur l'application. Si l'utilisateur n'est toujours pas connecté, il peut s'inscrire: il tombe alors sur une nouvelle activité
+qui lui demande de rentrer un identifiant, adresse mail, mot de passe et des données sur lui, indispensables pour le bon fonctionnement de l'application, 
+comme son poids, son age, son régime alimentaire ...
+
+Pour finir, avec l'aide du module SES, nous avons essayé de travailler sur le design de l'application. Les activités sont épurées, pas trop chargées pour
+ne pas perdre l'attention de l'utilisateur dans des détails inutiles. De plus, nous avons choisi une gamme de couleurs sobre et apaisante (marrons/beige) 
+pour ne pas "aggresser" l'utilisateur par des couleurs qui pourraient etre trop vives. 
+
 == OBJECTIFS PAN4
 
 === Intégration
