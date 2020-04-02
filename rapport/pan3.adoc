@@ -10,17 +10,23 @@ L'intégration de notre application se sépare en trois parties :
 * Intégrer la partie serveur au client
 
 L'intégration des modules propres aux clients (la reconnaissance d'image) a été entièrement faite, y compris la 
-correspondance avec la charte graphique. On est donc capable depuis l'application
-de cliquer sur le bouton + qui nous donne la possibilité d'accéder au bouton photo 
-qui lance alors une activité qui intègre le modèle entrainé par Vincent et Léa.
-On peut alors faire tout ce qui a trait au modèle de reconnaissance d'image. Le 
-retour à l'application avec ajout n'est pas encore géré car cela relève de
-l'intégration client -> serveur qui est en cours.
+correspondance avec la charte graphique : 
+ On est donc capable depuis l'application
+ de cliquer sur le bouton + qui nous donne la possibilité d'accéder au bouton photo 
+ qui lance alors une activité qui intègre le modèle entrainé par Vincent et Léa.
+ On peut alors faire tout ce qui a trait au modèle de reconnaissance d'image. Le 
+ retour à l'application avec ajout n'est pas encore géré car cela relève de
+ l'intégration client -> serveur qui est en cours.
 
 L'intégration des modules propres au serveur n'ont pas pu être fait encore :
-Johnathan était responsable de l'intégration de ce module, or au moment du pan3
-il était occupé principalement à faire avancer le module IA/recommendation qui 
-rencontrait des problèmes. La base de donnée a néanmoins
+ Johnathan était responsable de l'intégration de ce module, or au moment du pan3
+ il était occupé principalement à faire avancer le module IA/recommendation qui 
+ rencontrait des problèmes. La base de donnée a néanmoins fourni toute les méthodes
+ nécessaires à son utilisation et on a pu résoudre le problème de l'intégration
+ de celle ci dans le serveur. Ce jeu de méthodes simplifiera grandement l'intégration
+ avec les autres modules.
+
+
 
 
 == OBJECTIFS PAN4
