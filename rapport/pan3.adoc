@@ -68,6 +68,19 @@ pour ne pas "agresser" l'utilisateur par des couleurs qui pourraient être trop 
 
 === Reconnaissance d'image
 
+Le modèle pour la reconnaissance d'image a été entrainé sur un dataset fait à a main de 10 catégories d'aliments. Les images ont été récoltées à partir d'ImageNet et de photos sur 
+Instagram triées manuellement. Il y a environ 12 000 images de résolutions variées toutes ramenées à du 300x300x3. Le modèle a été intégré dans l'application android en optimisant la taille des poids enregistrés dans le modèle. On a observé que 
+le modèle mais un peu de temps (environ 5 secondes) à faire une prédiction en condition réelles sur un portable andorid.
+Nous essayerons donc d'exporter le modèle en optimisant la rapidité de la prédiction et aussi en essayant de diminuer le nombre de couches pour le rendre plus léger, quitte
+à perdre en précision.
+
+Un prototype fonctionnel de la reconnaissance d'image est implémenté dans l'application android, permettant de prendre une photo d'un aliment à partir de l'appareil
+photo du téléphone, de la stocker temporairement sur le disque dur du téléphone, de charger la photo en mémoire et d'obtenir la prédiction avec un pourcentage qui indique
+la probabilité des différentes classes d'aliments en accord avec le modèle.
+
+Nous sommes actuellement contraint par le confinement puisque l'ordinateur possédant la puissance de calcul nécessaire (le GPU) et les datasets (de plusieurs centaines de Go) est à Palaiseau
+et on ne peut pas y accéder. Néanmoins, on a un modèle fonctionnel sur git.
+
 === Service Web
 Concernant le module web service, la partie d’interrogation d’OpenFoodFacts fonctionne que ce soit à partir de termes de recherche ou de code à barres.
 
@@ -81,6 +94,7 @@ La connexion Netbeans/Mysql est bien établie; on peut interroger la base de don
     
 La sécurité des mots de passe est assurée par un hachage MD5: ainsi le mot de passe haché est stocké dans la table des utilisateurs "appUser" puis pour confirmer la connexion il suffit de comparer les mots de passe hachés.
 
+Le client android parvient à interroger le web service comme il faut et à en récupérer les informations pertinentes.
 
 === Base de donnée
 La base de donnée izeat comporte 5 tables: appUser, fridge, consumption, foodTypes et recipes.
@@ -111,7 +125,7 @@ qu'un projet aux grandes ambitions qui n'aboutiront pas. Ainsi, la priorité est
 d'arriver à faire communiquer le client et le serveur, même si les tâches
 grâce à cette communication sont limitées.
 
-== Android
+=== Android
 
 Pour le pan4, les objectifs du module android sont les suivants: 
 
@@ -121,3 +135,18 @@ rentrées par l'utilisateur lors de l'inscription et le suivi nutritif personnal
 * Permettre à l'utilisateur de visualiser les details des recettes et produits recommendés grâce à des activités déjà créées mais pas encore liées 
 aux éléments des recycler view. 
 * Travailler en collaboration avec le module webservice pour la communication avec le serveur : on doit pouvoir récupérer une liste de porduits ou une liste de recette mais aussi envoyer et récupérer le contenu du frigo virtuel. 
+
+=== Reconnaissance d'image
+
+Si nous pouvons à nouveau nous déplacer d'ici le PAN4, nous utiliserons les tickets de caisses franprix que nous avons 
+accumulés au cours de l'année pour constituer un dataset qui va permettre d'ajouter une classe dans le modèle que l'on a entrainé.
+On aura donc 11 classes dans le modèles: 10 aliments divers et 1 classe pour le ticket de caisse.
+Si l'intégration se passe comme il faut, nous allons essayer d'implémenter un RNN déjà existant pour lire le texte sur le ticket de caisse lorsque celui ci est reconnu
+sur l'image prise par l'appareil photo du téléphone.
+
+Actuellement, on ne peut pas effectuer d'entrainement de notre modèle jusqu'à la fin du confinement pour les raisons evoquées ci-dessus dans la catégorie correspondante.
+
+Diverses optimisations sont planifiées pour le PAN4 si nous en avons l'opportunité: 
+* Réduire la profondeur du réseau de neurones utilisé pour le rendre moins volumineux une fois exporté dans l'application android.
+* Débloquer quelques couches de convolutions du réseau pré-entrainé utilisé afin d'avoir de meilleurs résultats en terme de précision
+* Optimiser l'exportation du modèle en terme de rapidité de la prédiction et non en volume de données afin de gagner en rapidité de l'expérience utilisateur.
