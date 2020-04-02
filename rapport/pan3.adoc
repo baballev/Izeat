@@ -69,6 +69,25 @@ pour ne pas "agresser" l'utilisateur par des couleurs qui pourraient être trop 
 === Reconnaissance d'image
 
 === Service Web
+Concernant le module web service, la partie d’interrogation d’OpenFoodFacts fonctionne que ce soit à partir de termes de recherche ou de code à barres.
+
+La connexion Netbeans/Mysql est bien établie; on peut interroger la base de donnée izeat pour:
+    * Ajouter un utilisateur.
+    * Modifier le status de l’utilisateur à travers les différentes requetes SQL.
+    * Récupérer les données d’un utilisateur ou d’une recette.
+    * Mettre à jour la table fridge.
+    * Ajouter une consommation à la table consumption.
+    * Connecter l’utilisateur à son compte.
+    
+La sécurité des mots de passe est assurée par un hachage MD5: ainsi le mot de passe haché est stocké dans la table des utilisateurs "appUser" puis pour confirmer la connexion il suffit de comparer les mots de passe hachés.
+
+
+=== Base de donnée
+La base de donnée izeat comporte 5 tables: appUser, fridge, consumption, foodTypes et recipes.
+La connexion Netbeans/Mysql est bien établie; on peut interroger la base de donnée izeat via les différentes requetes SQL.
+On a préparé un fichier csv pour les recettes que l'application va recommander. 
+Ce fichier est en cours de développement parce qu'on doit assurer que chaque recette ajoutée soit accompagnée de ses valeurs nutritionnelles.
+
 
 
 == OBJECTIFS PAN4
@@ -83,7 +102,7 @@ La responsabilité de l'intégration du serveur, tout en restant
 supervisée par le deuxième reponsable test et intégration (Pierre), va s'appuyer plus fortement
 sur les responsables de chaque module qui devront (comme ils le faisaient déjà en partie),
 s'attacher à fournir un jeu de méthodes facilement utilisables pour les autres modules.
-Le fait qu'Alaedinne, David et Vincent soient tous les trois uniquement sur des 
+Le fait qu'Alaeddine, David et Vincent soient tous les trois uniquement sur des 
 modules dédiés au serveur va, on l'espère, faciliter cette tâche.
 
 Nous allons, dans cette optique, revoir les exigences de chaque module à la baisse.
