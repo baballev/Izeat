@@ -23,7 +23,9 @@ import java.security.NoSuchAlgorithmException;
 
 public class ConnexionBD {
     private static String code;
+    
     /******************************************TEST******************************/
+    
     // test de hashage en MD5
     
     /*public static void main(String args[]) throws NoSuchAlgorithmException, NoSuchPaddingException, InvalidKeyException, IllegalBlockSizeException, BadPaddingException{
@@ -52,7 +54,9 @@ public class ConnexionBD {
             e.printStackTrace();
         }
     }
+    
     /*******************Connection to DB***************************/
+    
     public static Connection connecterDB(){
         try{
             Class.forName("com.mysql.jdbc.Driver");
