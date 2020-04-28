@@ -85,7 +85,7 @@ public class ConnexionBD {
             // ToDo : Hash passwords        
             String query="INSERT INTO appUser(firstName,lastName,age,gender,height_cm,weight_g,vegan,vegetarian,palmoil,password) VALUES"
                     + " ('"+user.getFirstName()+"','"+user.getLastName()+"',"+Integer.toString(user.getAge())+",'"+user.getGender()+"',"+Integer.toString(user.getHeight())+","
-                    +Integer.toString(user.getWeight())+","+ Integer.toString(vegan) +",'"+Integer.toString(vegetarian)+"',"+Integer.toString(palmOil)+"'"+user.getPassword()+"');";
+                    +Integer.toString(user.getWeight())+","+ Integer.toString(vegan) +","+Integer.toString(vegetarian)+","+Integer.toString(palmOil)+",'"+user.getPassword()+"');";
             System.out.println("Trying to execute this mySQL query: \n" + query);
             Connection connection = connecterDB();
             Statement state=connection.createStatement();
