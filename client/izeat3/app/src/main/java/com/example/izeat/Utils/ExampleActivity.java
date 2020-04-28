@@ -44,18 +44,18 @@ public class ExampleActivity extends AppCompatActivity {
 
     }
 
-    /*
-     * Method Usage:
-     *  Parameters:
-     *      context: Give the current context of the activity (use getApplicationContext())
-     *      barcode: /!\ String /!\ The barcode of the desired product information
-     *  Return value:
-     *      Returns a String containing all the json file related to the product infos
-     *  Example:
-     *      getProduct(getApplicationContext, "3017760589895");
-     *      -> Gives information about Pépito mini rollos.
-     */
     public static void getProductAction(String barcode, Context context){
+        /*
+         *  Parameters:
+         *      context: Give the current context of the activity (use getApplicationContext())
+         *      barcode: /!\ String /!\ The barcode of the desired product information
+         *  Info obtained inside the method:
+         *      A ProductInfo object containing all the product info.
+         *  Example:
+         *      getProduct("3017760589895", getApplicationContext, );
+         *      -> Gives information about Pépito mini rollos.
+         */
+
         String url = "http://izeat.r2.enst.fr/ws/Izeat/webresources/product/" + barcode;
 
         RequestQueue queue = Volley.newRequestQueue(context);
@@ -88,6 +88,17 @@ public class ExampleActivity extends AppCompatActivity {
     }
 
     public static void getSearchAction(String searchTerms, Context context){
+        /*
+         *  Parameters:
+         *      context: Give the current context of the activity (use getApplicationContext())
+         *      barcode: /!\ String /!\ The barcode of the desired product information
+         *  Info obtained inside the method:
+         *      An array list of ProductInfo objects, each object representing a product found on OpenFoodFacts for the given search string.
+         *  Example:
+         *      getSearchAction("Jambon", getApplicationContext);
+         *      -> Retrieves 50 max products on OpenFoodFacts which match with the name "Jambon".
+         */
+
         String url = "http://izeat.r2.enst.fr/ws/Izeat/webresources/product/search/" + searchTerms;
 
         RequestQueue queue = Volley.newRequestQueue(context);
