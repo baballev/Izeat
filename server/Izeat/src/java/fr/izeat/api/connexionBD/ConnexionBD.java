@@ -12,6 +12,7 @@ import java.sql.Statement;
 import fr.izeat.service.nutritionEngine.Recipe;
 import java.util.ArrayList;
 import java.math.BigInteger;
+import java.nio.charset.StandardCharsets;
 import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
 
@@ -79,7 +80,7 @@ public class ConnexionBD {
     /********************Interroger la table appUser*********************/
     public static void addUser(User user){
         try{
-            int vegan = user.getVegan() ? 1 : 0; // Convert the boolean to int
+            int vegan = user.getVegan() ? 1 : 0; // Convert the booleans to int
             int vegetarian = user.getVegetarian() ? 1 : 0;
             int palmOil = user.getPalmOil() ? 1 : 0;
             // ToDo : Hash passwords        
@@ -189,20 +190,16 @@ public class ConnexionBD {
             return false;
         }
     }
-    
-    
+   
+    // ToDo : Change this, it doesn't work
     //MD5 algorithm is irreversible so we have to compare hashed passwords
-    public static String Hash_MD5(String pass){
-        byte[] passBytes = pass.getBytes();
+    public static String Hash_SHA256(String pass){
+        byte[] passBytes = pass.getBytes(StandardCharsets.UTF_8);
         try {
-            MessageDigest algorithm = MessageDigest.getInstance("MD5");
-            algorithm.reset();
-            algorithm.update(passBytes);
-            MessageDigest md = MessageDigest.getInstance("MD5");
-            byte[] messageDigest = md.digest(passBytes);
-            BigInteger number = new BigInteger(1, messageDigest);
-            code= number.toString(16);
-            return code;
+            MessageDigest alg = MessageDigest.getInstance("SHA-256");
+            byte[] hashed_bytes = alg.digest(passBytes);
+            String hashed_pass = bytesToHex(hashed_bytes);
+            return hashed_pass;
             } catch (NoSuchAlgorithmException e) {
                 throw new Error("invalid JRE: have not 'MD5' impl.", e);
         }

@@ -28,7 +28,7 @@ public class UserSignUp {
    @PathParam("vegan") boolean vegan,@PathParam("vegetarian") boolean vegetarian,@PathParam("palmoil") boolean palmoil,@PathParam("password") String password){
        User usr=new User(firstname,lastname,age,gender,height,weight,vegan,vegetarian,palmoil,password);
        ConnexionBD.addUser(usr);
-       return "<html lang=\\\"en\\\"><body><h1> " + firstname + " is signing up ! :)</body></h1></html>";
+       return "<html lang=\\\"en\\\"><body><h1> " + firstname + "   is signing up ! :)</body></h1></html>";
    }
    
   
