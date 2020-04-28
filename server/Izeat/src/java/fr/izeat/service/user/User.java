@@ -109,6 +109,9 @@ public class User {
         public boolean getVegetarian(){
             return this.vegetarian;
         }
+        public boolean getPalmOil(){
+            return this.palmoil;
+        }
         public int getHeight(){
             return this.height;
         }

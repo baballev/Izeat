@@ -1,8 +1,3 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package fr.izeat.service.ressources;
 
 import fr.izeat.api.connexionBD.ConnexionBD;
@@ -23,19 +18,17 @@ import javax.ws.rs.core.MediaType;
  *
  * @author Ala
  */
-@Path("/user/{Firstname}/{Lastname}/{age}/{gender}/{height}/{weight}/{vegan}/{vegetarian}/{palmoil}/{password}/")
+@Path("/user/signup/{Firstname}/{Lastname}/{age}/{gender}/{height}/{weight}/{vegan}/{vegetarian}/{palmoil}/{password}/")
 public class UserSignUp {
 
    @GET
-   @Produces(MediaType.TEXT_HTML)
- 
-   
+   @Produces(MediaType.TEXT_HTML) 
    public String createUser(@PathParam("Firstname") String firstname,@PathParam("Lastname") String lastname,
    @PathParam("age") int age,@PathParam("gender") String gender,@PathParam("height") int height,@PathParam("weight") int weight,
    @PathParam("vegan") boolean vegan,@PathParam("vegetarian") boolean vegetarian,@PathParam("palmoil") boolean palmoil,@PathParam("password") String password){
        User usr=new User(firstname,lastname,age,gender,height,weight,vegan,vegetarian,palmoil,password);
        ConnexionBD.addUser(usr);
-       return "<html lang=\\\"en\\\"><body><h1> firstname is signing up ! :)</body></h1></html>";
+       return "<html lang=\\\"en\\\"><body><h1> " + firstname + " is signing up ! :)</body></h1></html>";
    }
    
   

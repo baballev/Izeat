@@ -79,9 +79,14 @@ public class ConnexionBD {
     /********************Interroger la table appUser*********************/
     public static void addUser(User user){
         try{
+            int vegan = user.getVegan() ? 1 : 0; // Convert the boolean to int
+            int vegetarian = user.getVegetarian() ? 1 : 0;
+            int palmOil = user.getPalmOil() ? 1 : 0;
+            // ToDo : Hash passwords        
             String query="INSERT INTO appUser(firstName,lastName,age,gender,height_cm,weight_g,vegan,vegetarian,palmoil,password) VALUES"
-                    + " ('"+user.getFirstName()+"','"+user.getLastName()+"',"+user.getAge()+",'"+user.getGender()+"',"+user.getHeight()+","
-                    + ""+user.getWeight()+",'"+user.getVegan()+"','"+user.getVegetarian()+"','"+Hash_MD5(user.getPassword())+"')";
+                    + " ('"+user.getFirstName()+"','"+user.getLastName()+"',"+Integer.toString(user.getAge())+",'"+user.getGender()+"',"+Integer.toString(user.getHeight())+","
+                    +Integer.toString(user.getWeight())+","+ Integer.toString(vegan) +",'"+Integer.toString(vegetarian)+"',"+Integer.toString(palmOil)+"'"+user.getPassword()+"');";
+            System.out.println("Trying to execute this mySQL query: \n" + query);
             Connection connection = connecterDB();
             Statement state=connection.createStatement();
             state.executeUpdate(query);
@@ -186,11 +191,8 @@ public class ConnexionBD {
     }
     
     
-    
-    
-    
     //MD5 algorithm is irreversible so we have to compare hashed passwords
-    public static  String Hash_MD5(String pass){
+    public static String Hash_MD5(String pass){
         byte[] passBytes = pass.getBytes();
         try {
             MessageDigest algorithm = MessageDigest.getInstance("MD5");
