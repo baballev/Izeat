@@ -14,6 +14,7 @@ Adresse du serveur: izeat.r2.enst.fr
 **Infos produit:** /product/{code barre du produit}     
 **Recherche de produits:** /product/search/{mots clés}      
 **Utilisateurs:** /user/{identifiant utilisateur}       
+**Signup:** /user/signup/{Prénom}/{Nom}/{âge}/{sexe: h ou f}/{taille en cm}/{poids en kg}/{vegan: 0 ou 1}/{vegetarien: 0 ou 1}/{Huile de palme: 1=ok, 0=Non/{password hash}
 
 Les Scripts Pythons utilisés pour la reconnaissance d'image sont localisés dans `server/engine`.
 
