@@ -1,4 +1,4 @@
- package fr.izeat.service.ressources;
+ package fr.izeat.service.resources;
 
 import fr.izeat.api.openfoodfacts.Tools;
 import fr.izeat.service.product.Product;

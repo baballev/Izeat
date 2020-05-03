@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package fr.izeat.service.ressources;
+package fr.izeat.service.resources;
 
 import java.util.Set;
 import javax.ws.rs.core.Application;
@@ -25,12 +25,12 @@ public class ApplicationConfig extends Application {
      * If required, comment out calling this method in getClasses().
      */
     private void addRestResourceClasses(Set<Class<?>> resources) {
-        resources.add(fr.izeat.service.ressources.ProductResource.class);
-        resources.add(fr.izeat.service.ressources.ProductSearchResource.class);
-        resources.add(fr.izeat.service.ressources.ServiceResource.class);
-        resources.add(fr.izeat.service.ressources.UserLogin.class);
-        resources.add(fr.izeat.service.ressources.UserResource.class);
-        resources.add(fr.izeat.service.ressources.UserSignUpResource.class);
+        resources.add(fr.izeat.service.resources.ProductResource.class);
+        resources.add(fr.izeat.service.resources.ProductSearchResource.class);
+        resources.add(fr.izeat.service.resources.ServiceResource.class);
+        resources.add(fr.izeat.service.resources.UserLoginResource.class);
+        resources.add(fr.izeat.service.resources.UserResource.class);
+        resources.add(fr.izeat.service.resources.UserSignUpResource.class);
     }
     
 }

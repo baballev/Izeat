@@ -1,4 +1,4 @@
-package fr.izeat.service.ressources;
+package fr.izeat.service.resources;
 
 import javax.ws.rs.*;
 import org.json.*;
@@ -8,11 +8,9 @@ import fr.izeat.api.connexionBD.*;
 
 @Path("/user/{userId}")
 public class UserResource {
-    /* This resource 
-     *
-    
-    */
-    
+    /* This resource is used to retrieve a user info with its Id.
+     * It's only used for test purposes and won't be implemented in the end.
+     */   
     
 	@GET
 	@Produces("text/json")

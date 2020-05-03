@@ -1,4 +1,4 @@
-package fr.izeat.service.ressources;
+package fr.izeat.service.resources;
 
 import fr.izeat.api.connexionBD.ConnexionBD;
 import fr.izeat.service.user.User;
