@@ -13,13 +13,13 @@ import javax.ws.rs.core.MediaType;
 import org.json.JSONObject;
 
 @Path("/service")
-public class ServiceRessource {
+public class ServiceResource {
 
     @Context
     private UriInfo context;
     
     // Creates a new instance of Service
-    public ServiceRessource() {
+    public ServiceResource() {
     }
 
     @GET

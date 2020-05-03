@@ -11,7 +11,7 @@ import org.json.JSONArray;
 import org.json.JSONObject;
 
 @Path("/product/search/{search_terms}")  // TODO: Rework the search system, only search words are used atm
-public class ProductSearchRessource {     
+public class ProductSearchResource {     
     @GET
     @Produces("text/json")
     public String getSearchProducts(@PathParam("search_terms") String searchTerms){

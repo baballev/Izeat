@@ -11,7 +11,7 @@ import javax.ws.rs.core.Response;
 import org.json.JSONObject;
 
 @Path("/product/{code}") // Code is a 12-13 digits number representing the bar-code of the queried procuct
-public class ProductRessource { 
+public class ProductResource { 
     
     @GET
     @Produces("application/json")

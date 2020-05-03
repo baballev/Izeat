@@ -12,14 +12,10 @@ import java.sql.Statement;
 import fr.izeat.service.nutritionEngine.Recipe;
 import java.util.ArrayList;
 import java.math.BigInteger;
+import org.mindrot.jbcrypt.*;
 import java.nio.charset.StandardCharsets;
 import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
-
-
-
-
-
 
 
 public class ConnexionBD {
@@ -83,10 +79,10 @@ public class ConnexionBD {
             int vegan = user.getVegan() ? 1 : 0; // Convert the booleans to int
             int vegetarian = user.getVegetarian() ? 1 : 0;
             int palmOil = user.getPalmOil() ? 1 : 0;
-            // ToDo : Hash passwords        
+            String password_hash = BCrypt.hashpw(user.getPassword(), BCrypt.gensalt());
             String query="INSERT INTO appUser(firstName,lastName,age,gender,height_cm,weight_g,vegan,vegetarian,palmoil,password) VALUES"
                     + " ('"+user.getFirstName()+"','"+user.getLastName()+"',"+Integer.toString(user.getAge())+",'"+user.getGender()+"',"+Integer.toString(user.getHeight())+","
-                    +Integer.toString(user.getWeight())+","+ Integer.toString(vegan) +","+Integer.toString(vegetarian)+","+Integer.toString(palmOil)+",'"+user.getPassword()+"');";
+                    +Integer.toString(user.getWeight())+","+ Integer.toString(vegan) +","+Integer.toString(vegetarian)+","+Integer.toString(palmOil)+",'"+password_hash+"');";
             System.out.println("Trying to execute this mySQL query: \n" + query);
             Connection connection = connecterDB();
             Statement state=connection.createStatement();
@@ -188,20 +184,6 @@ public class ConnexionBD {
         }catch(SQLException e){
             System.out.println(e.getMessage());
             return false;
-        }
-    }
-   
-    // ToDo : Change this, it doesn't work
-    //MD5 algorithm is irreversible so we have to compare hashed passwords
-    public static String Hash_SHA256(String pass){
-        byte[] passBytes = pass.getBytes(StandardCharsets.UTF_8);
-        try {
-            MessageDigest alg = MessageDigest.getInstance("SHA-256");
-            byte[] hashed_bytes = alg.digest(passBytes);
-            String hashed_pass = bytesToHex(hashed_bytes);
-            return hashed_pass;
-            } catch (NoSuchAlgorithmException e) {
-                throw new Error("invalid JRE: have not 'MD5' impl.", e);
         }
     }
     

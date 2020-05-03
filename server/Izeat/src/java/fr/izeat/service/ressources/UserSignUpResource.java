@@ -18,9 +18,10 @@ import javax.ws.rs.core.MediaType;
  *
  * @author Ala
  */
-@Path("/user/signup/{Firstname}/{Lastname}/{age}/{gender}/{height}/{weight}/{vegan}/{vegetarian}/{palmoil}/{password}/")
-public class UserSignUp {
 
+@Path("/user/signup/{Firstname}/{Lastname}/{age}/{gender}/{height}/{weight}/{vegan}/{vegetarian}/{palmoil}/{password}/") // HTTPS IS MANDATORY!
+public class UserSignUpResource {
+// ToDo: Throw an exception when vegan but not vegetarian.
    @GET
    @Produces(MediaType.TEXT_HTML) 
    public String createUser(@PathParam("Firstname") String firstname,@PathParam("Lastname") String lastname,

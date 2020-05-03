@@ -7,8 +7,13 @@ import fr.izeat.service.user.User;
 import fr.izeat.api.connexionBD.*;
 
 @Path("/user/{userId}")
-public class UserRessource {
-
+public class UserResource {
+    /* This resource 
+     *
+    
+    */
+    
+    
 	@GET
 	@Produces("text/json")
 	public String getUserDetails(@PathParam("userId") String id) {
