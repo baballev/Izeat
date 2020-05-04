@@ -21,18 +21,6 @@ import java.security.NoSuchAlgorithmException;
 public class ConnexionBD {
     private static String code;
     
-    /******************************************TEST******************************/
-    
-    // test de hashage en MD5
-    
-    /*public static void main(String args[]) throws NoSuchAlgorithmException, NoSuchPaddingException, InvalidKeyException, IllegalBlockSizeException, BadPaddingException{
-       String Pw="ma phrase caché en MD5";
-       
-       System.out.println(Hash_MD5(Pw));
-    }*/
-    
-    //test de connection à la base de donnée
-    
     public static void main(String args[]){
         User usr = new User("Ala","gabsi",21,"h",16,75,false,false,false,"sfax");
         //addUser(usr);
@@ -80,6 +68,7 @@ public class ConnexionBD {
             int vegetarian = user.getVegetarian() ? 1 : 0;
             int palmOil = user.getPalmOil() ? 1 : 0;
             String password_hash = BCrypt.hashpw(user.getPassword(), BCrypt.gensalt());
+            
             String query="INSERT INTO appUser(firstName,lastName,age,gender,height_cm,weight_g,vegan,vegetarian,palmoil,password) VALUES"
                     + " ('"+user.getFirstName()+"','"+user.getLastName()+"',"+Integer.toString(user.getAge())+",'"+user.getGender()+"',"+Integer.toString(user.getHeight())+","
                     +Integer.toString(user.getWeight())+","+ Integer.toString(vegan) +","+Integer.toString(vegetarian)+","+Integer.toString(palmOil)+",'"+password_hash+"');";
