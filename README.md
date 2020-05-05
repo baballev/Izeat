@@ -8,7 +8,7 @@ Le répertoire `server` contient le code source du service web codé en Java en 
 
 Adresse du serveur: izeat.r2.enst.fr
 
-** /!\ Utiliser https à la place de http pour toutes les URI qui contiennent des informations sensibles comme les mots de passe /!\ **
+** ! Utiliser https à la place de http pour toutes les URI qui contiennent des informations sensibles comme les mots de passe ! **
 
 **Structure des URI du web service**    
 **Root:** http://izeat.r2.enst.fr/ws/Izeat/webresources       
