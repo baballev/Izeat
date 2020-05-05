@@ -16,9 +16,13 @@ public class UserResource {
 	@Produces("application/json")
 	public String getUserDetails(@PathParam("userId") String id) {
 		int idd = Integer.parseInt(id);
-		
+		JSONObject jsonUser = null;
 		User usr = ConnexionBD.readUser(idd);
-		JSONObject jsonUser = new JSONObject(usr);
+                if (usr == null){
+                    jsonUser = new JSONObject();
+                }else{
+                    jsonUser = new JSONObject(usr);
+                }
 		return jsonUser.toString();
 		  
 	}

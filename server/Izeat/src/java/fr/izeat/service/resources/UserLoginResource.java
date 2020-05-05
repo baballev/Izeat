@@ -11,7 +11,7 @@ import org.json.JSONObject;
 public class UserLoginResource { // ToDo: CHECK FOR NULL return value
         @GET
 	@Produces("application/json")
-        public String getAuthResult(@PathParam("login") String email, @PathParam("password") String password){
+        public String getAuthResult(@PathParam("email") String email, @PathParam("password") String password){
             JSONObject jsonIsAuthSuccessful = new JSONObject(ConnexionBD.connect(email, password));
             return jsonIsAuthSuccessful.toString();
         }

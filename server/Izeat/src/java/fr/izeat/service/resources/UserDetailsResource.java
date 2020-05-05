@@ -9,11 +9,11 @@ import javax.ws.rs.PathParam;
 import javax.ws.rs.Produces;
 import org.json.JSONObject;
 
-@Path("/details/{email}/{password}") // HTTPS MANDATORY
+@Path("/user/login/details/{email}/{password}") // HTTPS MANDATORY
 public class UserDetailsResource {
         @GET
 	@Produces("application/json")
-	public String getUserDetails(@PathParam("login") String email, @PathParam("password") String password) {
+	public String getUserDetails(@PathParam("email") String email, @PathParam("password") String password) {
 		User usr = ConnexionBD.readUser(email, password);
                 JSONObject jsonUser = null;
                 if (usr == null){

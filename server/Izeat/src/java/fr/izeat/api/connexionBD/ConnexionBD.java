@@ -100,7 +100,9 @@ public class ConnexionBD {
         try{
             Connection connection = connecterDB();
             Statement st = connection.createStatement();
-            ResultSet rst = st.executeQuery("SELECT * FROM appUser WHERE id =" + Integer.toString(id));
+            String query = "SELECT * FROM appUser WHERE id =" + Integer.toString(id) + ";";
+            System.out.println("Trying to execute this mySQL query: \n" + query);
+            ResultSet rst = st.executeQuery(query);
             if (!rst.next()){ // If the result set is empty, return null
                 System.err.println("No user with the id '" + Integer.toString(id) + "' found in the database.");
                 connection.close();
@@ -131,8 +133,10 @@ public class ConnexionBD {
      */
         try{
             Connection connection = connecterDB();
+            String query = "SELECT * FROM appUser WHERE email = '" + email + "';";
             Statement st = connection.createStatement();
-            ResultSet rst = st.executeQuery("SELECT * FROM appUser WHERE email =" + email);
+            System.out.println("Trying to execute this mySQL query: \n" + query);
+            ResultSet rst = st.executeQuery(query);
             if (!rst.next()){ // If the result set is empty, return null
                 System.err.println("No user with the email '" + email + "' found in the database.");
                 connection.close();
