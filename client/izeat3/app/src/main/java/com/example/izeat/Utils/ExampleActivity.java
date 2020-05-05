@@ -44,19 +44,85 @@ public class ExampleActivity extends AppCompatActivity {
 
     }
 
-    public static void getProductAction(String barcode, Context context){
+    public static void getUserSignUp(String firstName, String lastName, int age, char sex, int height, int weight, boolean isVegan, boolean isVegetarian, boolean isPalmOilOK, String password, String email, Context context){
         /*
+         *  This method is used when a user wants to create an account on the database. Even though
+         *  the HTTP request is a GET, it will add the user to the database when the method is used
+         *  correctly.
+         *
          *  Parameters:
-         *      context: Give the current context of the activity (use getApplicationContext())
-         *      barcode: /!\ String /!\ The barcode of the desired product information
+         *      firstName: String representing the first name of the user. First letter should be uppercase.
+         *      lastName: String representing the last name of the user. First letter should be uppercase.
+         *      age: A positive integer giving the age of the user.
+         *      sex: A character representing the gender of the user. 'f' -> female, 'h' -> male
+         *      height: A positive integer giving the current height of the user in centimeters.
+         *      weight: A positive integer giving the current weight of the user in kilograms.
+         *      isVegan: A boolean: true -> User is vegan, false otherwise.
+         *      isVegetarian: A boolean: true -> User is vegetarian, false otherwise.
+         *      isPalmOilOK: A boolean: true -> User is ok with products containing palm oil, false otherwise.
+         *      password: A string representing the password the user will use to retrieve its data.
+         *      email: A string representing the email the user will use to login to retrieve its data.
+         *      context: Give the current context of the activity (use getApplicationContext()).
          *  Info obtained inside the method:
          *      A ProductInfo object containing all the product info.
          *  Example:
-         *      getProduct("3017760589895", getApplicationContext, );
+         *      getUserSignUp("Jean", "Dupont, 34, 'h', 178, 82, 0, 1, 1, "mot_dE_PassE123", "jean.dupont@supermail.fr", getApplicationContext());
+         *      -> Create an account for Jean Dupont. If the
+         *  Notes:
+         *      There is no verification made on the server at the moment apart from checking if the email
+         *      is already in the database. It may be necessary to check things on client such as:
+         *          - If isVegan = true and isVegetarian = false
+         *          - firstName and lastName length < 20
+         *          - Validity of each of the field used as parameters.
+         */
+        String vegan = isVegan ? "1" : "0"; // Convert the booleans to string.
+        String vegetarian = isVegetarian ? "1" : "0";
+        String palmOil = isPalmOilOK ? "1" : "0";
+
+        String url = "https://izeat.r2.enst.fr/ws/Izeat/webresources/user/signup/" + firstName + "/" + lastName + "/" + Integer.toString(age) + "/" + sex + "/" + Integer.toString(height) + "/" + Integer.toString(weight) + "/" + vegan + "/" + vegetarian + "/" + palmOil + "/" + password + "/" + email;
+
+        RequestQueue queue = Volley.newRequestQueue(context);
+        JsonObjectRequest jsonObjectRequest = new JsonObjectRequest(Request.Method.GET, url, null,
+                new Response.Listener<JSONObject>() {
+                    public void onResponse(final JSONObject response) {
+                        /***************************
+                         *   BEGINING OF ACTIONS   *
+                         ***************************/
+                        // ToDo: Adapt code according to the json that is being sent.
+                        try {
+                            ProductInfo produit = new ProductInfo(response);
+                            System.out.println(produit.getName());
+                        } catch (JSONException e) {
+                            e.printStackTrace();
+                        }
+
+                        /***************************
+                         *      END OF ACTIONS     *
+                         ***************************/
+                    }
+                },
+                new Response.ErrorListener() {
+                    @Override
+                    public void onErrorResponse(VolleyError error) {
+                        System.err.println(error.toString());
+                    }
+                });
+        queue.add(jsonObjectRequest);
+    }
+
+    public static void getProductAction(String barcode, Context context){
+        /*
+         *  Parameters:
+         *      barcode: /!\ String /!\ The barcode of the desired product information.
+         *      context: Give the current context of the activity (use getApplicationContext()).
+         *  Info obtained inside the method:
+         *      A ProductInfo object containing all the product info.
+         *  Example:
+         *      getProduct("3017760589895", getApplicationContext());
          *      -> Gives information about Pépito mini rollos.
          */
 
-        String url = "http://izeat.r2.enst.fr/ws/Izeat/webresources/product/" + barcode;
+        String url = "https://izeat.r2.enst.fr/ws/Izeat/webresources/product/" + barcode;
 
         RequestQueue queue = Volley.newRequestQueue(context);
         JsonObjectRequest jsonObjectRequest = new JsonObjectRequest(Request.Method.GET, url, null,
@@ -90,16 +156,16 @@ public class ExampleActivity extends AppCompatActivity {
     public static void getSearchAction(String searchTerms, Context context){
         /*
          *  Parameters:
-         *      context: Give the current context of the activity (use getApplicationContext())
-         *      barcode: /!\ String /!\ The barcode of the desired product information
+         *      searchTerms: A string which can contains spaces that describe the kind of product wanted.
+         *      context: Give the current context of the activity (use getApplicationContext()).
          *  Info obtained inside the method:
          *      An array list of ProductInfo objects, each object representing a product found on OpenFoodFacts for the given search string.
          *  Example:
-         *      getSearchAction("Jambon", getApplicationContext);
-         *      -> Retrieves 50 max products on OpenFoodFacts which match with the name "Jambon".
+         *      getSearchAction("Jambon blanc", getApplicationContext());
+         *      -> Retrieves at max 50 products on OpenFoodFacts which match with the name "Jambon blanc".
          */
 
-        String url = "http://izeat.r2.enst.fr/ws/Izeat/webresources/product/search/" + searchTerms;
+        String url = "https://izeat.r2.enst.fr/ws/Izeat/webresources/product/search/" + searchTerms;
 
         RequestQueue queue = Volley.newRequestQueue(context);
         JsonArrayRequest jsonArrayRequest = new JsonArrayRequest(Request.Method.GET, url, null,
