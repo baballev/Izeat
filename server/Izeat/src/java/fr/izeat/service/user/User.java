@@ -23,13 +23,14 @@ public class User {
         private final boolean vegetarian;
         private final boolean palmoil;
         private final String password;
+        private final String email;
         private UserInfo userInfo;
 	private NutritionStatusInterface status;
        
         
 	
         
-	public User(String firstname,String lastname,int age,String gender,int height,int weight,boolean vegan,boolean vegetarian,boolean palmoil,String password )   {
+	public User(String firstname,String lastname,int age,String gender,int height,int weight,boolean vegan,boolean vegetarian,boolean palmoil,String password ,String email)   {
             this.firstname = firstname;
             this.lastname = lastname;
             this.age=age;
@@ -40,7 +41,7 @@ public class User {
             this.vegetarian=vegetarian;
             this.palmoil = palmoil; 
             this.password = password;   
-            
+            this.email=email;
             
 	}
 
@@ -57,7 +58,7 @@ public class User {
             this.vegetarian=rst.getInt("vegetarian") == 1; // MIAM
             this.palmoil = rst.getInt("palmoil") == 1; // MIAM
             this.password = rst.getString("password");
-            
+            this.email= rst.getString("email");
 
         }
 
@@ -118,7 +119,12 @@ public class User {
         public int getWeight(){
             return this.weight;
         }
+
+        public String getEmail() {
+            return email;
+        }
         
+
         
         
 }

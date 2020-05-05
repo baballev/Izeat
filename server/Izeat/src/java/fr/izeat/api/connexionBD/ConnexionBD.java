@@ -22,7 +22,7 @@ public class ConnexionBD {
     private static String code;
     
     public static void main(String args[]){
-        User usr = new User("Ala","gabsi",21,"h",16,75,false,false,false,"sfax");
+        User usr = new User("Ala","Gabsi",21,"H",170,72,false,false,false,"sfax","agabsi.work@gmail.com");
         //addUser(usr);
         try{
             Connection connection= connecterDB();
