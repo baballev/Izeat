@@ -11,14 +11,12 @@ import java.sql.SQLException;
 import java.sql.Statement;
 import fr.izeat.service.nutritionEngine.Recipe;
 import java.util.ArrayList;
-import java.math.BigInteger;
 import org.mindrot.jbcrypt.*;
-import java.nio.charset.StandardCharsets;
-import java.security.MessageDigest;
-import java.security.NoSuchAlgorithmException;
 
 
 public class ConnexionBD {
+    // This class contains every method directly linked to the database on the
+    // server.
     private static String code;
     
     public static void main(String args[]){
@@ -63,15 +61,16 @@ public class ConnexionBD {
     
     /********************Interroger la table appUser*********************/
     public static void addUser(User user){
+        // ToDo: Check for collisions;
         try{
             int vegan = user.getVegan() ? 1 : 0; // Convert the booleans to int
             int vegetarian = user.getVegetarian() ? 1 : 0;
             int palmOil = user.getPalmOil() ? 1 : 0;
-            String password_hash = BCrypt.hashpw(user.getPassword(), BCrypt.gensalt());
             
-            String query="INSERT INTO appUser(firstName,lastName,age,gender,height_cm,weight_g,vegan,vegetarian,palmoil,password) VALUES"
-                    + " ('"+user.getFirstName()+"','"+user.getLastName()+"',"+Integer.toString(user.getAge())+",'"+user.getGender()+"',"+Integer.toString(user.getHeight())+","
-                    +Integer.toString(user.getWeight())+","+ Integer.toString(vegan) +","+Integer.toString(vegetarian)+","+Integer.toString(palmOil)+",'"+password_hash+"');";
+            String query = "INSERT INTO appUser(firstName,lastName,age,gender,height_cm,weight_g,vegan,vegetarian,palmoil,password,email) VALUES"
+                    + " ('" + user.getFirstName() + "','" + user.getLastName() + "'," + Integer.toString(user.getAge()) + ",'" + user.getGender() + "'," + Integer.toString(user.getHeight()) + ","
+                    + Integer.toString(user.getWeight()) + "," + Integer.toString(vegan) + "," + Integer.toString(vegetarian) + "," + Integer.toString(palmOil) + ",'" + user.getPasswordHash() + "','"
+                    + user.getEmail() + "');";
             System.out.println("Trying to execute this mySQL query: \n" + query);
             Connection connection = connecterDB();
             Statement state=connection.createStatement();
@@ -83,11 +82,29 @@ public class ConnexionBD {
         }
     }
     public static User readUser(int id) {
+    /*  Method Usage:
+     *  Parameters:
+     *      id: An integer which corresponds to the user id in the database.
+     *          The id is unique and incremented for each user added to the database.
+     *  Return value:
+     *      Returns a User object containing every info in the database of the 
+     *      id'th user added into the database. If no user corresponds to the 
+     *      given id, returns null.
+     *  Example:
+     *      readUser(3);
+     *  Note:
+     *      This method is used for test purposes only because it's not secure at
+     *      all as you don't need a password to access the user data. It will be
+     *      removed in the end.
+     */
         try{
             Connection connection = connecterDB();
             Statement st = connection.createStatement();
             ResultSet rst = st.executeQuery("SELECT * FROM appUser WHERE id =" + Integer.toString(id));
-            //System.out.println(rst.getString("firstName"));
+            if (!rst.next()){ // If the result set is empty, return null
+                connection.close();
+                return null;
+            }
             User user = new User(rst);
             connection.close();
             return user;
@@ -97,6 +114,41 @@ public class ConnexionBD {
         } 
         
     }
+    
+    public static User readUser(String email, String password){
+    /*  Method Usage:
+     *  Parameters:
+     *      email: The email of the user that you need to retrieve data from. 
+     *             The email acts as a unique identifier of a user: There can't 
+     *             be 2 users with the same email in the database.
+     *      password: Non-hashed password of the given user.
+     *  Return value:
+     *      Returns a User object containing every info in the database. If no
+     *      user corresponds to the given email, returns null.
+     *  Example:
+     *      readUser("jean.dupont@gmail.com", "azert123");
+     */
+        try{
+            Connection connection = connecterDB();
+            Statement st = connection.createStatement();
+            ResultSet rst = st.executeQuery("SELECT * FROM appUser WHERE email =" + email);
+            if (!rst.next()){ // If the result set is empty, return null
+                connection.close();
+                return null;
+            } else if (!BCrypt.checkpw(password, rst.getString("password"))){
+                connection.close();
+                return null;
+            } else{
+                User user = new User(rst);
+                connection.close();
+                return user;   
+            }
+        }catch(SQLException e){
+            System.err.println(e.getMessage());
+            return null;
+        }
+    }
+    
     public static void infoUpdate_firstname(int id,String firstname){
         try{
             String query="UPDATE appUser "

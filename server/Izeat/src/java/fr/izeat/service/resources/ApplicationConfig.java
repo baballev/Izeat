@@ -28,7 +28,6 @@ public class ApplicationConfig extends Application {
         resources.add(fr.izeat.service.resources.ProductResource.class);
         resources.add(fr.izeat.service.resources.ProductSearchResource.class);
         resources.add(fr.izeat.service.resources.ServiceResource.class);
-        resources.add(fr.izeat.service.resources.UserLoginResource.class);
         resources.add(fr.izeat.service.resources.UserResource.class);
         resources.add(fr.izeat.service.resources.UserSignUpResource.class);
     }

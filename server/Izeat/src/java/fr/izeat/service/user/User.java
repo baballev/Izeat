@@ -22,15 +22,12 @@ public class User {
         private final boolean vegan;
         private final boolean vegetarian;
         private final boolean palmoil;
-        private final String password;
+        private final String password_hash;
         private final String email;
         private UserInfo userInfo;
 	private NutritionStatusInterface status;
-       
         
-	
-        
-	public User(String firstname,String lastname,int age,String gender,int height,int weight,boolean vegan,boolean vegetarian,boolean palmoil,String password ,String email)   {
+	public User(String firstname,String lastname,int age,String gender,int height,int weight,boolean vegan,boolean vegetarian,boolean palmoil,String password_hash ,String email)   {
             this.firstname = firstname;
             this.lastname = lastname;
             this.age=age;
@@ -40,13 +37,12 @@ public class User {
             this.vegan=vegan; 
             this.vegetarian=vegetarian;
             this.palmoil = palmoil; 
-            this.password = password;   
+            this.password_hash = password_hash;   
             this.email=email;
             
 	}
 
 	public User(ResultSet rst) throws SQLException{
-            System.out.println("ICI ICI ICI ICI CICICICICI ICICICICICI");
             rst.absolute(1); 
             this.firstname = rst.getString("firstName");
             this.lastname = rst.getString("lastName");
@@ -57,25 +53,18 @@ public class User {
             this.vegan=rst.getInt("vegan") == 1; // MIAM
             this.vegetarian=rst.getInt("vegetarian") == 1; // MIAM
             this.palmoil = rst.getInt("palmoil") == 1; // MIAM
-            this.password = rst.getString("password");
+            this.password_hash = rst.getString("password");
             this.email= rst.getString("email");
 
         }
 
-        
-
-        public String getPassword() {
-            return password;
-        }
-	
-	
 	//public User(String passWord, String name) {
 		
 	//	initUserInfo(passWord,name);
 		
         //}
 	
-	public void initUserInfo(String passWord, String name) {
+	public void initUserInfo(String password, String name) {
 		/*
 		 * TODO : initialized userInfo from dataBase 
 		 */
@@ -93,7 +82,6 @@ public class User {
 	}
         public String getFirstName() {
 		return this.firstname;
-	
         }
         public String getLastName(){
             return this.lastname;
@@ -119,7 +107,9 @@ public class User {
         public int getWeight(){
             return this.weight;
         }
-
+        public String getPasswordHash() {
+            return password_hash;
+        }
         public String getEmail() {
             return email;
         }
