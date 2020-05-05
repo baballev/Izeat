@@ -102,6 +102,7 @@ public class ConnexionBD {
             Statement st = connection.createStatement();
             ResultSet rst = st.executeQuery("SELECT * FROM appUser WHERE id =" + Integer.toString(id));
             if (!rst.next()){ // If the result set is empty, return null
+                System.err.println("No user with the id '" + Integer.toString(id) + "' found in the database.");
                 connection.close();
                 return null;
             }
@@ -133,9 +134,11 @@ public class ConnexionBD {
             Statement st = connection.createStatement();
             ResultSet rst = st.executeQuery("SELECT * FROM appUser WHERE email =" + email);
             if (!rst.next()){ // If the result set is empty, return null
+                System.err.println("No user with the email '" + email + "' found in the database.");
                 connection.close();
                 return null;
             } else if (!BCrypt.checkpw(password, rst.getString("password"))){
+                System.err.println("Invalid password for the email '" + email +"'.");
                 connection.close();
                 return null;
             } else{
@@ -146,6 +149,41 @@ public class ConnexionBD {
         }catch(SQLException e){
             System.err.println(e.getMessage());
             return null;
+        }
+    }
+    
+    public static boolean connect(String email,String password){
+    /*  Method Usage:
+            This method allows to check if input auth info are ok.
+     *  Parameters:
+     *      email: The email of the user that you need to check auth. 
+     *      password: Non-hashed password of the given user.
+     *  Return value:
+     *      Returns true if password match the password hash in the database.
+            Returns false if the password is incorrect or the user with the given email was not found.
+     *  Example:
+     *      connect("jean.dupont@gmail.com", "azert123");
+     *  Note:
+     *      Could be vulnerable to bruteforce attacks but BCrypt is pretty slow 
+     *      to compute hashes so if a bruteforce occurs it might just make the whole server lags.
+     */
+        try{
+            Connection connection=connecterDB();
+            Statement st=connection.createStatement();
+            ResultSet rst=st.executeQuery("SELECT id FROM appUser WHERE email="+email+";");
+            if (!rst.next()){
+                System.err.println("No user with the email '" + email + "' found in the database.");
+                return false;
+            } else if (!BCrypt.checkpw(password, rst.getString("password"))){
+                connection.close();
+                return false;
+            } else{
+                connection.close();
+                return true;   
+            }
+        }catch(SQLException e){
+            System.out.println(e.getMessage());
+            return false;
         }
     }
     
@@ -208,24 +246,6 @@ public class ConnexionBD {
         }catch(SQLException e){
             System.out.println(e.getMessage());
         }    
-    }
-    
-    // une première version pour se connecter (à améliorer)
-    public static boolean connect(String firstname,String password){
-        try{
-            Connection connection=connecterDB();
-            Statement st=connection.createStatement();
-            ResultSet rst=st.executeQuery("SELECT id FROM appUser WHERE firstname="+firstname+" AND password="+Hash_MD5(password));
-            if (rst ==null){
-                System.out.println("Check firstname or password");
-                return false;
-            }
-            connection.close();
-            return true;
-        }catch(SQLException e){
-            System.out.println(e.getMessage());
-            return false;
-        }
     }
     
     /******************Interroger la table recipes*************************/

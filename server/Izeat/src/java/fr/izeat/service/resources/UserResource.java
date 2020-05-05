@@ -13,7 +13,7 @@ public class UserResource {
      */   
     
 	@GET
-	@Produces("text/json")
+	@Produces("application/json")
 	public String getUserDetails(@PathParam("userId") String id) {
 		int idd = Integer.parseInt(id);
 		
