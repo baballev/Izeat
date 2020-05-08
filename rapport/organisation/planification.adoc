@@ -84,6 +84,7 @@
 //|asynctask pour client-serveur | | |
 |Écran d'inscription / envoi sur la BD| | |
 |Connexion avec vérif des login sur la BD| | |
+|Design des recycler view pour afficher les listes de recettes et produits| | |
 |Accès à la caméra envoi de la photo à l'IA de reconnaissance| | |
 |Accès à la caméra plus lecture code barre| | |
 |Intégrer scan de code barre | | | https://github.com/zxing/zxing/blob/master/android-integration/src/main/java/com/google/zxing/integration/android/IntentIntegrator.java
