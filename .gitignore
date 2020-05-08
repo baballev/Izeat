@@ -25,4 +25,4 @@ client/izeat3/app/src/main/lib/json-20190722.jar
 local.properties
 *.DS_Store
 client/izeat3/app/.DS_Store
-
+server/Izeat/.DS_Store
