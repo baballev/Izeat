@@ -21,7 +21,13 @@ import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
+import java.io.BufferedOutputStream;
+import java.io.DataOutputStream;
+import java.io.File;
+import java.io.FileOutputStream;
+import java.io.IOException;
 import java.util.ArrayList;
+import java.util.Iterator;
 
 import static com.example.izeat.Utils.ProductInfo.productsFromJSON;
 
@@ -36,15 +42,96 @@ public class ExampleActivity extends AppCompatActivity {
         button.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                getUserSignUp("Test", "Client", 34, 'f', 178, 82, false, true, true, "mot_dE_PassE123", "test.client@supermail.fr", getApplicationContext());
+               // getUserSignUp("Test", "Client", 34, 'f', 178, 82, false, true, true, "mot_dE_PassE123", "test.client@supermail.fr", getApplicationContext());
+                getUserDetailsAction("test.client@supermail.fr", "mot_dE_PassE123", getApplicationContext());
             }
         });
 
         this.getApplicationContext();
 
     }
+    public static void getUserDetailsAction(String email, String password, final Context context){
+        /*
+         *  This method is used when a user wants to retrieve its info from the database.
+         *  If incorrect auth info is provided, no info will be given. See getUserLogin to check
+         *  whether auth info provided are correct or not.
+         *
+         *  Parameters:
+         *      email: Unique identifier of the user in the database.
+         *      password: The password the user provided on sign-up.
+         *      context: Give the current context of the activity (use getApplicationContext()).
+         *  Info obtained inside the method:
+         *      A JSONObject with all the user info in it.
+         *  Example:
+         *      getUserDetails("jean.dupont@supermail.fr", "mot_dE_PassE123", getApplicationContext());
+         *      -> Retrieves Jean Dupont's info.
+         *  Notes:
+         *      There is no verification made on the server at the moment apart from checking if the email
+         *      is already in the database. It may be necessary to check things on client such as:
+         *          - If isVegan = true and isVegetarian = false
+         *          - firstName and lastName length < 20
+         *          - Validity of each of the field used as parameters.
+         */
+        String url = "https://izeat.r2.enst.fr/ws/Izeat/webresources/user/login/details/" + email + "/" + password;
+        RequestQueue queue = Volley.newRequestQueue(context);
+        JsonObjectRequest jsonObjectRequest = new JsonObjectRequest(Request.Method.GET, url, null,
+                new Response.Listener<JSONObject>() {
+                    public void onResponse(final JSONObject response) {
+                        /***************************
+                         *   BEGINNING OF ACTIONS   *
+                         ***************************/
+                        try {
+                            // ToDo: Create a user class.
+                            String firstName = response.getString("firstName");
+                            String lastName = response.getString("lastName");
+                            String gender = (response.getString("gender") == "h") ? "Homme" : "Femme";
+                            boolean isPalmOilOk = response.getBoolean("palmOil");
+                            boolean isVegetarian = response.getBoolean("vegetarian");
+                            boolean isVegan = response.getBoolean("vegan");
+                            int weight = response.getInt("weight");
+                            int height = response.getInt("height");
+                            int age = response.getInt("age");
+                            String password_hash  = response.getString("passwordHash"); // Probably no use.
 
-    public static void getUserSignUp(String firstName, String lastName, int age, char sex, int height, int weight, boolean isVegan, boolean isVegetarian, boolean isPalmOilOK, String password, String email, Context context){
+                            // Creating a cache file so that info only need to be retrieved at the start of the app or
+                            // when something is modified ?
+
+                            File outputDir = context.getCacheDir();
+                            try {
+                                File outputFile = File.createTempFile("userInfo", "cache", outputDir);
+                                outputFile.setWritable(true);
+                                outputFile.setReadable(true);
+                                FileOutputStream fos =  new FileOutputStream(context.getCacheDir() + "userInfo.cache");
+                                DataOutputStream dos = new DataOutputStream(new BufferedOutputStream(fos));
+                                for (Iterator<String> it = response.keys(); it.hasNext(); ) {
+                                    String key = it.next();
+                                    dos.writeUTF(key + ":" + response.get(key).toString());
+                                }
+                            } catch (IOException e) {
+                                e.printStackTrace();
+                            }
+                            // Read cache file / modify when needed?
+
+                        } catch (JSONException e) {
+                            e.printStackTrace();
+                        }
+
+                        /***************************
+                         *      END OF ACTIONS     *
+                         ***************************/
+                    }
+                },
+                new Response.ErrorListener() {
+                    @Override
+                    public void onErrorResponse(VolleyError error) {
+                        System.err.println(error.toString());
+                    }
+                });
+        queue.add(jsonObjectRequest);
+
+    }
+
+    public static void getUserSignUpAction  (String firstName, String lastName, int age, char sex, int height, int weight, boolean isVegan, boolean isVegetarian, boolean isPalmOilOK, String password, String email, Context context){
         /*
          *  This method is used when a user wants to create an account on the database. Even though
          *  the HTTP request is a GET, it will add the user to the database when the method is used
@@ -70,7 +157,7 @@ public class ExampleActivity extends AppCompatActivity {
          *      -> Create an account for Jean Dupont.
          *  Notes:
          *      There is no verification made on the server at the moment apart from checking if the email
-         *      is already in the database. It may be necessary to check things on client such as:
+         *      is already in the database and contains '@'. It may be necessary to check things on client such as:
          *          - If isVegan = true and isVegetarian = false
          *          - firstName and lastName length < 20
          *          - Validity of each of the field used as parameters.
@@ -82,11 +169,12 @@ public class ExampleActivity extends AppCompatActivity {
         String url = "https://izeat.r2.enst.fr/ws/Izeat/webresources/user/signup/" + firstName + "/" + lastName + "/" + Integer.toString(age) + "/" + sex + "/" + Integer.toString(height) + "/" + Integer.toString(weight) + "/" + vegan + "/" + vegetarian + "/" + palmOil + "/" + password + "/" + email;
 
         RequestQueue queue = Volley.newRequestQueue(context);
+        // ToDo: Change Request method to GET when the server will have modified the request method for sign up.
         JsonObjectRequest jsonObjectRequest = new JsonObjectRequest(Request.Method.GET, url, null,
                 new Response.Listener<JSONObject>() {
                     public void onResponse(final JSONObject response) {
                         /***************************
-                         *   BEGINING OF ACTIONS   *
+                         *   BEGINNING OF ACTIONS   *
                          ***************************/
                         try {
                             int response_code = response.getInt("result");
@@ -144,7 +232,7 @@ public class ExampleActivity extends AppCompatActivity {
                 new Response.Listener<JSONObject>() {
                     public void onResponse(final JSONObject response) {
                         /***************************
-                         *   BEGINING OF ACTIONS   *
+                         *   BEGINNING OF ACTIONS   *
                          ***************************/
                         // Example: create a product object and do things with it
                         try {
@@ -188,7 +276,7 @@ public class ExampleActivity extends AppCompatActivity {
                     @Override
                     public void onResponse(JSONArray response) {
                         /***************************
-                         *   BEGINING OF ACTIONS   *
+                         *   BEGINNING OF ACTIONS   *
                          ***************************/
                         // Example: Retrieve search results on OFF and print names.
                         try {
