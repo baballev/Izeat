@@ -30,7 +30,8 @@ public class UserSignUpResource {
        String password_hash = BCrypt.hashpw(password, BCrypt.gensalt(10));
        
        User usr=new User(firstname,lastname,age,gender,height,weight,vegan,vegetarian,palmoil,password_hash,email);
-       JSONObject jsonObject = new JSONObject(new Integer(ConnexionBD.addUser(usr)));
+       JSONObject jsonObject = new JSONObject();
+       jsonObject.put("result", ConnexionBD.addUser(usr));
        return jsonObject.toString();
    }
       
