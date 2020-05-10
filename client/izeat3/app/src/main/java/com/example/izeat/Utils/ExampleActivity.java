@@ -64,10 +64,10 @@ public class ExampleActivity extends AppCompatActivity {
          *      email: A string representing the email the user will use to login to retrieve its data.
          *      context: Give the current context of the activity (use getApplicationContext()).
          *  Info obtained inside the method:
-         *      A ProductInfo object containing all the product info.
+         *      An integer which, according to its value, tells whether the sign up was successful are not.
          *  Example:
          *      getUserSignUp("Jean", "Dupont, 34, 'h', 178, 82, 0, 1, 1, "mot_dE_PassE123", "jean.dupont@supermail.fr", getApplicationContext());
-         *      -> Create an account for Jean Dupont. If the
+         *      -> Create an account for Jean Dupont.
          *  Notes:
          *      There is no verification made on the server at the moment apart from checking if the email
          *      is already in the database. It may be necessary to check things on client such as:
@@ -78,7 +78,7 @@ public class ExampleActivity extends AppCompatActivity {
         String vegan = isVegan ? "1" : "0"; // Convert the booleans to string.
         String vegetarian = isVegetarian ? "1" : "0";
         String palmOil = isPalmOilOK ? "1" : "0";
-
+        // HTTPS is mandatory for requests containing user info.
         String url = "https://izeat.r2.enst.fr/ws/Izeat/webresources/user/signup/" + firstName + "/" + lastName + "/" + Integer.toString(age) + "/" + sex + "/" + Integer.toString(height) + "/" + Integer.toString(weight) + "/" + vegan + "/" + vegetarian + "/" + palmOil + "/" + password + "/" + email;
 
         RequestQueue queue = Volley.newRequestQueue(context);
@@ -88,10 +88,25 @@ public class ExampleActivity extends AppCompatActivity {
                         /***************************
                          *   BEGINING OF ACTIONS   *
                          ***************************/
-                        // ToDo: Adapt code according to the json that is being sent.
                         try {
-                            ProductInfo produit = new ProductInfo(response);
-                            System.out.println(produit.getName());
+                            int response_code = response.getInt("result");
+                            switch (response_code){
+                                case 0:
+                                    System.out.println("User was successfully added to the database on the server.");
+                                    break;
+                                case -1:
+                                    System.out.println("A (server-sided) SQL error occurred while signing up and user was not added to the database.");
+                                    break;
+                                case -2:
+                                    System.out.println("A user with the provided email already exists. No new user was added to the database. Please consider signing in instead.");
+                                    break;
+                                case -3:
+                                    System.out.println("An invalid email was provided while signing up and user was not added to the database.");
+                                    break;
+                                default:
+                                    System.out.println("An unknown error occurred while signing up.");
+                                    break;
+                            }
                         } catch (JSONException e) {
                             e.printStackTrace();
                         }
