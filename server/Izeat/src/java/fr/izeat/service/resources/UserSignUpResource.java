@@ -8,7 +8,7 @@ import javax.ws.rs.POST;
 import javax.ws.rs.PUT;
 import javax.ws.rs.Path;
 import javax.ws.rs.PathParam;
-import javax.ws.rs.core.MediaType;
+import org.json.JSONObject;
 import org.mindrot.jbcrypt.BCrypt;
 
 /**
@@ -19,9 +19,9 @@ import org.mindrot.jbcrypt.BCrypt;
 
 @Path("/user/signup/{Firstname}/{Lastname}/{age}/{gender}/{height}/{weight}/{vegan}/{vegetarian}/{palmoil}/{password}/{email}") // HTTPS IS MANDATORY!
 public class UserSignUpResource {
-// ToDo: Throw an exception when vegan but not vegetarian.
+    // ToDo: Change request to PUT/POST instead of GET.
    @GET
-   @Produces(MediaType.TEXT_HTML) 
+   @Produces("application/json") 
    public String createUser(@PathParam("Firstname") String firstname,@PathParam("Lastname") String lastname,
    @PathParam("age") int age,@PathParam("gender") String gender,@PathParam("height") int height,@PathParam("weight") int weight,
    @PathParam("vegan") boolean vegan,@PathParam("vegetarian") boolean vegetarian,@PathParam("palmoil") boolean palmoil,@PathParam("password") String password,
@@ -30,8 +30,8 @@ public class UserSignUpResource {
        String password_hash = BCrypt.hashpw(password, BCrypt.gensalt(10));
        
        User usr=new User(firstname,lastname,age,gender,height,weight,vegan,vegetarian,palmoil,password_hash,email);
-       ConnexionBD.addUser(usr);
-       return "<html lang=\\\"en\\\"><body><h1> " + firstname + "   is signing up ! :)</body></h1></html>";
+       JSONObject jsonObject = new JSONObject(new Integer(ConnexionBD.addUser(usr)));
+       return jsonObject.toString();
    }
       
    }

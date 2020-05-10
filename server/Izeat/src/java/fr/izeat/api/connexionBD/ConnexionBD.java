@@ -61,7 +61,6 @@ public class ConnexionBD {
     
     /********************Interroger la table appUser*********************/
     public static int addUser(User user){
-        // ToDo: Check for collisions;
     /*  Method Usage:
      *  Parameters:
      *      User: a user object containing all info regarding the user within which
@@ -97,7 +96,6 @@ public class ConnexionBD {
                 return -3;
             }
             Statement state=connection.createStatement();
-            
             state.executeUpdate(query);
             System.out.println("User added");
             connection.close();
