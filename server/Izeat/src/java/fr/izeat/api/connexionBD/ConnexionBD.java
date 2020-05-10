@@ -40,7 +40,7 @@ public class ConnexionBD {
     
     /*******************Connection to DB***************************/
     
-    public static Connection connecterDB(){
+    private static Connection connecterDB(){
         try{
             Class.forName("com.mysql.jdbc.Driver");
             System.out.println("Driver ok");
@@ -60,8 +60,20 @@ public class ConnexionBD {
     }
     
     /********************Interroger la table appUser*********************/
-    public static void addUser(User user){
+    public static int addUser(User user){
         // ToDo: Check for collisions;
+    /*  Method Usage:
+     *  Parameters:
+     *      User: a user object containing all info regarding the user within which
+     *            his hashed password is stored.
+     *  Return value:
+     *      Returns 0 if everything went smoothly and the user has been added.
+     *      Otherwise, returns -1 for a SQL related error, -2 if the user 
+     *      alerady exists in the table (using email as the identifier),
+     *      and return -3 if an invalid email was provided.
+     *  Example:
+     *      if (addUser(new User("Jean", "Dupont", 22, 'h', 170, 0, 1, 1, BCrypt.hashpw("pass_word", BCrypt.gensalt(10)), "jean.dupont@mail.com")) == 0){ return "Ok";}
+     */
         try{
             int vegan = user.getVegan() ? 1 : 0; // Convert the booleans to int
             int vegetarian = user.getVegetarian() ? 1 : 0;
@@ -72,13 +84,27 @@ public class ConnexionBD {
                     + Integer.toString(user.getWeight()) + "," + Integer.toString(vegan) + "," + Integer.toString(vegetarian) + "," + Integer.toString(palmOil) + ",'" + user.getPasswordHash() + "','"
                     + user.getEmail() + "');";
             System.out.println("Trying to execute this mySQL query: \n" + query);
+            String check_query = "SELECT * FROM appUser WHERE email='" + user.getEmail() + "';";
             Connection connection = connecterDB();
+            Statement check_state = connection.createStatement();
+            ResultSet rst = check_state.executeQuery(check_query);
+            if (rst.next()){
+                System.out.println("User with email: " + user.getEmail() + " already exists.");
+                connection.close();
+                return -2;
+            } else if (!user.getEmail().contains("@")){
+                System.out.println("Invalid email: " + user.getEmail());
+                return -3;
+            }
             Statement state=connection.createStatement();
+            
             state.executeUpdate(query);
             System.out.println("User added");
             connection.close();
+            return 0;
         }catch(SQLException e){
-          System.out.println(e.getMessage());  
+          System.err.println(e.getMessage());
+          return -1;
         }
     }
     public static User readUser(int id) {
