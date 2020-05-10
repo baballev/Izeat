@@ -36,7 +36,7 @@ public class ExampleActivity extends AppCompatActivity {
         button.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                getSearchAction("tagliatelle", getApplicationContext());
+                getUserSignUp("Test", "Client", 34, 'f', 178, 82, false, true, true, "mot_dE_PassE123", "test.client@supermail.fr", getApplicationContext());
             }
         });
 
@@ -66,7 +66,7 @@ public class ExampleActivity extends AppCompatActivity {
          *  Info obtained inside the method:
          *      An integer which, according to its value, tells whether the sign up was successful are not.
          *  Example:
-         *      getUserSignUp("Jean", "Dupont, 34, 'h', 178, 82, 0, 1, 1, "mot_dE_PassE123", "jean.dupont@supermail.fr", getApplicationContext());
+         *      getUserSignUp("Jean", "Dupont", 34, 'h', 178, 82, false, true, true, "mot_dE_PassE123", "jean.dupont@supermail.fr", getApplicationContext());
          *      -> Create an account for Jean Dupont.
          *  Notes:
          *      There is no verification made on the server at the moment apart from checking if the email
