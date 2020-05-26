@@ -6,6 +6,7 @@ import android.content.Context;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
+import android.widget.Toast;
 
 import com.android.volley.Request;
 import com.android.volley.RequestQueue;
@@ -15,6 +16,7 @@ import com.android.volley.toolbox.JsonArrayRequest;
 import com.android.volley.toolbox.JsonObjectRequest;
 import com.android.volley.toolbox.Volley;
 
+import com.example.izeat.Controller.SignUp;
 import com.example.izeat.R;
 
 import org.json.JSONArray;
@@ -131,7 +133,8 @@ public class ExampleActivity extends AppCompatActivity {
 
     }
 
-    public static void getUserSignUpAction  (String firstName, String lastName, int age, char sex, int height, int weight, boolean isVegan, boolean isVegetarian, boolean isPalmOilOK, String password, String email, Context context){
+    public static void getUserSignUpAction  (String firstName, String lastName, int age, char sex, int height, int weight, boolean isVegan, boolean isVegetarian, boolean isPalmOilOK, String password, String email, final Context context) throws SignUpException
+    {
         /*
          *  This method is used when a user wants to create an account on the database. Even though
          *  the HTTP request is a GET, it will add the user to the database when the method is used
@@ -169,32 +172,35 @@ public class ExampleActivity extends AppCompatActivity {
         String url = "https://izeat.r2.enst.fr/ws/Izeat/webresources/user/signup/" + firstName + "/" + lastName + "/" + Integer.toString(age) + "/" + sex + "/" + Integer.toString(height) + "/" + Integer.toString(weight) + "/" + vegan + "/" + vegetarian + "/" + palmOil + "/" + password + "/" + email;
 
         RequestQueue queue = Volley.newRequestQueue(context);
+
         // ToDo: Change Request method to GET when the server will have modified the request method for sign up.
         JsonObjectRequest jsonObjectRequest = new JsonObjectRequest(Request.Method.GET, url, null,
                 new Response.Listener<JSONObject>() {
-                    public void onResponse(final JSONObject response) {
+                    public void onResponse(final JSONObject response){
                         /***************************
                          *   BEGINNING OF ACTIONS   *
                          ***************************/
                         try {
                             int response_code = response.getInt("result");
+                            System.out.println("response code = " + response_code);
                             switch (response_code){
                                 case 0:
                                     System.out.println("User was successfully added to the database on the server.");
                                     break;
                                 case -1:
-                                    System.out.println("A (server-sided) SQL error occurred while signing up and user was not added to the database.");
+                                    System.out.println( "A (server-sided) SQL error occurred while signing up and user was not added to the database.");
                                     break;
                                 case -2:
-                                    System.out.println("A user with the provided email already exists. No new user was added to the database. Please consider signing in instead.");
+                                    System.out.println( "A user with the provided email already exists. No new user was added to the database. Please consider signing in instead.");
                                     break;
                                 case -3:
-                                    System.out.println("An invalid email was provided while signing up and user was not added to the database.");
+                                    System.out.println("adresse e-mail invalide");
                                     break;
                                 default:
                                     System.out.println("An unknown error occurred while signing up.");
                                     break;
                             }
+
                         } catch (JSONException e) {
                             e.printStackTrace();
                         }

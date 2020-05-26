@@ -136,8 +136,8 @@ public class ProductsRecomendationActivity extends AppCompatActivity {
                     public void onItemClicked(RecyclerView recyclerView, int position, View v) {
                         //Log.e("TAG", "Position : "+position);
                         Product productClicked = productsReco.get(position);
-                        //Toast.makeText(getApplicationContext(), "You clicked on product : "+ productClicked.getProductName(), Toast.LENGTH_SHORT).show();
-                        openProductDetail(productClicked);
+                        Toast.makeText(getApplicationContext(), "You clicked on product : "+ productClicked.getProductName(), Toast.LENGTH_SHORT).show();
+                        //openProductDetail(productClicked);
                     }
                 });
     }

@@ -47,35 +47,54 @@
             <Space
                 android:layout_width="match_parent"
                 android:layout_height="24dp" />
-
-            <EditText
-                android:id="@+id/editText7"
+            <LinearLayout
                 android:layout_width="match_parent"
-                android:layout_height="43dp"
-                android:gravity="center"
-                android:hint="Identifiant"
-                android:textColor="@color/lighter"
-                android:textColorHint="@color/lighter"
-                android:textSize="18sp" />
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+                <EditText
+                    android:id="@+id/nom"
+                    android:layout_weight="1"
+                    android:layout_width="0dp"
+                    android:layout_height="43dp"
+                    android:gravity="center"
+                    android:hint="Nom"
+                    android:textColor="@color/lighter"
+                    android:textColorHint="@color/lighter"
+                    android:textSize="18sp" />
+                <EditText
+                    android:id="@+id/prenom"
+                    android:layout_width="0dp"
+                    android:layout_height="43dp"
+                    android:layout_weight="1"
+                    android:gravity="center"
+                    android:hint="Prenom"
+                    android:textColor="@color/lighter"
+                    android:textColorHint="@color/lighter"
+                    android:textSize="18sp" />
+            </LinearLayout>
+
+
 
             <EditText
-                android:id="@+id/editText8"
+                android:id="@+id/mail"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:ems="10"
                 android:gravity="center"
                 android:hint="Adresse Mail"
                 android:inputType="textEmailAddress"
+                android:textColor="@color/lighter"
                 android:textColorHint="@color/lighter" />
 
             <EditText
-                android:id="@+id/editText9"
+                android:id="@+id/password"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:ems="10"
                 android:gravity="center"
                 android:inputType="textPassword"
-                android:text="Mot de passe"
+                android:hint="Mot de passe"
+                android:textColorHint="@color/lighter"
                 android:textColor="@color/lighter" />
 
             <Space
@@ -99,25 +118,28 @@
                     android:textStyle="bold" />
 
                 <RadioGroup
+                    android:id="@+id/sex_group"
                     android:layout_width="wrap_content"
                     android:layout_height="match_parent"
                     android:layout_gravity="center"
                     android:layout_weight="1">
 
                     <RadioButton
-                        android:id="@+id/checkBox"
+                        android:id="@+id/femme"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_weight="1"
+                        android:onClick="onRadioButtonClickedSex"
                         android:text="Femme"
                         android:textColor="@color/darker_1"
                         android:textStyle="bold" />
 
                     <RadioButton
-                        android:id="@+id/checkBox2"
+                        android:id="@+id/homme"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_weight="1"
+                        android:onClick="onRadioButtonClickedSex"
                         android:text="Homme"
                         android:textColor="@color/darker_1"
                         android:textStyle="bold" />
@@ -135,7 +157,7 @@
                 android:orientation="horizontal">
 
                 <EditText
-                    android:id="@+id/editText5"
+                    android:id="@+id/age"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
@@ -146,12 +168,23 @@
                     android:textColorHint="@color/darker_2" />
 
                 <EditText
-                    android:id="@+id/editText6"
+                    android:id="@+id/poids"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
                     android:ems="10"
-                    android:hint="Poids"
+                    android:hint="Poids (Kg)"
+                    android:inputType="number"
+                    android:textColor="@color/darker_1"
+                    android:textColorHighlight="@color/darker_1"
+                    android:textColorHint="@color/darker_1" />
+                <EditText
+                    android:id="@+id/taille"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:ems="10"
+                    android:hint="Taille (cm)"
                     android:inputType="number"
                     android:textColor="@color/darker_1"
                     android:textColorHighlight="@color/darker_1"
@@ -167,15 +200,94 @@
                 android:id="@+id/textView9"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="Quel est ton régime alimentaire? "
+                android:text="As-tu un regime alimentaire particulier ? "
                 android:textColor="@color/darker_2"
                 android:textSize="18sp"
                 android:textStyle="bold" />
 
-            <Space
+            <LinearLayout
                 android:layout_width="match_parent"
-                android:layout_height="14dp" />
+                android:layout_height="wrap_content"
+                android:orientation="horizontal" >
 
+                <RadioGroup
+                    android:id="@+id/diet_group"
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:orientation="horizontal"
+                    android:layout_gravity="center"
+                    android:layout_weight="1">
+
+                    <RadioButton
+                        android:id="@+id/vegan"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:onClick="onRadioButtonClickedDiet"
+                        android:text="Vegan"
+                        android:textColor="@color/darker_1"
+                        android:textStyle="bold" />
+
+                    <RadioButton
+                        android:id="@+id/vegetarien"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:onClick="onRadioButtonClickedDiet"
+                        android:text="Vegetarien"
+                        android:textColor="@color/darker_1"
+                        android:textStyle="bold" />
+
+                    <RadioButton
+                        android:id="@+id/palm_oil"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:onClick="onRadioButtonClickedDiet"
+                        android:text="Aucun"
+                        android:textColor="@color/darker_1"
+                        android:textStyle="bold" />
+                </RadioGroup>
+
+            </LinearLayout>
+
+            <TextView
+                android:id="@+id/textView10"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Est ce que tu veux éviter l'huile de palme ?"
+                android:textColor="@color/darker_2"
+                android:textSize="18sp"
+                android:textStyle="bold" />
+
+            <RadioGroup
+                android:id="@+id/palm_oil_group"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="horizontal"
+                android:layout_gravity="center"
+                android:layout_weight="1">
+
+                <RadioButton
+                    android:id="@+id/oui"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:onClick="onRadioButtonClickedPalmOil"
+                    android:text="Oui"
+                    android:textColor="@color/darker_1"
+                    android:textStyle="bold" />
+
+                <RadioButton
+                    android:id="@+id/non"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:onClick="onRadioButtonClickedPalmOil"
+                    android:text="Non"
+                    android:textColor="@color/darker_1"
+                    android:textStyle="bold" />
+            </RadioGroup>
         </LinearLayout>
     </ScrollView>
 
