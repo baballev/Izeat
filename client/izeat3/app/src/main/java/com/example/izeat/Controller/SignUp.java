@@ -109,9 +109,7 @@ public class SignUp extends AppCompatActivity implements MyAsyncTask.Listeners {
         if (signUpResponse == 0) {
             //System.out.println("in the if, signUpResponse = " + signUpResponse);
 
-            Intent recipeListIntent = new Intent(SignUp.this, RecipesListActivity.class);
-            startActivity(recipeListIntent);
-            Toast.makeText(getApplicationContext(),"Tu es maintenant enregistré !", Toast.LENGTH_LONG).show();
+
         }
 
         else {
