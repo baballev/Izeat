@@ -32,14 +32,14 @@ public class MyAsyncTask extends AsyncTask<Void, Void, Long> {
     @Override
     protected void onPostExecute(Long success) {
         super.onPostExecute(success);
-        this.callback.get().onPostExecute(success); // 4 - Call the related callback method
         Log.e("TAG", "AsyncTask is finished.");
+        this.callback.get().onPostExecute(success); // 4 - Call the related callback method
     }
 
     @Override
     protected Long doInBackground(Void... voids) {
-        this.callback.get().doInBackground(); // 4 - Call the related callback method
         Log.e("TAG", "AsyncTask doing some big work...");
+        this.callback.get().doInBackground(); // 4 - Call the related callback method
         return System.currentTimeMillis();
     }
 }

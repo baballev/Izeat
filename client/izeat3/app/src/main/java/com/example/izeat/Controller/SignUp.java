@@ -49,6 +49,8 @@ public class SignUp extends AppCompatActivity implements MyAsyncTask.Listeners {
 
     private int signUpResponse = -4;
 
+    private boolean semaphoreLike;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -89,6 +91,8 @@ public class SignUp extends AppCompatActivity implements MyAsyncTask.Listeners {
 
     @Override
     public void doInBackground() {
+        semaphoreLike = false;
+
         getUserSignUpAction(prenom.getText().toString(),
             nom.getText().toString(),
             Integer.parseInt(age.getText().toString()),
@@ -100,7 +104,13 @@ public class SignUp extends AppCompatActivity implements MyAsyncTask.Listeners {
             userPreferences[2],
             password.getText().toString(),
             mail.getText().toString(),
-            getApplicationContext()); }
+            getApplicationContext());
+
+        while (!semaphoreLike) {
+            //loop until getUserSignUpAction updated the response
+        }
+
+    }
 
     @Override
     public void onPostExecute(Long taskEnd) {
@@ -206,6 +216,8 @@ public class SignUp extends AppCompatActivity implements MyAsyncTask.Listeners {
                                     Log.e("TAG", "An unknown error occurred while signing up.");
                                     break;
                             }
+
+                            semaphoreLike = true;
 
                         } catch (JSONException e) {
                             e.printStackTrace();
