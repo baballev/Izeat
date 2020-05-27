@@ -60,10 +60,6 @@ public class Login extends AppCompatActivity implements MyAsyncTask.Listeners {
             }
         });
 
-        /*String s = Product.getProductQuery("3017760589895");
-        s.length();
-        JSONObject jsonProduct = null;*/
-
         inscription = findViewById(R.id.btninscription);
         inscription.setOnClickListener(new View.OnClickListener(){
 
@@ -81,7 +77,7 @@ public class Login extends AppCompatActivity implements MyAsyncTask.Listeners {
     }
 
 
-    public static void getLogInAction(String email, String password, final Context context){
+    private void getLogInAction(String email, String password, final Context context){
         /*
          *  adaptation of the detUserDetailsAction to make it verify if the authentification infos
          *  are okay. See getUserDetailsAction for details on the method.
@@ -95,13 +91,10 @@ public class Login extends AppCompatActivity implements MyAsyncTask.Listeners {
                         /***************************
                          *   BEGINNING OF ACTIONS   *
                          ***************************/
-                        /*try {
-                            // ToDo: Implement the test of correct login.
+                        // ToDo: Implement the test of correct login.
+                        boolean authBool = response.length() > 0;
 
-                        }
-                        catch (JSONException e) {
-                            e.printStackTrace();
-                        }*/
+                        if (authBool) loginVerified = true;
 
                         /***************************
                          *      END OF ACTIONS     *
@@ -140,7 +133,7 @@ public class Login extends AppCompatActivity implements MyAsyncTask.Listeners {
         }
 
         else
-            Toast.makeText(getApplicationContext(), "wrond informations please retry", Toast.LENGTH_SHORT).show();
+            Toast.makeText(getApplicationContext(), "Mot de passe ou adresse e-mail invalide...", Toast.LENGTH_SHORT).show();
 
     }
 }
