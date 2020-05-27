@@ -53,8 +53,8 @@ public class ExampleActivity extends AppCompatActivity {
     public static void getUserDetailsAction(String email, String password, final Context context){
         /*
          *  This method is used when a user wants to retrieve its info from the database.
-         *  If incorrect auth info is provided, no info will be given. See getUserLogin to check
-         *  whether auth info provided are correct or not.
+         *  If incorrect auth info is provided, no info will be given. this method is also used to
+         *  check the login
          *
          *  Parameters:
          *      email: Unique identifier of the user in the database.

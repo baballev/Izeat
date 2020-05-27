@@ -7,6 +7,7 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.text.Editable;
 import android.text.TextWatcher;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
@@ -23,12 +24,13 @@ import com.android.volley.toolbox.JsonObjectRequest;
 import com.android.volley.toolbox.Volley;
 import com.example.izeat.R;
 import com.example.izeat.Utils.ExampleActivity;
-import com.example.izeat.Utils.SignUpException;
+import com.example.izeat.Utils.MyAsyncTask;
+
 
 import org.json.JSONException;
 import org.json.JSONObject;
 
-public class SignUp extends AppCompatActivity {
+public class SignUp extends AppCompatActivity implements MyAsyncTask.Listeners {
 
 
     private EditText nom;
@@ -45,7 +47,7 @@ public class SignUp extends AppCompatActivity {
 
     private Button suivant;
 
-    private int signUpResponse;
+    private int signUpResponse = -4;
 
 
     @Override
@@ -67,33 +69,74 @@ public class SignUp extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 if (signUpReady()) {
-                    getUserSignUpAction(prenom.getText().toString(),
-                            nom.getText().toString(),
-                            Integer.parseInt(age.getText().toString()),
-                            sex,
-                            Integer.parseInt(height.getText().toString()),
-                            Integer.parseInt(weight.getText().toString()),
-                            userPreferences[0],
-                            userPreferences[1],
-                            userPreferences[2],
-                            password.getText().toString(),
-                            mail.getText().toString(),
-                            getApplicationContext());
+                    startAsyncTask();
 
-                    if (signUpResponse == 0) {
-                        Intent recipeListIntent = new Intent(SignUp.this, RecipesListActivity.class);
-                        //startActivity(recipeListIntent);
-                        Toast.makeText(getApplicationContext(),"Tu es maintenant enregistré !", Toast.LENGTH_LONG);
-                    }
-
-                    else
-                        Toast.makeText(getApplicationContext(),"erreur lors du signup : code erreur = " + signUpResponse, Toast.LENGTH_LONG);
                 }
                 else
                     Toast.makeText(getApplicationContext(), "Renseigne toutes tes infos ça sera plus facile pour nous", Toast.LENGTH_LONG).show();
             }
         });
     }
+
+    private void startAsyncTask() {
+        new MyAsyncTask(this).execute();
+    }
+
+    @Override
+    public void onPreExecute() {
+        Toast.makeText(getApplicationContext(), "you're being signed up", Toast.LENGTH_LONG).show();
+    }
+
+    @Override
+    public void doInBackground() {
+        getUserSignUpAction(prenom.getText().toString(),
+            nom.getText().toString(),
+            Integer.parseInt(age.getText().toString()),
+            sex,
+            Integer.parseInt(height.getText().toString()),
+            Integer.parseInt(weight.getText().toString()),
+            userPreferences[0],
+            userPreferences[1],
+            userPreferences[2],
+            password.getText().toString(),
+            mail.getText().toString(),
+            getApplicationContext()); }
+
+    @Override
+    public void onPostExecute(Long taskEnd) {
+
+        //System.out.println("the signUpResponse is now : " + signUpResponse);
+        if (signUpResponse == 0) {
+            //System.out.println("in the if, signUpResponse = " + signUpResponse);
+
+            Intent recipeListIntent = new Intent(SignUp.this, RecipesListActivity.class);
+            startActivity(recipeListIntent);
+            Toast.makeText(getApplicationContext(),"Tu es maintenant enregistré !", Toast.LENGTH_LONG).show();
+        }
+
+        else {
+            System.out.println("in the else ; signUpResponse = " + signUpResponse);
+            //Toast.makeText(getApplicationContext(), "erreur lors du signup : code erreur = " + signUpResponse, Toast.LENGTH_LONG);
+
+            // TODO : verify the response code with the server developers !! it may be wrong
+
+            switch (signUpResponse) {
+                case -1:
+                    Toast.makeText(getApplicationContext(), "A user with the provided email already exists. No new user was added to the database. Please consider signing in instead.", Toast.LENGTH_LONG).show();
+                    break;
+                case -2:
+                    Toast.makeText(getApplicationContext(), "A (server-sided) SQL error occurred while signing up and user was not added to the database.", Toast.LENGTH_LONG).show();
+                    break;
+                case -3:
+                    Toast.makeText(getApplicationContext(), "adresse e-mail invalide", Toast.LENGTH_LONG).show();
+                    break;
+                default:
+                    Toast.makeText(getApplicationContext(), "An unknown error occurred while signing up.", Toast.LENGTH_LONG).show();
+                    break;
+            }
+        }
+    }
+
 
     private void getUserSignUpAction  (String firstName, String lastName, int age, char sex, int height, int weight, boolean isVegan, boolean isVegetarian, boolean isPalmOilOK, String password, String email, final Context context)
     {
@@ -145,23 +188,23 @@ public class SignUp extends AppCompatActivity {
                         try {
                             int response_code = response.getInt("result");
                             signUpResponse = response_code;
-                            System.out.println("response code = " + response_code);
-                            System.out.println("signUpResponseAttribute : " + signUpResponse);
+                            //System.out.println("response code = " + response_code);
+                            //System.out.println("signUpResponseAttribute : " + signUpResponse);
                             switch (response_code){
                                 case 0:
-                                    System.out.println("User was successfully added to the database on the server.");
+                                    Log.e("TAG", "User was successfully added to the database on the server.");
                                     break;
                                 case -1:
-                                    System.out.println( "A (server-sided) SQL error occurred while signing up and user was not added to the database.");
+                                    Log.e("TAG", "A user with the provided email already exists. No new user was added to the database. Please consider signing in instead.");
                                     break;
                                 case -2:
-                                    System.out.println( "A user with the provided email already exists. No new user was added to the database. Please consider signing in instead.");
+                                    Log.e("TAG", "A (server-sided) SQL error occurred while signing up and user was not added to the database.");
                                     break;
                                 case -3:
-                                    System.out.println("adresse e-mail invalide");
+                                    Log.e("TAG", "adresse e-mail invalide");
                                     break;
                                 default:
-                                    System.out.println("An unknown error occurred while signing up.");
+                                    Log.e("TAG", "An unknown error occurred while signing up.");
                                     break;
                             }
 
@@ -201,9 +244,7 @@ public class SignUp extends AppCompatActivity {
                 nomL > 0 &&
                 prenomL < 21 &&
                 prenomL >0 &&
-                mailL < 21 &&
                 mailL >0 &&
-                passwordL < 21 &&
                 passwordL >0 &&
                 ageL < 21 &&
                 ageL >0 &&
@@ -279,4 +320,5 @@ public class SignUp extends AppCompatActivity {
                 break;
         }
     }
+
 }
