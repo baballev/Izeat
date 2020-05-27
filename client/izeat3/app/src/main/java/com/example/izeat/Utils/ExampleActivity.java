@@ -6,7 +6,6 @@ import android.content.Context;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
-import android.widget.Toast;
 
 import com.android.volley.Request;
 import com.android.volley.RequestQueue;
@@ -16,7 +15,6 @@ import com.android.volley.toolbox.JsonArrayRequest;
 import com.android.volley.toolbox.JsonObjectRequest;
 import com.android.volley.toolbox.Volley;
 
-import com.example.izeat.Controller.SignUp;
 import com.example.izeat.R;
 
 import org.json.JSONArray;
@@ -133,7 +131,7 @@ public class ExampleActivity extends AppCompatActivity {
 
     }
 
-    public static void getUserSignUpAction  (String firstName, String lastName, int age, char sex, int height, int weight, boolean isVegan, boolean isVegetarian, boolean isPalmOilOK, String password, String email, final Context context) throws SignUpException
+    public static void getUserSignUpAction  (String firstName, String lastName, int age, char sex, int height, int weight, boolean isVegan, boolean isVegetarian, boolean isPalmOilOK, String password, String email, final Context context)
     {
         /*
          *  This method is used when a user wants to create an account on the database. Even though
