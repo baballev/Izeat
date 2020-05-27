@@ -121,10 +121,10 @@ public class SignUp extends AppCompatActivity implements MyAsyncTask.Listeners {
             // TODO : verify the response code with the server developers !! it may be wrong
 
             switch (signUpResponse) {
-                case -1:
+                case -2:
                     Toast.makeText(getApplicationContext(), "A user with the provided email already exists. No new user was added to the database. Please consider signing in instead.", Toast.LENGTH_LONG).show();
                     break;
-                case -2:
+                case -1:
                     Toast.makeText(getApplicationContext(), "A (server-sided) SQL error occurred while signing up and user was not added to the database.", Toast.LENGTH_LONG).show();
                     break;
                 case -3:
