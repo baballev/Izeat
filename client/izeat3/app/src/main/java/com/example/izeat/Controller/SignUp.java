@@ -120,10 +120,10 @@ public class SignUp extends AppCompatActivity implements MyAsyncTask.Listeners {
 
             switch (signUpResponse) {
                 case -1:
-                    Toast.makeText(getApplicationContext(), "A user with the provided email already exists. No new user was added to the database. Please consider signing in instead.", Toast.LENGTH_LONG).show();
+                    Toast.makeText(getApplicationContext(), "A (server-sided) SQL error occurred while signing up and user was not added to the database.", Toast.LENGTH_LONG).show();
                     break;
                 case -2:
-                    Toast.makeText(getApplicationContext(), "A (server-sided) SQL error occurred while signing up and user was not added to the database.", Toast.LENGTH_LONG).show();
+                    Toast.makeText(getApplicationContext(), "A user with the provided email already exists. No new user was added to the database. Please consider signing in instead.", Toast.LENGTH_LONG).show();
                     break;
                 case -3:
                     Toast.makeText(getApplicationContext(), "adresse e-mail invalide", Toast.LENGTH_LONG).show();
