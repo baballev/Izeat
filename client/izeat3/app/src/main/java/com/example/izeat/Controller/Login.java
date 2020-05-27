@@ -95,13 +95,13 @@ public class Login extends AppCompatActivity implements MyAsyncTask.Listeners {
                         /***************************
                          *   BEGINNING OF ACTIONS   *
                          ***************************/
-                        try {
+                        /*try {
                             // ToDo: Implement the test of correct login.
 
                         }
                         catch (JSONException e) {
                             e.printStackTrace();
-                        }
+                        }*/
 
                         /***************************
                          *      END OF ACTIONS     *
@@ -117,6 +117,7 @@ public class Login extends AppCompatActivity implements MyAsyncTask.Listeners {
         queue.add(jsonObjectRequest);
 
     }
+
 
     @Override
     public void onPreExecute() {

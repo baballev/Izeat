@@ -42,8 +42,8 @@ public class ExampleActivity extends AppCompatActivity {
         button.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-               // getUserSignUp("Test", "Client", 34, 'f', 178, 82, false, true, true, "mot_dE_PassE123", "test.client@supermail.fr", getApplicationContext());
-                getUserDetailsAction("test.client@supermail.fr", "mot_dE_PassE123", getApplicationContext());
+               getUserSignUpAction("Test", "Client", 34, 'f', 178, 82, false, true, true, "mot_dE_PassE123", "test2.client@supermail.fr", getApplicationContext());
+               //getUserDetailsAction("test.client@supermail.fr", "mot_dE_PassE123", getApplicationContext());
             }
         });
 
@@ -93,9 +93,11 @@ public class ExampleActivity extends AppCompatActivity {
                             int age = response.getInt("age");
                             String password_hash  = response.getString("passwordHash"); // Probably no use.
 
+                            System.out.println(firstName);
+
                             // Creating a cache file so that info only need to be retrieved at the start of the app or
                             // when something is modified ?
-
+                            /*
                             File outputDir = context.getCacheDir();
                             try {
                                 File outputFile = File.createTempFile("userInfo", "cache", outputDir);
@@ -109,7 +111,7 @@ public class ExampleActivity extends AppCompatActivity {
                                 }
                             } catch (IOException e) {
                                 e.printStackTrace();
-                            }
+                            }*/
                             // Read cache file / modify when needed?
 
                         } catch (JSONException e) {

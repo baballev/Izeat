@@ -194,10 +194,10 @@ public class SignUp extends AppCompatActivity implements MyAsyncTask.Listeners {
                                 case 0:
                                     Log.e("TAG", "User was successfully added to the database on the server.");
                                     break;
-                                case -1:
+                                case -2:
                                     Log.e("TAG", "A user with the provided email already exists. No new user was added to the database. Please consider signing in instead.");
                                     break;
-                                case -2:
+                                case -1:
                                     Log.e("TAG", "A (server-sided) SQL error occurred while signing up and user was not added to the database.");
                                     break;
                                 case -3:
