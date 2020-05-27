@@ -29,10 +29,6 @@
         <activity android:name=".Controller.RecipeDetailActivity" />
         <activity android:name=".Controller.FridgeActivity" />
         <activity android:name=".Utils.ExampleActivity">
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
         </activity>
         <activity android:name=".Controller.add" />
         <activity android:name=".Controller.Profil" />
@@ -58,6 +54,7 @@
             </intent-filter>
         </activity>
         <activity android:name=".Controller.SignUp">
+
         <intent-filter>
             <action android:name="android.intent.action.MAIN" />
             <category android:name="android.intent.category.LAUNCHER" />
