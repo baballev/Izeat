@@ -124,6 +124,7 @@ public class SignUp extends AppCompatActivity implements MyAsyncTask.Listeners {
                     break;
                 case -1:
                     Toast.makeText(getApplicationContext(), "A (server-sided) SQL error occurred while signing up and user was not added to the database.", Toast.LENGTH_LONG).show();
+
                     break;
                 case -3:
                     Toast.makeText(getApplicationContext(), "adresse e-mail invalide", Toast.LENGTH_LONG).show();
