@@ -96,9 +96,9 @@
 [cols=",^,^,",options="header",]
 |====
 |Tâche |Quand |Fait |Remarques
-|Prendre rdv avec diététicienne pour savoir les données nécéssaires au suivit | | |
-|Structurer BD utilisateurs | | |
-|Avoir BD de recette | | |Première base trouvée : https://ciqual.anses.fr/#/aliments/25001/blanquette-de-veau
+|Prendre rdv avec diététicienne pour savoir les données nécéssaires au suivi | | |on a pris les données les plus nécessaires. 
+|Structurer BD utilisateurs | |X |
+|Avoir BD de recette | |X |Première base trouvée : https://ciqual.anses.fr/#/aliments/25001/blanquette-de-veau et la base http://www.recettes-dietetiques.fr/
 |====
 
 * Web Service
@@ -162,8 +162,8 @@ Services Web
 [cols=",^,^,",options="header",]
 |====
 |Tâche |Quand |Fait |Remarques
-| Accès à la base de données | | | Le service web possède des méthodes qui permettent d'accéder ou de modifier les champs de la base de données.
-| Info produits | | | Lors de l'entrée d'un produit, toutes les informations nécessaires sont récupérables par le biais du service web.
+| Accès à la base de données | |X| Le service web possède des méthodes qui permettent d'accéder ou de modifier les champs de la base de données.
+| Info produits | |X| Lors de l'entrée d'un produit, toutes les informations nécessaires sont récupérables par le biais du service web.
 | Requête de recherche | | | Le service web est capable de retourner le résultat d'une recherche dans la base de données ou d'une liste de produits.
 | Communication reconnaissance d'image | | | Le service web possède une requête permettant d'envoyer au système de reconnaissance d'image une image uploadée par l'utilisateur et dont il renvoie le résulstat du système de reconnaissance.
 |====
@@ -184,12 +184,12 @@ Base de données
 [cols=",^,^,",options="header",]
 |====
 |Tâche |Quand |Fait |Remarques
-|Structurer une BD consommation | | | Utile pour stocker la consommation de l'utilisateur et pouvoir faire un suivi.
-|Stocker les informations utilisateurs de manière sécurisée | | |
-|Proposer un protocole d'accès et de modification des données de la BD | | | De manière sécurisée.
-|Pouvoir effectuer une recherche dans la base de données| | |
+|Structurer une BD consommation | |X| Utile pour stocker la consommation de l'utilisateur et pouvoir faire un suivi.
+|Stocker les informations utilisateurs de manière sécurisée | |X|
+|Proposer un protocole d'accès et de modification des données de la BD | |X| De manière sécurisée.
+|Pouvoir effectuer une recherche dans la base de données| |X|
 |Avoir un cache de recettes simples en cas de disfonctionnement du service web| | |
-|Mettre en place un "frigo virtuel" dans lequel est stocké ce que l'utilisateur a déjà chez lui| | | 
+|Mettre en place un "frigo virtuel" dans lequel est stocké ce que l'utilisateur a déjà chez lui| |X| 
 |====
 
 Test et intégration
