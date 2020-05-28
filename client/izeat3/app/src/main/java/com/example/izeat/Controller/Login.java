@@ -129,7 +129,7 @@ public class Login extends AppCompatActivity implements MyAsyncTask.Listeners {
         if (loginVerified) {
             Intent recipeListIntent = new Intent(Login.this, RecipesListActivity.class);
             startActivity(recipeListIntent);
-            Toast.makeText(getApplicationContext(),"Tu es maintenant enregistré !", Toast.LENGTH_LONG).show();
+            finish();
         }
 
         else

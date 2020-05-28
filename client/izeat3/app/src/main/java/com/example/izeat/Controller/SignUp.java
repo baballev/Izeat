@@ -93,6 +93,8 @@ public class SignUp extends AppCompatActivity implements MyAsyncTask.Listeners {
     public void doInBackground() {
         semaphoreLike = false;
 
+        int timeOutDuration = 5000;
+
         getUserSignUpAction(prenom.getText().toString(),
             nom.getText().toString(),
             Integer.parseInt(age.getText().toString()),
@@ -106,43 +108,44 @@ public class SignUp extends AppCompatActivity implements MyAsyncTask.Listeners {
             mail.getText().toString(),
             getApplicationContext());
 
-        while (!semaphoreLike) {
-            //loop until getUserSignUpAction updated the response
+        Long endTime = System.currentTimeMillis() + timeOutDuration;
+
+        while (!semaphoreLike && (System.currentTimeMillis() < endTime)) {
+            //loop until getUserSignUpAction updated the response or until it was too long
         }
+
+        semaphoreLike = false;
 
     }
 
     @Override
     public void onPostExecute(Long taskEnd) {
 
-        //System.out.println("the signUpResponse is now : " + signUpResponse);
-        if (signUpResponse == 0) {
-            //System.out.println("in the if, signUpResponse = " + signUpResponse);
+        System.out.println("signUpResponse = " + signUpResponse);
+        System.out.println("la semaphore : " + semaphoreLike);
 
-
-        }
-
-        else {
-            System.out.println("in the else ; signUpResponse = " + signUpResponse);
-            //Toast.makeText(getApplicationContext(), "erreur lors du signup : code erreur = " + signUpResponse, Toast.LENGTH_LONG);
-
-            // TODO : verify the response code with the server developers !! it may be wrong
-
-            switch (signUpResponse) {
-                case -1:
-                    Toast.makeText(getApplicationContext(), "A (server-sided) SQL error occurred while signing up and user was not added to the database.", Toast.LENGTH_LONG).show();
-                    break;
-                case -2:
-                    Toast.makeText(getApplicationContext(), "A user with the provided email already exists. No new user was added to the database. Please consider signing in instead.", Toast.LENGTH_LONG).show();
-                    break;
-                case -3:
-                    Toast.makeText(getApplicationContext(), "adresse e-mail invalide", Toast.LENGTH_LONG).show();
-                    break;
-                default:
-                    Toast.makeText(getApplicationContext(), "An unknown error occurred while signing up.", Toast.LENGTH_LONG).show();
-                    break;
+        switch (signUpResponse) {
+            case 0:
+            {
+                Intent intent = new Intent(getApplicationContext(), RecipesListActivity.class);
+                startActivity(intent);
+                finish();
             }
+            break;
+            case -1:
+                Toast.makeText(getApplicationContext(), "A (server-sided) SQL error occurred while signing up and user was not added to the database.", Toast.LENGTH_LONG).show();
+                break;
+            case -2:
+                Toast.makeText(getApplicationContext(), "A user with the provided email already exists. No new user was added to the database. Please consider signing in instead.", Toast.LENGTH_LONG).show();
+                break;
+            case -3:
+                Toast.makeText(getApplicationContext(), "adresse e-mail invalide", Toast.LENGTH_LONG).show();
+                break;
+            default:
+                Toast.makeText(getApplicationContext(), "An unknown error occurred while signing up.", Toast.LENGTH_LONG).show();
+                break;
         }
+
     }
 
 
