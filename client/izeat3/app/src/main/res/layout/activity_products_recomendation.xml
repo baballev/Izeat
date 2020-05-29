@@ -16,6 +16,16 @@
 
         app:srcCompat="@drawable/logo_petit" />
 
+    <TextView
+        android:id="@+id/textView16"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="right"
+        android:text="Ce que nous recommandons"
+        android:textColor="@color/darker_3"
+        android:textSize="24sp"
+        android:textStyle="bold" />
+
     <View
         android:id="@+id/divider2"
         android:layout_width="match_parent"
@@ -102,35 +112,38 @@
 
         <ImageView
             android:id="@+id/btnRecipes"
-            android:layout_width="13dp"
-            android:layout_height="match_parent"
-            android:layout_weight="1"
-            app:srcCompat="@drawable/ic_restaurant_menu_black_24dp"
-            tools:ignore="VectorDrawableCompat" />
-
-        <ImageView
-            android:id="@+id/btnProduct"
-            android:layout_width="24dp"
-            android:layout_height="match_parent"
-            android:layout_weight="1"
-            android:background="@color/colorPrimary"
-            app:srcCompat="@drawable/ic_add_shopping_cart_clicked_24dp"
-            tools:ignore="VectorDrawableCompat" />
-
-        <ImageView
-            android:id="@+id/btnFrigo"
-            android:layout_width="4dp"
-
+            android:layout_width="0dp"
             android:layout_height="match_parent"
             android:layout_weight="1"
             android:paddingTop="5dp"
             android:paddingBottom="5dp"
+            app:srcCompat="@drawable/ic_gloves"
+            tools:ignore="VectorDrawableCompat" />
+
+        <ImageView
+            android:id="@+id/btnProduct"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:paddingTop="5dp"
+            android:paddingBottom="5dp"
+            app:srcCompat="@drawable/ic_signboard_clicked"
+            tools:ignore="VectorDrawableCompat" />
+
+        <ImageView
+            android:id="@+id/btnFrigo"
+            android:layout_width="0dp"
+
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:paddingTop="10dp"
+            android:paddingBottom="10dp"
             app:srcCompat="@drawable/ic_fridge_black"
             tools:ignore="VectorDrawableCompat" />
 
         <ImageView
             android:id="@+id/btnProfil"
-            android:layout_width="14dp"
+            android:layout_width="0dp"
             android:layout_height="match_parent"
             android:layout_weight="1"
             app:srcCompat="@drawable/ic_person_black_24dp"
@@ -138,10 +151,45 @@
 
     </LinearLayout>
 
-    <View
-        android:id="@+id/divider1"
+    <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="1dp"
-        android:background="?android:attr/listDivider" />
+        android:layout_height="wrap_content"
+        android:layout_weight="0"
+        android:background="@color/colorPrimary"
+        android:orientation="horizontal">
+
+        <TextView
+            android:id="@+id/textView15"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:gravity="center"
+            android:text="Reco Recette" />
+
+        <TextView
+            android:id="@+id/textView8"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:gravity="center"
+            android:text="Reco Produits"
+            android:textColor="@color/lighter" />
+
+        <TextView
+            android:id="@+id/textView13"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:gravity="center"
+            android:text="Frigo" />
+
+        <TextView
+            android:id="@+id/textView12"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:gravity="center"
+            android:text="Profil" />
+    </LinearLayout>
 
 </LinearLayout>

@@ -175,7 +175,7 @@ public class FridgeActivity extends AppCompatActivity {
                                 name = "Erreur_Nom";
                             }
                             Product product = new Product(barcode, response.getString("imageUrl"), name);
-                            Log.e("Info" , "This product has been fetched : " + product.toString());
+                            //Log.e("Info" , "This product has been fetched : " + product.toString());
                             productsInFridge.add( new Product(barcode, response.getString("imageUrl"), name));
 
                             productsRecoAdapter.notifyDataSetChanged();

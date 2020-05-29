@@ -2,6 +2,8 @@ package com.example.izeat.Utils;
 
 import android.os.Build;
 
+import com.example.izeat.Model.Product;
+
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
@@ -28,6 +30,7 @@ public class ProductInfo {
      * For org.json documentation, see: https://stleary.github.io/JSON-java/
      */
     private final String name;                          // Example: "Nutella"
+    private String barcode = "";
     private final String quantity;	 		// Example: "100 g"
     private final String imageUrl;	 		// Example: "https://static.openfoodfacts.org/images/products/301/762/040/2678/front_fr.77.400.jpg"
     private int novaScore;			 	// Example: 1
@@ -177,4 +180,7 @@ public class ProductInfo {
     }
 
 
+    public Product summarize() {
+        return new Product(barcode, imageUrl, name);
+    }
 }

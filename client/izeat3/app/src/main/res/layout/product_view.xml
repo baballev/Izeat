@@ -6,7 +6,9 @@
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:layout_margin="5dp"
-    android:orientation="vertical">
+    android:background="@drawable/roundedbutton2"
+    android:orientation="vertical"
+    app:layout_constraintDimensionRatio="1">
 
     <ImageView
         android:id="@+id/product_image"
@@ -29,14 +31,12 @@
         android:layout_height="wrap_content"
         android:gravity="center"
         android:padding="5dp"
-        android:textColor="#FFB300"
+        android:text="Product name"
         android:textStyle="bold"
         app:autoSizeTextType="uniform"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintLeft_toLeftOf="@id/product_image"
         app:layout_constraintRight_toRightOf="@id/product_image"
-        app:layout_constraintTop_toTopOf="parent"
-        android:text="Product name"
-        />
+        app:layout_constraintTop_toBottomOf="@+id/product_image" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
