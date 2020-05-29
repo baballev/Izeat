@@ -5,24 +5,40 @@ import androidx.recyclerview.widget.GridLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import android.annotation.SuppressLint;
+import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.ImageView;
 
+import com.android.volley.Request;
+import com.android.volley.RequestQueue;
+import com.android.volley.Response;
+import com.android.volley.VolleyError;
+import com.android.volley.toolbox.JsonObjectRequest;
+import com.android.volley.toolbox.Volley;
 import com.bumptech.glide.Glide;
 import com.example.izeat.ImageRecognitionActivity;
 import com.example.izeat.Model.Product;
 import com.example.izeat.R;
+import com.example.izeat.Utils.MyAsyncTask;
 import com.example.izeat.View.ProductsAdapter;
+import com.example.izeat.View.RecipesAdapter;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
+
+import org.json.JSONException;
+import org.json.JSONObject;
 
 import java.util.ArrayList;
 
 public class FridgeActivity extends AppCompatActivity {
 
+    //mandatory to synchronize access to the data on the server
+    private boolean semaphoreLike;
+
     //PRODUCTS RECOMMENDATIONS DATA
-    private ArrayList<Product> productsInFridge;
+    private ArrayList<Product> productsInFridge = new ArrayList<Product>(0);
 
     //For the recycler view
     private RecyclerView productsInFridgeRecyclerView;
@@ -44,9 +60,7 @@ public class FridgeActivity extends AppCompatActivity {
         //-------------------------------------------------------------------------------------
         //SETS THE RECYCLER VIEW
 
-        productsInFridge = new ArrayList<Product>(0);
-        for (int i = 0 ; i < 5 ; i++)
-            productsInFridge.add(i,new Product("Product #" + i, ""));
+        fillProductList();
 
         productsInFridgeRecyclerView = (RecyclerView) findViewById(R.id.products_recycler_view);
 
@@ -119,4 +133,69 @@ public class FridgeActivity extends AppCompatActivity {
             }
         });
     }
+
+    private void fillProductList() {
+        Context context = getApplicationContext();
+        addProductAction("7613035989535",context);
+        addProductAction("5410188031072", context);
+        addProductAction("3504182920011", context);
+        addProductAction("3017620422003", context);
+        addProductAction("3449865232466", context);
+        addProductAction("3073786865191", context);
+        addProductAction("3564700486054", context);
+    }
+
+    private void addProductAction(final String barcode, final Context context){
+        /*
+         *  Parameters:
+         *      barcode: /!\ String /!\ The barcode of the desired product information.
+         *      context: Give the current context of the activity (use getApplicationContext()).
+         *  Info obtained inside the method:
+         *      A ProductInfo object containing all the product info.
+         *  Example:
+         *      getProduct("3017760589895", getApplicationContext());
+         *      -> Gives information about Pépito mini rollos.
+         */
+
+        String url = "https://izeat.r2.enst.fr/ws/Izeat/webresources/product/" + barcode;
+
+        RequestQueue queue = Volley.newRequestQueue(context);
+        JsonObjectRequest jsonObjectRequest = new JsonObjectRequest(Request.Method.GET, url, null,
+                new Response.Listener<JSONObject>() {
+                    public void onResponse(final JSONObject response) {
+                        /***************************
+                         *   BEGINNING OF ACTIONS   *
+                         ***************************/
+
+                        try {
+                            String name;
+                            if (!response.isNull("name")) {
+                                name = response.getString("name");
+                            } else{
+                                name = "Erreur_Nom";
+                            }
+                            Product product = new Product(barcode, response.getString("imageUrl"), name);
+                            Log.e("Info" , "This product has been fetched : " + product.toString());
+                            productsInFridge.add( new Product(barcode, response.getString("imageUrl"), name));
+
+                            productsRecoAdapter.notifyDataSetChanged();
+
+                        } catch (JSONException e) {
+                            e.printStackTrace();
+                        }
+
+                        /***************************
+                         *      END OF ACTIONS     *
+                         ***************************/
+                    }
+                },
+                new Response.ErrorListener() {
+                    @Override
+                    public void onErrorResponse(VolleyError error) {
+                        System.err.println(error.toString());
+                    }
+                });
+        queue.add(jsonObjectRequest);
+    }
 }
+

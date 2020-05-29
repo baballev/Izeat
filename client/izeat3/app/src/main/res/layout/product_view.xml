@@ -16,7 +16,7 @@
         android:fadingEdge="horizontal|vertical"
 
         android:fadingEdgeLength="25dp"
-        android:scaleType="centerCrop"
+        android:scaleType="centerInside"
         app:layout_constraintDimensionRatio="1"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"

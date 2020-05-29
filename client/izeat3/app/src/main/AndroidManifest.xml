@@ -27,7 +27,12 @@
         android:usesCleartextTraffic="true">
         <activity android:name=".Controller.ProductDetailActivity"></activity>
         <activity android:name=".Controller.RecipeDetailActivity" />
-        <activity android:name=".Controller.FridgeActivity" />
+        <activity android:name=".Controller.FridgeActivity">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
         <activity android:name=".Utils.ExampleActivity">
         </activity>
         <activity android:name=".Controller.add" />

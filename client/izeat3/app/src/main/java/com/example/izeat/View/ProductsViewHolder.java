@@ -21,12 +21,11 @@ public class ProductsViewHolder extends RecyclerView.ViewHolder {
         super(v);
         productName = v.findViewById(R.id.product_name);
         productImage = v.findViewById(R.id.product_image);
-       // ButterKnife.bind(this, v);
     }
 
     public void updateHolder(Product p, RequestManager glide){
         productName.setText(p.getProductName());
-        String url = p.getProductUrl();
+        String url = p.getImageUrl();
 
         if (url != "") {
             glide.load(url).into(productImage);

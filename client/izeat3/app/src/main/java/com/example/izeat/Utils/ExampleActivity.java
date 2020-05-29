@@ -32,6 +32,15 @@ import java.util.Iterator;
 import static com.example.izeat.Utils.ProductInfo.productsFromJSON;
 
 public class ExampleActivity extends AppCompatActivity {
+    /* WARNING : THE METHODS IN THIS CLASS ARE NOT MEANT TO BE USED IN THIS CLASS
+     * THEY SHOW TEMPLATES TO USE THE WEB SERVICES IMPLEMENTED ON THE SERVER
+     * BECAUSE OF THE WAY HTTP REQUEST ARE MANAGED IN ANDROID THE TEMPLATE MUST BE COPY IN THE ACTIVITY
+     * THAT NEEDS TO USE A METHOD AND BE ADAPTED WITH ASYNC TASKS WHEN IT'S NEEDED (SEE SIGNUP ACTIVITY
+     * FOR AN EXAMPLE USING ASYNC TASKS AND SOME SORT OF SEMAPHORE-LIKE IMPLEMENTATION)
+     */
+
+
+
     private Button button;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
