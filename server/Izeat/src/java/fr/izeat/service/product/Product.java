@@ -31,12 +31,17 @@ public class Product {
     private final char nutriScore;	 		// Example: 'c'
     private final String[] categories;  		// Example: {"Produits � tartiner", "Petits-d�jeuners", "Produits � tartiner sucr�s", "P�tes � tartiner au chocolat", ...}
     private final NutritionValues nutritionValues;  		// Example: true TODO: Implement the "maybe field"
-             
+    private final String barCode;
 
     public Product(String s) {  // s corresponds to the .JSON file's content. Use Tools.getProductQuery to instanciate from a bar-code.0
     	nutritionValues = new NutritionValues();
     	JSONObject jsonContent = new JSONObject(s);
         JSONObject jsonInfo;
+        if (!jsonContent.isNull("code")){
+            this.barCode = jsonContent.getString("code");
+        } else {
+            this.barCode = "00000000000000";
+        }
         if (jsonContent.isNull("product")){
             jsonInfo = jsonContent;
         } else jsonInfo = jsonContent.getJSONObject("product");
@@ -94,6 +99,7 @@ public class Product {
                if(!jNutriments.isNull(st)) nutritionValues.addNutriment(st, jNutriments.getFloat(st));
                else nutritionValues.addNutriment(st, 0f);
         }
+        
     }
     
     public static ArrayList<Product>  productsFromJSON(String s) {
@@ -149,6 +155,10 @@ public class Product {
 
     public boolean isVegetarian() {  // Returns true if the product is vegetarian. If it is unknown, will return false by default.
     	return nutritionValues.getConstraints().is("vegetarian");
+    }
+    
+    public String getBarCode(){
+        return this.barCode;
     }
 
 }
