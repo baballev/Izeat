@@ -64,7 +64,6 @@ public class RecipesListActivity extends AppCompatActivity {
             public void onClick(View v) {
                 Intent intent = new Intent(getApplicationContext(), Profil.class);
                 startActivity(intent);
-                finish();
             }
         });
 
@@ -76,7 +75,6 @@ public class RecipesListActivity extends AppCompatActivity {
             public void onClick(View v) {
                 Intent intent = new Intent(getApplicationContext(), FridgeActivity.class);
                 startActivity(intent);
-                finish();
             }
         });
 
@@ -87,7 +85,6 @@ public class RecipesListActivity extends AppCompatActivity {
             public void onClick(View v) {
                 Intent intent = new Intent(getApplicationContext(), ProductsRecomendationActivity.class);
                 startActivity(intent);
-                finish();
             }
         });
 

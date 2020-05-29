@@ -47,6 +47,8 @@ public class ProductInfo {
         if (jsonContent.isNull("product")){
             jsonInfo = jsonContent;
         } else jsonInfo = jsonContent.getJSONObject("product");
+        if (!jsonInfo.isNull("barCode")) barcode = jsonInfo.getString("barCode");
+        else barcode = "erreur code barre";
 
         if (!jsonInfo.isNull("product_name_fr")) {
             name = jsonInfo.getString("product_name_fr");
@@ -88,6 +90,8 @@ public class ProductInfo {
     }
 
     public ProductInfo(JSONObject jsonInfo) throws JSONException{ // Constructor used for JSON files coming from Izeat server.
+        if (!jsonInfo.isNull("barCode")) barcode = jsonInfo.getString("barCode");
+        else barcode = "erreur code barre";
         if (!jsonInfo.isNull("name")) {
             name = jsonInfo.getString("name");
         } else{

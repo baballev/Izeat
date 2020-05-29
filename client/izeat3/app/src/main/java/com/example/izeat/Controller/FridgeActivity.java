@@ -11,6 +11,7 @@ import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
 import android.widget.ImageView;
+import android.widget.Toast;
 
 import com.android.volley.Request;
 import com.android.volley.RequestQueue;
@@ -22,6 +23,7 @@ import com.bumptech.glide.Glide;
 import com.example.izeat.ImageRecognitionActivity;
 import com.example.izeat.Model.Product;
 import com.example.izeat.R;
+import com.example.izeat.Utils.ItemClickSupport;
 import com.example.izeat.Utils.MyAsyncTask;
 import com.example.izeat.View.ProductsAdapter;
 import com.example.izeat.View.RecipesAdapter;
@@ -80,7 +82,6 @@ public class FridgeActivity extends AppCompatActivity {
             public void onClick(View v) {
                 Intent intent = new Intent(getApplicationContext(), RecipesListActivity.class);
                 startActivity(intent);
-                finish();
             }
         });
 
@@ -91,7 +92,6 @@ public class FridgeActivity extends AppCompatActivity {
             public void onClick(View v) {
                 Intent intent = new Intent(getApplicationContext(), Profil.class);
                 startActivity(intent);
-                finish();
             }
         });
 
@@ -103,7 +103,6 @@ public class FridgeActivity extends AppCompatActivity {
             public void onClick(View v) {
                 Intent intent = new Intent(getApplicationContext(), ProductsRecomendationActivity.class);
                 startActivity(intent);
-                finish();
             }
         });
 
@@ -132,6 +131,27 @@ public class FridgeActivity extends AppCompatActivity {
 
             }
         });
+        
+        configureOnClickProduct();
+    }
+
+    private void configureOnClickProduct() {
+        ItemClickSupport.addTo(productsInFridgeRecyclerView, R.layout.activity_products_recomendation)
+                .setOnItemClickListener(new ItemClickSupport.OnItemClickListener() {
+                    @Override
+                    public void onItemClicked(RecyclerView recyclerView, int position, View v) {
+                        //Log.e("TAG", "Position : "+position);
+                        Product productClicked = productsInFridge.get(position);
+                        Toast.makeText(getApplicationContext(), "You clicked on product : "+ productClicked.getProductName(), Toast.LENGTH_SHORT).show();
+                        openProductDetail(productClicked);
+                    }
+                });
+    }
+
+    private void openProductDetail(Product productClicked) {
+        Intent intent = new Intent(getApplicationContext(),ProductDetailActivity.class);
+        intent.putExtra("barcode", productClicked.getBarcode());
+        startActivity(intent);
     }
 
     private void fillProductList() {

@@ -33,7 +33,6 @@ public class Profil extends AppCompatActivity {
             public void onClick(View v) {
                 Intent intent = new Intent(getApplicationContext(), RecipesListActivity.class);
                 startActivity(intent);
-                finish();
             }
         });
 
@@ -44,7 +43,6 @@ public class Profil extends AppCompatActivity {
             public void onClick(View v) {
                 Intent intent = new Intent(getApplicationContext(), ProductsRecomendationActivity.class);
                 startActivity(intent);
-                finish();
             }
         });
 
@@ -56,7 +54,6 @@ public class Profil extends AppCompatActivity {
             public void onClick(View v) {
                 Intent intent = new Intent(getApplicationContext(), FridgeActivity.class);
                 startActivity(intent);
-                finish();
             }
         });
 
