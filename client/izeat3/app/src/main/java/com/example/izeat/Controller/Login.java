@@ -31,7 +31,7 @@ import java.io.IOException;
 import java.util.Iterator;
 
 
-public class Login extends AppCompatActivity implements MyAsyncTask.Listeners {
+public class Login extends AppCompatActivity {
     private Button suivant;
     private Button inscription;
 
@@ -56,7 +56,10 @@ public class Login extends AppCompatActivity implements MyAsyncTask.Listeners {
 
             @Override
             public void onClick(View v) {
-                startAsyncTask();
+                Toast.makeText(getApplicationContext(), "login...", Toast.LENGTH_SHORT).show();
+                getLogInAction(email.getText().toString(), password.getText().toString(), getApplicationContext());
+                if ((email.getText().toString() == "") || password.getText().toString() == "") Toast.makeText(getApplicationContext(), "Mot de passe ou adresse e-mail invalide...", Toast.LENGTH_SHORT).show();
+
             }
         });
 
@@ -72,9 +75,6 @@ public class Login extends AppCompatActivity implements MyAsyncTask.Listeners {
         });
     }
 
-    private void startAsyncTask() {
-        new MyAsyncTask(this).execute();
-    }
 
 
     private void getLogInAction(String email, String password, final Context context){
@@ -94,7 +94,14 @@ public class Login extends AppCompatActivity implements MyAsyncTask.Listeners {
                         // ToDo: Implement the test of correct login.
                         boolean authBool = response.length() > 0;
 
-                        if (authBool) loginVerified = true;
+                        if (authBool) {
+                            Intent recipeListIntent = new Intent(Login.this, RecipesListActivity.class);
+                            startActivity(recipeListIntent);
+                            finish();
+                        }
+
+                        else
+                            Toast.makeText(getApplicationContext(), "Mot de passe ou adresse e-mail invalide...", Toast.LENGTH_SHORT).show();
 
                         /***************************
                          *      END OF ACTIONS     *
@@ -111,29 +118,4 @@ public class Login extends AppCompatActivity implements MyAsyncTask.Listeners {
 
     }
 
-
-    @Override
-    public void onPreExecute() {
-        Toast.makeText(getApplicationContext(),"login", Toast.LENGTH_SHORT).show();
-    }
-
-    @Override
-    public void doInBackground() {
-        getLogInAction(email.getText().toString(),password.getText().toString(),getApplicationContext());
-
-    }
-
-    @Override
-    public void onPostExecute(Long success) {
-
-        if (loginVerified) {
-            Intent recipeListIntent = new Intent(Login.this, RecipesListActivity.class);
-            startActivity(recipeListIntent);
-            finish();
-        }
-
-        else
-            Toast.makeText(getApplicationContext(), "Mot de passe ou adresse e-mail invalide...", Toast.LENGTH_SHORT).show();
-
-    }
 }

@@ -23,30 +23,43 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme"
-        tools:ignore="GoogleAppIndexingWarning"
-        android:usesCleartextTraffic="true">
-        <activity android:name=".Controller.ProductDetailActivity"></activity>
+        android:usesCleartextTraffic="true"
+        tools:ignore="GoogleAppIndexingWarning">
+        <activity
+            android:name=".Utils.SearchActivity"
+            android:launchMode="singleTop" >
+            <intent-filter>
+                <action android:name="android.intent.action.SEARCH" />
+            </intent-filter>
+            <meta-data android:name="android.app.searchable"
+                android:resource="@xml/searchable"/>
+        </activity>
+        <activity android:name=".Controller.ProductDetailActivity" />
         <activity android:name=".Controller.RecipeDetailActivity" />
         <activity android:name=".Controller.FridgeActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
+
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
+            <meta-data android:name="android.app.default_searchable"
+                android:value=".Utils.SearchActivity" />
         </activity>
-        <activity android:name=".Utils.ExampleActivity">
-        </activity>
+        <activity android:name=".Utils.ExampleActivity"></activity>
         <activity android:name=".Controller.add" />
         <activity android:name=".Controller.Profil" />
         <activity android:name=".Controller.ProductsRecomendationActivity" />
         <activity android:name=".Controller.RecipesListActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
+
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
         <activity android:name=".Controller.Login">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
+
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
@@ -55,15 +68,16 @@
         <activity android:name=".ImageRecognitionActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
+
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
         <activity android:name=".Controller.SignUp">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
 
-        <intent-filter>
-            <action android:name="android.intent.action.MAIN" />
-            <category android:name="android.intent.category.LAUNCHER" />
-        </intent-filter>
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
         </activity>
 
         <provider

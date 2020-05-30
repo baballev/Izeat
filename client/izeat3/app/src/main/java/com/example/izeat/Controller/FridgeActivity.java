@@ -36,9 +36,6 @@ import java.util.ArrayList;
 
 public class FridgeActivity extends AppCompatActivity {
 
-    //mandatory to synchronize access to the data on the server
-    private boolean semaphoreLike;
-
     //PRODUCTS RECOMMENDATIONS DATA
     private ArrayList<Product> productsInFridge = new ArrayList<Product>(0);
 
@@ -131,8 +128,25 @@ public class FridgeActivity extends AppCompatActivity {
 
             }
         });
+
+        btnsearch.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Toast.makeText(getApplicationContext(), "you requested a search", Toast.LENGTH_SHORT).show();
+                onSearchRequested();
+            }
+        });
         
         configureOnClickProduct();
+    }
+
+    @Override
+    protected void onResume() {
+        super.onResume();
+        Toast.makeText(getApplicationContext(),"Started with On Resume", Toast.LENGTH_SHORT).show();
+        Intent intent = getIntent();
+        String barcodeToAdd = intent.getStringExtra("productSelectedBarcode");
+        addProductAction(barcodeToAdd, getApplicationContext());
     }
 
     private void configureOnClickProduct() {
