@@ -26,3 +26,4 @@ local.properties
 *.DS_Store
 client/izeat3/app/.DS_Store
 server/Izeat/.DS_Store
+*.tflite
